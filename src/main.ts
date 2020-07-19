@@ -1,21 +1,16 @@
 import Button from './button';
+import { App } from 'vue';
 
-declare global {
-  interface Window {
-    Vue?: any;
-  }
-}
+const components: any[] = [Button];
 
-const components = [Button];
-
-const install = (Vue) => {
+const install = (app: App) => {
   components.forEach((Component) => {
-    Vue.use(Component);
+    if (typeof Component === 'function') {
+      app.component(`sk-${Component.name.toLowerCase()}`, Component);
+    } else if (Component && Component.install) {
+      app.component(Component.name, Component);
+    }
   });
 };
-
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
-}
 
 export { install, Button };

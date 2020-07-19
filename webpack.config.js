@@ -16,10 +16,6 @@ module.exports = (env = {}) => ({
       // extra re-export somehow causes webpack to always invalidate the module
       // on the first HMR update and causes the page to reload.
       vue: '@vue/runtime-dom',
-      api: path.resolve(__dirname, './src/api'),
-      components: path.resolve(__dirname, './src/components'),
-      common: path.resolve(__dirname, './src/common'),
-      pages: path.resolve(__dirname, './src/pages'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'],
   },

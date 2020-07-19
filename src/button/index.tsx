@@ -2,12 +2,12 @@ import { FunctionalComponent } from 'vue';
 import './index.scss';
 
 export interface ButtonProps {
-  href: string;
-  target: string;
-  disabled: boolean;
-  type: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
-  size: 'normal' | 'small' | 'large';
-  round: boolean;
+  href?: string;
+  target?: string;
+  disabled?: boolean;
+  type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+  size?: 'normal' | 'small' | 'large';
+  round?: boolean;
 }
 
 const Button: FunctionalComponent<ButtonProps> = (props, { slots }) => {

@@ -731,14 +731,6 @@
     "@babel/helper-create-regexp-features-plugin" "^7.10.4"
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/polyfill@^7.10.4":
-  version "7.10.4"
-  resolved "https://registry.npm.taobao.org/@babel/polyfill/download/@babel/polyfill-7.10.4.tgz?cache=0&sync_timestamp=1593521152048&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fpolyfill%2Fdownload%2F%40babel%2Fpolyfill-7.10.4.tgz#915e5bfe61490ac0199008e35ca9d7d151a8e45a"
-  integrity sha1-kV5b/mFJCsAZkAjjXKnX0VGo5Fo=
-  dependencies:
-    core-js "^2.6.5"
-    regenerator-runtime "^0.13.4"
-
 "@babel/preset-env@^7.10.4":
   version "7.10.4"
   resolved "https://registry.npm.taobao.org/@babel/preset-env/download/@babel/preset-env-7.10.4.tgz?cache=0&sync_timestamp=1593522855920&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fpreset-env%2Fdownload%2F%40babel%2Fpreset-env-7.10.4.tgz#fbf57f9a803afd97f4f32e4f798bb62e4b2bef5f"
@@ -2202,11 +2194,6 @@ core-js-compat@^3.6.2:
   dependencies:
     browserslist "^4.8.5"
     semver "7.0.0"
-
-core-js@^2.6.5:
-  version "2.6.11"
-  resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
-  integrity sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"

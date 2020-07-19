@@ -8,6 +8,7 @@ module.exports = (env = {}) => ({
   entry: path.resolve(__dirname, './src/main.ts'),
   output: {
     path: path.resolve(__dirname, './es'),
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     alias: {

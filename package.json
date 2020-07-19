@@ -9,9 +9,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --env.prod",

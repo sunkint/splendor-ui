@@ -1,0 +1,149 @@
+@import '../style/var.scss';
+
+.sk-btn {
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 6px 12px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:active {
+    transition: background-color 0.1s;
+  }
+
+  .sk-button-icon {
+    margin-right: 0.35em;
+  }
+
+  &-disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+
+  &-round {
+    border-radius: 18px;
+  }
+
+  &-size-small {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 4px 8px;
+
+    &.sk-btn-round {
+      border-radius: 13px;
+    }
+  }
+
+  &-size-large {
+    font-size: 20px;
+    line-height: 28px;
+    padding: 10px 18px;
+
+    &.sk-btn-round {
+      border-radius: 24px;
+    }
+  }
+
+  &-default {
+    background-color: $secondary;
+
+    &:hover {
+      background-color: darken($secondary, 5%);
+    }
+
+    &:active {
+      background-color: darken($secondary, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $secondary;
+    }
+  }
+
+  &-primary {
+    background-color: $primary;
+
+    &:hover {
+      background-color: darken($primary, 5%);
+    }
+
+    &:active {
+      background-color: darken($primary, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $primary;
+    }
+  }
+
+  &-success {
+    background-color: $success;
+
+    &:hover {
+      background-color: darken($success, 5%);
+    }
+
+    &:active {
+      background-color: darken($success, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $success;
+    }
+  }
+
+  &-info {
+    background-color: $info;
+
+    &:hover {
+      background-color: darken($info, 5%);
+    }
+
+    &:active {
+      background-color: darken($info, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $info;
+    }
+  }
+
+  &-warning {
+    background-color: $warning;
+
+    &:hover {
+      background-color: darken($warning, 5%);
+    }
+
+    &:active {
+      background-color: darken($warning, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $warning;
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+
+    &:hover {
+      background-color: darken($danger, 5%);
+    }
+
+    &:active {
+      background-color: darken($danger, 10%);
+    }
+
+    &.sk-btn-disabled {
+      background-color: $danger;
+    }
+  }
+}

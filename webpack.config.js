@@ -7,7 +7,7 @@ module.exports = (env = {}) => ({
   devtool: env.prod ? 'source-map' : 'cheap-module-eval-source-map',
   entry: path.resolve(__dirname, './src/main.ts'),
   output: {
-    path: path.resolve(__dirname, './lib'),
+    path: path.resolve(__dirname, './es'),
   },
   resolve: {
     alias: {

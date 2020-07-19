@@ -41,7 +41,7 @@ const Button: FunctionalComponent<ButtonProps> = (props, { slots }) => {
 
   return (
     <button class={btnClass} disabled={disabled}>
-      {slots.default()}
+      {slots.default && slots.default()}
     </button>
   );
 };

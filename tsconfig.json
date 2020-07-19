@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "splendor-ui": ["src/main.ts"]
+    },
+    "removeComments": false,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "target": "es5",
+    "lib": ["dom", "es2018"],
+    "skipLibCheck": true,
+    "outDir": "./es/types/"
+  },
+  "exclude": ["./node_modules", "./es"]
+}

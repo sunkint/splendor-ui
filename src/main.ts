@@ -1,7 +1,8 @@
 import Button from './button';
+import Input from './input';
 import { App } from 'vue';
 
-const components: any[] = [Button];
+const components: any[] = [Button, Input];
 
 const install = (app: App) => {
   components.forEach((Component) => {
@@ -13,4 +14,4 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button };
+export { install, Button, Input };

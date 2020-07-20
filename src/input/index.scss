@@ -1,0 +1,38 @@
+@import '../style/var.scss';
+
+.sk-input-wrapper {
+  display: flex;
+  width: 200px;
+  height: 36px;
+
+  .sk-input {
+    box-sizing: border-box;
+    display: inline-block;
+    flex: 1;
+    color: $text;
+    padding: 0 10px;
+    font-size: 14px;
+    height: 100%;
+    border: 1px solid $gray-400;
+    outline: none;
+    box-shadow: none;
+    background-color: $white;
+    transition: border 0.2s, box-shadow 0.2s;
+    border-radius: 4px;
+
+    &:focus {
+      border: 1px solid $gray-800;
+      box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+    }
+
+    &.has-error {
+      border-color: $red;
+      color: $red;
+
+      &:focus {
+        border-color: $red;
+        box-shadow: 0 0 0 2px lighten($red, 30%);
+      }
+    }
+  }
+}

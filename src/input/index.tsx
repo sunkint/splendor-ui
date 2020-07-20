@@ -9,7 +9,7 @@ export interface InputProps {
 };
 
 const Input: FunctionalComponent<InputProps> = (props) => {
-  const { hasError = false, type, maxlength, placeholder } = props;
+  const { hasError = false, type = 'text', maxlength, placeholder } = props;
   return (
     <div class="sk-input-wrapper">
     <input

@@ -15,7 +15,7 @@
     "build": "rm -rf ./es & tsc -d --emitDeclarationOnly & webpack --env.prod"
   },
   "peerDependencies": {
-    "vue": ">= 3.0.0-rc.1",
+    "vue": "^3.0.0-rc.1",
     "@babel/polyfill": "^7.10.4"
   },
   "devDependencies": {

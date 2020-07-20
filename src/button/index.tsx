@@ -14,34 +14,34 @@ const Button: FunctionalComponent<ButtonProps> = (props, { slots }) => {
   const {
     href,
     target = '_blank',
-    disabled = false,
     type = 'default',
     size = 'normal',
     round = false,
+    disabled = false,
   } = props;
   const useLink = !!href;
   const btnClass = [
     'sk-btn',
     `sk-btn-${type}`,
     {
+      [`sk-btn-size-${size}`]: size !== 'normal',
       'sk-btn-disabled': disabled,
-      'sk-btn-size-small': size === 'small',
-      'sk-btn-size-large': size === 'large',
       'sk-btn-round': round,
     },
   ];
 
+  const content = slots.default && slots.default();
   if (useLink) {
     return (
       <a class={btnClass} href={href} target={target}>
-        <slot />
+        {content}
       </a>
     );
   }
 
   return (
     <button class={btnClass} disabled={disabled}>
-      {slots.default && slots.default()}
+      {content}
     </button>
   );
 };

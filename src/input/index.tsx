@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, FunctionalComponent } from 'vue';
 import './index.scss';
 
 export interface InputProps {
@@ -8,7 +8,7 @@ export interface InputProps {
   hasError?: boolean;
 }
 
-const Input = defineComponent<InputProps>((props) => {
+const Input: FunctionalComponent<InputProps> = defineComponent((props) => {
   const { hasError = false, type = 'text', maxlength, placeholder } = props;
   return () => (
     <div class="sk-input-wrapper">

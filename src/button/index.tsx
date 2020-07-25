@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, FunctionalComponent } from 'vue';
 import './index.scss';
 
 export interface ButtonProps {
@@ -10,7 +10,7 @@ export interface ButtonProps {
   round?: boolean;
 }
 
-const Button = defineComponent<ButtonProps>((props, { slots }) => {
+const Button: FunctionalComponent<ButtonProps> = defineComponent((props, { slots }) => {
   const {
     href,
     target = '_blank',

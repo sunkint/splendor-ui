@@ -18,3 +18,6 @@ dev:
 
 build:
 	yarn build
+
+publish: build
+	npm publish

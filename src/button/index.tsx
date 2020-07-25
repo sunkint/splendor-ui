@@ -32,14 +32,14 @@ const Button: FunctionalComponent<ButtonProps> = (props, { slots }) => {
 
   const content = slots.default && slots.default();
   if (useLink) {
-    return (
+    return () => (
       <a class={btnClass} href={href} target={target}>
         {content}
       </a>
     );
   }
 
-  return (
+  return () => (
     <button class={btnClass} disabled={disabled}>
       {content}
     </button>

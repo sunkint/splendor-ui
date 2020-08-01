@@ -2,8 +2,9 @@ usage = "\
 Usage: make [target]\n\n\
 Available targets:\n\
 install         安装项目依赖\n\
-dev             启动调试\n\
-build           前端打包\n\
+dev             启动文档调试\n\
+build           打包\n\
+docs            文档打包\n\
 "
 
 # Must be the first target!
@@ -18,6 +19,9 @@ dev:
 
 build:
 	yarn build
+
+docs:
+	yarn build-docs
 
 publish: build
 	npm publish

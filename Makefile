@@ -4,7 +4,7 @@ Available targets:\n\
 install         安装项目依赖\n\
 dev             启动文档调试\n\
 build           打包\n\
-docs            文档打包\n\
+build-doc       文档打包\n\
 "
 
 # Must be the first target!
@@ -20,8 +20,10 @@ dev:
 build:
 	yarn build
 
-docs:
-	yarn build-docs
+build-doc:
+	yarn build-doc
+	-rm -rf ./gh-pages
+	cp -r .vitepress/dist ./gh-pages
 
 version:
 	yarn version

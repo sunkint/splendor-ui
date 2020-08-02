@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'splendor-ui',
   description: 'splendor-ui',

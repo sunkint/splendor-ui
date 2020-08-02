@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "npx vitepress",
     "build": "rm -rf ./es & tsc -d --emitDeclarationOnly & webpack --env.prod",
-    "build-docs": "npx vitepress build"
+    "build-doc": "npx vitepress build"
   },
   "peerDependencies": {
     "@babel/polyfill": "^7.10.4",

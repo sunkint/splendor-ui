@@ -23,5 +23,8 @@ build:
 docs:
 	yarn build-docs
 
-publish: build
+version:
+	yarn version
+
+publish: version build
 	npm publish

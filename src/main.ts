@@ -6,10 +6,14 @@ const components: any[] = [Button, Input];
 
 const install = (app: App) => {
   components.forEach((Component) => {
-    if (typeof Component === 'function') {
+    if (typeof Component === 'function' && typeof Component.name === 'string') {
       app.component(`sk-${Component.name.toLowerCase()}`, Component);
-    } else if (Component && Component.install) {
+    } else if (Component && typeof Component.name === 'string') {
       app.component(Component.name, Component);
+    } else if (Component && typeof Component.install === 'function') {
+      app.use(Component);
+    } else {
+      console.warn('Failed to register component:', Component);
     }
   });
 };

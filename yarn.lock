@@ -2235,6 +2235,21 @@ character-reference-invalid@^1.0.0:
   resolved "https://registry.npm.taobao.org/character-reference-invalid/download/character-reference-invalid-1.1.4.tgz#083329cda0eae272ab3dbbf37e9a382c13af1560"
   integrity sha1-CDMpzaDq4nKrPbvzfpo4LBOvFWA=
 
+"chokidar@>=2.0.0 <4.0.0", chokidar@^3.3.1, chokidar@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.4.1.tgz#e905bdecf10eaa0a0b1db0c664481cc4cbc22ba1"
+  integrity sha1-6QW97PEOqgoLHbDGZEgcxMvCK6E=
+  dependencies:
+    anymatch "~3.1.1"
+    braces "~3.0.2"
+    glob-parent "~5.1.0"
+    is-binary-path "~2.1.0"
+    is-glob "~4.0.1"
+    normalize-path "~3.0.0"
+    readdirp "~3.4.0"
+  optionalDependencies:
+    fsevents "~2.1.2"
+
 chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -2253,21 +2268,6 @@ chokidar@^2.1.8:
     upath "^1.1.1"
   optionalDependencies:
     fsevents "^1.2.7"
-
-chokidar@^3.3.1, chokidar@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.npm.taobao.org/chokidar/download/chokidar-3.4.1.tgz#e905bdecf10eaa0a0b1db0c664481cc4cbc22ba1"
-  integrity sha1-6QW97PEOqgoLHbDGZEgcxMvCK6E=
-  dependencies:
-    anymatch "~3.1.1"
-    braces "~3.0.2"
-    glob-parent "~5.1.0"
-    is-binary-path "~2.1.0"
-    is-glob "~4.0.1"
-    normalize-path "~3.0.0"
-    readdirp "~3.4.0"
-  optionalDependencies:
-    fsevents "~2.1.2"
 
 chownr@^1.1.1:
   version "1.1.4"
@@ -6817,6 +6817,13 @@ sass-loader@^9.0.2:
     neo-async "^2.6.1"
     schema-utils "^2.7.0"
     semver "^7.3.2"
+
+sass@^1.26.10:
+  version "1.26.10"
+  resolved "https://registry.npm.taobao.org/sass/download/sass-1.26.10.tgz#851d126021cdc93decbf201d1eca2a20ee434760"
+  integrity sha1-hR0SYCHNyT3svyAdHsoqIO5DR2A=
+  dependencies:
+    chokidar ">=2.0.0 <4.0.0"
 
 schema-utils@^1.0.0:
   version "1.0.0"

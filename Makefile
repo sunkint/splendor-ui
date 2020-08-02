@@ -22,8 +22,6 @@ build:
 
 build-doc:
 	yarn build-doc
-	-rm -rf ./gh-pages
-	cp -r .vitepress/dist ./gh-pages
 
 version:
 	yarn version

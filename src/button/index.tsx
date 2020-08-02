@@ -1,26 +1,20 @@
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import './index.scss';
 
-export interface ButtonProps {
-  href?: string;
-  target?: string;
-  disabled?: boolean;
-  type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
-  size?: 'normal' | 'small' | 'large';
-  round?: boolean;
-}
+export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+export type ButtonSize = 'normal' | 'small' | 'large';
 
 const Button = defineComponent({
   name: 'sk-button',
   props: {
-    type: String,
-    size: String,
+    type: String as PropType<ButtonType>,
+    size: String as PropType<ButtonSize>,
     round: Boolean,
     disabled: Boolean,
     target: String,
     href: String,
   },
-  setup(props: ButtonProps, { slots }) {
+  setup(props, { slots }) {
     const {
       href,
       target = '_blank',

@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, computed } from 'vue';
 import './index.scss';
 
 export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
@@ -7,47 +7,48 @@ export type ButtonSize = 'normal' | 'small' | 'large';
 const Button = defineComponent({
   name: 'sk-button',
   props: {
-    type: String as PropType<ButtonType>,
-    size: String as PropType<ButtonSize>,
+    type: {
+      type: String as PropType<ButtonType>,
+      default: 'default' as ButtonType,
+    },
+    size: {
+      type: String as PropType<ButtonSize>,
+      default: 'normal' as ButtonSize,
+    },
+    target: {
+      type: String,
+      default: '_blank',
+    },
+    href: String,
     round: Boolean,
     disabled: Boolean,
-    target: String,
-    href: String,
   },
   setup(props, { slots }) {
-    const {
-      href,
-      target = '_blank',
-      type = 'default',
-      size = 'normal',
-      round = false,
-      disabled = false,
-    } = props;
-    const useLink = !!href;
-    const btnClass = [
+    const useLink = computed(() => !!props.href);
+    const btnClass = computed(() => [
       'sk-btn',
-      `sk-btn-${type}`,
+      `sk-btn-${props.type}`,
       {
-        [`sk-btn-size-${size}`]: size !== 'normal',
-        'sk-btn-disabled': disabled,
-        'sk-btn-round': round,
+        [`sk-btn-size-${props.size}`]: props.size !== 'normal',
+        'sk-btn-disabled': props.disabled,
+        'sk-btn-round': props.round,
       },
-    ];
+    ]);
+    return () => {
+      if (useLink.value) {
+        return (
+          <a class={btnClass.value} href={props.href} target={props.target}>
+            {slots.default && slots.default()}
+          </a>
+        );
+      }
 
-    const content = slots.default && slots.default();
-    if (useLink) {
-      return () => (
-        <a class={btnClass} href={href} target={target}>
-          {content}
-        </a>
+      return (
+        <button class={btnClass.value} disabled={props.disabled}>
+          {slots.default && slots.default()}
+        </button>
       );
-    }
-
-    return () => (
-      <button class={btnClass} disabled={disabled}>
-        {content}
-      </button>
-    );
+    };
   },
 });
 

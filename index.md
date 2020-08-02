@@ -17,6 +17,8 @@ yarn add splendor
 
 ### Button
 
-<div class="docs-preview-part">
-  <ButtonPart />
-</div>
+<ButtonPart />
+
+### Input
+
+<InputPart />

@@ -1,25 +1,48 @@
-import { FunctionalComponent } from 'vue';
+import { defineComponent, PropType, InputHTMLAttributes, ref, watch } from 'vue';
 import './index.scss';
 
-export interface InputProps {
-  type?: string;
-  maxlength?: number;
-  placeholder?: string;
-  hasError?: boolean;
-}
+const Input = defineComponent({
+  name: 'sk-input',
+  props: {
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+    type: {
+      type: String as PropType<InputHTMLAttributes['type']>,
+      default: 'text',
+    },
+    maxlength: Number,
+    placeholder: String,
+    modelValue: String,
+  },
+  setup(props, { emit }) {
+    const value = ref(props.modelValue);
 
-const Input: FunctionalComponent<InputProps> = ((props) => {
-  const { hasError = false, type = 'text', maxlength, placeholder } = props;
-  return (
-    <div class="sk-input-wrapper">
-      <input
-        class={['sk-input', { 'has-error': hasError }]}
-        type={type}
-        maxlength={maxlength}
-        placeholder={placeholder}
-      />
-    </div>
-  );
+    watch(value, (value) => {
+      emit('update:modelValue', value);
+    });
+
+    watch(
+      () => props.modelValue,
+      (newValue) => {
+        value.value = newValue;
+      }
+    );
+
+    return () => (
+      <div class="sk-input-wrapper">
+        <input
+          class={['sk-input', { 'has-error': props.hasError }]}
+          type={props.type}
+          maxlength={props.maxlength}
+          placeholder={props.placeholder}
+          value={value.value}
+          onInput={(e) => (value.value = (e.target as HTMLInputElement).value)}
+        />
+      </div>
+    );
+  },
 });
 
 export default Input;

@@ -1,0 +1,61 @@
+@import '../style/var.scss';
+
+.sk-textarea-wrapper {
+  display: flex;
+  width: 200px;
+  height: auto;
+
+  .sk-textarea {
+    box-sizing: border-box;
+    display: inline-block;
+    flex: 1;
+    color: $text;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 22px;
+    height: 100%;
+    border: 1px solid $gray-400;
+    outline: none;
+    box-shadow: none;
+    background-color: $white;
+    transition: border 0.2s, box-shadow 0.2s;
+    border-radius: 4px;
+    min-height: 40px;
+    font-family: inherit;
+
+    &.auto-height {
+      resize: none;
+      overflow: hidden;
+    }
+
+    &:focus {
+      border: 1px solid $gray-800;
+      box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+    }
+
+    &.has-error {
+      border-color: $red;
+      color: darken($red, 10%);
+
+      &:focus {
+        border-color: $red;
+        box-shadow: 0 0 0 2px lighten($red, 30%);
+      }
+    }
+
+    &-compute-height {
+      visibility: hidden;
+      pointer-events: none;
+      position: absolute;
+      left: 400px;
+      width: 200px;
+      background-color: yellow;
+      border: 1px solid yellow;
+      padding: 8px 10px;
+      font-size: 14px;
+      line-height: 22px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}

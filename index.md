@@ -22,3 +22,7 @@ yarn add splendor
 ### Input
 
 <InputPart />
+
+### Textarea
+
+<TextareaPart />

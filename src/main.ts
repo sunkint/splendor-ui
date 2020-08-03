@@ -1,8 +1,10 @@
-import Button from './button';
-import Input from './input';
 import { App } from 'vue';
 
-const components: any[] = [Button, Input];
+import Button from './button';
+import Input from './input';
+import Textarea from './textarea';
+
+const components: any[] = [Button, Input, Textarea];
 
 const install = (app: App) => {
   components.forEach((Component) => {

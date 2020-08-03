@@ -4,6 +4,10 @@
 
 基于 MIT 协议，可自由修改和使用。
 
+## 在线示例
+
+[https://splendor-ui.ybusad.com/](https://splendor-ui.ybusad.com/)
+
 ## 安装
 
 使用 NPM：
@@ -35,6 +39,34 @@ make dev
 ```bash
 make build
 ```
+
+## 开发进度（WIP）
+
+- [x] Button
+- [x] Input
+- [x] Textarea
+- [ ] Icon
+- [ ] Notify
+- [ ] Grid
+- [ ] Dialog
+- [ ] Tag
+- [ ] Checkbox
+- [ ] Select
+- [ ] Switch
+- [ ] Alert
+- [ ] Badge
+- [ ] Popover
+- [ ] Tooltip
+- [ ] Table
+- [ ] Dropdown
+- [ ] Steps
+- [ ] Tabs
+- [ ] Loading
+- [ ] PopConfirm
+- [ ] DatetimePicker
+- [ ] Avatar
+- [ ] BackTop
+- [ ] InfiniteScroll
 
 ## 作者
 

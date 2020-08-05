@@ -51,21 +51,25 @@ make build
 - [ ] Dialog
 - [ ] Tag
 - [ ] Checkbox
+- [ ] Radio
 - [ ] Select
 - [ ] Switch
+- [ ] Slider
+- [ ] Collapse
 - [ ] Alert
 - [ ] Badge
 - [ ] Popover
 - [ ] Tooltip
 - [ ] Table
-- [ ] Dropdown
 - [ ] Steps
 - [ ] Tabs
+- [ ] Dropdown
 - [ ] Loading
 - [ ] PopConfirm
-- [ ] DatetimePicker
 - [ ] Avatar
+- [ ] Menu
 - [ ] BackTop
+- [ ] DatetimePicker
 - [ ] InfiniteScroll
 
 ## 作者

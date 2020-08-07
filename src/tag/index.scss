@@ -1,0 +1,69 @@
+@import '../style/var.scss';
+
+.sk-tag {
+  display: inline-block;
+  color: $white;
+  border-radius: 0.25em;
+  padding: 0.25em 0.4em;
+  line-height: 1;
+  font-weight: 700;
+  overflow: hidden;
+
+  &-small {
+    font-size: 12px;
+  }
+
+  &-large {
+    font-size: 14px;
+  }
+
+  &-larger {
+    font-size: 18px;
+  }
+
+  &-close {
+    position: relative;
+    top: -0.05em;
+    margin-left: 0.25em;
+    cursor: pointer;
+  }
+
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-secondary {
+    background-color: $secondary;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-info {
+    background-color: $info;
+  }
+
+  &-warning {
+    background-color: $warning;
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+
+  &-light {
+    background-color: $light;
+    color: $gray-900;
+  }
+
+  &-dark {
+    background-color: $dark;
+  }
+
+  &-round {
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    border-radius: 10rem;
+  }
+}

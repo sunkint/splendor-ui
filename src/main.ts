@@ -3,8 +3,10 @@ import { App } from 'vue';
 import Button from './button';
 import Input from './input';
 import Textarea from './textarea';
+import Icon from './icon';
+import Tag from './tag';
 
-const components: any[] = [Button, Input, Textarea];
+const components: any[] = [Button, Input, Textarea, Icon, Tag];
 
 const install = (app: App) => {
   components.forEach((Component) => {

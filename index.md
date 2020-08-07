@@ -26,3 +26,11 @@ yarn add splendor
 ### Textarea
 
 <TextareaPart />
+
+### Icon
+
+<IconPart />
+
+### Tag
+
+<TagPart />

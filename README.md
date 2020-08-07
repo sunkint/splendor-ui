@@ -45,7 +45,7 @@ make build
 - [x] Button
 - [x] Input
 - [x] Textarea
-- [ ] Icon
+- [x] Icon
 - [ ] Notify
 - [ ] Grid
 - [ ] Dialog

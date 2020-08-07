@@ -46,10 +46,10 @@ make build
 - [x] Input
 - [x] Textarea
 - [x] Icon
+- [x] Tag
 - [ ] Notify
 - [ ] Grid
 - [ ] Dialog
-- [ ] Tag
 - [ ] Checkbox
 - [ ] Radio
 - [ ] Select

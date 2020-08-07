@@ -4,6 +4,14 @@
     <sk-icon type="down"></sk-icon>
     <sk-icon type="left"></sk-icon>
     <sk-icon type="right"></sk-icon>
+    <sk-icon type="search"></sk-icon>
+    <sk-icon type="person"></sk-icon>
+    <sk-icon type="info"></sk-icon>
+    <sk-icon type="refresh"></sk-icon>
+    <sk-icon type="wifi"></sk-icon>
+    <sk-icon type="setting"></sk-icon>
+    <sk-icon type="download"></sk-icon>
+    <sk-icon type="wechat"></sk-icon>
   </div>
 </template>
 

@@ -47,7 +47,7 @@ make build
 - [x] Textarea
 - [x] Icon
 - [x] Tag
-- [ ] Notify
+- [x] Notify
 - [ ] Grid
 - [ ] Dialog
 - [ ] Checkbox

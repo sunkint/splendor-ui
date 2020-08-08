@@ -1,0 +1,60 @@
+@import '../style/var.scss';
+
+.sk-notify {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 10px 20px;
+  border-radius: 4px;
+  max-width: 20%;
+  color: $white;
+  box-shadow: 0 1px 5px 0 lighten(#000, 30%);
+  font-size: 16px;
+  line-height: 22px;
+
+  &-wrapper {
+    position: fixed;
+    left: 0;
+    top: 32px;
+    right: 0;
+    text-align: center;
+    pointer-events: none;
+    z-index: 2000;
+  }
+
+  &-content {
+    text-align: left;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-info {
+    background-color: $info;
+  }
+
+  &-warn {
+    background-color: $warning;
+  }
+
+  &-error {
+    background-color: $danger;
+  }
+
+  &.v-enter-from,
+  &.v-leave-to {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateY(-100%);
+  }
+
+  &.v-enter-active,
+  &.v-leave-active {
+    transition: all 0.3s;
+  }
+
+  .sk-notify-icon {
+    margin-right: 8px;
+    line-height: 22px;
+  }
+}

@@ -34,3 +34,7 @@ yarn add splendor
 ### Tag
 
 <TagPart />
+
+### Notify
+
+<NotifyPart />

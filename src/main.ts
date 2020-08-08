@@ -5,6 +5,7 @@ import Input from './input';
 import Textarea from './textarea';
 import Icon from './icon';
 import Tag from './tag';
+import Notify from './notify';
 
 const components: any[] = [Button, Input, Textarea, Icon, Tag];
 
@@ -22,4 +23,4 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button, Input };
+export { install, Button, Input, Textarea, Icon, Tag, Notify };

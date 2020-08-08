@@ -34,6 +34,11 @@ module.exports = (env = {}) => ({
         use: 'vue-loader',
       },
       {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        options: { appendTsSuffixTo: [/\.vue$/] },
+      },
+      {
         test: /\.(png|svg|ttf|woff|woff2|eot|cur)$/,
         use: {
           loader: 'url-loader',

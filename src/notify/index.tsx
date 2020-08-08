@@ -4,16 +4,15 @@ import NotifyApp from './notify.vue';
 import './index.scss';
 
 const DURING_DEFAULT = 2000;
-let seed = 1;
 
 const startNotify = (options: NotifyOption) => {
   const { type = NotifyType.INFO, content, duration = DURING_DEFAULT } = options;
-  const id = `notify-id-${seed++}`;
   const onClose = () => {
     notifyApp.unmount(wrapper);
   };
   const notifyApp = createApp(() => (
-    <NotifyApp id={id} type={type} duration={duration} onClose={onClose}>
+    // @ts-ignore
+    <NotifyApp type={type} duration={duration} onClose={onClose}>
       {() => content}
     </NotifyApp>
   ));

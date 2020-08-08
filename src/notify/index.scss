@@ -26,19 +26,19 @@
   }
 
   &-success {
-    background-color: $success;
+    background-color: lighten($success, 2%);
   }
 
   &-info {
-    background-color: $info;
+    background-color: lighten($info, 2%);
   }
 
   &-warn {
-    background-color: $warning;
+    background-color: lighten($warning, 2%);
   }
 
   &-error {
-    background-color: $danger;
+    background-color: lighten($danger, 2%);
   }
 
   &.v-enter-from,

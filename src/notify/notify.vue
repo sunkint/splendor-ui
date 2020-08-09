@@ -59,7 +59,6 @@ export default defineComponent({
     },
   },
   mounted() {
-    console.log(this.$props);
     this.visible = true;
     setTimeout(() => {
       this.visible = false;

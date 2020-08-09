@@ -5,7 +5,7 @@
   cursor: pointer;
   color: white !important;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   padding: 6px 12px;
   width: auto !important;
@@ -16,7 +16,8 @@
   border-radius: 4px;
   transition: background-color 0.2s;
 
-  &:active {
+  &:active,
+  &.sk-active {
     transition: background-color 0.1s;
   }
 
@@ -60,7 +61,8 @@
       background-color: darken($secondary, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($secondary, 10%);
     }
 
@@ -76,7 +78,8 @@
       background-color: darken($primary, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($primary, 10%);
     }
 
@@ -92,7 +95,8 @@
       background-color: darken($success, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($success, 10%);
     }
 
@@ -108,7 +112,8 @@
       background-color: darken($info, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($info, 10%);
     }
 
@@ -124,7 +129,8 @@
       background-color: darken($warning, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($warning, 10%);
     }
 
@@ -140,7 +146,8 @@
       background-color: darken($danger, 5%);
     }
 
-    &:active {
+    &:active,
+    &.sk-active {
       background-color: darken($danger, 10%);
     }
 

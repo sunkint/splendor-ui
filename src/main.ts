@@ -6,8 +6,9 @@ import Textarea from './textarea';
 import Icon from './icon';
 import Tag from './tag';
 import Notify from './notify';
+import DropDown from './dropdown';
 
-const components: any[] = [Button, Input, Textarea, Icon, Tag];
+const components: any[] = [Button, Input, Textarea, Icon, Tag, DropDown];
 
 const install = (app: App) => {
   components.forEach((Component) => {
@@ -23,4 +24,4 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button, Input, Textarea, Icon, Tag, Notify };
+export { install, Button, Input, Textarea, Icon, Tag, Notify, DropDown };

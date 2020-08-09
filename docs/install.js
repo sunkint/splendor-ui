@@ -4,6 +4,7 @@ import TextareaPart from './components/preview/TextareaPart.vue';
 import IconPart from './components/preview/IconPart.vue';
 import TagPart from './components/preview/TagPart.vue';
 import NotifyPart from './components/preview/NotifyPart.vue';
+import DropDownPart from './components/preview/DropDownPart.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -12,4 +13,5 @@ export default function (app) {
   app.component(IconPart.name, IconPart);
   app.component(TagPart.name, TagPart);
   app.component(NotifyPart.name, NotifyPart);
+  app.component(DropDownPart.name, DropDownPart);
 }

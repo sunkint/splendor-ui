@@ -48,6 +48,7 @@ make build
 - [x] Icon
 - [x] Tag
 - [x] Notify
+- [x] Dropdown
 - [ ] Grid
 - [ ] Dialog
 - [ ] Checkbox
@@ -63,7 +64,6 @@ make build
 - [ ] Table
 - [ ] Steps
 - [ ] Tabs
-- [ ] Dropdown
 - [ ] Loading
 - [ ] PopConfirm
 - [ ] Avatar

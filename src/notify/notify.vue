@@ -1,10 +1,6 @@
 <template>
   <transition-group>
-    <div
-      v-for="item in options"
-      :class="getClass(item.type)"
-      :key="item.ref"
-    >
+    <div v-for="item in options" :class="getClass(item.type)" :key="item.ref">
       <sk-icon class="sk-notify-icon" :type="getIconType(item.type)" />
       <div class="sk-notify-content">
         {{ item.content }}
@@ -49,8 +45,8 @@ export default defineComponent({
           return 'info';
         default:
           return 'info';
-      };
-    }
+      }
+    },
   },
 });
 </script>

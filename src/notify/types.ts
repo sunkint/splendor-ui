@@ -12,7 +12,7 @@ export const NotifyCustom: Record<NotifyCustomType, NotifyType> = {
   info: NotifyType.INFO,
   warn: NotifyType.WARN,
   error: NotifyType.ERROR,
-}
+};
 
 export interface NotifyOption {
   type?: NotifyType;
@@ -20,13 +20,12 @@ export interface NotifyOption {
   duration?: number;
 }
 
-export interface NotifyConfig extends NotifyOption{
+export interface NotifyConfig extends NotifyOption {
   ref: number;
 }
 
 export type NotifyCustomOption = Omit<NotifyOption, 'type'> & {
   type: NotifyCustomType;
 };
-
 
 export type NotifyParams = Omit<NotifyOption, 'type'> | string;

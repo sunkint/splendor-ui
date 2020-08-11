@@ -1,17 +1,20 @@
 <template>
-  <transition @after-leave="destroy">
-    <div v-show="visible" :class="classObject">
-      <sk-icon class="sk-notify-icon" type="info" v-if="isInfoType" />
-      <sk-icon class="sk-notify-icon" type="ok-o" v-if="isSuccessType" />
+  <transition-group>
+    <div
+      v-for="item in options"
+      :class="getClass(item.type)"
+      :key="item.ref"
+    >
+      <sk-icon class="sk-notify-icon" :type="getIconType(item.type)" />
       <div class="sk-notify-content">
-        <slot />
+        {{ item.content }}
       </div>
     </div>
-  </transition>
+  </transition-group>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 import { NotifyType } from './types';
 import Icon from '../icon';
 export default defineComponent({
@@ -20,49 +23,34 @@ export default defineComponent({
     'sk-icon': Icon,
   },
   props: {
-    type: Number as PropType<NotifyType>,
-    duration: Number,
+    options: Array,
   },
-  data() {
-    return {
-      visible: false,
-    };
-  },
-  computed: {
-    classObject() {
+  methods: {
+    getClass(type: NotifyType) {
       return [
         'sk-notify',
         {
-          'sk-notify-success': this.isSuccessType,
-          'sk-notify-info': this.isInfoType,
-          'sk-notify-warn': this.isWarnType,
-          'sk-notify-error': this.isErrorType,
+          'sk-notify-success': type === NotifyType.SUCCESS,
+          'sk-notify-info': type === NotifyType.INFO,
+          'sk-notify-warn': type === NotifyType.WARN,
+          'sk-notify-error': type === NotifyType.ERROR,
         },
       ];
     },
-    isSuccessType() {
-      return this.type === NotifyType.SUCCESS;
-    },
-    isInfoType() {
-      return this.type === NotifyType.INFO;
-    },
-    isWarnType() {
-      return this.type === NotifyType.WARN;
-    },
-    isErrorType() {
-      return this.type === NotifyType.ERROR;
-    },
-  },
-  methods: {
-    destroy() {
-      this.$emit('close');
-    },
-  },
-  mounted() {
-    this.visible = true;
-    setTimeout(() => {
-      this.visible = false;
-    }, this.duration);
+    getIconType(type: NotifyType) {
+      switch (type) {
+        case NotifyType.SUCCESS:
+          return 'ok-o';
+        case NotifyType.INFO:
+          return 'info';
+        case NotifyType.WARN:
+          return 'info';
+        case NotifyType.ERROR:
+          return 'info';
+        default:
+          return 'info';
+      };
+    }
   },
 });
 </script>

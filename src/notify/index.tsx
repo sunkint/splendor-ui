@@ -1,27 +1,55 @@
-import { createApp } from 'vue';
-import { NotifyOption, NotifyType, NotifyParams } from './types';
+import { createApp, Teleport, ComponentPublicInstance } from 'vue';
+import {
+  NotifyOption,
+  NotifyType,
+  NotifyParams,
+  NotifyCustomOption,
+  NotifyCustom,
+  NotifyConfig,
+} from './types';
 import NotifyApp from './notify.vue';
 import './index.scss';
 
 const DURING_DEFAULT = 2000;
+let notifyWrapper: ComponentPublicInstance<any>;
+let seed = 1;
 
 const startNotify = (options: NotifyOption) => {
-  const { type = NotifyType.INFO, content, duration = DURING_DEFAULT } = options;
-  const onClose = () => {
-    notifyApp.unmount(wrapper);
+  if (!notifyWrapper) {
+    notifyWrapper = createApp({
+      data() {
+        return {
+          notifyList: [],
+        };
+      },
+      methods: {
+        appendOption(config: NotifyConfig) {
+          this.notifyList.push(config);
+        },
+        removeOption(config: NotifyConfig) {
+          this.notifyList = this.notifyList.filter((item: NotifyConfig) => item.ref !== config.ref);
+        },
+      },
+      render() {
+        return (
+          <Teleport to="body">
+            <div class="sk-notify-wrapper">
+              <NotifyApp options={this.notifyList} />
+            </div>
+          </Teleport>
+        );
+      },
+    }).mount(document.createElement('div'));
+  }
+  const currentSeed = seed++;
+  const config = {
+    ...options,
+    ref: currentSeed,
   };
-  const notifyApp = createApp(() => (
-    // @ts-ignore
-    <NotifyApp type={type} duration={duration} onClose={onClose}>
-      {() => content}
-    </NotifyApp>
-  ));
-
-  const wrapper = document.querySelector('.sk-notify-wrapper') || document.createElement('div');
-  wrapper.className = 'sk-notify-wrapper';
-  document.body.append(wrapper);
-
-  notifyApp.mount(wrapper);
+  notifyWrapper.appendOption(config);
+  setTimeout(() => {
+    notifyWrapper.removeOption(config);
+  }, options.duration || DURING_DEFAULT);
 };
 
 const Notify = {
@@ -76,6 +104,13 @@ const Notify = {
         type: NotifyType.ERROR,
       });
     }
+  },
+  custom: (options: NotifyCustomOption) => {
+    const type = NotifyCustom[options.type];
+    startNotify({
+      ...options,
+      type,
+    });
   },
 };
 

@@ -4,6 +4,7 @@
     <sk-button type="info" @click="notifyInfo">Info</sk-button>
     <sk-button type="warning" @click="notifyWarn">Warn</sk-button>
     <sk-button type="danger" @click="notifyError">Error</sk-button>
+    <sk-button type="info" @click="notifyCustom">Custom</sk-button>
   </div>
 </template>
 
@@ -24,6 +25,13 @@ export default defineComponent({
     },
     notifyError() {
       Notify.error('失败提示');
+    },
+    notifyCustom() {
+      Notify.custom({
+        type: 'success',
+        content: '自定义提示1',
+        duration: 2000,
+      });
     },
   },
 });

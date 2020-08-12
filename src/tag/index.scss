@@ -1,6 +1,7 @@
 @import '../style/var.scss';
+$name: sk-tag;
 
-.sk-tag {
+.#{$name} {
   display: inline-block;
   color: $white;
   border-radius: 0.25em;
@@ -13,11 +14,11 @@
     font-size: 12px;
   }
 
-  &-large {
+  &-middel {
     font-size: 14px;
   }
 
-  &-larger {
+  &-large {
     font-size: 18px;
   }
 
@@ -30,35 +31,59 @@
 
   &-primary {
     background-color: $primary;
+    &.#{$name}-ghost {
+      color: $primary;
+    }
   }
 
   &-secondary {
     background-color: $secondary;
+    &.#{$name}-ghost {
+      color: $secondary;
+    }
   }
 
   &-success {
     background-color: $success;
+    &.#{$name}-ghost {
+      color: $success;
+    }
   }
 
   &-info {
     background-color: $info;
+    &.#{$name}-ghost {
+      color: $info;
+    }
   }
 
   &-warning {
     background-color: $warning;
+    &.#{$name}-ghost {
+      color: $warning;
+    }
   }
 
   &-danger {
     background-color: $danger;
+    &.#{$name}-ghost {
+      color: $danger;
+    }
   }
 
   &-light {
     background-color: $light;
     color: $gray-900;
+    &.#{$name}-ghost {
+      color: $gray-300;
+    }
   }
 
   &-dark {
     background-color: $dark;
+    &.#{$name}-ghost {
+      color: $dark;
+    }
   }
 
   &-round {
@@ -66,4 +91,11 @@
     padding-right: 0.6em;
     border-radius: 10rem;
   }
+
+  &-ghost {
+    border: 0.1em solid;
+    padding: 0.15em 0.30em;
+    background-color: transparent;
+  }
 }
+

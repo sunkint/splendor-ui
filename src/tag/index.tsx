@@ -11,7 +11,7 @@ export type TagType =
   | 'light'
   | 'dark';
 
-export type TagSize = 'small' | 'middel' | 'large';
+export type TagSize = 'small' | 'middle' | 'large';
 
 const Tag = defineComponent({
   name: 'sk-tag',
@@ -24,7 +24,13 @@ const Tag = defineComponent({
   },
   setup(props, { slots, emit }) {
     return () => {
-      const { type = 'primary', size = 'small', round = false, closable = false, ghost = false } = props;
+      const {
+        type = 'primary',
+        size = 'small',
+        round = false,
+        closable = false,
+        ghost = false,
+      } = props;
       const tagClass = [
         'sk-tag',
         `sk-tag-${type}`,

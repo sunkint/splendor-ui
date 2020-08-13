@@ -29,8 +29,8 @@ export default defineComponent({
     notifyCustom() {
       Notify.custom({
         type: 'success',
-        content: '自定义提示1',
-        duration: 2000,
+        content: '时间为5s',
+        duration: 5000,
       });
     },
   },

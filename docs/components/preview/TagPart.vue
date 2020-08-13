@@ -30,11 +30,12 @@
 </template>
 
 <script>
+import { Notify } from '../../../src/main';
 export default {
   name: 'TagPart',
   methods: {
     close() {
-      alert('你点了关闭');
+      Notify.info('你点了关闭');
     },
   },
 };

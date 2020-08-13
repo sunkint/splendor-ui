@@ -11,11 +11,12 @@
 </template>
 
 <script>
+import { Notify } from '../../../src/main';
 export default {
   name: 'ButtonPart',
   methods: {
     alert() {
-      alert('点了我');
+      Notify.success('点了按钮');
     },
   },
 };

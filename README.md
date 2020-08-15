@@ -51,6 +51,7 @@ make build
 - [x] Dropdown
 - [ ] Grid
 - [ ] Dialog
+- [ ] Pagination
 - [ ] Checkbox
 - [ ] Radio
 - [ ] Select

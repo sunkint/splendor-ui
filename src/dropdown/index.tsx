@@ -122,7 +122,7 @@ const DropDown = defineComponent({
           <Button
             class={{ 'sk-active': isOpen.value }}
             type={type}
-            ref={(el: any) => (trigger.value = el.$el)}
+            ref={(el: any) => (trigger.value = el?.$el)}
             // @ts-ignore
             onClick={triggerMenu}
           >

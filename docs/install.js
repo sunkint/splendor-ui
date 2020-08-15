@@ -6,6 +6,9 @@ import TagPart from './components/preview/TagPart.vue';
 import NotifyPart from './components/preview/NotifyPart.vue';
 import DropDownPart from './components/preview/DropDownPart.vue';
 
+import GuideExample from './components/guide/example.vue';
+import GuideExampleTsx from './components/guide/example.tsx';
+
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
   app.component(InputPart.name, InputPart);
@@ -14,4 +17,6 @@ export default function (app) {
   app.component(TagPart.name, TagPart);
   app.component(NotifyPart.name, NotifyPart);
   app.component(DropDownPart.name, DropDownPart);
+  app.component(GuideExample.name, GuideExample);
+  app.component('GuideExampleTsx', GuideExampleTsx);
 }

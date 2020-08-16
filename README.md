@@ -4,8 +4,6 @@
 
 基于 MIT 协议，可自由修改和使用。
 
-## 在线示例
-
 [https://splendor-ui.ybusad.com/](https://splendor-ui.ybusad.com/)
 
 ## 安装
@@ -23,6 +21,8 @@ yarn add splendor-ui
 ```
 
 ## 参与开发
+
+安装依赖：
 
 ```bash
 make install

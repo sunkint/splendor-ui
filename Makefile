@@ -7,6 +7,7 @@ install         安装项目依赖\n\
 dev             启动文档调试\n\
 build           打包\n\
 build-doc       文档打包\n\
+docker          文档部署（暂时不用）\n\
 "
 
 # Must be the first target!

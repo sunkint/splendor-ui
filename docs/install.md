@@ -18,7 +18,7 @@ npm i splendor-ui -S
 import { install } from 'splendor-ui';
 import 'splendor-ui/es/main.css';
 
-install(app); // app is created by Vue's createApp.
+app.use(install); // app is created by Vue's createApp.
 ```
 
 ## 使用 - 基于 Vue 模板
@@ -47,15 +47,17 @@ export default {
 ## 使用 - 基于 JSX/TSX
 
 ```tsx
-import { defineComponent } from "vue";
-import { Button, Notify } from "splendor-ui";
+import { defineComponent } from 'vue';
+import { Button, Notify } from 'splendor-ui';
 
 export default defineComponent(() => {
   const greet = () => {
     Notify.success('Hello World!');
   };
   return () => (
-    <Button type="primary" onClick={greet}>Hello</Button>
+    <Button type="primary" onClick={greet}>
+      Hello
+    </Button>
   );
 });
 ```

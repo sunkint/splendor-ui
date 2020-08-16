@@ -5,5 +5,5 @@ RUN yarn --registry https://registry.npm.taobao.org
 RUN yarn global add http-server --registry https://registry.npm.taobao.org
 RUN yarn build-doc
 RUN cp .vitepress/public/favicon.ico .vitepress/dist
-CMD http-server /app/.vitepress/dist -p 80
-EXPOSE 80
+CMD http-server /app/.vitepress/dist -p 3000
+EXPOSE 3000

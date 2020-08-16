@@ -1,3 +1,5 @@
+NAME = splendor-ui
+
 usage = "\
 Usage: make [target]\n\n\
 Available targets:\n\
@@ -28,3 +30,18 @@ version:
 
 publish: version build
 	npm publish
+
+docker-kill:
+	-docker kill $(NAME)
+	-docker rm $(NAME)
+
+docker-build:
+	docker build -t $(NAME) .
+
+docker-run: docker-kill
+	docker run -d -p 80:3000 --name $(NAME) --net qas --net-alias $(NAME) --restart always $(NAME)
+
+docker: docker-build docker-run
+
+docker-restart:
+	docker restart $(NAME)

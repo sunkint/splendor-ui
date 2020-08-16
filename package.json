@@ -25,6 +25,7 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@cloudbase/cli": "^0.9.5",
     "@vue/compiler-sfc": "^3.0.0-rc.5",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",

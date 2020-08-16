@@ -1,0 +1,18 @@
+{
+  "envId": "splendor-ui-2gg52qkrd56df063",
+  "functionRoot": "./functions",
+  "functions": [],
+  "framework": {
+    "name": "splendor-ui",
+    "plugins": {
+      "container": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "splendor-ui",
+          "servicePath": "/",
+          "containerPort": 80
+        }
+      }
+    }
+  }
+}

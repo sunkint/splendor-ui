@@ -25,12 +25,16 @@ build:
 
 build-doc:
 	yarn build-doc
+	cp .vitepress/public/* .vitepress/dist
 
 version:
 	yarn version
 
 publish: version build
 	npm publish
+
+publish-doc: build-doc
+	npx cloudbase hosting:deploy .vitepress/dist
 
 docker-kill:
 	-docker kill $(NAME)

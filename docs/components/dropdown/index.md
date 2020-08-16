@@ -91,7 +91,7 @@ export default {
 | selectedKeys | 选择项，data 中 key 的数组 | `Array<string | number>` |                                                              | `[]`      |
 | type         | 样式类型                   | string                   | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
 
-> #### DropdownData
+> #### DropdownData <sk-tag ghost>type</sk-tag>
 >
 > ```ts
 > export type DropdownDataItem = {

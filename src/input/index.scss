@@ -29,10 +29,18 @@
       border-color: $red;
       color: $red;
 
+      &::placeholder {
+        color: rgba($red, 0.6);
+      }
+
       &:focus {
         border-color: $red;
         box-shadow: 0 0 0 2px lighten($red, 30%);
       }
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
     }
   }
 }

@@ -3,19 +3,19 @@ import Button from '../button';
 import Icon from '../icon';
 import './index.scss';
 
-export type DropDownDataItem = {
+export type DropdownDataItem = {
   key: string | number;
   text: string;
 } & Record<string, any>;
 
-export type DropDownData = DropDownDataItem[];
-export type DropDownType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+export type DropdownData = DropdownDataItem[];
+export type DropdownType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
 
-const DropDownMenu = defineComponent({
+const DropdownMenu = defineComponent({
   name: 'sk-dropdown-menu',
   props: {
     data: {
-      type: Array as PropType<DropDownData>,
+      type: Array as PropType<DropdownData>,
       required: true,
     },
     selectedKeys: {
@@ -23,8 +23,8 @@ const DropDownMenu = defineComponent({
       default: [],
     },
     type: {
-      type: String as PropType<DropDownType>,
-      default: 'default' as DropDownType,
+      type: String as PropType<DropdownType>,
+      default: 'default' as DropdownType,
     },
     onMenuClick: Function,
   },
@@ -32,7 +32,7 @@ const DropDownMenu = defineComponent({
     menuClick: null,
   },
   setup(props, { emit }) {
-    const click = (item: DropDownDataItem) => {
+    const click = (item: DropdownDataItem) => {
       emit('menuClick', item);
     };
     return () => {
@@ -53,11 +53,11 @@ const DropDownMenu = defineComponent({
   },
 });
 
-const DropDown = defineComponent({
+const Dropdown = defineComponent({
   name: 'sk-dropdown',
   props: {
     data: {
-      type: Array as PropType<DropDownData>,
+      type: Array as PropType<DropdownData>,
       required: true,
     },
     selectedKeys: {
@@ -65,8 +65,8 @@ const DropDown = defineComponent({
       default: [],
     },
     type: {
-      type: String as PropType<DropDownType>,
-      default: 'default' as DropDownType,
+      type: String as PropType<DropdownType>,
+      default: 'default' as DropdownType,
     },
     text: String,
     onSelect: Function,
@@ -75,7 +75,7 @@ const DropDown = defineComponent({
     select: null,
   },
   setup(props, { emit }) {
-    const click = (item: DropDownDataItem) => {
+    const click = (item: DropdownDataItem) => {
       emit('select', item.key, item);
     };
     const isOpen = ref(false);
@@ -143,7 +143,7 @@ const DropDown = defineComponent({
           </Button>
           <Teleport to="body">
             {isOpen.value ? (
-              <DropDownMenu
+              <DropdownMenu
                 style={menuPostionStyle.value}
                 data={data}
                 onMenuClick={click}
@@ -158,4 +158,4 @@ const DropDown = defineComponent({
   },
 });
 
-export default DropDown;
+export default Dropdown;

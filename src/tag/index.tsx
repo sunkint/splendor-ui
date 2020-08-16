@@ -11,7 +11,7 @@ export type TagType =
   | 'light'
   | 'dark';
 
-export type TagSize = 'small' | 'middle' | 'large';
+export type TagSize = 'small' | 'medium' | 'large';
 
 const Tag = defineComponent({
   name: 'sk-tag',
@@ -21,6 +21,9 @@ const Tag = defineComponent({
     round: Boolean,
     closable: Boolean,
     ghost: Boolean,
+  },
+  emits: {
+    close: null,
   },
   setup(props, { slots, emit }) {
     return () => {

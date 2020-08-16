@@ -1,7 +1,7 @@
 <template>
   <div class="docs-preview-part">
     <sk-tag type="primary" size="small">small</sk-tag>
-    <sk-tag type="primary" size="middle">middle</sk-tag>
+    <sk-tag type="primary" size="medium">medium</sk-tag>
     <sk-tag type="primary" size="large">large</sk-tag>
     <sk-tag type="primary" round size="small">round</sk-tag>
     <sk-tag type="primary" closable @close="close">closable</sk-tag>

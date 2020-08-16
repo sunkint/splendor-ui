@@ -12,7 +12,11 @@ const Input = defineComponent({
       type: String as PropType<InputHTMLAttributes['type']>,
       default: 'text',
     },
-    maxlength: Number,
+    maxlength: [String, Number],
+    disabled: Boolean,
+    readonly: Boolean,
+    autofocus: Boolean,
+    name: String,
     placeholder: String,
     modelValue: String,
   },
@@ -35,8 +39,12 @@ const Input = defineComponent({
         <input
           class={['sk-input', { 'has-error': props.hasError }]}
           type={props.type}
-          maxlength={props.maxlength}
+          maxlength={props.maxlength ? +props.maxlength : undefined}
           placeholder={props.placeholder}
+          disabled={props.disabled}
+          readonly={props.readonly}
+          name={props.name}
+          autofocus={props.autofocus}
           value={value.value}
           onInput={(e) => (value.value = (e.target as HTMLInputElement).value)}
         />

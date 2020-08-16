@@ -37,7 +37,11 @@ const Button = defineComponent({
     return () => {
       if (useLink.value) {
         return (
-          <a class={btnClass.value} href={props.href} target={props.target}>
+          <a
+            class={btnClass.value}
+            href={props.disabled ? undefined : props.href}
+            target={props.target}
+          >
             {slots.default && slots.default()}
           </a>
         );

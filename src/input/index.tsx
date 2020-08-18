@@ -1,4 +1,5 @@
 import { defineComponent, PropType, InputHTMLAttributes, ref, watch } from 'vue';
+import Icon from '../icon';
 import './index.scss';
 
 const Input = defineComponent({
@@ -11,6 +12,11 @@ const Input = defineComponent({
     type: {
       type: String as PropType<InputHTMLAttributes['type']>,
       default: 'text',
+    },
+    icon: String,
+    inline: {
+      type: Boolean,
+      default: false,
     },
     maxlength: [String, Number],
     disabled: Boolean,
@@ -35,9 +41,23 @@ const Input = defineComponent({
     );
 
     return () => (
-      <div class="sk-input-wrapper">
+      <div
+        class={[
+          'sk-input-wrapper',
+          {
+            'sk-input-inline': props.inline,
+            'has-error': props.hasError,
+            'has-icon': !!props.icon,
+          },
+        ]}
+      >
+        {props.icon ? (
+          <span class="sk-input-icon">
+            <Icon type={props.icon} />
+          </span>
+        ) : null}
         <input
-          class={['sk-input', { 'has-error': props.hasError }]}
+          class="sk-input"
           type={props.type}
           maxlength={props.maxlength ? +props.maxlength : undefined}
           placeholder={props.placeholder}

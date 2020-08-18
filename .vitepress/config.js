@@ -1,5 +1,3 @@
-const path = require('path');
-
 const buildNavChildren = (name) => ({
   text: name,
   link: `/docs/components/${name.toLowerCase()}/index`,

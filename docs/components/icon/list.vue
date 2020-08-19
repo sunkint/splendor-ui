@@ -1,6 +1,6 @@
 <template>
   <div class="docs-preview-part">
-    <sk-input class="filter" v-model="filter" icon="search" placeholder="筛选" />
+    <sk-input class="filter" v-model="filter" icon="filter-2" placeholder="筛选" />
     <div class="grid">
       <div class="item" v-for="n in list" :key="n.icon_id">
         <div class="inner">

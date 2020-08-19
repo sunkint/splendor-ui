@@ -1,6 +1,6 @@
 # CopyLink 复制链接
 
-提供复制功能，内部基于 clipboard.js
+提供复制功能，内部基于 clipboard.js。
 
 ### 基础用法
 

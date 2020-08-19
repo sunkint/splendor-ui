@@ -7,8 +7,9 @@ import Icon from './icon';
 import Tag from './tag';
 import Notify from './notify';
 import Dropdown from './dropdown';
+import CopyLink from './copy-link';
 
-const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown];
+const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown, CopyLink];
 
 const install = (app: App) => {
   components.forEach((Component) => {
@@ -24,4 +25,4 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button, Input, Textarea, Icon, Tag, Notify, Dropdown };
+export { install, Button, Input, Textarea, Icon, Tag, Notify, Dropdown, CopyLink };

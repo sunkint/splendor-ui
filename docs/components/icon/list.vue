@@ -2,12 +2,20 @@
   <div class="docs-preview-part">
     <sk-input class="filter" v-model="filter" icon="filter-2" placeholder="筛选" />
     <div class="grid">
-      <div class="item" v-for="n in list" :key="n.icon_id">
-        <div class="inner">
-          <p><sk-icon :type="n.font_class" /></p>
-          <p>{{ n.font_class }}</p>
+      <sk-copy-link
+        v-for="n in list"
+        :key="n.icon_id"
+        v-slot="{ copy }"
+        :text="n.font_class"
+        @success="copySuccess(n.font_class)"
+      >
+        <div class="item" @click="copy">
+          <div class="inner">
+            <p><sk-icon :type="n.font_class" /></p>
+            <p>{{ n.font_class }}</p>
+          </div>
         </div>
-      </div>
+      </sk-copy-link>
       <i v-if="list.length === 0">无结果</i>
       <div v-for="n in 16" class="item-space"></div>
     </div>
@@ -16,6 +24,7 @@
 
 <script>
 import iconfont from './iconfont.json';
+import { Notify } from '../../../src/main';
 export default {
   name: 'icon-list',
   data() {
@@ -32,6 +41,11 @@ export default {
   computed: {
     list() {
       return this.icons.filter(({ font_class }) => font_class.indexOf(this.filter) >= 0);
+    },
+  },
+  methods: {
+    copySuccess(name) {
+      Notify.success(`已复制：${name}`);
     },
   },
 };

@@ -49,24 +49,23 @@ make build
 - [x] Tag
 - [x] Notify
 - [x] Dropdown
+- [x] CopyLink
 - [ ] Grid
 - [ ] Dialog
+- [ ] Slider
+- [ ] Tabs
+- [ ] Loading
 - [ ] Pagination
 - [ ] Checkbox
 - [ ] Radio
 - [ ] Select
 - [ ] Switch
-- [ ] Slider
 - [ ] Collapse
 - [ ] Alert
-- [ ] Badge
 - [ ] Popover
 - [ ] Tooltip
 - [ ] Table
 - [ ] Steps
-- [ ] Tabs
-- [ ] Loading
-- [ ] PopConfirm
 - [ ] Avatar
 - [ ] Menu
 - [ ] BackTop

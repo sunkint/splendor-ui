@@ -42,7 +42,7 @@ export default defineComponent({
         case NotifyType.WARN:
           return 'info';
         case NotifyType.ERROR:
-          return 'info';
+          return 'close-o';
         default:
           return 'info';
       }

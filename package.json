@@ -1,6 +1,6 @@
 {
   "name": "splendor-ui",
-  "version": "0.0.1-beta.20",
+  "version": "0.0.2-beta.3",
   "description": "A ui-kit for splendor-pc.",
   "main": "./es/main.js",
   "types": "./es/types/main.d.ts",
@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@cloudbase/cli": "^0.9.5",
+    "@types/clipboard": "^2.0.1",
     "@vue/compiler-sfc": "^3.0.0-rc.5",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
@@ -47,5 +48,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "clipboard": "^2.0.6"
+  }
 }

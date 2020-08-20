@@ -82,6 +82,36 @@ export default {
 </template>
 ```
 
+### 禁用
+
+<div class="docs-preview-part">
+  <sk-dropdown
+    type="primary"
+    text="已禁用"
+    disabled
+    :data="[
+      { key: 'food', text: '食品' },
+      { key: 'clothes', text: '服装' },
+    ]"
+  />
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-dropdown
+      type="primary"
+      text="已禁用"
+      disabled
+      :data="[
+        { key: 'food', text: '食品' },
+        { key: 'clothes', text: '服装' },
+      ]"
+    />
+  </div>
+</template>
+```
+
 ### API
 
 | 参数         | 说明                       | 类型                     | 可选值                                                       | 默认值    |
@@ -90,6 +120,7 @@ export default {
 | data         | 下拉项数据，必填           | `DropdownData`           |                                                              | -         |
 | selectedKeys | 选择项，data 中 key 的数组 | `Array<string | number>` |                                                              | `[]`      |
 | type         | 样式类型                   | string                   | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
+| disabled     | 是否禁用                   | bool                     |                                                              | `false`   |
 
 > #### DropdownData <sk-tag ghost>type</sk-tag>
 >

@@ -14,6 +14,9 @@ import GuideExampleTsx from './components/guide/example';
 import TagBasic from './components/tag/basic.vue';
 import NotifyBasic from './components/notify/basic.vue';
 import DropdownTheme from './components/dropdown/theme.vue';
+import IconList from './components/icon/list.vue';
+import CopyLinkBasic from './components/copylink/basic.vue';
+import CopyLinkCustom from './components/copylink/custom.vue';
 
 export default function (app: App) {
   app.component(ButtonPart.name, ButtonPart);
@@ -28,4 +31,7 @@ export default function (app: App) {
   app.component('TagBasic', TagBasic);
   app.component('NotifyBasic', NotifyBasic);
   app.component('DropdownTheme', DropdownTheme);
+  app.component('IconList', IconList);
+  app.component('CopyLinkBasic', CopyLinkBasic);
+  app.component('CopyLinkCustom', CopyLinkCustom);
 }

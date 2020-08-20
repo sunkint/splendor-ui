@@ -68,6 +68,7 @@ const Dropdown = defineComponent({
       type: String as PropType<DropdownType>,
       default: 'default' as DropdownType,
     },
+    disabled: Boolean,
     text: String,
     onSelect: Function,
   },
@@ -116,13 +117,14 @@ const Dropdown = defineComponent({
     };
 
     return () => {
-      const { data, text, selectedKeys, type } = props;
+      const { data, text, selectedKeys, type, disabled } = props;
       return (
         <div class={['sk-dropdown', `sk-dropdown-${type}`]}>
           <Button
             class={{ 'sk-active': isOpen.value }}
             type={type}
             ref={(el: any) => (trigger.value = el?.$el)}
+            disabled={disabled}
             // @ts-ignore
             onClick={triggerMenu}
           >

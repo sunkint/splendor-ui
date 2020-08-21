@@ -7,6 +7,7 @@ import IconPart from './components/preview/IconPart.vue';
 import TagPart from './components/preview/TagPart.vue';
 import NotifyPart from './components/preview/NotifyPart.vue';
 import DropDownPart from './components/preview/DropDownPart.vue';
+import CopyLinkPart from './components/preview/CopyLinkPart.vue';
 
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
@@ -27,6 +28,7 @@ export default function (app: App) {
   app.component(NotifyPart.name, NotifyPart);
   app.component(DropDownPart.name, DropDownPart);
   app.component(GuideExample.name, GuideExample);
+  app.component(CopyLinkPart.name, CopyLinkPart);
   app.component('GuideExampleTsx', GuideExampleTsx);
   app.component('TagBasic', TagBasic);
   app.component('NotifyBasic', NotifyBasic);

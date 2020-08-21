@@ -28,4 +28,8 @@
 
 <DropDownPart />
 
-<div style="height: 200px;"></div>
+#### CopyLink
+
+<CopyLinkPart />
+
+<div style="height: 100px;"></div>

@@ -35,6 +35,7 @@ module.exports = {
           'Notify',
           'Dropdown',
           'CopyLink',
+          'Loading',
         ].map(buildNavChildren),
       },
     ],

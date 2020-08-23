@@ -4,6 +4,7 @@ import './index.scss';
 const Checkbox = defineComponent({
   name: 'sk-checkbox',
   props: {
+    id: String,
     name: String,
     value: {
       type: String,
@@ -28,8 +29,10 @@ const Checkbox = defineComponent({
           ]}
         >
           <input
-            type="checkbox"
+            id={props.id}
+            name={props.name}
             class="sk-checkbox-input"
+            type="checkbox"
             checked={props.modelValue}
             value={props.value}
             onChange={onChange}

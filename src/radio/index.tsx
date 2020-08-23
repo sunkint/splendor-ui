@@ -8,10 +8,10 @@ const Radio = defineComponent({
     name: String,
     disabled: Boolean,
     value: {
-      type: [Number, String],
+      type: String,
       required: true,
     },
-    modelValue: [Number, String],
+    modelValue: String,
   },
   setup(props, { slots, emit }) {
     const onSelected = () => {

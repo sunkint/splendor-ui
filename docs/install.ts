@@ -19,6 +19,8 @@ import IconList from './components/icon/list.vue';
 import CopyLinkBasic from './components/copylink/basic.vue';
 import CopyLinkCustom from './components/copylink/custom.vue';
 import RadioBasic from './components/radio/basic.vue';
+import CheckboxBasic from './components/checkbox/basic.vue';
+import CheckboxGroup from './components/checkbox/group.vue';
 
 export default function (app: App) {
   app.component(ButtonPart.name, ButtonPart);
@@ -38,4 +40,6 @@ export default function (app: App) {
   app.component('CopyLinkBasic', CopyLinkBasic);
   app.component('CopyLinkCustom', CopyLinkCustom);
   app.component('RadioBasic', RadioBasic);
+  app.component('CheckboxBasic', CheckboxBasic);
+  app.component('CheckboxGroup', CheckboxGroup);
 }

@@ -9,8 +9,20 @@ import Notify from './notify';
 import Dropdown from './dropdown';
 import CopyLink from './copy-link';
 import Radio from './radio';
+import Checkbox, { CheckboxGroup } from './checkbox';
 
-const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown, CopyLink, Radio];
+const components: any[] = [
+  Button,
+  Input,
+  Textarea,
+  Icon,
+  Tag,
+  Dropdown,
+  CopyLink,
+  Radio,
+  Checkbox,
+  CheckboxGroup,
+];
 
 const install = (app: App) => {
   components.forEach((Component) => {
@@ -26,4 +38,17 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button, Input, Textarea, Icon, Tag, Notify, Dropdown, CopyLink, Radio };
+export {
+  install,
+  Button,
+  Input,
+  Textarea,
+  Icon,
+  Tag,
+  Notify,
+  Dropdown,
+  CopyLink,
+  Radio,
+  Checkbox,
+  CheckboxGroup,
+};

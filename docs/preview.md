@@ -32,4 +32,18 @@
 
 <CopyLinkPart />
 
-<div style="height: 100px;"></div>
+#### Loading
+
+<LoadingPart />
+
+### Radio
+
+<RadioPart />
+
+### Checkbox
+
+<CheckboxPart />
+
+### Switch
+
+<SwitchPart />

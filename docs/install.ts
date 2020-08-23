@@ -8,6 +8,10 @@ import TagPart from './components/preview/TagPart.vue';
 import NotifyPart from './components/preview/NotifyPart.vue';
 import DropDownPart from './components/preview/DropDownPart.vue';
 import CopyLinkPart from './components/preview/CopyLinkPart.vue';
+import LoadingPart from './components/preview/LoadingPart.vue';
+import RadioPart from './components/preview/RadioPart.vue';
+import CheckboxPart from './components/preview/CheckboxPart.vue';
+import SwitchPart from './components/preview/SwitchPart.vue';
 
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
@@ -34,6 +38,10 @@ export default function (app: App) {
   app.component(DropDownPart.name, DropDownPart);
   app.component(GuideExample.name, GuideExample);
   app.component(CopyLinkPart.name, CopyLinkPart);
+  app.component(LoadingPart.name, LoadingPart);
+  app.component(RadioPart.name, RadioPart);
+  app.component(CheckboxPart.name, CheckboxPart);
+  app.component(SwitchPart.name, SwitchPart);
   app.component('GuideExampleTsx', GuideExampleTsx);
   app.component('TagBasic', TagBasic);
   app.component('NotifyBasic', NotifyBasic);

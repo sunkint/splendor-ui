@@ -26,20 +26,13 @@ module.exports = {
       },
       {
         text: '基础组件',
-        children: [
-          'Button',
-          'Input',
-          'Textarea',
-          'Icon',
-          'Tag',
-          'Notify',
-          'Dropdown',
-          'CopyLink',
-          'Radio',
-          'Checkbox',
-          'Loading',
-          'Switch',
-        ].map(buildNavChildren),
+        children: ['Button', 'Icon', 'Tag', 'Notify', 'Dropdown', 'CopyLink', 'Loading'].map(
+          buildNavChildren
+        ),
+      },
+      {
+        text: '表单组件',
+        children: ['Input', 'Textarea', 'Radio', 'Checkbox', 'Switch'].map(buildNavChildren),
       },
     ],
     nav: [{ text: 'GitHub', link: 'https://github.com/sunkint/splendor-ui' }],

@@ -18,6 +18,7 @@ import DropdownTheme from './components/dropdown/theme.vue';
 import IconList from './components/icon/list.vue';
 import CopyLinkBasic from './components/copylink/basic.vue';
 import CopyLinkCustom from './components/copylink/custom.vue';
+import RadioBasic from './components/radio/basic.vue';
 
 export default function (app: App) {
   app.component(ButtonPart.name, ButtonPart);
@@ -36,4 +37,5 @@ export default function (app: App) {
   app.component('IconList', IconList);
   app.component('CopyLinkBasic', CopyLinkBasic);
   app.component('CopyLinkCustom', CopyLinkCustom);
+  app.component('RadioBasic', RadioBasic);
 }

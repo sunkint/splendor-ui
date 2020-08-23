@@ -38,6 +38,7 @@ module.exports = {
           'Radio',
           'Checkbox',
           'Loading',
+          'Switch',
         ].map(buildNavChildren),
       },
     ],

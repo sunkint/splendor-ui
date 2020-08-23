@@ -21,6 +21,8 @@ import CopyLinkCustom from './components/copylink/custom.vue';
 import RadioBasic from './components/radio/basic.vue';
 import CheckboxBasic from './components/checkbox/basic.vue';
 import CheckboxGroup from './components/checkbox/group.vue';
+import SwitchBasic from './components/switch/basic.vue';
+import SwitchDisabled from './components/switch/disabled.vue';
 
 export default function (app: App) {
   app.component(ButtonPart.name, ButtonPart);
@@ -42,4 +44,6 @@ export default function (app: App) {
   app.component('RadioBasic', RadioBasic);
   app.component('CheckboxBasic', CheckboxBasic);
   app.component('CheckboxGroup', CheckboxGroup);
+  app.component('SwitchBasic', SwitchBasic);
+  app.component('SwitchDisabled', SwitchDisabled);
 }

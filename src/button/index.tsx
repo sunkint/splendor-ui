@@ -1,4 +1,5 @@
 import { defineComponent, PropType, computed } from 'vue';
+import Icon from '../icon';
 import './index.scss';
 
 export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
@@ -19,6 +20,7 @@ const Button = defineComponent({
       type: String,
       default: '_blank',
     },
+    icon: String,
     href: String,
     round: Boolean,
     disabled: Boolean,
@@ -49,6 +51,7 @@ const Button = defineComponent({
 
       return (
         <button class={btnClass.value} disabled={props.disabled}>
+          {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}
           {slots.default && slots.default()}
         </button>
       );

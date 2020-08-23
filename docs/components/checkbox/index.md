@@ -1,4 +1,4 @@
-# Checkbox 复选
+# Checkbox 复选框
 
 ### 基本用法
 
@@ -26,9 +26,9 @@ export default {
 </script>
 ```
 
-### 多选框组
+### 复选框组
 
-使用 `CheckboxGroup`，创建多选框组
+使用 `CheckboxGroup`，创建复选框组
 
 <CheckboxGroup />
 

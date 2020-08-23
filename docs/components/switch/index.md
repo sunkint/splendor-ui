@@ -2,7 +2,7 @@
 
 ### 基础用法
 
-受控组件，必须配合 `v-model` 使用。
+`Switch` 是一个受控组件，必须配合 `v-model` 使用。
 
 <SwitchBasic />
 
@@ -50,6 +50,9 @@ export default {
 
 ### API
 
-| 参数     | 说明     | 类型 | 可选值 | 默认值  |
-| -------- | -------- | ---- | ------ | ------- |
-| disabled | 是否禁用 | bool |        | `false` |
+| 参数     | 说明               | 类型   | 可选值 | 默认值  |
+| -------- | ------------------ | ------ | ------ | ------- |
+| id       | html id            | string |        | -       |
+| name     | html name          | string |        | -       |
+| value    | 内部复选框对应的值 | string |        | `on`    |
+| disabled | 是否禁用           | bool   |        | `false` |

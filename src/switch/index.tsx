@@ -1,17 +1,27 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import './index.scss';
 
 const Switch = defineComponent({
   name: 'sk-switch',
   props: {
+    id: String,
+    name: String,
+    value: {
+      type: String,
+      default: 'on',
+    },
     modelValue: Boolean,
     disabled: Boolean,
   },
   setup(props, { emit }) {
     const toggle = () => {
-      if (props.disabled) return;
-      emit('update:modelValue', !props.modelValue);
+      if (props.disabled) {
+        return;
+      }
+      const checked = !props.modelValue;
+      emit('update:modelValue', checked);
     };
+
     return () => (
       <div
         class={[
@@ -19,7 +29,16 @@ const Switch = defineComponent({
           { 'sk-switch-on': props.modelValue, 'sk-switch-disabled': props.disabled },
         ]}
         onClick={toggle}
-      ></div>
+      >
+        <input
+          id={props.id}
+          name={props.name}
+          class="sk-switch-input"
+          type="checkbox"
+          checked={props.modelValue}
+          disabled={props.disabled}
+        />
+      </div>
     );
   },
 });

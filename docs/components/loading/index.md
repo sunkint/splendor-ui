@@ -1,5 +1,7 @@
 # Loading 加载中
 
+### 基础用法
+
 <div class="docs-preview-part">
   <sk-loading show>
     <div>

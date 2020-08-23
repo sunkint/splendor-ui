@@ -50,16 +50,16 @@ make build
 - [x] Notify
 - [x] Dropdown
 - [x] CopyLink
+- [x] Loading
+- [x] Checkbox
+- [x] Radio
+- [x] Switch
 - [ ] Grid
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs
-- [ ] Loading
 - [ ] Pagination
-- [ ] Checkbox
-- [ ] Radio
 - [ ] Select
-- [ ] Switch
 - [ ] Collapse
 - [ ] Alert
 - [ ] Popover

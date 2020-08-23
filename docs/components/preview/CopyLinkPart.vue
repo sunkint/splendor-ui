@@ -1,6 +1,6 @@
 <template>
   <div class="docs-preview-part">
-    <sk-copy-link text="CopyLink基本用法" @success="onSuccess" />
+    <sk-copy-link text="CopyLink基础用法" @success="onSuccess" />
     <sk-copy-link text="CopyLink自定义触发器" @success="onSuccess" v-slot="{ copy }">
       <sk-button @click="copy">复制</sk-button>
     </sk-copy-link>

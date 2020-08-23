@@ -10,6 +10,7 @@ import Dropdown from './dropdown';
 import CopyLink from './copy-link';
 import Radio from './radio';
 import Checkbox, { CheckboxGroup } from './checkbox';
+import Loading from './loading';
 
 const components: any[] = [
   Button,
@@ -22,6 +23,7 @@ const components: any[] = [
   Radio,
   Checkbox,
   CheckboxGroup,
+  Loading,
 ];
 
 const install = (app: App) => {
@@ -51,4 +53,5 @@ export {
   Radio,
   Checkbox,
   CheckboxGroup,
+  Loading,
 };

@@ -37,6 +37,7 @@ module.exports = {
           'CopyLink',
           'Radio',
           'Checkbox',
+          'Loading',
         ].map(buildNavChildren),
       },
     ],

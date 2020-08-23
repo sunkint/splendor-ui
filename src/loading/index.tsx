@@ -11,7 +11,6 @@ const Loading = defineComponent({
     color: String,
   },
   setup(props, { slots }) {
-    console.log({ ...props });
     const show = computed(() => props.show);
     const colorStyle = computed(() => {
       if (props.color) {

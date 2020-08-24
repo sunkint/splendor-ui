@@ -7,8 +7,10 @@ import Icon from './icon';
 import Tag from './tag';
 import Notify from './notify';
 import Dropdown from './dropdown';
+import Row from './grid/row';
+import Col from './grid/col';
 
-const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown];
+const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown, Row, Col];
 
 const install = (app: App) => {
   components.forEach((Component) => {

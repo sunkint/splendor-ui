@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         text: '基础组件',
-        children: ['Button', 'Input', 'Textarea', 'Icon', 'Tag', 'Notify', 'Dropdown'].map(
+        children: ['Button', 'Input', 'Textarea', 'Icon', 'Tag', 'Notify', 'Dropdown', 'Grid'].map(
           buildNavChildren
         ),
       },

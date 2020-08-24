@@ -50,7 +50,7 @@ const Col = defineComponent({
       console.log('3', gutter[0])
       return (
         <div class={colClass} style={style}>
-          {slots.default && slots.default()}
+          {slots.default?.()}
         </div>
       );
     }

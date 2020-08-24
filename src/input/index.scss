@@ -1,11 +1,14 @@
 @import '../style/var.scss';
 
-.sk-input-wrapper {
+$name: sk-input;
+
+.#{$name}-wrapper {
+  position: relative;
   display: flex;
   width: 200px;
   height: 36px;
 
-  .sk-input {
+  .#{$name} {
     box-sizing: border-box;
     display: inline-block;
     flex: 1;
@@ -25,7 +28,25 @@
       box-shadow: 0 0 0 2px lighten($gray-800, 65%);
     }
 
-    &.has-error {
+    &-icon {
+      position: absolute;
+      left: 8px + 1px;
+      top: 10px + 1px;
+      pointer-events: none;
+
+      .sk-icon {
+        font-size: 14px;
+        color: $gray-600;
+      }
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  &.has-error {
+    .#{$name} {
       border-color: $red;
       color: $red;
 
@@ -39,8 +60,20 @@
       }
     }
 
-    &[disabled] {
-      cursor: not-allowed;
+    &.has-icon {
+      .sk-icon {
+        color: rgba($red, 0.7);
+      }
     }
+  }
+
+  &.has-icon {
+    .#{$name} {
+      padding-left: 28px;
+    }
+  }
+
+  &.#{$name}-inline {
+    display: inline-flex;
   }
 }

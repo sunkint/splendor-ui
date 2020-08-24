@@ -1,5 +1,4 @@
 import { defineComponent, PropType, provide } from 'vue';
-// import { useGutterProvide, useGutterInject } from './gutter';
 import './index.scss';
 
 export type AlignType = 'top' | 'middle' | 'bottom';
@@ -65,7 +64,7 @@ const Row = defineComponent({
 
       return (
         <div {...others} class={rowClass} style={rowStyle}>
-          {slots.default && slots.default()}
+          {slots.default?.()}
         </div>
       );
     }

@@ -994,6 +994,11 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/clipboard@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/@types/clipboard/download/@types/clipboard-2.0.1.tgz#75a74086c293d75b12bc93ff13bc7797fef05a40"
+  integrity sha1-dadAhsKT11sSvJP/E7x3l/7wWkA=
+
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/@types/color-name/download/@types/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
@@ -1214,6 +1219,17 @@
     estree-walker "^2.0.1"
     source-map "^0.6.1"
 
+"@vue/compiler-core@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/compiler-core/download/@vue/compiler-core-3.0.0-rc.6.tgz#d5bae6ba028068aa54706a5c9c1e8e34a296b4ce"
+  integrity sha1-1brmugKAaKpUcGpcnB6ONKKWtM4=
+  dependencies:
+    "@babel/parser" "^7.10.4"
+    "@babel/types" "^7.10.4"
+    "@vue/shared" "3.0.0-rc.6"
+    estree-walker "^2.0.1"
+    source-map "^0.6.1"
+
 "@vue/compiler-dom@3.0.0-rc.5", "@vue/compiler-dom@^3.0.0-rc.5":
   version "3.0.0-rc.5"
   resolved "https://registry.npm.taobao.org/@vue/compiler-dom/download/@vue/compiler-dom-3.0.0-rc.5.tgz?cache=0&sync_timestamp=1595984292632&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fcompiler-dom%2Fdownload%2F%40vue%2Fcompiler-dom-3.0.0-rc.5.tgz#83905e8601123a3654b90fbd80708a16530ce21a"
@@ -1221,6 +1237,14 @@
   dependencies:
     "@vue/compiler-core" "3.0.0-rc.5"
     "@vue/shared" "3.0.0-rc.5"
+
+"@vue/compiler-dom@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/compiler-dom/download/@vue/compiler-dom-3.0.0-rc.6.tgz#6d7adec707834ab75b2ab89d53f484e74eec7253"
+  integrity sha1-bXrexweDSrdbKridU/SE507sclM=
+  dependencies:
+    "@vue/compiler-core" "3.0.0-rc.6"
+    "@vue/shared" "3.0.0-rc.6"
 
 "@vue/compiler-sfc@^3.0.0-rc.4", "@vue/compiler-sfc@^3.0.0-rc.5":
   version "3.0.0-rc.5"
@@ -1259,6 +1283,13 @@
   dependencies:
     "@vue/shared" "3.0.0-rc.5"
 
+"@vue/reactivity@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/reactivity/download/@vue/reactivity-3.0.0-rc.6.tgz#2bca7dd8b0b4219cce6d6e31fac5f30d78ac4845"
+  integrity sha1-K8p92LC0IZzObW4x+sXzDXisSEU=
+  dependencies:
+    "@vue/shared" "3.0.0-rc.6"
+
 "@vue/runtime-core@3.0.0-rc.5":
   version "3.0.0-rc.5"
   resolved "https://registry.npm.taobao.org/@vue/runtime-core/download/@vue/runtime-core-3.0.0-rc.5.tgz?cache=0&sync_timestamp=1595984293225&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fruntime-core%2Fdownload%2F%40vue%2Fruntime-core-3.0.0-rc.5.tgz#dd59af3a5fc089d1cdc05a657320c0dc17e5c362"
@@ -1267,6 +1298,14 @@
     "@vue/reactivity" "3.0.0-rc.5"
     "@vue/shared" "3.0.0-rc.5"
 
+"@vue/runtime-core@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/runtime-core/download/@vue/runtime-core-3.0.0-rc.6.tgz#cca883b6cc941db304c84ca79f43458dd8b3a5bc"
+  integrity sha1-zKiDtsyUHbMEyEynn0NFjdizpbw=
+  dependencies:
+    "@vue/reactivity" "3.0.0-rc.6"
+    "@vue/shared" "3.0.0-rc.6"
+
 "@vue/runtime-dom@3.0.0-rc.5":
   version "3.0.0-rc.5"
   resolved "https://registry.npm.taobao.org/@vue/runtime-dom/download/@vue/runtime-dom-3.0.0-rc.5.tgz?cache=0&sync_timestamp=1595984292936&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fruntime-dom%2Fdownload%2F%40vue%2Fruntime-dom-3.0.0-rc.5.tgz#2fd75a1f29b23abf0ffe5ccdedabda11721c5b5b"
@@ -1274,6 +1313,15 @@
   dependencies:
     "@vue/runtime-core" "3.0.0-rc.5"
     "@vue/shared" "3.0.0-rc.5"
+    csstype "^2.6.8"
+
+"@vue/runtime-dom@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/runtime-dom/download/@vue/runtime-dom-3.0.0-rc.6.tgz#1dd18f1a92f7e7838641741c5aa1d24ce508c5a3"
+  integrity sha1-HdGPGpL354OGQXQcWqHSTOUIxaM=
+  dependencies:
+    "@vue/runtime-core" "3.0.0-rc.6"
+    "@vue/shared" "3.0.0-rc.6"
     csstype "^2.6.8"
 
 "@vue/server-renderer@^3.0.0-rc.4":
@@ -1288,6 +1336,11 @@
   version "3.0.0-rc.5"
   resolved "https://registry.npm.taobao.org/@vue/shared/download/@vue/shared-3.0.0-rc.5.tgz?cache=0&sync_timestamp=1595984292780&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fshared%2Fdownload%2F%40vue%2Fshared-3.0.0-rc.5.tgz#cea2378e3e37363ddc1f5dd158edc9c9b5b3fff0"
   integrity sha1-zqI3jj43Nj3cH13RWO3JybWz//A=
+
+"@vue/shared@3.0.0-rc.6":
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/@vue/shared/download/@vue/shared-3.0.0-rc.6.tgz#36f70b76df1e58afc1262d44a227276ea1156e59"
+  integrity sha1-NvcLdt8eWK/BJi1EoicnbqEVblk=
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -2174,9 +2227,9 @@ cli-spinners@^2.2.0:
   resolved "https://registry.npm.taobao.org/cli-spinners/download/cli-spinners-2.4.0.tgz?cache=0&sync_timestamp=1595080377121&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcli-spinners%2Fdownload%2Fcli-spinners-2.4.0.tgz#c6256db216b878cfba4720e719cec7cf72685d7f"
   integrity sha1-xiVtsha4eM+6RyDnGc7Hz3JoXX8=
 
-clipboard@^2.0.0:
+clipboard@^2.0.0, clipboard@^2.0.6:
   version "2.0.6"
-  resolved "https://registry.npm.taobao.org/clipboard/download/clipboard-2.0.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fclipboard%2Fdownload%2Fclipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
+  resolved "https://registry.npm.taobao.org/clipboard/download/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
   integrity sha1-UpISlu7A/fd+rRdJQhshyWhkc3Y=
   dependencies:
     good-listener "^1.2.2"
@@ -7442,6 +7495,15 @@ vue@^3.0.0-rc.4, vue@^3.0.0-rc.5:
     "@vue/compiler-dom" "3.0.0-rc.5"
     "@vue/runtime-dom" "3.0.0-rc.5"
     "@vue/shared" "3.0.0-rc.5"
+
+vue@^3.0.0-rc.6:
+  version "3.0.0-rc.6"
+  resolved "https://registry.npm.taobao.org/vue/download/vue-3.0.0-rc.6.tgz?cache=0&sync_timestamp=1597929111970&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-3.0.0-rc.6.tgz#856baa7c5701e9f960b7831f8683232eb6a687d6"
+  integrity sha1-hWuqfFcB6flgt4MfhoMjLramh9Y=
+  dependencies:
+    "@vue/compiler-dom" "3.0.0-rc.6"
+    "@vue/runtime-dom" "3.0.0-rc.6"
+    "@vue/shared" "3.0.0-rc.6"
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"

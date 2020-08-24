@@ -1,5 +1,3 @@
-const path = require('path');
-
 const buildNavChildren = (name) => ({
   text: name,
   link: `/docs/components/${name.toLowerCase()}/index`,
@@ -28,9 +26,13 @@ module.exports = {
       },
       {
         text: '基础组件',
-        children: ['Button', 'Input', 'Textarea', 'Icon', 'Tag', 'Notify', 'Dropdown', 'Grid'].map(
+        children: ['Button', 'Icon', 'Tag', 'Notify', 'Dropdown', 'Grid', 'CopyLink', 'Loading'].map(
           buildNavChildren
         ),
+      },
+      {
+        text: '表单组件',
+        children: ['Input', 'Textarea', 'Radio', 'Checkbox', 'Switch'].map(buildNavChildren),
       },
     ],
     nav: [{ text: 'GitHub', link: 'https://github.com/sunkint/splendor-ui' }],

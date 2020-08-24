@@ -32,4 +32,22 @@
 
 <GridPart />
 
-<div style="height: 200px;"></div>
+#### CopyLink
+
+<CopyLinkPart />
+
+#### Loading
+
+<LoadingPart />
+
+### Radio
+
+<RadioPart />
+
+### Checkbox
+
+<CheckboxPart />
+
+### Switch
+
+<SwitchPart />

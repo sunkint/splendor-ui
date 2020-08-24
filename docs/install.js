@@ -1,5 +1,3 @@
-import { App } from 'vue';
-
 import ButtonPart from './components/preview/ButtonPart.vue';
 import InputPart from './components/preview/InputPart.vue';
 import TextareaPart from './components/preview/TextareaPart.vue';
@@ -28,8 +26,9 @@ import CheckboxBasic from './components/checkbox/basic.vue';
 import CheckboxGroup from './components/checkbox/group.vue';
 import SwitchBasic from './components/switch/basic.vue';
 import SwitchDisabled from './components/switch/disabled.vue';
+import GridBasic from './components/grid/basic.vue';
 
-export default function (app: App) {
+export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
   app.component(InputPart.name, InputPart);
   app.component(TextareaPart.name, TextareaPart);
@@ -56,4 +55,5 @@ export default function (app: App) {
   app.component('CheckboxGroup', CheckboxGroup);
   app.component('SwitchBasic', SwitchBasic);
   app.component('SwitchDisabled', SwitchDisabled);
+  app.component('GridBasic', GridBasic);
 }

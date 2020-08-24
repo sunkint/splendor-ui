@@ -1,4 +1,5 @@
 @import '../style/var.scss';
+
 $columns: 24;
 
 .sk-row {
@@ -52,8 +53,7 @@ $columns: 24;
   min-height: 1px;
 }
 
-@for $index from 1 through 24
-{
+@for $index from 1 through 24 {
   .sk-col-#{$index} {
     display: block;
     flex: 0 0 percentage(($index / $columns));

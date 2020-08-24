@@ -1,10 +1,3 @@
-# Grid 栅格
-
-### 基本用法
-
-<GridBasic />
-
-```vue
 <template>
   <div class="docs-preview-part">
     <sk-row class="my-row" :gutter="[5, 5]" :style="rowStyle">
@@ -44,22 +37,3 @@
   text-align: center;
 }
 </style>
-```
-
-### API
-
-#### Row
-
-| 参数    | 说明                                                 | 类型                           | 可选值                                                            | 默认值  |
-| ------- | ---------------------------------------------------- | ------------------------------ | ----------------------------------------------------------------- | ------- |
-| gutter  | 栅格间隔，支持数字或者数组来设置[水平间距, 垂直间距] | `number` 、 `[number, number]` |                                                                   | `0`     |
-| align   | 垂直对齐方式                                         | string                         | `top` 、 `middle` 、`bottom`                                      | `top`   |
-| justify | 水平排列方式                                         | string                         | `start` 、 `end` 、 `center` 、 `space-around` 、 `space-between` | `start` |
-
-#### Col
-
-| 参数   | 说明               | 类型   | 可选值 | 默认值 |
-| ------ | ------------------ | ------ | ------ | ------ |
-| span   | 栅格占据的格数     | number |        | `0`    |
-| offset | 栅格左侧间隔的格数 | number |        | `0`    |
-| order  | 栅格顺序           | number |        | `0`    |

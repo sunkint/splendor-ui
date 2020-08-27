@@ -50,7 +50,7 @@
       }
     }
 
-    &:active {
+    &:active:not(.sk-radio-disabled) {
       .sk-radio-before {
         background-color: $gray-400;
         box-shadow: 0 0 0 2px lighten($gray-800, 65%);

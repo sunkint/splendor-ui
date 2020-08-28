@@ -54,7 +54,7 @@ make build
 - [x] Checkbox
 - [x] Radio
 - [x] Switch
-- [ ] Grid
+- [x] Grid
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs

@@ -12,7 +12,7 @@ const Row = defineComponent({
   name: 'sk-row',
   props: {
     gutter: {
-      type: (Array as PropType<Array<number>>) || Number,
+      type: [Array, Number] as PropType<Array<number> | number>,
       default: 0,
     },
     align: {
@@ -43,15 +43,15 @@ const Row = defineComponent({
       return {
         ...(gutter.value[0] > 0
           ? {
-            marginLeft: -gutter.value[0] / 2,
-            marginRight: -gutter.value[0] / 2,
-          }
+              marginLeft: -gutter.value[0] / 2,
+              marginRight: -gutter.value[0] / 2,
+            }
           : {}),
         ...(gutter.value[1] > 0
           ? {
-            marginTop: -gutter.value[1] / 2,
-            marginBottom: -gutter.value[1] / 2,
-          }
+              marginTop: -gutter.value[1] / 2,
+              marginBottom: -gutter.value[1] / 2,
+            }
           : {}),
       };
     });

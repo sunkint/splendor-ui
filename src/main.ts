@@ -54,6 +54,8 @@ export {
   Tag,
   Notify,
   Dropdown,
+  Row,
+  Col,
   CopyLink,
   Radio,
   Checkbox,

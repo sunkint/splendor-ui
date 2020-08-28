@@ -5,7 +5,10 @@ import './index.scss';
 const Col = defineComponent({
   name: 'sk-col',
   props: {
-    span: Number,
+    span: {
+      type: Number,
+      required: true,
+    },
     offset: Number,
     order: Number,
   },
@@ -27,15 +30,15 @@ const Col = defineComponent({
       return {
         ...(gutter[0] > 0
           ? {
-            paddingLeft: gutter[0]! / 2,
-            paddingRight: gutter[0]! / 2,
-          }
+              paddingLeft: gutter[0]! / 2,
+              paddingRight: gutter[0]! / 2,
+            }
           : {}),
         ...(gutter[1]! > 0
           ? {
-            paddingTop: gutter[1]! / 2,
-            paddingBottom: gutter[1]! / 2,
-          }
+              paddingTop: gutter[1]! / 2,
+              paddingBottom: gutter[1]! / 2,
+            }
           : {}),
       };
     });

@@ -1,5 +1,3 @@
-import { App } from 'vue';
-
 import ButtonPart from './components/preview/ButtonPart.vue';
 import InputPart from './components/preview/InputPart.vue';
 import TextareaPart from './components/preview/TextareaPart.vue';
@@ -7,6 +5,7 @@ import IconPart from './components/preview/IconPart.vue';
 import TagPart from './components/preview/TagPart.vue';
 import NotifyPart from './components/preview/NotifyPart.vue';
 import DropDownPart from './components/preview/DropDownPart.vue';
+import GridPart from './components/preview/GridPart.vue';
 import CopyLinkPart from './components/preview/CopyLinkPart.vue';
 import LoadingPart from './components/preview/LoadingPart.vue';
 import RadioPart from './components/preview/RadioPart.vue';
@@ -27,8 +26,9 @@ import CheckboxBasic from './components/checkbox/basic.vue';
 import CheckboxGroup from './components/checkbox/group.vue';
 import SwitchBasic from './components/switch/basic.vue';
 import SwitchDisabled from './components/switch/disabled.vue';
+import GridBasic from './components/grid/basic.vue';
 
-export default function (app: App) {
+export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
   app.component(InputPart.name, InputPart);
   app.component(TextareaPart.name, TextareaPart);
@@ -36,6 +36,7 @@ export default function (app: App) {
   app.component(TagPart.name, TagPart);
   app.component(NotifyPart.name, NotifyPart);
   app.component(DropDownPart.name, DropDownPart);
+  app.component(GridPart.name, GridPart);
   app.component(GuideExample.name, GuideExample);
   app.component(CopyLinkPart.name, CopyLinkPart);
   app.component(LoadingPart.name, LoadingPart);
@@ -54,4 +55,5 @@ export default function (app: App) {
   app.component('CheckboxGroup', CheckboxGroup);
   app.component('SwitchBasic', SwitchBasic);
   app.component('SwitchDisabled', SwitchDisabled);
+  app.component('GridBasic', GridBasic);
 }

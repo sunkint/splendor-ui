@@ -7,6 +7,7 @@ import Icon from './icon';
 import Tag from './tag';
 import Notify from './notify';
 import Dropdown from './dropdown';
+import { Row, Col } from './grid';
 import CopyLink from './copy-link';
 import Radio from './radio';
 import Checkbox, { CheckboxGroup } from './checkbox';
@@ -20,6 +21,8 @@ const components: any[] = [
   Icon,
   Tag,
   Dropdown,
+  Row,
+  Col,
   CopyLink,
   Radio,
   Checkbox,
@@ -51,6 +54,8 @@ export {
   Tag,
   Notify,
   Dropdown,
+  Row,
+  Col,
   CopyLink,
   Radio,
   Checkbox,

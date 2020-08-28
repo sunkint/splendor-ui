@@ -28,6 +28,10 @@
 
 <DropDownPart />
 
+#### Grid
+
+<GridPart />
+
 #### CopyLink
 
 <CopyLinkPart />

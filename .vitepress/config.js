@@ -26,9 +26,17 @@ module.exports = {
       },
       {
         text: '基础组件',
-        children: ['Button', 'Icon', 'Tag', 'Notify', 'Dropdown', 'Grid', 'CopyLink', 'Loading'].map(
-          buildNavChildren
-        ),
+        children: [
+          'Button',
+          'Icon',
+          'Tag',
+          'Notify',
+          'Dropdown',
+          'Grid',
+          'CopyLink',
+          'Loading',
+          'Collapse',
+        ].map(buildNavChildren),
       },
       {
         text: '表单组件',

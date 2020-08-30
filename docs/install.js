@@ -27,6 +27,7 @@ import CheckboxGroup from './components/checkbox/group.vue';
 import SwitchBasic from './components/switch/basic.vue';
 import SwitchDisabled from './components/switch/disabled.vue';
 import GridBasic from './components/grid/basic.vue';
+import CollapseBasic from './components/collapse/basic.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -56,4 +57,5 @@ export default function (app) {
   app.component('SwitchBasic', SwitchBasic);
   app.component('SwitchDisabled', SwitchDisabled);
   app.component('GridBasic', GridBasic);
+  app.component('CollapseBasic', CollapseBasic);
 }

@@ -13,6 +13,7 @@ import Radio from './radio';
 import Checkbox, { CheckboxGroup } from './checkbox';
 import Loading from './loading';
 import Switch from './switch';
+import Collapse from './collapse';
 
 const components: any[] = [
   Button,
@@ -29,6 +30,7 @@ const components: any[] = [
   CheckboxGroup,
   Loading,
   Switch,
+  Collapse,
 ];
 
 const install = (app: App) => {
@@ -62,4 +64,5 @@ export {
   CheckboxGroup,
   Loading,
   Switch,
+  Collapse,
 };

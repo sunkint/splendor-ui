@@ -55,12 +55,12 @@ make build
 - [x] Radio
 - [x] Switch
 - [x] Grid
+- [x] Collapse
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs
 - [ ] Pagination
 - [ ] Select
-- [ ] Collapse
 - [ ] Alert
 - [ ] Popover
 - [ ] Tooltip

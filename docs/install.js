@@ -28,6 +28,9 @@ import SwitchBasic from './components/switch/basic.vue';
 import SwitchDisabled from './components/switch/disabled.vue';
 import GridBasic from './components/grid/basic.vue';
 import CollapseBasic from './components/collapse/basic.vue';
+import AccordionBasic from './components/accordion/basic.vue';
+import AccordionVModel from './components/accordion/vmodel.vue';
+import AccordionMutiple from './components/accordion/mutiple.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -58,4 +61,7 @@ export default function (app) {
   app.component('SwitchDisabled', SwitchDisabled);
   app.component('GridBasic', GridBasic);
   app.component('CollapseBasic', CollapseBasic);
+  app.component('AccordionBasic', AccordionBasic);
+  app.component('AccordionVModel', AccordionVModel);
+  app.component('AccordionMutiple', AccordionMutiple);
 }

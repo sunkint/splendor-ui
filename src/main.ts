@@ -14,6 +14,7 @@ import Checkbox, { CheckboxGroup } from './checkbox';
 import Loading from './loading';
 import Switch from './switch';
 import Collapse from './collapse';
+import { Accordion, AccordionItem } from './accordion';
 
 const components: any[] = [
   Button,
@@ -31,6 +32,8 @@ const components: any[] = [
   Loading,
   Switch,
   Collapse,
+  Accordion,
+  AccordionItem,
 ];
 
 const install = (app: App) => {
@@ -65,4 +68,6 @@ export {
   Loading,
   Switch,
   Collapse,
+  Accordion,
+  AccordionItem,
 };

@@ -36,6 +36,7 @@ module.exports = {
           'CopyLink',
           'Loading',
           'Collapse',
+          'Accordion',
         ].map(buildNavChildren),
       },
       {

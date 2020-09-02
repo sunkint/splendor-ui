@@ -16,7 +16,6 @@
     "build-doc": "npx vitepress build"
   },
   "peerDependencies": {
-    "@babel/polyfill": "^7.10.4",
     "vue": "^3.0.0-rc.4"
   },
   "devDependencies": {

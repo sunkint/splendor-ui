@@ -91,19 +91,21 @@ const Accordion = defineComponent({
         computed(() => (Array.isArray(props.modelValue) ? props.modelValue! : [props.modelValue!]))
       );
       provide('update', (value: AccordionValue, isAdd: boolean) => {
+        let updatedValue: AccordionValue | AccordionValue[] | null;
         if (mutiple.value) {
           const arrModelValue = conventToArray(props.modelValue!);
           if (isAdd) {
-            emit('update:modelValue', [...arrModelValue, value]);
+            updatedValue = [...arrModelValue, value];
+            emit('update:modelValue', updatedValue);
           } else {
-            emit(
-              'update:modelValue',
-              arrModelValue.filter((item) => item !== value)
-            );
+            updatedValue = arrModelValue.filter((item) => item !== value);
+            emit('update:modelValue', updatedValue);
           }
         } else {
-          emit('update:modelValue', isAdd ? value : null);
+          updatedValue = isAdd ? value : null;
+          emit('update:modelValue', updatedValue);
         }
+        emit('change', updatedValue);
       });
     } else {
       provide<Ref<AccordionValue[]>>('current', innerState);
@@ -117,6 +119,7 @@ const Accordion = defineComponent({
         } else {
           innerState.value = isAdd ? [value] : [];
         }
+        emit('change', innerState.value);
       });
     }
     return () => <div class="sk-accordion">{slots.default?.()}</div>;

@@ -55,7 +55,9 @@ const AccordionItem = defineComponent({
           {renderSlot(slots, 'title', {}, () => [createTextVNode(toDisplayString(props.title), 1)])}
         </div>
         <Collapse modelValue={show.value} duration={transitionDuration}>
-          <div class="sk-accordion-item-content">{slots.default?.()}</div>
+          {() => {
+            return <div class="sk-accordion-item-content">{slots.default?.()}</div>;
+          }}
         </Collapse>
       </div>
     );

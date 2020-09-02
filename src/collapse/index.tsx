@@ -42,6 +42,7 @@ const Collapse = defineComponent({
   },
   methods: {
     spread() {
+      clearTimeout(this.timerId);
       const el = this.$el as HTMLElement;
       this.$emit('show');
       el.classList.remove(COLLAPSE);
@@ -61,6 +62,7 @@ const Collapse = defineComponent({
       }, this.duration);
     },
     fold() {
+      clearTimeout(this.timerId);
       const el = this.$el as HTMLElement;
       this.$emit('hide');
       el.style.height = window.getComputedStyle(el).height;

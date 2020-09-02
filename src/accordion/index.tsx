@@ -38,17 +38,23 @@ const AccordionItem = defineComponent({
   setup(props, { slots }) {
     const currentValue = inject<Ref<AccordionValue[]>>('current');
     const updateSelect = inject<(value: AccordionValue, isAdd: boolean) => void>('update');
+    const transitionDuration = inject<Ref<number>>('transitionDuration')?.value || 350;
+    const transitionDurationStyle = { transitionDuration: `${transitionDuration}ms` };
     const show = computed(() => currentValue?.value.includes(props.value) || false);
     const select = () => {
       updateSelect?.(props.value, !show.value);
     };
     return () => (
       <div class={['sk-accordion-item', { 'sk-accordion-item-spread': show.value }]}>
-        <div class="sk-accordion-item-title" onClick={select}>
-          <Icon class="sk-accordion-item-arrow" type="right-simple" />
+        <div class="sk-accordion-item-title" style={transitionDurationStyle} onClick={select}>
+          <Icon
+            class="sk-accordion-item-arrow"
+            style={transitionDurationStyle}
+            type="right-simple"
+          />
           {renderSlot(slots, 'title', {}, () => [createTextVNode(toDisplayString(props.title), 1)])}
         </div>
-        <Collapse modelValue={show.value}>
+        <Collapse modelValue={show.value} duration={transitionDuration}>
           <div class="sk-accordion-item-content">{slots.default?.()}</div>
         </Collapse>
       </div>
@@ -66,7 +72,6 @@ const Accordion = defineComponent({
       type: Boolean,
       default: false,
     },
-    // TODO
     duration: {
       type: Number,
       default: 350,
@@ -76,6 +81,10 @@ const Accordion = defineComponent({
     const innerState = ref<AccordionValue[]>([]);
     const hasVModel = props.modelValue !== undefined;
     const mutiple = computed(() => props.mutiple);
+    provide(
+      'transitionDuration',
+      computed(() => props.duration)
+    );
     if (hasVModel) {
       provide<Ref<AccordionValue[]>>(
         'current',

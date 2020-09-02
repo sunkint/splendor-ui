@@ -56,6 +56,7 @@ make build
 - [x] Switch
 - [x] Grid
 - [x] Collapse
+- [x] Accordion
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs

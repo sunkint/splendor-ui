@@ -31,6 +31,7 @@ import CollapseBasic from './components/collapse/basic.vue';
 import AccordionBasic from './components/accordion/basic.vue';
 import AccordionVModel from './components/accordion/vmodel.vue';
 import AccordionMutiple from './components/accordion/mutiple.vue';
+import AccordionSlot from './components/accordion/slot.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -64,4 +65,5 @@ export default function (app) {
   app.component('AccordionBasic', AccordionBasic);
   app.component('AccordionVModel', AccordionVModel);
   app.component('AccordionMutiple', AccordionMutiple);
+  app.component('AccordionSlot', AccordionSlot);
 }

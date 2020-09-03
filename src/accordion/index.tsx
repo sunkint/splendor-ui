@@ -16,7 +16,7 @@ import './index.scss';
 
 export type AccordionValue = string | number | symbol;
 
-const conventToArray = (modelValue: null | AccordionValue | AccordionValue[]) => {
+const convertToArray = (modelValue: null | AccordionValue | AccordionValue[]) => {
   if (modelValue === null) {
     return [];
   }
@@ -37,7 +37,13 @@ const AccordionItem = defineComponent({
   },
   setup(props, { slots }) {
     const currentValue = inject<Ref<AccordionValue[]>>('current');
+    if (currentValue === undefined) {
+      console.warn('AccordionItem cannot get currentValue.');
+    }
     const updateSelect = inject<(value: AccordionValue, isAdd: boolean) => void>('update');
+    if (updateSelect === undefined) {
+      console.warn('AccordionItem cannot get updateSelect.');
+    }
     const transitionDurationRef = inject<Ref<number>>('transitionDuration', ref(350));
     const transitionDurationStyle = computed(() => ({
       transitionDuration: `${transitionDurationRef.value}ms`,
@@ -95,7 +101,7 @@ const Accordion = defineComponent({
       provide('update', (value: AccordionValue, isAdd: boolean) => {
         let updatedValue: AccordionValue | AccordionValue[] | null;
         if (mutiple.value) {
-          const arrModelValue = conventToArray(props.modelValue!);
+          const arrModelValue = convertToArray(props.modelValue!);
           if (isAdd) {
             updatedValue = [...arrModelValue, value];
             emit('update:modelValue', updatedValue);

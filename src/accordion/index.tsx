@@ -26,6 +26,10 @@ const convertToArray = (modelValue: null | AccordionValue | AccordionValue[]) =>
   return [modelValue];
 };
 
+const Current = Symbol();
+const Update = Symbol();
+const TransitionDuration = Symbol();
+
 const AccordionItem = defineComponent({
   name: 'sk-accordion-item',
   props: {
@@ -36,15 +40,15 @@ const AccordionItem = defineComponent({
     },
   },
   setup(props, { slots }) {
-    const currentValue = inject<Ref<AccordionValue[]>>('current');
+    const currentValue = inject<Ref<AccordionValue[]>>(Current);
     if (currentValue === undefined) {
       console.warn('AccordionItem cannot get currentValue.');
     }
-    const updateSelect = inject<(value: AccordionValue, isAdd: boolean) => void>('update');
+    const updateSelect = inject<(value: AccordionValue, isAdd: boolean) => void>(Update);
     if (updateSelect === undefined) {
       console.warn('AccordionItem cannot get updateSelect.');
     }
-    const transitionDurationRef = inject<Ref<number>>('transitionDuration', ref(350));
+    const transitionDurationRef = inject<Ref<number>>(TransitionDuration, ref(350));
     const transitionDurationStyle = computed(() => ({
       transitionDuration: `${transitionDurationRef.value}ms`,
     }));
@@ -90,15 +94,15 @@ const Accordion = defineComponent({
     const hasVModel = props.modelValue !== undefined;
     const mutiple = computed(() => props.mutiple);
     provide(
-      'transitionDuration',
+      TransitionDuration,
       computed(() => props.duration)
     );
     if (hasVModel) {
       provide<Ref<AccordionValue[]>>(
-        'current',
+        Current,
         computed(() => (Array.isArray(props.modelValue) ? props.modelValue! : [props.modelValue!]))
       );
-      provide('update', (value: AccordionValue, isAdd: boolean) => {
+      provide(Update, (value: AccordionValue, isAdd: boolean) => {
         let updatedValue: AccordionValue | AccordionValue[] | null;
         if (mutiple.value) {
           const arrModelValue = convertToArray(props.modelValue!);
@@ -116,8 +120,8 @@ const Accordion = defineComponent({
         emit('change', updatedValue);
       });
     } else {
-      provide<Ref<AccordionValue[]>>('current', innerState);
-      provide('update', (value: AccordionValue, isAdd: boolean) => {
+      provide<Ref<AccordionValue[]>>(Current, innerState);
+      provide(Update, (value: AccordionValue, isAdd: boolean) => {
         if (mutiple.value) {
           if (isAdd) {
             innerState.value.push(value);
@@ -131,6 +135,9 @@ const Accordion = defineComponent({
       });
     }
     return () => <div class="sk-accordion">{slots.default?.()}</div>;
+  },
+  mounted() {
+    console.log('children', this.$children);
   },
 });
 

@@ -136,9 +136,6 @@ const Accordion = defineComponent({
     }
     return () => <div class="sk-accordion">{slots.default?.()}</div>;
   },
-  mounted() {
-    console.log('children', this.$children);
-  },
 });
 
 export { AccordionItem, Accordion };

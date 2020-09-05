@@ -10,6 +10,9 @@ module.exports = (env = {}) => ({
     path: path.resolve(__dirname, './es'),
     libraryTarget: 'commonjs2',
   },
+  optimization: {
+    minimizer: [], // disable minify
+  },
   resolve: {
     alias: {
       // this isn't technically needed, since the default `vue` entry for bundlers
@@ -58,9 +61,9 @@ module.exports = (env = {}) => ({
           {
             loader: 'sass-loader',
             options: {
-              implementation: require('sass')
-            }
-          }
+              implementation: require('sass'),
+            },
+          },
         ],
       },
       {

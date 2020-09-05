@@ -13,6 +13,9 @@ module.exports = (env = {}) => ({
   optimization: {
     minimizer: [], // disable minify
   },
+  externals: {
+    vue: 'Vue',
+  },
   resolve: {
     alias: {
       // this isn't technically needed, since the default `vue` entry for bundlers

@@ -15,6 +15,7 @@ import Loading from './loading';
 import Switch from './switch';
 import Collapse from './collapse';
 import { Accordion, AccordionItem } from './accordion';
+import Pagination from './pagination';
 
 const components: any[] = [
   Button,
@@ -34,6 +35,7 @@ const components: any[] = [
   Collapse,
   Accordion,
   AccordionItem,
+  Pagination,
 ];
 
 const install = (app: App) => {
@@ -70,4 +72,5 @@ export {
   Collapse,
   Accordion,
   AccordionItem,
+  Pagination,
 };

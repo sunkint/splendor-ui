@@ -125,7 +125,6 @@ const Dropdown = defineComponent({
             type={type}
             ref={(el: any) => (trigger.value = el?.$el)}
             disabled={disabled}
-            // @ts-ignore
             onClick={triggerMenu}
           >
             {() => (

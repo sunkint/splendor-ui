@@ -16,6 +16,10 @@
   &-content {
     font-size: 14px;
     padding: 16px 12px;
+
+    & > p {
+      margin-top: 0;
+    }
   }
 
   & + .sk-accordion-item {

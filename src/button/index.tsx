@@ -24,6 +24,7 @@ const Button = defineComponent({
     href: String,
     round: Boolean,
     disabled: Boolean,
+    onClick: Function as PropType<(e: Event) => any>,
   },
   setup(props, { slots }) {
     const useLink = computed(() => !!props.href);
@@ -36,6 +37,12 @@ const Button = defineComponent({
         'sk-btn-round': props.round,
       },
     ]);
+
+    const onClick = (e: Event) => {
+      if (props.disabled) return;
+      props.onClick?.(e);
+    };
+
     return () => {
       if (useLink.value) {
         return (
@@ -43,6 +50,7 @@ const Button = defineComponent({
             class={btnClass.value}
             href={props.disabled ? undefined : props.href}
             target={props.target}
+            onClick={onClick}
           >
             {slots.default && slots.default()}
           </a>
@@ -50,7 +58,7 @@ const Button = defineComponent({
       }
 
       return (
-        <button class={btnClass.value} disabled={props.disabled}>
+        <button class={btnClass.value} disabled={props.disabled} onClick={onClick}>
           {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}
           {slots.default && slots.default()}
         </button>

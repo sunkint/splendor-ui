@@ -57,10 +57,10 @@ make build
 - [x] Grid
 - [x] Collapse
 - [x] Accordion
+- [x] Pagination
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs
-- [ ] Pagination
 - [ ] Select
 - [ ] Alert
 - [ ] Popover

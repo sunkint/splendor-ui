@@ -1,0 +1,50 @@
+@import '../style/var.scss';
+
+.sk-accordion-item {
+  &-title {
+    position: relative;
+    font-size: 14px;
+    padding: 12px;
+    line-height: 20px;
+    border-top: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+    cursor: pointer;
+    user-select: none;
+    transition: border-bottom-color 0.35s;
+  }
+
+  &-content {
+    font-size: 14px;
+    padding: 16px 12px;
+
+    & > p {
+      margin-top: 0;
+    }
+  }
+
+  & + .sk-accordion-item {
+    margin-top: -1px;
+  }
+
+  &-arrow {
+    position: absolute;
+    font-size: 12px;
+    top: 12px;
+    right: 12px;
+    line-height: 20px;
+    color: $gray-600;
+    transition: transform 0.35s;
+  }
+
+  &-spread {
+    .sk-accordion-item {
+      &-title {
+        border-bottom-color: transparent;
+      }
+
+      &-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}

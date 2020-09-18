@@ -2,7 +2,9 @@
   <div class="docs-preview-part">
     <div class="flex">
       <sk-textarea placeholder="输点什么吧" v-model="content" :autoHeight="autoHeight" />
-      <sk-button type="primary" @click="autoHeight = !autoHeight">autoHeight: {{ autoHeight }}</sk-button>
+      <div style="margin-left: 8px; margin-top: 8px;">
+        <sk-switch v-model="autoHeight" /> autoHeight
+      </div>
     </div>
     <p>输入的内容：{{ content }}</p>
   </div>
@@ -15,7 +17,7 @@ export default {
     content: '',
     autoHeight: true,
   }),
-}
+};
 </script>
 
 <style lang="scss" scoped>

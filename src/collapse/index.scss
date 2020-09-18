@@ -1,0 +1,19 @@
+.sk-collapse {
+  display: none;
+
+  &-box {
+    overflow: hidden;
+    box-sizing: border-box;
+    transition-property: height, visibility;
+    transition-timing-function: ease;
+  }
+
+  &-spread {
+    display: block;
+  }
+
+  &-ing {
+    position: relative;
+    height: 0;
+  }
+}

@@ -44,6 +44,24 @@
 </template>
 ```
 
+### 带图标
+
+<div class="docs-preview-part">
+  <sk-button icon="search" size="small">搜索</sk-button>
+  <sk-button icon="search" size="normal">搜索</sk-button>
+  <sk-button icon="search" size="large">搜索</sk-button>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-button icon="search" size="small">搜索</sk-button>
+    <sk-button icon="search" size="normal">搜索</sk-button>
+    <sk-button icon="search" size="large">搜索</sk-button>
+  </div>
+</template>
+```
+
 ### 禁用
 
 <div class="docs-preview-part">
@@ -74,7 +92,14 @@
 | -------- | ------------------------------------------------- | ------ | ------------------------------------------------------------ | --------- |
 | type     | 按钮样式类型                                      | string | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
 | size     | 按钮大小                                          | string | `normal`、`small`、`large`                                   | `normal`  |
+| icon     | 前置图标                                          | string | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
 | round    | 是否显示为圆角                                    | bool   |                                                              | `false`   |
 | disabled | 是否禁用                                          | bool   |                                                              | `false`   |
 | href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                              | -         |
 | target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                              | `_blank`  |
+
+### 事件
+
+| 事件  | 说明       | 携带参数   |
+| ----- | ---------- | ---------- |
+| click | 点击时触发 | (e: Event) |

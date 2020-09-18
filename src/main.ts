@@ -7,9 +7,36 @@ import Icon from './icon';
 import Tag from './tag';
 import Notify from './notify';
 import Dropdown from './dropdown';
+import { Row, Col } from './grid';
 import CopyLink from './copy-link';
+import Radio from './radio';
+import Checkbox, { CheckboxGroup } from './checkbox';
+import Loading from './loading';
+import Switch from './switch';
+import Collapse from './collapse';
+import { Accordion, AccordionItem } from './accordion';
+import Pagination from './pagination';
 
-const components: any[] = [Button, Input, Textarea, Icon, Tag, Dropdown, CopyLink];
+const components: any[] = [
+  Button,
+  Input,
+  Textarea,
+  Icon,
+  Tag,
+  Dropdown,
+  Row,
+  Col,
+  CopyLink,
+  Radio,
+  Checkbox,
+  CheckboxGroup,
+  Loading,
+  Switch,
+  Collapse,
+  Accordion,
+  AccordionItem,
+  Pagination,
+];
 
 const install = (app: App) => {
   components.forEach((Component) => {
@@ -25,4 +52,25 @@ const install = (app: App) => {
   });
 };
 
-export { install, Button, Input, Textarea, Icon, Tag, Notify, Dropdown, CopyLink };
+export {
+  install,
+  Button,
+  Input,
+  Textarea,
+  Icon,
+  Tag,
+  Notify,
+  Dropdown,
+  Row,
+  Col,
+  CopyLink,
+  Radio,
+  Checkbox,
+  CheckboxGroup,
+  Loading,
+  Switch,
+  Collapse,
+  Accordion,
+  AccordionItem,
+  Pagination,
+};

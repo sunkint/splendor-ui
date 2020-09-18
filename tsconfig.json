@@ -18,5 +18,5 @@
     "skipLibCheck": true,
     "outDir": "./es/types/"
   },
-  "exclude": ["./node_modules", "./es"]
+  "exclude": ["./node_modules", "./es", "./docs"]
 }

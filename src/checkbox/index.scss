@@ -1,0 +1,77 @@
+@import '../style/var.scss';
+
+.sk-checkbox {
+  display: inline-block;
+  font-size: 16px;
+
+  &-group & {
+    margin-right: 8px;
+  }
+
+  &-input {
+    opacity: 0;
+    cursor: pointer;
+
+    & + .sk-checkbox-before {
+      position: absolute;
+      box-sizing: border-box;
+      width: 16px;
+      height: 16px;
+      left: 0;
+      top: 3px;
+      border-radius: 4px;
+      pointer-events: none;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $secondary;
+      transition: all 0.15s;
+    }
+
+    &:checked + .sk-checkbox-before {
+      border-color: $primary;
+      border-width: 8px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        right: -8px;
+        top: -8px;
+        bottom: -8px;
+        color: $white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+      }
+    }
+  }
+
+  &-label {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    cursor: pointer;
+
+    &.sk-checkbox-disabled {
+      color: $dark;
+      cursor: not-allowed;
+
+      .sk-checkbox-input {
+        pointer-events: none;
+      }
+
+      .sk-checkbox-before {
+        border-color: $secondary;
+        background-color: $gray-200;
+      }
+    }
+
+    &:active:not(.sk-checkbox-disabled) {
+      .sk-checkbox-before {
+        background-color: $gray-400;
+        box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+      }
+    }
+  }
+}

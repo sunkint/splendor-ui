@@ -22,9 +22,6 @@ module.exports = {
         link: '/docs/preview',
       },
       {
-        text: '————',
-      },
-      {
         text: '基础组件',
         children: [
           'Button',

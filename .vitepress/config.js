@@ -35,6 +35,7 @@ module.exports = {
           'Collapse',
           'Accordion',
           'Pagination',
+          'BackTop',
         ].map(buildNavChildren),
       },
       {

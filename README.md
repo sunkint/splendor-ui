@@ -58,6 +58,7 @@ make build
 - [x] Collapse
 - [x] Accordion
 - [x] Pagination
+- [x] BackTop
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs
@@ -69,7 +70,6 @@ make build
 - [ ] Steps
 - [ ] Avatar
 - [ ] Menu
-- [ ] BackTop
 - [ ] DatetimePicker
 - [ ] InfiniteScroll
 

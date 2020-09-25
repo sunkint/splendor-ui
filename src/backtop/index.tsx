@@ -21,7 +21,11 @@ const BackTop = defineComponent({
     };
 
     const checkShouldHide = () => {
-      shouldHide.value = pageYOffset < props.distance;
+      try {
+        shouldHide.value = window.pageYOffset < props.distance;
+      } catch (e) {
+        shouldHide.value = true;
+      }
     };
 
     checkShouldHide();

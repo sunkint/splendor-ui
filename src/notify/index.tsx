@@ -34,6 +34,8 @@ const startNotify = (options: NotifyOption) => {
         return (
           <Teleport to="body">
             <div class="sk-notify-wrapper">
+              {/*
+              // @ts-ignore */}
               <NotifyApp options={this.notifyList} />
             </div>
           </Teleport>

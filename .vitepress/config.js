@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         text: '展示组件',
-        children: ['Avatar', 'Collapse', 'Accordion'].map(buildNavChildren),
+        children: ['Alert', 'Avatar', 'Collapse', 'Accordion'].map(buildNavChildren),
       },
       {
         text: '表单组件',

@@ -33,6 +33,7 @@ import AccordionVModel from './components/accordion/vmodel.vue';
 import AccordionMutiple from './components/accordion/mutiple.vue';
 import AccordionSlot from './components/accordion/slot.vue';
 import PaginationBasic from './components/pagination/basic.vue';
+import AlertClosable from './components/alert/closable.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -68,4 +69,5 @@ export default function (app) {
   app.component('AccordionMutiple', AccordionMutiple);
   app.component('AccordionSlot', AccordionSlot);
   app.component('PaginationBasic', PaginationBasic);
+  app.component('AlertClosable', AlertClosable);
 }

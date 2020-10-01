@@ -18,6 +18,7 @@ import { Accordion, AccordionItem } from './accordion';
 import Pagination from './pagination';
 import BackTop from './backtop';
 import Avatar from './avatar';
+import Alert from './alert';
 
 const components: any[] = [
   Button,
@@ -40,6 +41,7 @@ const components: any[] = [
   Pagination,
   BackTop,
   Avatar,
+  Alert,
 ];
 
 const install = (app: App) => {
@@ -79,4 +81,5 @@ export {
   Pagination,
   BackTop,
   Avatar,
+  Alert,
 };

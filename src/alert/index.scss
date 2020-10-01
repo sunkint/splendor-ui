@@ -1,0 +1,67 @@
+@import '../style/var.scss';
+
+.sk-alert {
+  position: relative;
+  border: none;
+  color: $white;
+  border-radius: 4px;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  font-size: 15px;
+
+  &-closable {
+    padding-right: 64px;
+  }
+
+  &-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.4;
+  }
+
+  &-content {
+    a {
+      color: inherit;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+  }
+
+  &-warning {
+    background-color: $warning;
+  }
+
+  &-info {
+    background-color: $info;
+  }
+
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+
+  &-secondary {
+    background-color: $secondary;
+  }
+
+  &-light {
+    background-color: $light;
+    color: $gray-900;
+  }
+}

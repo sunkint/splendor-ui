@@ -60,11 +60,11 @@ make build
 - [x] Pagination
 - [x] BackTop
 - [x] Avatar
+- [x] Alert
 - [ ] Dialog
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select
-- [ ] Alert
 - [ ] Popover
 - [ ] Tooltip
 - [ ] Table

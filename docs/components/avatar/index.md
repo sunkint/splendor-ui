@@ -88,11 +88,17 @@
 
 ### API
 
-| 参数     | 说明       | 类型           | 可选值                                       | 默认值    |
-| -------- | ---------- | -------------- | -------------------------------------------- | --------- |
-| size     | 头像大小   | number、string | `small`、`default`、`large`、数字（最小 20） | `default` |
-| shape    | 头像形状   | string         | `circle`、`square`                           | `circle`  |
-| bordered | 是否有边框 | bool           |                                              | `false`   |
-| src      | 图片路径   | string         |                                              | -         |
-| icon     | 图标类型   | string         | 和 `src` 需要二选一赋值                      | -         |
-| alt      | html alt   | string         |                                              | -         |
+| 参数     | 说明                              | 类型           | 可选值                                       | 默认值    |
+| -------- | --------------------------------- | -------------- | -------------------------------------------- | --------- |
+| size     | 头像大小                          | number、string | `small`、`default`、`large`、数字（最小 20） | `default` |
+| shape    | 头像形状                          | string         | `circle`、`square`                           | `circle`  |
+| bordered | 是否有边框                        | bool           |                                              | `false`   |
+| src      | 图片路径                          | string         |                                              | -         |
+| icon     | 图标类型，和 `src` 需要二选一赋值 | string         |                                              | -         |
+| alt      | html alt                          | string         |                                              | -         |
+
+### 事件
+
+| 事件  | 说明               | 携带参数 |
+| ----- | ------------------ | -------- |
+| error | 图片加载失败时触发 | -        |

@@ -1,0 +1,68 @@
+@import '../style/var.scss';
+
+$size-small: 32px;
+$size-default: 64px;
+$size-large: 128px;
+
+.sk-avatar {
+  display: block;
+  background-color: $gray-200;
+  color: $white;
+  border-radius: 50%;
+  width: $size-default;
+  height: $size-default;
+  line-height: $size-default;
+  font-size: $size-default * 0.6;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+
+  &-small {
+    width: $size-small;
+    height: $size-small;
+    line-height: $size-small;
+    font-size: $size-small * 0.6;
+  }
+
+  &-large {
+    width: $size-large;
+    height: $size-large;
+    line-height: $size-large;
+    font-size: $size-large * 0.6;
+  }
+
+  &-square {
+    border-radius: 2px;
+  }
+
+  &-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $gray-200;
+    object-fit: cover;
+
+    & + .sk-avatar-icon-wrapper {
+      display: none;
+    }
+  }
+
+  &-bordered {
+    border: 1px solid $gray-300;
+    padding: 2px;
+
+    .sk-avatar-image {
+      border-radius: 50%;
+    }
+
+    &.sk-avatar-square {
+      .sk-avatar-image {
+        border-radius: 2px;
+      }
+    }
+  }
+
+  &-icon {
+    font-weight: bold;
+  }
+}

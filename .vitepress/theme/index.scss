@@ -1,6 +1,12 @@
 .docs-preview-part {
   margin-bottom: 20px;
 
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+
   & > * {
     margin-right: 8px;
   }

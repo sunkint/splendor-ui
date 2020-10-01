@@ -32,11 +32,13 @@ module.exports = {
           'Grid',
           'CopyLink',
           'Loading',
-          'Collapse',
-          'Accordion',
           'Pagination',
           'BackTop',
         ].map(buildNavChildren),
+      },
+      {
+        text: '展示组件',
+        children: ['Avatar', 'Collapse', 'Accordion'].map(buildNavChildren),
       },
       {
         text: '表单组件',

@@ -1,0 +1,91 @@
+@import '../style/var.scss';
+
+.sk-dialog-backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($black, 0.6);
+  z-index: 1050;
+}
+
+.sk-dialog-r {
+  display: inline-block;
+  position: relative;
+  background-color: $white;
+  box-shadow: 0 5px 15px rgba($black, 0.5);
+  min-width: 560px;
+  max-width: 75%;
+  vertical-align: middle;
+  text-align: initial;
+  border-radius: 4px;
+  padding: 16px 0;
+  box-sizing: border-box;
+  white-space: normal;
+
+  @media (max-width: 767px) {
+    width: 90%;
+    max-width: 90%;
+    min-width: 0;
+  }
+
+  &-wrapper {
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1050;
+    outline: 0;
+    text-align: center;
+    font-size: 0;
+    white-space: nowrap;
+
+    &:before {
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.sk-dialog {
+  &-header {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 16px 14px;
+    border-bottom: 1px solid $gray-400;
+  }
+
+  &-body {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 16px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 14px;
+    right: 12px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 0 0 6px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    opacity: 0.4;
+  }
+}
+
+body.sk-no-scroll {
+  overflow-y: hidden;
+}

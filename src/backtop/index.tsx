@@ -41,11 +41,11 @@ const BackTop = defineComponent({
     return () => (
       <Teleport to="body">
         <Transition name="fade">
-          {!shouldHide.value && (
+          {!shouldHide.value ? (
             <div class="sk-back-top" onClick={scrollToTop}>
               <Icon type="up-simple" />
             </div>
-          )}
+          ) : null}
         </Transition>
       </Teleport>
     );

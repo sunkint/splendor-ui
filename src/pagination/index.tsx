@@ -51,11 +51,13 @@ const Pagination = defineComponent({
     return () => (
       <div class="sk-pagination">
         <div class="sk-pagination-inner" style={{ float: props.align }}>
-          {currentPage.value > 1 && (
+          {currentPage.value > 1 ? (
             <>
               <Button onClick={update.bind(null, 1)}>首页</Button>
               <Button onClick={update.bind(null, currentPage.value - 1)}>上一页</Button>
             </>
+          ) : (
+            false
           )}
           {pageList.value.map((item) => {
             if (item !== currentPage.value) {
@@ -67,12 +69,12 @@ const Pagination = defineComponent({
             }
             return <span class="sk-pagination-current">{item}</span>;
           })}
-          {currentPage.value < props.totalPages && (
+          {currentPage.value < props.totalPages ? (
             <>
               <Button onClick={update.bind(null, currentPage.value + 1)}>下一页</Button>
               <Button onClick={update.bind(null, props.totalPages)}>尾页</Button>
             </>
-          )}
+          ) : null}
         </div>
       </div>
     );

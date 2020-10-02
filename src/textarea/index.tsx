@@ -96,7 +96,7 @@ const Textarea = defineComponent({
           readonly={this.readonly}
           autofocus={this.autofocus}
         />
-        {autoHeight && (
+        {autoHeight ? (
           <div
             ref="computed"
             style={{ width: `${outerWidth}px` }}
@@ -104,7 +104,7 @@ const Textarea = defineComponent({
           >
             {autoHeightComputedValue}
           </div>
-        )}
+        ) : null}
       </div>
     );
   },

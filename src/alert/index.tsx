@@ -35,11 +35,11 @@ const Alert = defineComponent({
     });
     return () => (
       <div class={alertClass.value}>
-        {props.closable && (
+        {props.closable ? (
           <button class="sk-alert-close" onClick={onClose}>
             <Icon type="close" />
           </button>
-        )}
+        ) : null}
         <div class="sk-alert-content">{slots.default?.()}</div>
       </div>
     );

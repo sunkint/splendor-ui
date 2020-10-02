@@ -84,15 +84,23 @@ export default {
 </script>
 ```
 
+### Tip: 如何指定宽度？
+
+默认 `Dialog` 会自适应内容的宽度，并具有最小和最大宽度；
+
+在 `style` 里可以指定对话框的宽度，如 `style="width: 600px"` 。
+
 ### API
 
-| 参数         | 说明                    | 类型   | 可选值 | 默认值 |
-| ------------ | ----------------------- | ------ | ------ | ------ |
-| title        | 对话框标题              | string |        | `提示` |
-| v-model      | 控制对话框打开/关闭     | bool   |        | -      |
-| maskClosable | 是否可以点击蒙层关闭    | bool   |        | `true` |
-| closeBtn     | 是否显示右上角关闭按钮  | bool   |        | `true` |
-| closeOnEsc   | 是否可以通过 ESC 键关闭 | bool   |        | `true` |
+| 参数         | 说明                    | 类型                  | 可选值 | 默认值 |
+| ------------ | ----------------------- | --------------------- | ------ | ------ |
+| title        | 对话框标题              | string                |        | `提示` |
+| v-model      | 控制对话框打开/关闭     | bool                  |        | -      |
+| maskClosable | 是否可以点击蒙层关闭    | bool                  |        | `true` |
+| closeBtn     | 是否显示右上角关闭按钮  | bool                  |        | `true` |
+| closeOnEsc   | 是否可以通过 ESC 键关闭 | bool                  |        | `true` |
+| class        | 对话框的自定义额外类名  | string、array、object |        | -      |
+| style        | 对话框的自定义额外样式  | string、object        |        | -      |
 
 ### 事件
 

@@ -54,3 +54,48 @@ export default {
 };
 </script>
 ```
+
+### 带 Footer 的对话框
+
+<DialogFooter />
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-button @click="show = true">打开对话框</sk-button>
+    <sk-dialog title="带 Footer 的对话框" v-model="show">
+      <p>这里是对话框的内容</p>
+      <template #footer>
+        <sk-button @click="show = false">取消</sk-button>
+        <sk-button @click="show = false" type="primary">确定</sk-button>
+      </template>
+    </sk-dialog>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+    };
+  },
+};
+</script>
+```
+
+### API
+
+| 参数         | 说明                    | 类型   | 可选值 | 默认值 |
+| ------------ | ----------------------- | ------ | ------ | ------ |
+| title        | 对话框标题              | string |        | `提示` |
+| v-model      | 控制对话框打开/关闭     | bool   |        | -      |
+| maskClosable | 是否可以点击蒙层关闭    | bool   |        | `true` |
+| closeBtn     | 是否显示右上角关闭按钮  | bool   |        | `true` |
+| closeOnEsc   | 是否可以通过 ESC 键关闭 | bool   |        | `true` |
+
+### 事件
+
+| 事件  | 说明                               | 携带参数 |
+| ----- | ---------------------------------- | -------- |
+| close | 关闭对话框时触发（外部控制不触发） | -        |

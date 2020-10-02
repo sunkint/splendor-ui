@@ -98,6 +98,20 @@
     }
   }
 
+  &-footer {
+    text-align: right;
+    padding: 16px 16px 0;
+
+    .sk-btn {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .sk-btn + .sk-btn {
+      margin-left: 8px;
+    }
+  }
+
   &-close {
     position: absolute;
     top: 14px;

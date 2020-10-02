@@ -61,7 +61,7 @@ make build
 - [x] BackTop
 - [x] Avatar
 - [x] Alert
-- [ ] Dialog
+- [x] Dialog
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select

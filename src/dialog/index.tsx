@@ -118,6 +118,14 @@ const Dialog = defineComponent({
 
       watch(() => props.modelValue, onVisibleChange);
 
+      // 解决嵌套 dialog 一同销毁问题，额外判断下
+      watch(isShowWrapper, (value) => {
+        if (!value && document.querySelectorAll('body > .sk-dialog-r-wrapper').length === 0) {
+          dialogCount = 0;
+          document.body.classList.remove('sk-no-scroll');
+        }
+      });
+
       // 如果一开始对话框就是打开状态
       if (props.modelValue) {
         onVisibleChange(true);
@@ -173,6 +181,7 @@ const Dialog = defineComponent({
                   ) : null}
                   <div class="sk-dialog-header">{props.title}</div>
                   <div class="sk-dialog-body">{slots.default?.()}</div>
+                  {slots.footer ? <div class="sk-dialog-footer">{slots.footer()}</div> : null}
                 </div>
               ) : null}
             </Transition>

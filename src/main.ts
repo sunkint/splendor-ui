@@ -19,6 +19,7 @@ import Pagination from './pagination';
 import BackTop from './backtop';
 import Avatar from './avatar';
 import Alert from './alert';
+import Dialog from './dialog';
 
 const components: any[] = [
   Button,
@@ -42,6 +43,7 @@ const components: any[] = [
   BackTop,
   Avatar,
   Alert,
+  Dialog,
 ];
 
 const install = (app: App) => {
@@ -82,4 +84,5 @@ export {
   BackTop,
   Avatar,
   Alert,
+  Dialog,
 };

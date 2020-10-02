@@ -1,0 +1,59 @@
+$timing-fn-ease-in-out: cubic-bezier(0.5, 0, 0.5, 0.1); // 组件内变化
+$timing-fn-ease-in: cubic-bezier(0.17, 0.84, 0.44, 0.1); // 入场
+$timing-fn-ease-out: cubic-bezier(0.18, 0.66, 0.6, 0.82); // 出场
+$timing-fn-linear: cubic-bezier(0, 0, 0.1, 0.1); // 线性
+
+@mixin sk-zoom-origin {
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+
+@mixin sk-zoom-appear {
+  animation: 160ms $timing-fn-ease-in 0s 1 normal both running sk-ani-zoomin,
+    100ms $timing-fn-ease-in 60ms 1 normal both running sk-ani-fadein;
+}
+
+@mixin sk-zoom-exit {
+  animation: 160ms $timing-fn-ease-out 0s 1 normal both running sk-ani-zoomout,
+    100ms $timing-fn-ease-out 60ms 1 normal both running sk-ani-fadeout;
+}
+
+@keyframes sk-ani-zoomin {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sk-ani-zoomout {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes sk-ani-fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes sk-ani-fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

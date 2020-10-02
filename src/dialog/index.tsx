@@ -1,6 +1,6 @@
-import { defineComponent, onMounted, ref, Teleport, watch } from 'vue';
-import Icon from '../icon';
+import { computed, defineComponent, onMounted, ref, Teleport, Transition, watch } from 'vue';
 import isBrowser from '../utils/isBrowser';
+import Icon from '../icon';
 import './index.scss';
 
 let dialogCount = 0;
@@ -14,7 +14,6 @@ let mousePosition: IMousePosition | null = null;
 
 if (isBrowser) {
   document.documentElement.addEventListener('click', (e: MouseEvent) => {
-    console.log('clickkkk');
     mousePosition = {
       x: e.clientX,
       y: e.clientY,
@@ -25,12 +24,35 @@ if (isBrowser) {
 const Dialog = defineComponent({
   name: 'sk-dialog',
   props: {
-    title: String,
-    modelValue: Boolean,
+    title: {
+      type: String,
+      default: '提示',
+    },
+    modelValue: {
+      type: Boolean,
+      default: false,
+    },
+    maskClosable: {
+      type: Boolean,
+      default: true,
+    },
+    closeBtn: {
+      type: Boolean,
+      default: true,
+    },
+    closeOnEsc: {
+      type: Boolean,
+      default: true,
+    },
   },
-  setup(props, { slots, emit }) {
+  inheritAttrs: false,
+  setup(props, { slots, emit, attrs }) {
     const lastMousePosition = ref<IMousePosition | null>(null);
     const dialogEl = ref<any>(null);
+    const isBeforeDisappear = ref(false);
+    const isShowWrapper = computed(() => {
+      return props.modelValue || isBeforeDisappear.value;
+    });
 
     const resetTransformOrigin = () => {
       const pos = lastMousePosition.value;
@@ -41,7 +63,11 @@ const Dialog = defineComponent({
         dialogEl.value &&
         dialogEl.value.getBoundingClientRect
       ) {
+        dialogEl.value.style.transform = 'none';
+        dialogEl.value.style.animation = 'none';
         const { left: x, top: y } = dialogEl.value.getBoundingClientRect();
+        dialogEl.value.style.transform = null;
+        dialogEl.value.style.animation = null;
         const origin = `${pos.x - x}px ${pos.y - y}px 0`;
         const style = dialogEl.value.style;
         ['Webkit', 'Moz', 'Ms', 'ms'].forEach((prefix) => {
@@ -51,7 +77,18 @@ const Dialog = defineComponent({
       }
     };
 
+    const onClose = () => {
+      emit('close');
+      emit('update:modelValue', false);
+    };
+
     onMounted(() => {
+      const onKeyUp = (e: KeyboardEvent) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          onClose();
+        }
+      };
+
       watch(
         () => props.modelValue,
         (value) => {
@@ -71,6 +108,14 @@ const Dialog = defineComponent({
               document.body.classList.remove('sk-no-scroll');
             }
           }
+
+          if (props.closeOnEsc) {
+            if (value) {
+              document.body.addEventListener('keyup', onKeyUp);
+            } else {
+              document.body.removeEventListener('keyup', onKeyUp);
+            }
+          }
         },
         {
           immediate: true,
@@ -78,9 +123,11 @@ const Dialog = defineComponent({
       );
     });
 
-    const onClose = () => {
-      emit('close');
-      emit('update:modelValue', false);
+    const onMaskClose = () => {
+      if (!props.maskClosable) {
+        return;
+      }
+      onClose();
     };
 
     const preventPop = (e: MouseEvent) => {
@@ -88,19 +135,35 @@ const Dialog = defineComponent({
     };
 
     return () => (
-      <Teleport to="body">
-        {props.modelValue ? <div class="sk-dialog-backdrop"></div> : null}
-        {props.modelValue ? (
-          <div class="sk-dialog-r-wrapper" onClick={onClose}>
-            <div class="sk-dialog-r" onClick={preventPop} ref={dialogEl}>
-              <button class="sk-dialog-close" onClick={onClose}>
-                <Icon type="close" />
-              </button>
-              <div class="sk-dialog-header">{props.title ?? '对话框'}</div>
-              <div class="sk-dialog-body">{slots.default?.()}</div>
-            </div>
-          </div>
-        ) : null}
+      <Teleport to="body" disabled={!isShowWrapper.value}>
+        {props.modelValue ? <div class="sk-dialog-backdrop" onClick={onMaskClose}></div> : null}
+        <div
+          class="sk-dialog-r-wrapper"
+          onClick={onMaskClose}
+          style={{ display: isShowWrapper.value ? 'block' : 'none' }}
+        >
+          <Transition
+            name="come"
+            onBeforeLeave={() => {
+              isBeforeDisappear.value = true;
+            }}
+            onAfterLeave={() => {
+              isBeforeDisappear.value = false;
+            }}
+          >
+            {props.modelValue ? (
+              <div class="sk-dialog-r" onClick={preventPop} ref={dialogEl} {...attrs}>
+                {props.closeBtn ? (
+                  <button class="sk-dialog-close" onClick={onClose}>
+                    <Icon type="close" />
+                  </button>
+                ) : null}
+                <div class="sk-dialog-header">{props.title}</div>
+                <div class="sk-dialog-body">{slots.default?.()}</div>
+              </div>
+            ) : null}
+          </Transition>
+        </div>
       </Teleport>
     );
   },

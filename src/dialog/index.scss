@@ -1,4 +1,5 @@
 @import '../style/var.scss';
+@import './animate.scss';
 
 .sk-dialog-backdrop {
   position: fixed;
@@ -49,6 +50,29 @@
       display: inline-block;
       vertical-align: middle;
     }
+
+    &.come-enter-from,
+    &.come-leave-to {
+      transform: scale(0);
+    }
+
+    &.come-enter-active,
+    &.come-leave-active {
+      transition: transform 0.25s;
+    }
+  }
+
+  &.come-enter-from,
+  &.come-leave-to {
+    @include sk-zoom-origin;
+  }
+
+  &.come-enter-active {
+    @include sk-zoom-appear;
+  }
+
+  &.come-leave-active {
+    @include sk-zoom-exit;
   }
 }
 
@@ -67,6 +91,10 @@
 
     &:last-child {
       padding-bottom: 0;
+    }
+
+    & > p:first-child {
+      margin-top: 0;
     }
   }
 

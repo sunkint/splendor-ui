@@ -35,6 +35,7 @@ import AccordionSlot from './components/accordion/slot.vue';
 import PaginationBasic from './components/pagination/basic.vue';
 import AlertClosable from './components/alert/closable.vue';
 import DialogBasic from './components/dialog/basic.vue';
+import DialogNesting from './components/dialog/nesting.vue';
 
 export default function (app) {
   app.component(ButtonPart.name, ButtonPart);
@@ -72,4 +73,5 @@ export default function (app) {
   app.component('PaginationBasic', PaginationBasic);
   app.component('AlertClosable', AlertClosable);
   app.component('DialogBasic', DialogBasic);
+  app.component('DialogNesting', DialogNesting);
 }

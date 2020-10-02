@@ -89,38 +89,39 @@ const Dialog = defineComponent({
         }
       };
 
-      watch(
-        () => props.modelValue,
-        (value) => {
-          if (value) {
-            dialogCount++;
-            setTimeout(() => {
-              lastMousePosition.value = mousePosition;
-              document.body.classList.add('sk-no-scroll');
-              resetTransformOrigin();
-            });
-          } else {
-            lastMousePosition.value = null;
-            if (dialogCount > 0) {
-              dialogCount--;
-            }
-            if (dialogCount === 0) {
-              document.body.classList.remove('sk-no-scroll');
-            }
+      const onVisibleChange = (value: boolean) => {
+        if (value) {
+          dialogCount++;
+          setTimeout(() => {
+            lastMousePosition.value = mousePosition;
+            document.body.classList.add('sk-no-scroll');
+            resetTransformOrigin();
+          });
+        } else {
+          lastMousePosition.value = null;
+          if (dialogCount > 0) {
+            dialogCount--;
           }
-
-          if (props.closeOnEsc) {
-            if (value) {
-              document.body.addEventListener('keyup', onKeyUp);
-            } else {
-              document.body.removeEventListener('keyup', onKeyUp);
-            }
+          if (dialogCount === 0) {
+            document.body.classList.remove('sk-no-scroll');
           }
-        },
-        {
-          immediate: true,
         }
-      );
+
+        if (props.closeOnEsc) {
+          if (value) {
+            document.body.addEventListener('keyup', onKeyUp);
+          } else {
+            document.body.removeEventListener('keyup', onKeyUp);
+          }
+        }
+      };
+
+      watch(() => props.modelValue, onVisibleChange);
+
+      // 如果一开始对话框就是打开状态
+      if (props.modelValue) {
+        onVisibleChange(true);
+      }
     });
 
     const onMaskClose = () => {
@@ -130,42 +131,55 @@ const Dialog = defineComponent({
       onClose();
     };
 
-    const preventPop = (e: MouseEvent) => {
+    const onDialogClick = (e: MouseEvent) => {
       e.stopPropagation();
+      mousePosition = {
+        x: e.clientX,
+        y: e.clientY,
+      };
     };
 
-    return () => (
-      <Teleport to="body" disabled={!isShowWrapper.value}>
-        {props.modelValue ? <div class="sk-dialog-backdrop" onClick={onMaskClose}></div> : null}
-        <div
-          class="sk-dialog-r-wrapper"
-          onClick={onMaskClose}
-          style={{ display: isShowWrapper.value ? 'block' : 'none' }}
-        >
-          <Transition
-            name="come"
-            onBeforeLeave={() => {
-              isBeforeDisappear.value = true;
-            }}
-            onAfterLeave={() => {
-              isBeforeDisappear.value = false;
-            }}
+    return () => {
+      const { class: className = '', ...restAttrs } = attrs;
+      return (
+        <Teleport to="body" disabled={!isShowWrapper.value}>
+          {props.modelValue ? <div class="sk-dialog-backdrop" onClick={onMaskClose}></div> : null}
+          <div
+            class="sk-dialog-r-wrapper"
+            onClick={onMaskClose}
+            style={{ display: isShowWrapper.value ? 'block' : 'none' }}
           >
-            {props.modelValue ? (
-              <div class="sk-dialog-r" onClick={preventPop} ref={dialogEl} {...attrs}>
-                {props.closeBtn ? (
-                  <button class="sk-dialog-close" onClick={onClose}>
-                    <Icon type="close" />
-                  </button>
-                ) : null}
-                <div class="sk-dialog-header">{props.title}</div>
-                <div class="sk-dialog-body">{slots.default?.()}</div>
-              </div>
-            ) : null}
-          </Transition>
-        </div>
-      </Teleport>
-    );
+            <Transition
+              name="come"
+              appear
+              onBeforeLeave={() => {
+                isBeforeDisappear.value = true;
+              }}
+              onAfterLeave={() => {
+                isBeforeDisappear.value = false;
+              }}
+            >
+              {props.modelValue ? (
+                <div
+                  class={['sk-dialog-r', className]}
+                  {...restAttrs}
+                  onClick={onDialogClick}
+                  ref={dialogEl}
+                >
+                  {props.closeBtn ? (
+                    <button class="sk-dialog-close" onClick={onClose}>
+                      <Icon type="close" />
+                    </button>
+                  ) : null}
+                  <div class="sk-dialog-header">{props.title}</div>
+                  <div class="sk-dialog-body">{slots.default?.()}</div>
+                </div>
+              ) : null}
+            </Transition>
+          </div>
+        </Teleport>
+      );
+    };
   },
 });
 

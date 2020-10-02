@@ -46,11 +46,11 @@ const Tag = defineComponent({
       return (
         <span class={tagClass}>
           <span class="sk-tag-content">{slots.default?.()}</span>
-          {closable && (
+          {closable ? (
             <span class="sk-tag-close" onClick={() => emit('close')}>
               &times;
             </span>
-          )}
+          ) : null}
         </span>
       );
     };

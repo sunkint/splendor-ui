@@ -114,6 +114,7 @@
 | disabled | 是否禁用                                          | bool   |                                                              | `false`   |
 | href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                              | -         |
 | target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                              | `_blank`  |
+| htmlType | button html type                                  | string | `button`、`submit`、`reset`                                  | -         |
 
 ### 事件
 

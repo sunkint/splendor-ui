@@ -20,6 +20,7 @@ const Button = defineComponent({
       type: String,
       default: '_blank',
     },
+    htmlType: String as PropType<'button' | 'submit' | 'reset'>,
     block: Boolean,
     icon: String,
     href: String,
@@ -60,7 +61,12 @@ const Button = defineComponent({
       }
 
       return (
-        <button class={btnClass.value} disabled={props.disabled} onClick={onClick}>
+        <button
+          type={props.htmlType}
+          class={btnClass.value}
+          disabled={props.disabled}
+          onClick={onClick}
+        >
           {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}
           {slots.default && slots.default()}
         </button>

@@ -20,6 +20,7 @@ const Button = defineComponent({
       type: String,
       default: '_blank',
     },
+    block: Boolean,
     icon: String,
     href: String,
     round: Boolean,
@@ -35,6 +36,7 @@ const Button = defineComponent({
         [`sk-btn-size-${props.size}`]: props.size !== 'normal',
         'sk-btn-disabled': props.disabled,
         'sk-btn-round': props.round,
+        'sk-btn-block': props.block,
       },
     ]);
 

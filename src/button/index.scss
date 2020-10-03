@@ -35,6 +35,11 @@
     border-radius: 18px;
   }
 
+  &-block {
+    display: block;
+    width: 100% !important;
+  }
+
   &-icon {
     margin-right: 0.35em;
     font-size: inherit;

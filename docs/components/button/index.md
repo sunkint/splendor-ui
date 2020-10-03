@@ -93,6 +93,15 @@
   <p><sk-button type="primary" block>块级按钮</sk-button></p>
 </div>
 
+```vue
+<template>
+  <div class="docs-preview-part">
+    <p><sk-button type="default" block>块级按钮</sk-button></p>
+    <p><sk-button type="primary" block>块级按钮</sk-button></p>
+  </div>
+</template>
+```
+
 ### API
 
 | 参数     | 说明                                              | 类型   | 可选值                                                       | 默认值    |

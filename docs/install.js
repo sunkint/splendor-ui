@@ -1,3 +1,5 @@
+import ClientOnly from './common/client-only/index.vue';
+
 import ButtonPart from './components/preview/ButtonPart.vue';
 import InputPart from './components/preview/InputPart.vue';
 import TextareaPart from './components/preview/TextareaPart.vue';
@@ -39,6 +41,7 @@ import DialogNesting from './components/dialog/nesting.vue';
 import DialogFooter from './components/dialog/footer.vue';
 
 export default function (app) {
+  app.component(ClientOnly.name, ClientOnly);
   app.component(ButtonPart.name, ButtonPart);
   app.component(InputPart.name, InputPart);
   app.component(TextareaPart.name, TextareaPart);

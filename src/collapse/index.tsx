@@ -24,6 +24,7 @@ const Collapse = defineComponent({
   data() {
     return {
       timerId: 0,
+      height: 0,
     };
   },
   computed: {
@@ -46,18 +47,22 @@ const Collapse = defineComponent({
       const el = this.$el as HTMLElement;
       this.$emit('show');
       el.classList.remove(COLLAPSE);
-      el.style.height = 'auto';
-      let height = window.getComputedStyle(el).height;
-      el.style.height = '';
-      el.classList.add(COLLAPSING);
-      el.offsetHeight; // force repaint
-      el.style.height = height;
+      if (!this.height) {
+        el.style.height = 'auto';
+        let height = window.getComputedStyle(el).height;
+        el.style.height = '';
+        el.classList.add(COLLAPSING);
+        el.offsetHeight; // force repaint
+        this.height = height;
+      }
+      el.style.height = this.height;
       this.timerId = setTimeout(() => {
         el.classList.remove(COLLAPSING);
         el.classList.add(COLLAPSE, COLLAPSE_SPREAD);
         this.$emit('shown');
         el.style.height = '';
         this.timeoutId = 0;
+        this.height = window.getComputedStyle(el).height;
         this.$emit('shown');
       }, this.duration);
     },
@@ -75,6 +80,7 @@ const Collapse = defineComponent({
         el.classList.remove(COLLAPSING);
         el.style.height = '';
         this.timerId = 0;
+        this.height = 0;
         this.$emit('hidden');
       }, this.duration);
     },

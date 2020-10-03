@@ -71,6 +71,11 @@ const Input = defineComponent({
       </div>
     );
   },
+  methods: {
+    focus() {
+      this.$el.querySelector('.sk-input')?.focus();
+    },
+  },
 });
 
 export default Input;

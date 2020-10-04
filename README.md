@@ -62,6 +62,7 @@ make build
 - [x] Avatar
 - [x] Alert
 - [x] Dialog
+- [x] SweetAlert
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select

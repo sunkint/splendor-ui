@@ -9581,7 +9581,7 @@ vue-loader@^16.0.0-beta.7:
     merge-source-map "^1.1.0"
     source-map "^0.6.1"
 
-vue@^3.0.0:
+vue@3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/vue/download/vue-3.0.0.tgz?cache=0&sync_timestamp=1600441287086&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-3.0.0.tgz#cfb5df5c34efce319b113a1667d12b74dcfd9c90"
   integrity sha1-z7XfXDTvzjGbEToWZ9ErdNz9nJA=

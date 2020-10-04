@@ -43,7 +43,7 @@ const DropdownMenu = defineComponent({
             {data.map((item) => (
               <li key={item.key} onClick={() => click(item)}>
                 <span>{item.text}</span>
-                {selectedKeys.includes(item.key) ? <Icon type="ok-o" /> : null}
+                {selectedKeys.includes(item.key) ? <Icon type="ok" /> : null}
               </li>
             ))}
           </ul>
@@ -70,7 +70,7 @@ const Dropdown = defineComponent({
     },
     disabled: Boolean,
     text: String,
-    onSelect: Function,
+    onSelect: Function as PropType<(key: string, item: DropdownDataItem) => any>,
     icon: String,
   },
   emits: {
@@ -137,7 +137,7 @@ const Dropdown = defineComponent({
                   'sk-dropdown-arrow-open': isOpen.value,
                 },
               ]}
-              type="back"
+              type="down-simple"
             />
           </Button>
           <Teleport to="body">

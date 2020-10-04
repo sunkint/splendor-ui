@@ -20,11 +20,11 @@
 
   &-arrow {
     display: inline-block;
-    transform: rotate(-90deg) scale(0.8);
+    transform: rotate(0deg) scale(0.8) translateY(-2px);
     transition: transform 0.2s;
 
     &-open {
-      transform: rotate(90deg) scale(0.8);
+      transform: rotate(180deg) scale(0.8) translateY(-2px);
     }
   }
 

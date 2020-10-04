@@ -145,6 +145,8 @@ const Dialog = defineComponent({
         x: e.clientX,
         y: e.clientY,
       };
+      // 防止 body 的点击事件不生效
+      document.body.click();
     };
 
     return () => {

@@ -47,7 +47,7 @@ const components: any[] = [
   Dialog,
 ];
 
-const install = (app: App) => {
+const install = (app: App<Element>) => {
   components.forEach((Component) => {
     if (typeof Component === 'function' && typeof Component.name === 'string') {
       app.component(`sk-${Component.name.toLowerCase()}`, Component);

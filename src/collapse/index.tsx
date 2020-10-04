@@ -33,12 +33,15 @@ const Collapse = defineComponent({
     },
   },
   watch: {
-    show(show) {
-      if (show) {
-        this.spread();
-      } else {
-        this.fold();
-      }
+    show: {
+      handler(show) {
+        if (show) {
+          this.spread();
+        } else {
+          this.fold();
+        }
+      },
+      flush: 'post',
     },
   },
   methods: {

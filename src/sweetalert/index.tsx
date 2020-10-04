@@ -7,7 +7,7 @@ const AlertDialog = defineComponent({
   name: 'sk-alert-dialog',
   props: {
     options: {
-      type: Object as PropType<SweetAlertAlertOptions>,
+      type: Object as PropType<Omit<SweetAlertAlertOptions, 'content'>>,
       required: true,
     },
   },
@@ -72,7 +72,7 @@ const ConfirmDialog = defineComponent({
   name: 'sk-confirm-dialog',
   props: {
     options: {
-      type: Object as PropType<SweetAlertConfirmOptions>,
+      type: Object as PropType<Omit<SweetAlertConfirmOptions, 'content'>>,
       required: true,
     },
   },
@@ -153,7 +153,6 @@ const SweetAlert = {
           h(
             AlertDialog,
             {
-              // @ts-ignore
               options: restOptions,
               modelValue: open.value,
               class: className,
@@ -177,7 +176,6 @@ const SweetAlert = {
           h(
             ConfirmDialog,
             {
-              // @ts-ignore
               options: restOptions,
               modelValue: open.value,
               class: className,

@@ -40,6 +40,12 @@ blockquote {
   margin-left: 0;
   padding-left: 1em;
   border-left: 3px solid #b4bcc2;
+  color: inherit;
+
+  & > h4:first-child {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
 }
 
 p {

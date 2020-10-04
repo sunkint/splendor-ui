@@ -114,13 +114,14 @@ export default {
 
 ### API
 
-| 参数         | 说明                       | 类型                     | 可选值                                                       | 默认值    |
-| ------------ | -------------------------- | ------------------------ | ------------------------------------------------------------ | --------- |
-| text         | 按钮文本                   | string                   |                                                              | -         |
-| data         | 下拉项数据，必填           | `DropdownData`           |                                                              | -         |
-| selectedKeys | 选择项，data 中 key 的数组 | `Array<string | number>` |                                                              | `[]`      |
-| type         | 样式类型                   | string                   | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
-| disabled     | 是否禁用                   | bool                     |                                                              | `false`   |
+| 参数         | 说明                       | 类型           | 可选值                                                       | 默认值    |
+| ------------ | -------------------------- | -------------- | ------------------------------------------------------------ | --------- |
+| text         | 按钮文本                   | string         |                                                              | -         |
+| icon         | 前置图标                   | string         | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
+| data         | 下拉项数据，必填           | `DropdownData` |                                                              | -         |
+| selectedKeys | 选择项，data 中 key 的数组 | `Array<string  | number>`                                                     |           | `[]` |
+| type         | 样式类型                   | string         | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
+| disabled     | 是否禁用                   | bool           |                                                              | `false`   |
 
 > #### DropdownData <sk-tag ghost>type</sk-tag>
 >

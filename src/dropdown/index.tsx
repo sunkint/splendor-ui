@@ -71,6 +71,7 @@ const Dropdown = defineComponent({
     disabled: Boolean,
     text: String,
     onSelect: Function,
+    icon: String,
   },
   emits: {
     select: null,
@@ -117,7 +118,7 @@ const Dropdown = defineComponent({
     };
 
     return () => {
-      const { data, text, selectedKeys, type, disabled } = props;
+      const { data, text, selectedKeys, type, disabled, icon } = props;
       return (
         <div class={['sk-dropdown', `sk-dropdown-${type}`]}>
           <Button
@@ -126,21 +127,18 @@ const Dropdown = defineComponent({
             ref={(el: any) => (trigger.value = el?.$el)}
             disabled={disabled}
             onClick={triggerMenu}
+            icon={icon}
           >
-            {() => (
-              <>
-                {text}{' '}
-                <Icon
-                  class={[
-                    'sk-dropdown-arrow',
-                    {
-                      'sk-dropdown-arrow-open': isOpen.value,
-                    },
-                  ]}
-                  type="back"
-                />
-              </>
-            )}
+            {text}{' '}
+            <Icon
+              class={[
+                'sk-dropdown-arrow',
+                {
+                  'sk-dropdown-arrow-open': isOpen.value,
+                },
+              ]}
+              type="back"
+            />
           </Button>
           <Teleport to="body">
             {isOpen.value ? (

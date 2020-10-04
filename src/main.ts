@@ -20,6 +20,7 @@ import BackTop from './backtop';
 import Avatar from './avatar';
 import Alert from './alert';
 import Dialog from './dialog';
+import SweetAlert from './sweetalert';
 
 const components: any[] = [
   Button,
@@ -85,4 +86,5 @@ export {
   Avatar,
   Alert,
   Dialog,
+  SweetAlert,
 };

@@ -62,7 +62,7 @@ export default {
 </template>
 
 <script>
-import { SweetAlert, Notify } from '../../../src/main';
+import { SweetAlert, Notify } from 'splendor-ui';
 export default {
   methods: {
     open() {

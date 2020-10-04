@@ -1,15 +1,4 @@
-import {
-  defineComponent,
-  renderSlot,
-  createTextVNode,
-  toDisplayString,
-  PropType,
-  provide,
-  Ref,
-  computed,
-  inject,
-  ref,
-} from 'vue';
+import { defineComponent, PropType, provide, Ref, computed, inject, ref } from 'vue';
 import Collapse from '../collapse';
 import Icon from '../icon';
 import './index.scss';
@@ -64,7 +53,7 @@ const AccordionItem = defineComponent({
             style={transitionDurationStyle.value}
             type="right-simple"
           />
-          {renderSlot(slots, 'title', {}, () => [createTextVNode(toDisplayString(props.title), 1)])}
+          {slots.title ? slots.title() : props.title}
         </div>
         <Collapse modelValue={show.value} duration={transitionDurationRef.value}>
           <div class="sk-accordion-item-content">{slots.default?.()}</div>

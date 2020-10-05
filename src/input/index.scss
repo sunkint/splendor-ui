@@ -71,9 +71,38 @@ $name: sk-input;
     .#{$name} {
       padding-left: 28px;
     }
+
+    &.#{$name}-large {
+      .#{$name} {
+        padding-left: 32px;
+      }
+    }
+  }
+
+  &.#{$name}-large {
+    width: 220px;
+    height: 42px;
+
+    .#{$name} {
+      font-size: 16px;
+      padding: 0 12px;
+
+      &-icon {
+        left: 10px + 1px;
+        top: 11px + 1px;
+
+        .sk-icon {
+          font-size: 16px;
+        }
+      }
+    }
   }
 
   &.#{$name}-inline {
     display: inline-flex;
+  }
+
+  &.#{$name}-block {
+    width: 100%;
   }
 }

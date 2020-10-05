@@ -18,6 +18,14 @@ const Input = defineComponent({
       type: Boolean,
       default: false,
     },
+    block: {
+      type: Boolean,
+      default: false,
+    },
+    size: {
+      type: String as PropType<'normal' | 'large'>,
+      default: 'normal',
+    },
     maxlength: [String, Number],
     disabled: Boolean,
     readonly: Boolean,
@@ -63,6 +71,8 @@ const Input = defineComponent({
           'sk-input-wrapper',
           {
             'sk-input-inline': props.inline,
+            'sk-input-block': props.block,
+            'sk-input-large': props.size === 'large',
             'has-error': props.hasError,
             'has-icon': !!props.icon,
           },

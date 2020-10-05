@@ -21,6 +21,7 @@ const Tag = defineComponent({
     round: Boolean,
     closable: Boolean,
     ghost: Boolean,
+    onClose: Function as PropType<() => any>,
   },
   emits: {
     close: null,

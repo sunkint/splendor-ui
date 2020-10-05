@@ -19,6 +19,7 @@ const Alert = defineComponent({
       default: 'info' as AlertType,
     },
     closable: Boolean,
+    onClose: Function as PropType<() => any>,
   },
   setup(props, { emit, slots }) {
     const onClose = () => {

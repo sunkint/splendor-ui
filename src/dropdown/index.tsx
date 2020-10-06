@@ -70,7 +70,7 @@ const Dropdown = defineComponent({
     },
     disabled: Boolean,
     text: String,
-    onSelect: Function as PropType<(key: string, item: DropdownDataItem) => any>,
+    onSelect: Function as PropType<(key: string | number, item: DropdownDataItem) => any>,
     icon: String,
   },
   emits: {

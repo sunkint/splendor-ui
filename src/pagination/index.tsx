@@ -24,6 +24,7 @@ const Pagination = defineComponent({
       type: String as PropType<PaginationAlign>,
       default: 'left',
     },
+    disabled: Boolean,
     onChange: Function as PropType<(page: number) => any>,
   },
   emits: {
@@ -54,8 +55,12 @@ const Pagination = defineComponent({
         <div class="sk-pagination-inner" style={{ float: props.align }}>
           {currentPage.value > 1 ? (
             <>
-              <Button onClick={update.bind(null, 1)}>首页</Button>
-              <Button onClick={update.bind(null, currentPage.value - 1)}>上一页</Button>
+              <Button onClick={update.bind(null, 1)} disabled={props.disabled}>
+                首页
+              </Button>
+              <Button onClick={update.bind(null, currentPage.value - 1)} disabled={props.disabled}>
+                上一页
+              </Button>
             </>
           ) : (
             false
@@ -63,7 +68,11 @@ const Pagination = defineComponent({
           {pageList.value.map((item) => {
             if (item !== currentPage.value) {
               return (
-                <Button class="sk-pagination-item" onClick={update.bind(null, item)}>
+                <Button
+                  class="sk-pagination-item"
+                  onClick={update.bind(null, item)}
+                  disabled={props.disabled}
+                >
                   {item}
                 </Button>
               );
@@ -72,8 +81,12 @@ const Pagination = defineComponent({
           })}
           {currentPage.value < props.totalPages ? (
             <>
-              <Button onClick={update.bind(null, currentPage.value + 1)}>下一页</Button>
-              <Button onClick={update.bind(null, props.totalPages)}>尾页</Button>
+              <Button onClick={update.bind(null, currentPage.value + 1)} disabled={props.disabled}>
+                下一页
+              </Button>
+              <Button onClick={update.bind(null, props.totalPages)} disabled={props.disabled}>
+                尾页
+              </Button>
             </>
           ) : null}
         </div>

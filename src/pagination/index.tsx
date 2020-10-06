@@ -24,6 +24,7 @@ const Pagination = defineComponent({
       type: String as PropType<PaginationAlign>,
       default: 'left',
     },
+    onChange: Function as PropType<(page: number) => any>,
   },
   emits: {
     change: (payload: any) => {

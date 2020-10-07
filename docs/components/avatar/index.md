@@ -86,6 +86,28 @@
 </template>
 ```
 
+### 带链接
+
+<div class="docs-preview-part docs-preview-part-flex">
+  <sk-avatar href="https://www.ybusad.com/u/admin" src="https://cdn.ybusad.com/assets/jpg.jpg" />
+  <sk-avatar href="https://www.ybusad.com/u/admin" src="https://cdn.ybusad.com/assets/jpg.jpg" shape="square"  />
+  <sk-avatar href="https://www.ybusad.com/u/admin" icon="camera-3" shape="square"  />
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part docs-preview-part-flex">
+    <sk-avatar href="https://www.ybusad.com/u/admin" src="https://cdn.ybusad.com/assets/jpg.jpg" />
+    <sk-avatar
+      href="https://www.ybusad.com/u/admin"
+      src="https://cdn.ybusad.com/assets/jpg.jpg"
+      shape="square"
+    />
+    <sk-avatar href="https://www.ybusad.com/u/admin" icon="camera-3" shape="square" />
+  </div>
+</template>
+```
+
 ### API
 
 | 参数     | 说明                              | 类型           | 可选值                                       | 默认值    |
@@ -95,6 +117,7 @@
 | bordered | 是否有边框                        | bool           |                                              | `false`   |
 | src      | 图片路径                          | string         |                                              | -         |
 | icon     | 图标类型，和 `src` 需要二选一赋值 | string         |                                              | -         |
+| href     | 头像点击时打开的链接              | string         |                                              | -         |
 | alt      | html alt                          | string         |                                              | -         |
 
 ### 事件

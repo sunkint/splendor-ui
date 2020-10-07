@@ -17,6 +17,12 @@ $size-large: 128px;
   text-align: center;
   overflow: hidden;
 
+  &-wrapper-link {
+    display: block;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
   &-small {
     width: $size-small;
     height: $size-small;

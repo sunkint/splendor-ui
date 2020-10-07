@@ -23,6 +23,7 @@ const Avatar = defineComponent({
     src: String,
     alt: String,
     icon: String,
+    href: String,
   },
   setup(props, { emit }) {
     const onError = () => {
@@ -50,18 +51,35 @@ const Avatar = defineComponent({
       }
       return {};
     });
-    return () => (
-      <div class={avatarClass.value} style={avatarStyle.value}>
-        {props.src && (
-          <img class="sk-avatar-image" src={props.src} alt={props.alt} onError={onError} />
-        )}
-        {props.icon && (
-          <span class="sk-avatar-icon-wrapper">
-            <Icon class="sk-avatar-icon" type={props.icon} />
-          </span>
-        )}
-      </div>
-    );
+    return () => {
+      const avatarBody = (
+        <div class={avatarClass.value} style={avatarStyle.value}>
+          {props.src && (
+            <img class="sk-avatar-image" src={props.src} alt={props.alt} onError={onError} />
+          )}
+          {props.icon && (
+            <span class="sk-avatar-icon-wrapper">
+              <Icon class="sk-avatar-icon" type={props.icon} />
+            </span>
+          )}
+        </div>
+      );
+
+      if (props.href) {
+        return (
+          <a
+            class={['sk-avatar-wrapper-link', { 'sk-avatar-square': props.shape === 'square' }]}
+            href={props.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {avatarBody}
+          </a>
+        );
+      } else {
+        return avatarBody;
+      }
+    };
   },
 });
 

@@ -63,10 +63,10 @@ make build
 - [x] Alert
 - [x] Dialog
 - [x] SweetAlert
+- [x] Popover
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select
-- [ ] Popover
 - [ ] Tooltip
 - [ ] Table
 - [ ] Steps

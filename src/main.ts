@@ -21,6 +21,8 @@ import Avatar from './avatar';
 import Alert from './alert';
 import Dialog from './dialog';
 import SweetAlert from './sweetalert';
+import FloatLayer from './float-layer';
+import Popover from './popover';
 
 const components: any[] = [
   Button,
@@ -45,6 +47,8 @@ const components: any[] = [
   Avatar,
   Alert,
   Dialog,
+  FloatLayer,
+  Popover,
 ];
 
 const install = (app: App<Element>) => {
@@ -87,4 +91,6 @@ export {
   Alert,
   Dialog,
   SweetAlert,
+  FloatLayer,
+  Popover,
 };

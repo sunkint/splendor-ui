@@ -1,0 +1,20 @@
+.sk-layer {
+  &-trigger {
+    display: block;
+  }
+
+  &-content {
+    position: absolute;
+    visibility: hidden;
+    font-weight: normal;
+    z-index: 2050;
+
+    &-trigger-hover {
+      z-index: 2051;
+    }
+
+    &.sk-layer-open {
+      visibility: visible;
+    }
+  }
+}

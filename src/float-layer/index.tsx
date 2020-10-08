@@ -20,9 +20,9 @@ export type LayerTriggerType = 'hover' | 'click';
 const FloatLayer = defineComponent({
   name: 'sk-float-layer',
   props: {
-    inline: {
-      type: Boolean,
-      default: true,
+    display: {
+      type: String,
+      default: 'inline-block',
     },
     position: {
       type: String as PropType<LayerPosition>,
@@ -191,7 +191,8 @@ const FloatLayer = defineComponent({
         <>
           <div
             ref={trigger}
-            class={['sk-layer-trigger', { 'sk-layer-inline': props.inline }, props.triggerClass]}
+            class={['sk-layer-trigger', props.triggerClass]}
+            style={{ display: props.display }}
             onClick={onTriggerClick}
             onMouseenter={onMouseEnter}
             onMouseleave={onMouseLeave}
@@ -202,7 +203,12 @@ const FloatLayer = defineComponent({
             {layerState.open ? (
               <div
                 ref={layer}
-                class={['sk-layer-content', { 'sk-layer-open': layerState.open }, className]}
+                class={[
+                  'sk-layer-content',
+                  `sk-layer-content-trigger-${props.trigger}`,
+                  { 'sk-layer-open': layerState.open },
+                  className,
+                ]}
                 {...restAttrs}
                 style={{ left: `${layerState.left}px`, top: `${layerState.top}px` }}
                 onClick={onLayerClick}

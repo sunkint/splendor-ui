@@ -51,3 +51,11 @@ blockquote {
 p {
   margin: 10px 0;
 }
+
+aside {
+  z-index: 10000;
+}
+
+header {
+  z-index: 10001;
+}

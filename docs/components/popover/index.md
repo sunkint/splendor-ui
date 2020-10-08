@@ -132,15 +132,15 @@ button {
 
 ### API
 
-| 参数            | 说明                               | 类型                  | 可选值           | 默认值       |
-| --------------- | ---------------------------------- | --------------------- | ---------------- | ------------ |
-| trigger         | 气泡触发方式                       | string                | `hover`、`click` | `hover`      |
-| position        | 气泡展开方位                       | `LayerPosition`       |                  | `top-center` |
-| class           | 气泡的自定义额外类名               | string、array、object |                  | -            | = |
-| style           | 气泡的自定义额外样式               | string、object        |                  | -            | = |
-| triggerClass    | 触发元素包裹层的自定义类名         | string、array、object |                  | -            |
-| mouseEnterDelay | 针对 `trigger=hover`，打开的延迟   |                       |                  | `100`        |
-| mouseLeaveDelay | 针对 `trigger=hover`，关闭时的延迟 |                       |                  | `100`        |
+| 参数            | 说明                                     | 类型                  | 可选值           | 默认值       |
+| --------------- | ---------------------------------------- | --------------------- | ---------------- | ------------ |
+| trigger         | 气泡触发方式                             | string                | `hover`、`click` | `hover`      |
+| position        | 气泡展开方位                             | `LayerPosition`       |                  | `top-center` |
+| class           | 气泡的自定义额外类名                     | string、array、object |                  | -            | = |
+| style           | 气泡的自定义额外样式                     | string、object        |                  | -            | = |
+| triggerClass    | 触发元素包裹层的自定义类名               | string、array、object |                  | -            |
+| mouseEnterDelay | 针对 `trigger=hover`，打开的延迟（ms）   |                       |                  | `100`        |
+| mouseLeaveDelay | 针对 `trigger=hover`，关闭时的延迟（ms） |                       |                  | `100`        |
 
 > #### LayerPosition <sk-tag ghost>type</sk-tag>
 >

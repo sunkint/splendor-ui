@@ -44,12 +44,7 @@ const Popover = defineComponent({
         {
           default: slots.default,
           content: () => (
-            <div
-              class={[
-                'sk-popover-content',
-                `sk-popover-position-${props.position.replace(/[A-Z]/g, '-$0')}`,
-              ]}
-            >
+            <div class={['sk-popover-content', `sk-popover-position-${props.position}`]}>
               {slots.content?.()}
               <i class="sk-popover-arrow"></i>
             </div>

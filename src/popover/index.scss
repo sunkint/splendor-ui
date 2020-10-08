@@ -1,0 +1,190 @@
+@import '../style/var.scss';
+
+.sk-popover {
+  &-content {
+    position: relative;
+    font-size: 14px;
+    background-color: $white;
+    border-radius: 4px;
+    border: 1px solid $gray-300;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba($default, 0.1);
+  }
+
+  &-arrow {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      box-sizing: border-box;
+      transform: rotate(45deg);
+      background-color: $white;
+      border: 1px solid $gray-300;
+    }
+  }
+
+  &-position {
+    @mixin top {
+      width: 16px;
+      height: 8px;
+      bottom: -8px;
+
+      &:before {
+        left: 0;
+        right: 0;
+        bottom: 3px;
+        height: 16px;
+      }
+    }
+
+    &-top {
+      &-left {
+        .sk-popover-arrow {
+          @include top;
+
+          left: 8px;
+        }
+      }
+
+      &-center {
+        .sk-popover-arrow {
+          @include top;
+
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &-right {
+        .sk-popover-arrow {
+          @include top;
+
+          right: 8px;
+        }
+      }
+    }
+
+    @mixin left {
+      width: 8px;
+      height: 16px;
+      right: -8px;
+
+      &:before {
+        top: 0;
+        bottom: 0;
+        right: 3px;
+        width: 16px;
+      }
+    }
+
+    &-left {
+      &-top {
+        .sk-popover-arrow {
+          @include left;
+
+          top: 8px;
+        }
+      }
+
+      &-center {
+        .sk-popover-arrow {
+          @include left;
+
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      &-bottom {
+        .sk-popover-arrow {
+          @include left;
+
+          bottom: 8px;
+        }
+      }
+    }
+
+    @mixin right {
+      width: 8px;
+      height: 16px;
+      left: -8px;
+
+      &:before {
+        top: 0;
+        bottom: 0;
+        left: 3px;
+        width: 16px;
+      }
+    }
+
+    &-right {
+      &-top {
+        .sk-popover-arrow {
+          @include right;
+
+          top: 8px;
+        }
+      }
+
+      &-center {
+        .sk-popover-arrow {
+          @include right;
+
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+
+      &-bottom {
+        .sk-popover-arrow {
+          @include right;
+
+          bottom: 8px;
+        }
+      }
+    }
+
+    @mixin bottom {
+      width: 16px;
+      height: 8px;
+      top: -8px;
+
+      &:before {
+        left: 0;
+        right: 0;
+        top: 3px;
+        height: 16px;
+      }
+    }
+
+    &-bottom {
+      &-left {
+        .sk-popover-arrow {
+          @include bottom;
+
+          left: 8px;
+        }
+      }
+
+      &-center {
+        .sk-popover-arrow {
+          @include bottom;
+
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
+      &-right {
+        .sk-popover-arrow {
+          @include bottom;
+
+          right: 8px;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,14 @@
-import { defineComponent, nextTick, PropType, reactive, ref, Teleport, watch } from 'vue';
+import {
+  defineComponent,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  PropType,
+  reactive,
+  ref,
+  Teleport,
+  watch,
+} from 'vue';
 import './index.scss';
 
 export type LayerPosition =
@@ -137,9 +147,24 @@ const FloatLayer = defineComponent({
       }
     };
 
+    const refreshLayerPosition = () => {
+      if (layerState.open) {
+        computeLayerPosition();
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener('resize', refreshLayerPosition);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', refreshLayerPosition);
+    });
+
     const onTriggerClick = (e: MouseEvent) => {
       if (props.trigger === 'click') {
         e.stopPropagation();
+        document.body.click();
         layerState.open = true;
         nextTick(() => {
           computeLayerPosition();

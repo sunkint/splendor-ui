@@ -57,6 +57,10 @@ const FloatLayer = defineComponent({
       type: Number,
       default: 100,
     },
+    teleportTo: {
+      type: String,
+      default: 'body',
+    },
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
   },
@@ -224,7 +228,7 @@ const FloatLayer = defineComponent({
           >
             {slots.default?.()}
           </div>
-          <Teleport to="body">
+          <Teleport to={props.teleportTo}>
             {layerState.open ? (
               <div
                 ref={layer}

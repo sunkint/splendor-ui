@@ -141,12 +141,9 @@ const Dialog = defineComponent({
 
     const onDialogClick = (e: MouseEvent) => {
       e.stopPropagation();
-      mousePosition = {
-        x: e.clientX,
-        y: e.clientY,
-      };
       // 防止 body 的点击事件不生效
       document.body.click();
+      mousePosition = { x: e.clientX, y: e.clientY };
     };
 
     return () => {

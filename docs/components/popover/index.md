@@ -3,14 +3,16 @@
 ### 基础用法
 
 <div class="docs-preview-part">
-  <sk-popover>
-    <sk-button>Hover 我</sk-button>
-    <template #content>这是气泡弹层的内容</template>
-  </sk-popover>
-  <sk-popover trigger="click">
-    <sk-button>Click 我</sk-button>
-    <template #content>这是气泡弹层的内容</template>
-  </sk-popover>
+  <client-only>
+    <sk-popover>
+      <sk-button>Hover 我</sk-button>
+      <template #content>这是气泡弹层的内容</template>
+    </sk-popover>
+    <sk-popover trigger="click">
+      <sk-button>Click 我</sk-button>
+      <template #content>这是气泡弹层的内容</template>
+    </sk-popover>
+  </client-only>
 </div>
 
 ```vue

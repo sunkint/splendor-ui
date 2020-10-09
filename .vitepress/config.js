@@ -46,6 +46,7 @@ module.exports = {
           'Dialog',
           'SweetAlert',
           'Popover',
+          'Tooltip',
         ].map(buildNavChildren),
       },
       {

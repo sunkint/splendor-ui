@@ -7,6 +7,7 @@
     position: absolute;
     visibility: hidden;
     font-weight: normal;
+    transition: opacity 0.16s;
     z-index: 2050;
 
     &-trigger-hover {
@@ -15,6 +16,11 @@
 
     &.sk-layer-open {
       visibility: visible;
+    }
+
+    &.fade-enter-from,
+    &.fade-leave-to {
+      opacity: 0;
     }
   }
 }

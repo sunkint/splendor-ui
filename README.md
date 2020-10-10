@@ -64,10 +64,10 @@ make build
 - [x] Dialog
 - [x] SweetAlert
 - [x] Popover
+- [x] Tooltip
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select
-- [ ] Tooltip
 - [ ] Table
 - [ ] Steps
 - [ ] Menu

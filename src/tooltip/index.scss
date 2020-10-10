@@ -1,0 +1,132 @@
+@import '../style/var.scss';
+
+.sk-tooltip {
+  &-content {
+    position: relative;
+    font-size: 12px;
+    background-color: $gray-800;
+    color: $white;
+    border-radius: 4px;
+    padding: 4px 6px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      box-sizing: content-box;
+    }
+
+    &.sk-tooltip-position {
+      @mixin top {
+        border-top: 4px solid $gray-800;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        bottom: -4px;
+      }
+
+      &-top {
+        &-left:before {
+          @include top;
+
+          left: 4px;
+        }
+
+        &-center:before {
+          @include top;
+
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &-right:before {
+          @include top;
+
+          right: 4px;
+        }
+      }
+
+      @mixin left {
+        border-left: 4px solid $gray-800;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        right: -4px;
+      }
+
+      &-left {
+        &-top:before {
+          @include left;
+
+          top: 4px;
+        }
+
+        &-center:before {
+          @include left;
+
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &-bottom:before {
+          @include left;
+
+          bottom: 4px;
+        }
+      }
+
+      @mixin right {
+        border-right: 4px solid $gray-800;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        left: -4px;
+      }
+
+      &-right {
+        &-top:before {
+          @include right;
+
+          top: 4px;
+        }
+
+        &-center:before {
+          @include right;
+
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &-bottom:before {
+          @include right;
+
+          bottom: 4px;
+        }
+      }
+
+      @mixin bottom {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 4px solid $gray-800;
+        top: -4px;
+      }
+
+      &-bottom {
+        &-left:before {
+          @include bottom;
+
+          left: 4px;
+        }
+
+        &-center:before {
+          @include bottom;
+
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        &-right:before {
+          @include bottom;
+
+          right: 4px;
+        }
+      }
+    }
+  }
+}

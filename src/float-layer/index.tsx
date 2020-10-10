@@ -7,6 +7,7 @@ import {
   reactive,
   ref,
   Teleport,
+  Transition,
   watch,
 } from 'vue';
 import './index.scss';
@@ -46,9 +47,7 @@ const FloatLayer = defineComponent({
       type: Number,
       default: 0,
     },
-    triggerClass: {
-      type: [String, Array, Object] as PropType<string | (string | object)[] | object>,
-    },
+    triggerClass: null,
     mouseEnterDelay: {
       type: Number,
       default: 100,
@@ -60,6 +59,10 @@ const FloatLayer = defineComponent({
     teleportTo: {
       type: String,
       default: 'body',
+    },
+    transition: {
+      type: Number,
+      default: 0,
     },
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
@@ -216,6 +219,32 @@ const FloatLayer = defineComponent({
 
     return () => {
       const { class: className = '', ...restAttrs } = attrs;
+      const contentNode = layerState.open ? (
+        <div
+          ref={layer}
+          class={[
+            'sk-layer-content',
+            `sk-layer-content-trigger-${props.trigger}`,
+            { 'sk-layer-open': layerState.open },
+            className,
+          ]}
+          {...restAttrs}
+          style={{
+            left: `${layerState.left}px`,
+            top: `${layerState.top}px`,
+            ...(props.transition
+              ? {
+                  transitionDuration: `${props.transition}ms`,
+                }
+              : {}),
+          }}
+          onClick={onLayerClick}
+          onMouseenter={onMouseEnter}
+          onMouseleave={onMouseLeave}
+        >
+          {slots.content?.()}
+        </div>
+      ) : null;
       return (
         <>
           <div
@@ -229,24 +258,11 @@ const FloatLayer = defineComponent({
             {slots.default?.()}
           </div>
           <Teleport to={props.teleportTo}>
-            {layerState.open ? (
-              <div
-                ref={layer}
-                class={[
-                  'sk-layer-content',
-                  `sk-layer-content-trigger-${props.trigger}`,
-                  { 'sk-layer-open': layerState.open },
-                  className,
-                ]}
-                {...restAttrs}
-                style={{ left: `${layerState.left}px`, top: `${layerState.top}px` }}
-                onClick={onLayerClick}
-                onMouseenter={onMouseEnter}
-                onMouseleave={onMouseLeave}
-              >
-                {slots.content?.()}
-              </div>
-            ) : null}
+            {props.transition > 0 ? (
+              <Transition name="fade">{contentNode}</Transition>
+            ) : (
+              contentNode
+            )}
           </Teleport>
         </>
       );

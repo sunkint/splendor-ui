@@ -43,6 +43,7 @@ import SweetAlertBasic from './components/sweetalert/basic.vue';
 import SweetAlertConfirm from './components/sweetalert/confirm.vue';
 import SweetAlertCustom from './components/sweetalert/custom.vue';
 import PopoverPosition from './components/popover/position.vue';
+import TooltipPosition from './components/tooltip/position.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -87,4 +88,5 @@ export default function (app) {
   app.component('SweetAlertConfirm', SweetAlertConfirm);
   app.component('SweetAlertCustom', SweetAlertCustom);
   app.component('PopoverPosition', PopoverPosition);
+  app.component('TooltipPosition', TooltipPosition);
 }

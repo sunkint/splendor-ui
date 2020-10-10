@@ -23,6 +23,7 @@ import Dialog from './dialog';
 import SweetAlert from './sweetalert';
 import FloatLayer from './float-layer';
 import Popover from './popover';
+import Tooltip from './tooltip';
 
 const components: any[] = [
   Button,
@@ -49,6 +50,7 @@ const components: any[] = [
   Dialog,
   FloatLayer,
   Popover,
+  Tooltip,
 ];
 
 const install = (app: App<Element>) => {
@@ -93,4 +95,5 @@ export {
   SweetAlert,
   FloatLayer,
   Popover,
+  Tooltip,
 };

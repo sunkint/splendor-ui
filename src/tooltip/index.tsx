@@ -17,7 +17,7 @@ const Tooltip = defineComponent({
   setup(props, { slots, attrs }) {
     return () => {
       if (!props.content) {
-        return null;
+        return slots.default?.();
       }
 
       return h(
@@ -37,7 +37,6 @@ const Tooltip = defineComponent({
           content: () => (
             <div class={['sk-tooltip-content', `sk-tooltip-position-${props.position}`]}>
               {props.content}
-              <i class="sk-tooltip-arrow"></i>
             </div>
           ),
         }

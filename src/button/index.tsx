@@ -26,6 +26,7 @@ const Button = defineComponent({
     href: String,
     round: Boolean,
     disabled: Boolean,
+    loading: Boolean,
     onClick: Function as PropType<(e: Event) => any>,
   },
   setup(props, { slots }) {
@@ -35,14 +36,17 @@ const Button = defineComponent({
       `sk-btn-${props.type}`,
       {
         [`sk-btn-size-${props.size}`]: props.size !== 'normal',
-        'sk-btn-disabled': props.disabled,
+        'sk-btn-disabled': !props.loading && props.disabled,
+        'sk-btn-loading': props.loading,
         'sk-btn-round': props.round,
         'sk-btn-block': props.block,
       },
     ]);
 
-    const onClick = (e: Event) => {
-      if (props.disabled) return;
+    const onClick = (e: MouseEvent) => {
+      if (props.disabled || props.loading) {
+        return;
+      }
       props.onClick?.(e);
     };
 
@@ -55,7 +59,7 @@ const Button = defineComponent({
             target={props.target}
             onClick={onClick}
           >
-            {slots.default && slots.default()}
+            {slots.default?.()}
           </a>
         );
       }
@@ -64,11 +68,11 @@ const Button = defineComponent({
         <button
           type={props.htmlType}
           class={btnClass.value}
-          disabled={props.disabled}
+          disabled={props.disabled || props.loading}
           onClick={onClick}
         >
           {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}
-          {slots.default && slots.default()}
+          {slots.default?.()}
         </button>
       );
     };

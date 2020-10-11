@@ -44,6 +44,42 @@
 </template>
 ```
 
+### 加载中
+
+<div class="docs-preview-part">
+  <sk-button type="default" loading>Default</sk-button>
+  <sk-button type="primary" loading>Primary</sk-button>
+  <sk-button type="success" loading>Success</sk-button>
+  <sk-button type="info" loading>Info</sk-button>
+  <sk-button type="warning" loading>Warning</sk-button>
+  <sk-button type="danger" loading>Danger</sk-button>
+  <sk-button type="danger" loading round>Round</sk-button>
+  <br>
+  <br>
+  <sk-button size="small" loading>small</sk-button>
+  <sk-button size="normal" loading>normal</sk-button>
+  <sk-button size="large" loading>large</sk-button>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-button type="default" loading>Default</sk-button>
+    <sk-button type="primary" loading>Primary</sk-button>
+    <sk-button type="success" loading>Success</sk-button>
+    <sk-button type="info" loading>Info</sk-button>
+    <sk-button type="warning" loading>Warning</sk-button>
+    <sk-button type="danger" loading>Danger</sk-button>
+    <sk-button type="danger" loading round>Round</sk-button>
+    <br />
+    <br />
+    <sk-button size="small" loading>small</sk-button>
+    <sk-button size="normal" loading>normal</sk-button>
+    <sk-button size="large" loading>large</sk-button>
+  </div>
+</template>
+```
+
 ### 带图标
 
 <div class="docs-preview-part">
@@ -112,12 +148,13 @@
 | round    | 是否显示为圆角                                    | bool   |                                                              | `false`   |
 | block    | 是否占满父容器宽度（块级）                        | bool   |                                                              | `false`   |
 | disabled | 是否禁用                                          | bool   |                                                              | `false`   |
+| loading  | 是否禁用并显示加载中动画                          | bool   |                                                              | `false`   |
 | href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                              | -         |
 | target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                              | `_blank`  |
 | htmlType | button html type                                  | string | `button`、`submit`、`reset`                                  | -         |
 
 ### 事件
 
-| 事件  | 说明       | 携带参数   |
-| ----- | ---------- | ---------- |
-| click | 点击时触发 | (e: Event) |
+| 事件  | 说明       | 携带参数        |
+| ----- | ---------- | --------------- |
+| click | 点击时触发 | (e: MouseEvent) |

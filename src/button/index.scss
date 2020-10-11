@@ -1,16 +1,26 @@
 @import '../style/var.scss';
 
+@keyframes sk-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .sk-btn {
   display: inline-block;
   cursor: pointer;
-  color: white !important;
+  color: $white;
   text-align: center;
   font-size: 14px;
   line-height: 24px;
   padding: 6px 12px;
-  width: auto !important;
-  height: auto !important;
-  text-decoration: none !important;
+  width: auto;
+  height: auto;
+  text-decoration: none;
   border: none;
   outline: none;
   border-radius: 4px;
@@ -37,7 +47,32 @@
 
   &-block {
     display: block;
-    width: 100% !important;
+    width: 100%;
+  }
+
+  &-loading {
+    position: relative;
+    color: transparent;
+    cursor: not-allowed;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin-left: -8px;
+      margin-top: -8px;
+      border: 2px solid;
+      border-radius: 8px;
+      border-top-color: rgba($black, 0.2);
+      border-right-color: rgba($black, 0.2);
+      border-left-color: rgba($white, 0.8);
+      border-bottom-color: rgba($white, 0.8);
+      box-sizing: border-box;
+      animation: sk-rotate 0.6s linear infinite;
+    }
   }
 
   &-icon {
@@ -78,7 +113,8 @@
       background-color: darken($secondary, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $secondary;
     }
   }
@@ -95,7 +131,8 @@
       background-color: darken($primary, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $primary;
     }
   }
@@ -112,7 +149,8 @@
       background-color: darken($success, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $success;
     }
   }
@@ -129,7 +167,8 @@
       background-color: darken($info, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $info;
     }
   }
@@ -146,7 +185,8 @@
       background-color: darken($warning, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $warning;
     }
   }
@@ -163,8 +203,14 @@
       background-color: darken($danger, 10%);
     }
 
-    &.sk-btn-disabled {
+    &.sk-btn-disabled,
+    &.sk-btn-loading {
       background-color: $danger;
     }
   }
+}
+
+a.sk-btn {
+  color: $white;
+  text-decoration: none !important;
 }

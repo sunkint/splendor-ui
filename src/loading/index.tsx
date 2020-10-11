@@ -20,19 +20,18 @@ const Loading = defineComponent({
       }
     });
     return () => {
-      if (!show.value) {
-        return slots.default?.();
-      }
       return (
         <div class="sk-loading-wrapper">
           {slots.default?.()}
-          <div class="sk-loading">
-            <span class="sk-loading-inner" style={colorStyle.value}>
-              <svg viewBox="25 25 50 50">
-                <circle cx="50" cy="50" r="20" fill="none" />
-              </svg>
-            </span>
-          </div>
+          {show.value && (
+            <div class="sk-loading">
+              <span class="sk-loading-inner" style={colorStyle.value}>
+                <svg viewBox="25 25 50 50">
+                  <circle cx="50" cy="50" r="20" fill="none" />
+                </svg>
+              </span>
+            </div>
+          )}
         </div>
       );
     };

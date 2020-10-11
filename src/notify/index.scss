@@ -4,12 +4,12 @@
   display: inline-flex;
   align-items: flex-start;
   margin-top: 16px;
-  padding: 10px 20px;
+  padding: 8px 22px;
   border-radius: 4px;
   max-width: 20%;
   color: $white;
-  box-shadow: 0 1px 5px 0 lighten(#000, 30%);
-  font-size: 16px;
+  box-shadow: 0 1px 5px 0 rgba($black, 0.1);
+  font-size: 14px;
   line-height: 22px;
   transition: all 0.3s;
 

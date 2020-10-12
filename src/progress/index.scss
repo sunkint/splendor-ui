@@ -1,0 +1,20 @@
+@import '../style/var.scss';
+
+.sk-progress {
+  display: flex;
+  height: 16px;
+  overflow: hidden;
+  line-height: 0;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: $gray-200;
+
+  &-bar {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    color: $white;
+    white-space: nowrap;
+    transition: width 0.6s ease;
+  }
+}

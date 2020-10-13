@@ -126,11 +126,12 @@
 
 ### API
 
-| 参数      | 说明                                         | 类型   | 可选值                                            | 默认值    |
-| --------- | -------------------------------------------- | ------ | ------------------------------------------------- | --------- |
-| percent   | 百分比数值，允许使用小数，实际宽度会四舍五入 | number | 0-100                                             | 0         |
-| type      | 主题色                                       | string | `primary`、`success`、`info`、`warning`、`danger` | `primary` |
-| showLabel | 是否展示进度文字                             | bool   |                                                   | `false`   |
-| labelText | 自定义进度条文字                             | string |                                                   | -         |
-| striped   | 是否显示条纹效果                             | bool   |                                                   | `false`   |
-| animated  | 条纹效果是否带动效                           | bool   |                                                   | `false`   |
+| 参数      | 说明                                                             | 类型   | 可选值                                            | 默认值    |
+| --------- | ---------------------------------------------------------------- | ------ | ------------------------------------------------- | --------- |
+| percent   | 百分比数值，允许使用小数，实际宽度会四舍五入，超过 100 按 100 算 | number |                                                   | `0`       |
+| height    | 进度条高度（px）                                                 | number |                                                   | `16`      |
+| type      | 主题色                                                           | string | `primary`、`success`、`info`、`warning`、`danger` | `primary` |
+| showLabel | 是否展示进度文字                                                 | bool   |                                                   | `false`   |
+| labelText | 自定义进度条文字                                                 | string |                                                   | -         |
+| striped   | 是否显示条纹效果                                                 | bool   |                                                   | `false`   |
+| animated  | 条纹效果是否带动效                                               | bool   |                                                   | `false`   |

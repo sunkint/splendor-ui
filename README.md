@@ -65,6 +65,7 @@ make build
 - [x] SweetAlert
 - [x] Popover
 - [x] Tooltip
+- [x] Progress
 - [ ] Slider
 - [ ] Tabs
 - [ ] Select

@@ -1,4 +1,5 @@
 import { App } from 'vue';
+import './style/common.scss';
 
 import Button from './button';
 import Input from './input';
@@ -24,6 +25,7 @@ import SweetAlert from './sweetalert';
 import FloatLayer from './float-layer';
 import Popover from './popover';
 import Tooltip from './tooltip';
+import Progress from './progress';
 
 const components: any[] = [
   Button,
@@ -51,6 +53,7 @@ const components: any[] = [
   FloatLayer,
   Popover,
   Tooltip,
+  Progress,
 ];
 
 const install = (app: App<Element>) => {
@@ -96,4 +99,5 @@ export {
   FloatLayer,
   Popover,
   Tooltip,
+  Progress,
 };

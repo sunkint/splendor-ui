@@ -47,6 +47,7 @@ module.exports = {
           'SweetAlert',
           'Popover',
           'Tooltip',
+          'Progress',
         ].map(buildNavChildren),
       },
       {

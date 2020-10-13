@@ -55,7 +55,7 @@ const Progress = defineComponent({
             minStackWidth.value = 0;
           }
         },
-        { immediate: true }
+        { immediate: true, flush: 'post' }
       );
     });
 

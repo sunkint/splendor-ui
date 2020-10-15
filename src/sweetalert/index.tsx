@@ -1,7 +1,8 @@
-import { createApp, defineComponent, ref, h, PropType, onMounted } from 'vue';
+import { createApp, defineComponent, ref, h, PropType, onMounted, reactive } from 'vue';
 import { SweetAlertAlertOptions, SweetAlertConfirmOptions } from './types';
 import Button from '../button';
 import Dialog from '../dialog';
+import Notify from '../notify';
 
 const AlertDialog = defineComponent({
   name: 'sk-alert-dialog',
@@ -12,6 +13,10 @@ const AlertDialog = defineComponent({
     },
   },
   setup: (props, { slots, emit, attrs }) => {
+    const state = reactive({
+      isConfirming: false,
+    });
+
     onMounted(() => {
       (document.body.querySelector(
         '.sk-alert-dialog-confirm-btn'
@@ -24,9 +29,22 @@ const AlertDialog = defineComponent({
     };
 
     const onConfirm = () => {
-      props.options.onConfirm?.();
-      emit('close');
-      onClose();
+      const result = props.options.onConfirm?.();
+      if (result && result instanceof Promise) {
+        state.isConfirming = true;
+        result
+          .then(() => {
+            onClose();
+          })
+          .catch((err) => {
+            Notify.error(err);
+          })
+          .finally(() => {
+            state.isConfirming = false;
+          });
+      } else {
+        onClose();
+      }
     };
 
     return () => {
@@ -42,7 +60,12 @@ const AlertDialog = defineComponent({
 
       const footer = () => {
         return (
-          <Button class="sk-alert-dialog-confirm-btn" type="primary" onClick={onConfirm}>
+          <Button
+            class="sk-alert-dialog-confirm-btn"
+            type="primary"
+            onClick={onConfirm}
+            loading={state.isConfirming}
+          >
             {confirmText}
           </Button>
         );
@@ -77,6 +100,10 @@ const ConfirmDialog = defineComponent({
     },
   },
   setup: (props, { slots, emit, attrs }) => {
+    const state = reactive({
+      isConfirming: false,
+    });
+
     onMounted(() => {
       (document.body.querySelector(
         '.sk-alert-dialog-confirm-btn'
@@ -94,8 +121,22 @@ const ConfirmDialog = defineComponent({
     };
 
     const onConfirm = () => {
-      props.options.onConfirm?.();
-      onClose();
+      const result = props.options.onConfirm?.();
+      if (result && result instanceof Promise) {
+        state.isConfirming = true;
+        result
+          .then(() => {
+            onClose();
+          })
+          .catch((err) => {
+            Notify.error(err);
+          })
+          .finally(() => {
+            state.isConfirming = false;
+          });
+      } else {
+        onClose();
+      }
     };
 
     return () => {
@@ -113,10 +154,19 @@ const ConfirmDialog = defineComponent({
       const footer = () => {
         return (
           <>
-            <Button class="sk-alert-dialog-cancel-btn" onClick={onCancel}>
+            <Button
+              class="sk-alert-dialog-cancel-btn"
+              onClick={onCancel}
+              disabled={state.isConfirming}
+            >
               {cancelText}
             </Button>
-            <Button class="sk-alert-dialog-confirm-btn" type="primary" onClick={onConfirm}>
+            <Button
+              class="sk-alert-dialog-confirm-btn"
+              type="primary"
+              onClick={onConfirm}
+              loading={state.isConfirming}
+            >
               {confirmText}
             </Button>
           </>

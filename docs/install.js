@@ -41,6 +41,7 @@ import DialogNesting from './components/dialog/nesting.vue';
 import DialogFooter from './components/dialog/footer.vue';
 import SweetAlertBasic from './components/sweetalert/basic.vue';
 import SweetAlertConfirm from './components/sweetalert/confirm.vue';
+import SweetAlertLoading from './components/sweetalert/loading.vue';
 import SweetAlertCustom from './components/sweetalert/custom.vue';
 import PopoverPosition from './components/popover/position.vue';
 import TooltipPosition from './components/tooltip/position.vue';
@@ -86,6 +87,7 @@ export default function (app) {
   app.component('DialogFooter', DialogFooter);
   app.component('SweetAlertBasic', SweetAlertBasic);
   app.component('SweetAlertConfirm', SweetAlertConfirm);
+  app.component('SweetAlertLoading', SweetAlertLoading);
   app.component('SweetAlertCustom', SweetAlertCustom);
   app.component('PopoverPosition', PopoverPosition);
   app.component('TooltipPosition', TooltipPosition);

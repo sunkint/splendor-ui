@@ -26,6 +26,7 @@ import FloatLayer from './float-layer';
 import Popover from './popover';
 import Tooltip from './tooltip';
 import Progress from './progress';
+import Select from './select';
 
 const components: any[] = [
   Button,
@@ -54,6 +55,7 @@ const components: any[] = [
   Popover,
   Tooltip,
   Progress,
+  Select,
 ];
 
 const install = (app: App<Element>) => {
@@ -100,4 +102,5 @@ export {
   Popover,
   Tooltip,
   Progress,
+  Select,
 };

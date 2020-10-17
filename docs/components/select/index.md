@@ -3,14 +3,16 @@
 ### 基础用法
 
 <div class="docs-preview-part">
-  <sk-select
-    :data="[
-      { value: 1, text: 'Option 1' },
-      { value: 2, text: 'Option 2' },
-      { value: 3, text: 'Option 3' },
-      { value: 4, text: 'Option 4 (Disabled)', disabled: true },
-    ]"
-  />
+  <client-only>
+    <sk-select
+      :data="[
+        { value: 1, text: 'Option 1' },
+        { value: 2, text: 'Option 2' },
+        { value: 3, text: 'Option 3' },
+        { value: 4, text: 'Option 4 (Disabled)', disabled: true },
+      ]"
+    />
+  </client-only>
 </div>
 
 ```vue
@@ -31,14 +33,16 @@
 ### 可清空
 
 <div class="docs-preview-part">
-  <sk-select
-    clearable
-    :data="[
-      { value: 1, text: 'Option 1' },
-      { value: 2, text: 'Option 2' },
-      { value: 3, text: 'Option 3' },
-    ]"
-  />
+  <client-only>
+    <sk-select
+      clearable
+      :data="[
+        { value: 1, text: 'Option 1' },
+        { value: 2, text: 'Option 2' },
+        { value: 3, text: 'Option 3' },
+      ]"
+    />
+  </client-only>
 </div>
 
 ```vue
@@ -59,7 +63,9 @@
 ### 空选项
 
 <div class="docs-preview-part">
-  <sk-select :data="[]" />
+  <client-only>
+    <sk-select :data="[]" />
+  </client-only>
 </div>
 
 ```vue
@@ -73,7 +79,9 @@
 ### 禁用
 
 <div class="docs-preview-part">
-  <sk-select disabled />
+  <client-only>
+    <sk-select disabled />
+  </client-only>
 </div>
 
 ```vue
@@ -87,14 +95,16 @@
 ### 支持筛选
 
 <div class="docs-preview-part">
-  <sk-select
-    filterable
-    :data="[
-      { value: 1, text: 'Option 1' },
-      { value: 2, text: 'Option 2' },
-      { value: 3, text: 'Option 3' },
-    ]"
-  />
+  <client-only>
+    <sk-select
+      filterable
+      :data="[
+        { value: 1, text: 'Option 1' },
+        { value: 2, text: 'Option 2' },
+        { value: 3, text: 'Option 3' },
+      ]"
+    />
+  </client-only>
 </div>
 
 ```vue

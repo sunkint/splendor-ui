@@ -1,4 +1,4 @@
-import { defineComponent, PropType, reactive, ref, h } from 'vue';
+import { defineComponent, PropType, reactive, h } from 'vue';
 import Button, { ButtonSize, ButtonType } from '../button';
 import FloatLayer, { LayerPosition } from '../float-layer';
 import Icon from '../icon';

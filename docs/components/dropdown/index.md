@@ -3,7 +3,14 @@
 ### 基础用法
 
 <div class="docs-preview-part">
-  <sk-dropdown text="点击打开菜单" :data="[{ key: 'food', text: '食品' }, { key: 'clothes', text: '服装' }]" />
+  <sk-dropdown
+    text="点击打开菜单"
+    :data="[
+      { key: 'food', text: '食品' },
+      { key: 'clothes', text: '服装' },
+      { key: 'furniture', text: '家居', disabled: true },
+    ]"
+  />
 </div>
 
 ```vue
@@ -14,13 +21,14 @@
       :data="[
         { key: 'food', text: '食品' },
         { key: 'clothes', text: '服装' },
+        { key: 'furniture', text: '家居', disabled: true },
       ]"
     />
   </div>
 </template>
 ```
 
-### 多种风格
+### 多种风格和尺寸
 
 <DropdownTheme />
 
@@ -33,6 +41,11 @@
     <sk-dropdown type="info" text="点击打开菜单" :data="data" />
     <sk-dropdown type="warning" text="点击打开菜单" :data="data" />
     <sk-dropdown type="danger" text="点击打开菜单" :data="data" />
+  </div>
+  <div class="docs-preview-part">
+    <sk-dropdown size="small" text="点击打开菜单" :data="data" />
+    <sk-dropdown size="normal" text="点击打开菜单" :data="data" />
+    <sk-dropdown size="large" text="点击打开菜单" :data="data" />
   </div>
 </template>
 
@@ -119,16 +132,18 @@ export default {
 | text         | 按钮文本                   | string         |                                                              | -         |
 | icon         | 前置图标                   | string         | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
 | data         | 下拉项数据，必填           | `DropdownData` |                                                              | -         |
-| selectedKeys | 选择项，data 中 key 的数组 | `Array<string  | number>`                                                     |           | `[]` |
-| type         | 样式类型                   | string         | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
+| selectedKeys | 选择项，data 中 key 的数组 | `any[]`        |                                                              | `[]`      |
+| type         | 按钮样式类型               | string         | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
+| size         | 按钮尺寸                   | string         | `small`、`normal`、`large`                                   | `normal`  |
 | disabled     | 是否禁用                   | bool           |                                                              | `false`   |
 
 > #### DropdownData <sk-tag ghost>type</sk-tag>
 >
 > ```ts
 > export type DropdownDataItem = {
->   key: string | number; // 唯一值，不能重复
+>   key: any;
 >   text: string;
+>   disabled?: boolean;
 > } & Record<string, any>;
 >
 > export type DropdownData = DropdownDataItem[];
@@ -136,6 +151,8 @@ export default {
 
 ### 事件
 
-| 事件   | 说明                 | 携带参数                                       |
-| ------ | -------------------- | ---------------------------------------------- |
-| select | 点击菜单项触发的事件 | `(key: string, item: DropdownDataItem) => any` |
+| 事件   | 说明                 | 携带参数                                    |
+| ------ | -------------------- | ------------------------------------------- |
+| select | 点击菜单项触发的事件 | `(key: any, item: DropdownDataItem) => any` |
+| open   | 弹层打开触发的事件   | -                                           |
+| close  | 弹层关闭触发的事件   | -                                           |

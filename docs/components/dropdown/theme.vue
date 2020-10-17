@@ -7,6 +7,11 @@
     <sk-dropdown type="warning" text="点击打开菜单" :data="data" />
     <sk-dropdown type="danger" text="点击打开菜单" :data="data" />
   </div>
+  <div class="docs-preview-part">
+    <sk-dropdown size="small" text="点击打开菜单" :data="data" />
+    <sk-dropdown size="normal" text="点击打开菜单" :data="data" />
+    <sk-dropdown size="large" text="点击打开菜单" :data="data" />
+  </div>
 </template>
 
 <script>

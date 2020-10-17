@@ -1,55 +1,34 @@
-import { defineComponent, PropType, Teleport, reactive, computed, ref, nextTick } from 'vue';
-import Button from '../button';
+import { defineComponent, PropType, reactive, ref, h } from 'vue';
+import Button, { ButtonSize, ButtonType } from '../button';
+import FloatLayer, { LayerPosition } from '../float-layer';
 import Icon from '../icon';
 import './index.scss';
 
 export type DropdownDataItem = {
-  key: string | number;
+  key: any;
   text: string;
+  disabled?: boolean;
 } & Record<string, any>;
 
 export type DropdownData = DropdownDataItem[];
-export type DropdownType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
 
-const DropdownMenu = defineComponent({
-  name: 'sk-dropdown-menu',
+const DropdownOption = defineComponent({
+  name: 'sk-dropdown-option',
   props: {
-    data: {
-      type: Array as PropType<DropdownData>,
-      required: true,
-    },
-    selectedKeys: {
-      type: Array as PropType<Array<string | number>>,
-      default: [],
-    },
-    type: {
-      type: String as PropType<DropdownType>,
-      default: 'default' as DropdownType,
-    },
-    onMenuClick: Function,
+    onClick: Function as PropType<(e: MouseEvent) => any>,
+    disabled: Boolean,
+    selected: Boolean,
   },
-  emits: {
-    menuClick: null,
-  },
-  setup(props, { emit }) {
-    const click = (item: DropdownDataItem) => {
-      emit('menuClick', item);
-    };
-    return () => {
-      const { data, selectedKeys, type } = props;
-      return (
-        <div class={['sk-dropdown-menu', `sk-dropdown-menu-${type}`]}>
-          <ul>
-            {data.map((item) => (
-              <li key={item.key} onClick={() => click(item)}>
-                <span>{item.text}</span>
-                {selectedKeys.includes(item.key) ? <Icon type="ok" /> : null}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    };
+  setup(props, { slots }) {
+    return () => (
+      <span
+        class={['sk-dropdown-option', { disabled: props.disabled, selected: props.selected }]}
+        onClick={props.onClick}
+      >
+        {slots.default?.()}
+        {props.selected ? <Icon class="sk-dropdown-option-ok" type="ok" /> : null}
+      </span>
+    );
   },
 });
 
@@ -61,99 +40,117 @@ const Dropdown = defineComponent({
       required: true,
     },
     selectedKeys: {
-      type: Array as PropType<Array<string | number>>,
-      default: [],
+      type: Array as PropType<any[]>,
+      default: [] as any[],
     },
     type: {
-      type: String as PropType<DropdownType>,
-      default: 'default' as DropdownType,
+      type: String as PropType<ButtonType>,
+      default: 'default' as ButtonType,
     },
-    disabled: Boolean,
+    size: {
+      type: String as PropType<ButtonSize>,
+      default: 'normal' as ButtonSize,
+    },
     text: String,
-    onSelect: Function as PropType<(key: string | number, item: DropdownDataItem) => any>,
     icon: String,
+    disabled: Boolean,
+    triggerClass: null,
+    position: {
+      type: String as PropType<LayerPosition>,
+      default: 'bottom-left' as LayerPosition,
+    },
+    onSelect: Function as PropType<(key: any, item: DropdownDataItem) => any>,
+    onOpen: Function as PropType<() => any>,
+    onClose: Function as PropType<() => any>,
   },
-  emits: {
-    select: null,
-  },
-  setup(props, { emit }) {
-    const click = (item: DropdownDataItem) => {
-      emit('select', item.key, item);
-    };
-    const isOpen = ref(false);
-    const trigger = ref<Element | null>(null);
-    const menuPostion = reactive({
-      left: 0,
-      top: 0,
-    });
-    const menuPostionStyle = computed(() => {
-      return {
-        left: `${menuPostion.left}px`,
-        top: `${menuPostion.top}px`,
-      };
+  inheritAttrs: false,
+  setup(props, { attrs }) {
+    const state = reactive({
+      open: false,
     });
 
-    const triggerMenu = (e: Event) => {
-      e.stopPropagation();
-      const shouldOpen = !isOpen.value && trigger.value;
-      document.body.click();
-      if (shouldOpen) {
-        const { height, top, left } = (trigger.value as Element).getBoundingClientRect();
-        menuPostion.left = left + pageXOffset;
-        menuPostion.top = top + height + pageYOffset;
-        isOpen.value = true;
-
-        nextTick(() => {
-          window.addEventListener(
-            'click',
-            () => {
-              isOpen.value = false;
-            },
-            { once: true }
-          );
-        });
-      } else {
-        isOpen.value = false;
+    const onClick = (e: MouseEvent) => {
+      if (props.disabled || state.open) {
+        e.stopPropagation();
+        document.body.click();
       }
     };
 
-    return () => {
-      const { data, text, selectedKeys, type, disabled, icon } = props;
-      return (
-        <div class={['sk-dropdown', `sk-dropdown-${type}`]}>
-          <Button
-            class={{ 'sk-active': isOpen.value }}
-            type={type}
-            ref={(el: any) => (trigger.value = el?.$el)}
-            disabled={disabled}
-            onClick={triggerMenu}
-            icon={icon}
-          >
-            {text}{' '}
-            <Icon
-              class={[
-                'sk-dropdown-arrow',
-                {
-                  'sk-dropdown-arrow-open': isOpen.value,
-                },
-              ]}
-              type="down-simple"
-            />
-          </Button>
-          <Teleport to="body">
-            {isOpen.value ? (
-              <DropdownMenu
-                style={menuPostionStyle.value}
-                data={data}
-                onMenuClick={click}
-                selectedKeys={selectedKeys}
-                type={type}
-              />
-            ) : null}
-          </Teleport>
-        </div>
-      );
+    const onMenuClick = (item: DropdownDataItem) => {
+      if (item.disabled) {
+        return;
+      }
+      props.onSelect?.(item.key, item);
+      document.body.click(); // close layer
     };
+
+    const onOpen = () => {
+      state.open = true;
+      props.onOpen?.();
+    };
+
+    const onClose = () => {
+      state.open = false;
+      props.onClose?.();
+    };
+
+    return () =>
+      h(
+        FloatLayer,
+        {
+          trigger: 'click',
+          triggerClass: ['sk-dropdown', props.triggerClass],
+          position: props.position,
+          cushion: 3,
+          onOpen,
+          onClose,
+        },
+        {
+          default: () => (
+            <span class="sk-dropdown-trigger" onClick={onClick}>
+              <Button
+                class={{ 'sk-active': state.open }}
+                type={props.type}
+                size={props.size}
+                disabled={props.disabled}
+                icon={props.icon}
+              >
+                {props.text}{' '}
+                <Icon
+                  class={[
+                    'sk-dropdown-arrow',
+                    {
+                      'sk-dropdown-arrow-open': state.open,
+                    },
+                  ]}
+                  type="down-simple"
+                />
+              </Button>
+            </span>
+          ),
+          content: () => {
+            const { class: className, ...restAttrs } = attrs;
+            return (
+              <div {...restAttrs} class={['sk-dropdown-popup', className]}>
+                {props.data.map((item, index) => {
+                  return (
+                    <DropdownOption
+                      key={index}
+                      selected={props.selectedKeys.includes(item.key)}
+                      disabled={item.disabled}
+                      onClick={() => {
+                        onMenuClick(item);
+                      }}
+                    >
+                      {item.text}
+                    </DropdownOption>
+                  );
+                })}
+              </div>
+            );
+          },
+        }
+      );
   },
 });
 

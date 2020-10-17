@@ -1,5 +1,6 @@
 import { computed, defineComponent, h, PropType, reactive, ref, watch } from 'vue';
 import FloatLayer, { LayerPosition } from '../float-layer';
+import isNil from '../utils/isNil';
 import Input from '../input';
 import Icon from '../icon';
 import './index.scss';
@@ -11,8 +12,6 @@ export type SelectDataItem = {
 } & Record<string, any>;
 
 export type SelectFilter = (item: SelectDataItem, keyword: string) => boolean;
-
-const isNil = (val: any) => val === undefined || val === null;
 
 const SelectOption = defineComponent({
   name: 'sk-select-option',

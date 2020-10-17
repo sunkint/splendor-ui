@@ -61,8 +61,10 @@ const Select = defineComponent({
     onChange: Function as PropType<(value: any) => void>,
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
+    triggerClass: null,
   },
-  setup(props, { emit }) {
+  inheritAttrs: false,
+  setup(props, { emit, attrs }) {
     const trigger = ref<HTMLDivElement | null>(null);
     const popup = ref<HTMLDivElement | null>(null);
     const state = reactive({
@@ -166,7 +168,7 @@ const Select = defineComponent({
         FloatLayer,
         {
           trigger: 'click',
-          triggerClass: ['sk-select', { 'sk-select-open': state.open }],
+          triggerClass: ['sk-select', { 'sk-select-open': state.open }, props.triggerClass],
           position: state.layerPosition,
           cushion: 3,
           onOpen,
@@ -196,44 +198,47 @@ const Select = defineComponent({
               ) : null}
             </div>
           ),
-          content: () => (
-            <div class="sk-select-popup" ref={popup}>
-              {props.filterable && props.data.length > 0
-                ? h(Input, {
-                    class: 'sk-select-filter',
-                    icon: 'search',
-                    placeholder: props.filterPlaceholder,
-                    modelValue: state.filterValue,
-                    'onUpdate:modelValue': (value: string) => (state.filterValue = value),
-                  })
-                : null}
-              {filterData.value.map((item, index) => {
-                return (
-                  <SelectOption
-                    key={index}
-                    class={{
-                      active: item.value === state.selectedValue,
-                      current: index === state.hoverIndex,
-                    }}
-                    onMouseenter={() => {
-                      onHover(index);
-                    }}
-                    onClick={() => {
-                      onSelect(index);
-                    }}
-                    disabled={item.disabled}
-                  >
-                    {item.text}
-                  </SelectOption>
-                );
-              })}
-              {filterData.value.length === 0 ? (
-                <span class="sk-select-empty" onClick={onClick}>
-                  {props.emptyText}
-                </span>
-              ) : null}
-            </div>
-          ),
+          content: () => {
+            const { class: className, ...restAttrs } = attrs;
+            return (
+              <div {...restAttrs} class={['sk-select-popup', className]} ref={popup}>
+                {props.filterable && props.data.length > 0
+                  ? h(Input, {
+                      class: 'sk-select-filter',
+                      icon: 'search',
+                      placeholder: props.filterPlaceholder,
+                      modelValue: state.filterValue,
+                      'onUpdate:modelValue': (value: string) => (state.filterValue = value),
+                    })
+                  : null}
+                {filterData.value.map((item, index) => {
+                  return (
+                    <SelectOption
+                      key={index}
+                      class={{
+                        active: item.value === state.selectedValue,
+                        current: index === state.hoverIndex,
+                      }}
+                      onMouseenter={() => {
+                        onHover(index);
+                      }}
+                      onClick={() => {
+                        onSelect(index);
+                      }}
+                      disabled={item.disabled}
+                    >
+                      {item.text}
+                    </SelectOption>
+                  );
+                })}
+                {filterData.value.length === 0 ? (
+                  <span class="sk-select-empty" onClick={onClick}>
+                    {props.emptyText}
+                  </span>
+                ) : null}
+              </div>
+            );
+          },
         }
       );
   },

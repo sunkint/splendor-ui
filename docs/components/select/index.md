@@ -124,18 +124,21 @@
 
 ### API
 
-| 参数                 | 说明                 | 类型               | 可选值 | 默认值                                           |
-| -------------------- | -------------------- | ------------------ | ------ | ------------------------------------------------ |
-| data                 | 选项数据             | `SelectDataItem[]` |        | `[]`                                             |
-| modelValue / v-model | 当前选择项的`value`  | any                |        | -                                                |
-| disabled             | 是否禁用             | bool               |        | `false`                                          |
-| filterable           | 是否启用过滤功能     | bool               |        | `false`                                          |
-| filter               | 自定义过滤函数       | `SelectFilter`     |        | `(item, keyword) => item.text.includes(keyword)` |
-| clearable            | 是否支持清空         | bool               |        | `false`                                          |
-| placeholder          | 选择器的占位文案     | string             |        | `请选择`                                         |
-| filterPlaceholder    | 筛选框的占位文案     | string             |        | -                                                |
-| emptyText            | 没有选项时的占位文案 | string             |        | `没有找到匹配项`                                 |
-| name                 | html name            | string             |        | -                                                |
+| 参数                 | 说明                       | 类型                  | 可选值 | 默认值                                           |
+| -------------------- | -------------------------- | --------------------- | ------ | ------------------------------------------------ |
+| data                 | 选项数据                   | `SelectDataItem[]`    |        | `[]`                                             |
+| modelValue / v-model | 当前选择项的`value`        | any                   |        | -                                                |
+| disabled             | 是否禁用                   | bool                  |        | `false`                                          |
+| filterable           | 是否启用过滤功能           | bool                  |        | `false`                                          |
+| filter               | 自定义过滤函数             | `SelectFilter`        |        | `(item, keyword) => item.text.includes(keyword)` |
+| clearable            | 是否支持清空               | bool                  |        | `false`                                          |
+| placeholder          | 选择器的占位文案           | string                |        | `请选择`                                         |
+| filterPlaceholder    | 筛选框的占位文案           | string                |        | -                                                |
+| emptyText            | 没有选项时的占位文案       | string                |        | `没有找到匹配项`                                 |
+| name                 | html name                  | string                |        | -                                                |
+| triggerClass         | 触发元素包裹层的自定义类名 | string、array、object |        | -                                                |
+| class                | 弹层的自定义额外类名       | string、array、object |        | -                                                |
+| style                | 弹层的自定义额外样式       | string、object        |        | -                                                |
 
 > #### SelectDataItem <sk-tag ghost>type</sk-tag>
 >

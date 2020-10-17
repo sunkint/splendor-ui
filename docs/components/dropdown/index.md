@@ -3,14 +3,16 @@
 ### 基础用法
 
 <div class="docs-preview-part">
-  <sk-dropdown
-    text="点击打开菜单"
-    :data="[
-      { key: 'food', text: '食品' },
-      { key: 'clothes', text: '服装' },
-      { key: 'furniture', text: '家居', disabled: true },
-    ]"
-  />
+  <client-only>
+    <sk-dropdown
+      text="点击打开菜单"
+      :data="[
+        { key: 'food', text: '食品' },
+        { key: 'clothes', text: '服装' },
+        { key: 'furniture', text: '家居', disabled: true },
+      ]"
+    />
+  </client-only>
 </div>
 
 ```vue
@@ -30,7 +32,9 @@
 
 ### 多种风格和尺寸
 
-<DropdownTheme />
+<client-only>
+  <DropdownTheme />
+</client-only>
 
 ```vue
 <template>
@@ -66,16 +70,18 @@ export default {
 ### 可选项
 
 <div class="docs-preview-part">
-  <sk-dropdown
-    type="primary"
-    text="点击打开菜单"
-    :data="[
-      { key: 'food', text: '食品' },
-      { key: 'clothes', text: '服装' },
-      { key: 'book', text: '图书' },
-    ]"
-    :selectedKeys="['clothes', 'book']"
-  />
+  <client-only>
+    <sk-dropdown
+      type="primary"
+      text="点击打开菜单"
+      :data="[
+        { key: 'food', text: '食品' },
+        { key: 'clothes', text: '服装' },
+        { key: 'book', text: '图书' },
+      ]"
+      :selectedKeys="['clothes', 'book']"
+    />
+  </client-only>
 </div>
 
 ```vue
@@ -98,15 +104,17 @@ export default {
 ### 禁用
 
 <div class="docs-preview-part">
-  <sk-dropdown
-    type="primary"
-    text="已禁用"
-    disabled
-    :data="[
-      { key: 'food', text: '食品' },
-      { key: 'clothes', text: '服装' },
-    ]"
-  />
+  <client-only>
+    <sk-dropdown
+      type="primary"
+      text="已禁用"
+      disabled
+      :data="[
+        { key: 'food', text: '食品' },
+        { key: 'clothes', text: '服装' },
+      ]"
+    />
+  </client-only>
 </div>
 
 ```vue

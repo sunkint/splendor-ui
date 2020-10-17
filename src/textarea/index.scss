@@ -28,6 +28,11 @@
       overflow: hidden;
     }
 
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: $gray-100;
+    }
+
     &:focus {
       border: 1px solid $gray-800;
       box-shadow: 0 0 0 2px lighten($gray-800, 65%);

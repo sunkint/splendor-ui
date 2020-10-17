@@ -119,6 +119,7 @@ const Select = defineComponent({
       state.open = false;
       state.hoverIndex = -1;
       state.layerPosition = 'bottom-left';
+      state.filterValue = '';
       props.onClose?.();
     };
 

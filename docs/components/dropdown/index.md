@@ -127,15 +127,19 @@ export default {
 
 ### API
 
-| 参数         | 说明                       | 类型           | 可选值                                                       | 默认值    |
-| ------------ | -------------------------- | -------------- | ------------------------------------------------------------ | --------- |
-| text         | 按钮文本                   | string         |                                                              | -         |
-| icon         | 前置图标                   | string         | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
-| data         | 下拉项数据，必填           | `DropdownData` |                                                              | -         |
-| selectedKeys | 选择项，data 中 key 的数组 | `any[]`        |                                                              | `[]`      |
-| type         | 按钮样式类型               | string         | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
-| size         | 按钮尺寸                   | string         | `small`、`normal`、`large`                                   | `normal`  |
-| disabled     | 是否禁用                   | bool           |                                                              | `false`   |
+| 参数         | 说明                       | 类型                  | 可选值                                                       | 默认值        |
+| ------------ | -------------------------- | --------------------- | ------------------------------------------------------------ | ------------- |
+| text         | 按钮文本                   | string                |                                                              | -             |
+| icon         | 前置图标                   | string                | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -             |
+| data         | 下拉项数据，必填           | `DropdownData`        |                                                              | -             |
+| selectedKeys | 选择项，data 中 key 的数组 | `any[]`               |                                                              | `[]`          |
+| triggerClass | 触发元素包裹层的自定义类名 | string、array、object |                                                              | -             |
+| class        | 弹层的自定义额外类名       | string、array、object |                                                              | -             |
+| style        | 弹层的自定义额外样式       | string、object        |                                                              | -             |
+| position     | 菜单展开方位               | `LayerPosition`       |                                                              | `bottom-left` |
+| type         | 按钮样式类型               | string                | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default`     |
+| size         | 按钮尺寸                   | string                | `small`、`normal`、`large`                                   | `normal`      |
+| disabled     | 是否禁用                   | bool                  |                                                              | `false`       |
 
 > #### DropdownData <sk-tag ghost>type</sk-tag>
 >
@@ -147,6 +151,24 @@ export default {
 > } & Record<string, any>;
 >
 > export type DropdownData = DropdownDataItem[];
+> ```
+
+> #### LayerPosition <sk-tag ghost>type</sk-tag>
+>
+> ```ts
+> export type LayerPosition =
+>   | 'top-left'
+>   | 'top-center'
+>   | 'top-right'
+>   | 'bottom-left'
+>   | 'bottom-center'
+>   | 'bottom-right'
+>   | 'left-top'
+>   | 'left-center'
+>   | 'left-bottom'
+>   | 'right-top'
+>   | 'right-center'
+>   | 'right-bottom';
 > ```
 
 ### 事件

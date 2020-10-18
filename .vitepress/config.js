@@ -34,6 +34,7 @@ module.exports = {
           'Loading',
           'Pagination',
           'BackTop',
+          'Tabs',
         ].map(buildNavChildren),
       },
       {

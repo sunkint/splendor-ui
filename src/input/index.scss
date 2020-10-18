@@ -42,6 +42,7 @@ $name: sk-input;
 
     &[disabled] {
       cursor: not-allowed;
+      background-color: $gray-100;
     }
   }
 

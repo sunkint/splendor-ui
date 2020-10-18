@@ -1,0 +1,27 @@
+@import './var.scss';
+
+.sk-bg {
+  &-default {
+    background-color: $secondary;
+  }
+
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-info {
+    background-color: $info;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-warning {
+    background-color: $warning;
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+}

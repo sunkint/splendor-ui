@@ -168,6 +168,8 @@ const FloatLayer = defineComponent({
       window.removeEventListener('resize', refreshLayerPosition);
     });
 
+    watch(() => props.position, refreshLayerPosition);
+
     const onTriggerClick = (e: MouseEvent) => {
       if (props.trigger === 'click') {
         e.stopPropagation();

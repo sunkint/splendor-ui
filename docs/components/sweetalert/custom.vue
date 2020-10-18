@@ -1,6 +1,7 @@
 <template>
   <div class="docs-preview-part">
     <sk-button @click="open">点我打开提示</sk-button>
+    <sk-button @click="open2">点我打开提示</sk-button>
   </div>
 </template>
 
@@ -19,6 +20,23 @@ export default {
         },
         onCancel: () => {
           Notify.info('你点了再想想按钮');
+        },
+        onClose: () => {
+          Notify.info('对话框关掉了');
+        },
+        closeOnEsc: true,
+        closeBtn: false,
+        maskClosable: true,
+        style: { width: '600px' },
+      });
+    },
+    open2() {
+      SweetAlert.alert({
+        title: '温馨提示',
+        content: '您的操作已经成功执行。',
+        confirmText: '谢谢',
+        onConfirm: () => {
+          Notify.info('你点了谢谢按钮');
         },
         onClose: () => {
           Notify.info('对话框关掉了');

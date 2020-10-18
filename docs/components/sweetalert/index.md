@@ -58,6 +58,7 @@ export default {
 <template>
   <div class="docs-preview-part">
     <sk-button @click="open">点我打开提示</sk-button>
+    <sk-button @click="open2">点我打开提示</sk-button>
   </div>
 </template>
 
@@ -86,8 +87,88 @@ export default {
         style: { width: '600px' },
       });
     },
+    open2() {
+      SweetAlert.alert({
+        title: '温馨提示',
+        content: '您的操作已经成功执行。',
+        confirmText: '谢谢',
+        onConfirm: () => {
+          Notify.info('你点了谢谢按钮');
+        },
+        onClose: () => {
+          Notify.info('对话框关掉了');
+        },
+        closeOnEsc: true,
+        closeBtn: false,
+        maskClosable: true,
+        style: { width: '600px' },
+      });
+    },
   },
 };
+</script>
+```
+
+### onConfirm 返回 Promise
+
+在 Promise pending 时，确认按钮会进入 loading 状态，Promise resolve，对话框关闭，Promise reject，对话框不关闭。
+
+<SweetAlertLoading />
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-button @click="open">点我打开提示</sk-button>
+    <sk-button @click="open2">点我打开提示</sk-button>
+  </div>
+</template>
+
+<script>
+import { SweetAlert, Notify } from 'splendor-ui';
+export default {
+  methods: {
+    open() {
+      SweetAlert.confirm({
+        content: '是否删除这篇文章',
+        confirmText: '删除',
+        cancelText: '取消',
+        onConfirm: () => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (Math.random() < 0.8) {
+                Notify.success('执行成功');
+                resolve();
+              } else {
+                reject('删除失败');
+              }
+            }, 2000);
+          });
+        },
+      });
+    },
+    open2() {
+      SweetAlert.alert({
+        title: '温馨提示',
+        content: '您的操作已经成功执行。',
+        confirmText: '收尾',
+        onConfirm: () => {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (Math.random() < 0.8) {
+                Notify.success('执行成功');
+                resolve();
+              } else {
+                reject('收尾失败');
+              }
+            }, 2000);
+          });
+        },
+      });
+    },
+  },
+};
+</script>
+
 </script>
 ```
 
@@ -108,10 +189,10 @@ export default {
 
 #### 事件
 
-| 事件    | 说明                               | 携带参数 |
-| ------- | ---------------------------------- | -------- |
-| close   | 关闭对话框时触发（外部控制不触发） | -        |
-| confirm | 点击确定按钮时触发                 | -        |
+| 事件    | 说明                                      | 携带参数 |
+| ------- | ----------------------------------------- | -------- |
+| close   | 关闭对话框时触发（外部控制不触发）        | -        |
+| confirm | 点击确定按钮时触发，允许返回一个`Promise` | -        |
 
 #### SweetAlert.confirm
 

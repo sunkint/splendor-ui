@@ -64,6 +64,7 @@ const FloatLayer = defineComponent({
       type: Number,
       default: 0,
     },
+    updateTime: Number,
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
   },
@@ -169,6 +170,7 @@ const FloatLayer = defineComponent({
     });
 
     watch(() => props.position, refreshLayerPosition);
+    watch(() => props.updateTime, refreshLayerPosition);
 
     const onTriggerClick = (e: MouseEvent) => {
       if (props.trigger === 'click') {

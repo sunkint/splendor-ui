@@ -74,6 +74,7 @@ const Select = defineComponent({
       selectedText: null as string | null,
       filterValue: '',
       layerPosition: 'bottom-left' as LayerPosition,
+      updateTime: Date.now(),
     });
 
     watch(
@@ -163,6 +164,14 @@ const Select = defineComponent({
       });
     });
 
+    // 选项个数变化时，及时重新计算位置
+    watch(
+      () => filterData.value.length,
+      () => {
+        state.updateTime = Date.now();
+      }
+    );
+
     return () =>
       h(
         FloatLayer,
@@ -170,6 +179,7 @@ const Select = defineComponent({
           trigger: 'click',
           triggerClass: ['sk-select', { 'sk-select-open': state.open }, props.triggerClass],
           position: state.layerPosition,
+          updateTime: state.updateTime,
           cushion: 3,
           onOpen,
           onClose,

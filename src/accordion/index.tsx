@@ -77,6 +77,9 @@ const Accordion = defineComponent({
       type: Number,
       default: 350,
     },
+    onChange: {
+      type: Function as PropType<(value: null | AccordionValue | AccordionValue[]) => any>,
+    },
   },
   setup(props, { slots, emit }) {
     const innerState = ref<AccordionValue[]>([]);
@@ -106,7 +109,7 @@ const Accordion = defineComponent({
           updatedValue = isAdd ? value : null;
           emit('update:modelValue', updatedValue);
         }
-        emit('change', updatedValue);
+        props.onChange?.(updatedValue);
       });
     } else {
       provide<Ref<AccordionValue[]>>(Current, innerState);
@@ -120,7 +123,7 @@ const Accordion = defineComponent({
         } else {
           innerState.value = isAdd ? [value] : [];
         }
-        emit('change', innerState.value);
+        props.onChange?.(innerState.value);
       });
     }
     return () => <div class="sk-accordion">{slots.default?.()}</div>;

@@ -1,6 +1,6 @@
 {
   "name": "splendor-ui",
-  "version": "0.1.0-alpha.19",
+  "version": "0.1.0-alpha.20",
   "description": "A ui-kit for splendor-pc.",
   "main": "./es/main.js",
   "types": "./es/types/main.d.ts",

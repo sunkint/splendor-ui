@@ -15,6 +15,7 @@ const Textarea = defineComponent({
       type: Boolean,
       default: false,
     },
+    block: Boolean,
     name: String,
     disabled: Boolean,
     readonly: Boolean,
@@ -31,8 +32,11 @@ const Textarea = defineComponent({
     modelValue(modelValue) {
       this.internalValue = modelValue;
     },
-    internalValue() {
-      this.resizeInput();
+    internalValue: {
+      handler() {
+        this.resizeInput();
+      },
+      flush: 'post',
     },
     autoHeight(autoHeight) {
       if (autoHeight) {
@@ -77,12 +81,13 @@ const Textarea = defineComponent({
       outerWidth,
       outerHeight,
       internalValue,
+      block,
     } = this;
 
     const value = modelValue === undefined ? internalValue : modelValue;
 
     return (
-      <div class="sk-textarea-wrapper">
+      <div class={['sk-textarea-wrapper', { 'sk-textarea-block': block }]}>
         <textarea
           ref="textarea"
           style={{ height: autoHeight ? `${outerHeight}px` : 'auto' }}

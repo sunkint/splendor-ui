@@ -28,6 +28,20 @@
 </template>
 ```
 
+### 占满宽度
+
+<div class="docs-preview-part">
+  <sk-textarea block />
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-textarea block />
+  </div>
+</template>
+```
+
 ### 错误样式
 
 <div class="docs-preview-part">
@@ -77,6 +91,7 @@
 | maxlength   | 最多输入字符数           | number |        | -       |
 | placeholder | 占位提示文字             | string |        | -       |
 | hasError    | 是否错误样式             | bool   |        | `false` |
+| block       | 是否占满宽度             | bool   |        | `false` |
 | name        | html name                | string |        | -       |
 | autoHeight  | 是否自动根据内容调节高度 | bool   |        | `false` |
 | autofocus   | html autofocus           | bool   |        | -       |

@@ -71,6 +71,7 @@ make build
 - [ ] Badge
 - [ ] Swiper
 - [ ] Slider
+- [ ] Sticky
 - [ ] Table
 - [ ] Steps
 - [ ] Menu

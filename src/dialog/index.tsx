@@ -1,4 +1,13 @@
-import { computed, defineComponent, onMounted, ref, Teleport, Transition, watch } from 'vue';
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  PropType,
+  ref,
+  Teleport,
+  Transition,
+  watch,
+} from 'vue';
 import isBrowser from '../utils/isBrowser';
 import Icon from '../icon';
 import './index.scss';
@@ -44,6 +53,7 @@ const Dialog = defineComponent({
       type: Boolean,
       default: true,
     },
+    onClose: Function as PropType<() => any>,
   },
   inheritAttrs: false,
   setup(props, { slots, emit, attrs }) {
@@ -78,7 +88,7 @@ const Dialog = defineComponent({
     };
 
     const onClose = () => {
-      emit('close');
+      props.onClose?.();
       emit('update:modelValue', false);
     };
 

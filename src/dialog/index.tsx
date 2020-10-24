@@ -201,7 +201,7 @@ const Dialog = defineComponent({
   },
   methods: {
     close() {
-      this.$emit('update:modelValue', true);
+      this.$emit('update:modelValue', false);
     },
   },
 });

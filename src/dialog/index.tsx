@@ -199,6 +199,11 @@ const Dialog = defineComponent({
       );
     };
   },
+  methods: {
+    close() {
+      this.$emit('update:modelValue', true);
+    },
+  },
 });
 
 export default Dialog;

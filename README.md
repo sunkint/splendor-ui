@@ -79,6 +79,7 @@ make build
 - [ ] Divider
 - [ ] DatePicker
 - [ ] NumberInput
+- [ ] ImagePreview
 - [ ] InfiniteScroll
 
 ## 作者

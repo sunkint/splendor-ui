@@ -97,3 +97,16 @@
 | autofocus   | html autofocus           | bool   |        | -       |
 | disabled    | 是否禁用                 | bool   |        | -       |
 | readonly    | 是否只读                 | bool   |        | -       |
+
+### 事件
+
+| 事件           | 说明                     | 携带参数           |
+| -------------- | ------------------------ | ------------------ |
+| pressCtrlEnter | 点击 ctrl + enter 时触发 | `e: KeyboardEvent` |
+| keypress       | 原生按键按下并松开事件   | `e: KeyboardEvent` |
+| keydown        | 原生按键按下事件         | `e: KeyboardEvent` |
+| keyup          | 原生按键松开事件         | `e: KeyboardEvent` |
+| input          | 原生输入事件             | `e: Event`         |
+| change         | 原生输入后失去焦点事件   | `e: Event`         |
+| focus          | 原生获得焦点事件         | `e: FocusEvent`    |
+| blur           | 原生失去焦点事件         | `e: FocusEvent`    |

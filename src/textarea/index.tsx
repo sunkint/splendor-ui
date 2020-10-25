@@ -1,4 +1,4 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick, PropType } from 'vue';
 import './index.scss';
 
 const Textarea = defineComponent({
@@ -20,6 +20,14 @@ const Textarea = defineComponent({
     disabled: Boolean,
     readonly: Boolean,
     autofocus: Boolean,
+    onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeyPress: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
+    onFocus: Function as PropType<(e: FocusEvent) => void>,
+    onBlur: Function as PropType<(e: FocusEvent) => void>,
+    onChange: Function as PropType<(e: Event) => void>,
+    onInput: Function as PropType<(e: Event) => void>,
   },
   data() {
     return {
@@ -45,9 +53,16 @@ const Textarea = defineComponent({
     },
   },
   methods: {
-    onInput(e: InputEvent) {
+    onInputInside(e: InputEvent) {
+      this.$emit('input', e);
       this.$emit('update:modelValue', (e.target as HTMLInputElement).value);
       this.internalValue = (e.target as HTMLInputElement).value;
+    },
+    onKeyupInside(e: KeyboardEvent) {
+      this.$emit('keyup', e);
+      if (e.key === 'Enter' && e.ctrlKey) {
+        this.onPressCtrlEnter?.();
+      }
     },
     resizeInput() {
       if (!this.autoHeight) return;
@@ -76,12 +91,18 @@ const Textarea = defineComponent({
       maxlength,
       placeholder,
       modelValue,
-      onInput,
+      onInputInside,
       autoHeightComputedValue,
       outerWidth,
       outerHeight,
       internalValue,
       block,
+      onKeydown,
+      onKeyupInside,
+      onFocus,
+      onBlur,
+      onChange,
+      onKeypress,
     } = this;
 
     const value = modelValue === undefined ? internalValue : modelValue;
@@ -95,7 +116,13 @@ const Textarea = defineComponent({
           maxlength={maxlength}
           placeholder={placeholder}
           value={value}
-          onInput={onInput}
+          onInput={onInputInside}
+          onKeydown={onKeydown}
+          onKeyup={onKeyupInside}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          onChange={onChange}
+          onKeypress={onKeypress}
           name={this.name}
           disabled={this.disabled}
           readonly={this.readonly}

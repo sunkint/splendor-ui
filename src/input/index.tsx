@@ -33,9 +33,14 @@ const Input = defineComponent({
     name: String,
     placeholder: String,
     modelValue: String,
-    onFocus: Function as PropType<(e: Event) => any>,
-    onBlur: Function as PropType<(e: Event) => any>,
-    onPressEnter: Function as PropType<(e: Event) => any>,
+    onFocus: Function as PropType<(e: FocusEvent) => void>,
+    onBlur: Function as PropType<(e: FocusEvent) => void>,
+    onPressEnter: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeyPress: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
+    onChange: Function as PropType<(e: Event) => void>,
+    onInput: Function as PropType<(e: Event) => void>,
   },
   setup(props, { emit }) {
     const value = ref(props.modelValue);
@@ -51,15 +56,13 @@ const Input = defineComponent({
       }
     );
 
-    const onFocus = (e: Event) => {
-      props.onFocus?.(e);
-    };
-
-    const onBlur = (e: Event) => {
-      props.onBlur?.(e);
+    const onInput = (e: KeyboardEvent) => {
+      value.value = (e.target as HTMLInputElement).value;
+      props.onInput?.(e);
     };
 
     const onKeyup = (e: KeyboardEvent) => {
+      props.onKeyup?.(e);
       if (e.key === 'Enter') {
         props.onPressEnter?.(e);
       }
@@ -93,10 +96,13 @@ const Input = defineComponent({
           name={props.name}
           autofocus={props.autofocus}
           value={value.value}
-          onInput={(e) => (value.value = (e.target as HTMLInputElement).value)}
-          onFocus={onFocus}
-          onBlur={onBlur}
+          onInput={onInput}
+          onFocus={props.onFocus}
+          onBlur={props.onBlur}
           onKeyup={onKeyup}
+          onKeypress={props.onKeyPress}
+          onKeydown={props.onKeydown}
+          onChange={props.onChange}
         />
       </div>
     );

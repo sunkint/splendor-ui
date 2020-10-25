@@ -21,7 +21,7 @@ const Textarea = defineComponent({
     readonly: Boolean,
     autofocus: Boolean,
     onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeyPress: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
     onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
     onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
     onFocus: Function as PropType<(e: FocusEvent) => void>,

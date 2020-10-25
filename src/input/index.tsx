@@ -36,7 +36,7 @@ const Input = defineComponent({
     onFocus: Function as PropType<(e: FocusEvent) => void>,
     onBlur: Function as PropType<(e: FocusEvent) => void>,
     onPressEnter: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeyPress: Function as PropType<(e: KeyboardEvent) => void>,
+    onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
     onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
     onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
     onChange: Function as PropType<(e: Event) => void>,
@@ -100,7 +100,7 @@ const Input = defineComponent({
           onFocus={props.onFocus}
           onBlur={props.onBlur}
           onKeyup={onKeyup}
-          onKeypress={props.onKeyPress}
+          onKeypress={props.onKeypress}
           onKeydown={props.onKeydown}
           onChange={props.onChange}
         />

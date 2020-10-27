@@ -10,21 +10,8 @@ const Col = defineComponent({
       required: true,
     },
     offset: Number,
-    order: Number,
   },
   setup(props, { slots }) {
-    const colClass = computed(() => {
-      const { span, offset, order } = props;
-      return [
-        'sk-col',
-        {
-          [`sk-col-${span}`]: span !== undefined,
-          [`sk-col-offset-${span}`]: offset,
-          [`sk-col-order-${order}`]: order,
-        },
-      ];
-    });
-
     const style = computed(() => {
       const gutter = inject<number[]>(GutterSymbol) || [0, 0];
       return {
@@ -45,7 +32,16 @@ const Col = defineComponent({
 
     return () => {
       return (
-        <div class={colClass.value} style={style.value}>
+        <div
+          class={[
+            'sk-col',
+            {
+              [`sk-col-${props.span}`]: props.span !== undefined,
+              [`sk-col-offset-${props.offset}`]: props.offset,
+            },
+          ]}
+          style={style.value}
+        >
           {slots.default?.()}
         </div>
       );

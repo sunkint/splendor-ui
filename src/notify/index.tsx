@@ -1,4 +1,11 @@
-import { createApp, Teleport, ComponentPublicInstance } from 'vue';
+import {
+  createApp,
+  Teleport,
+  ComponentPublicInstance,
+  defineComponent,
+  PropType,
+  TransitionGroup,
+} from 'vue';
 import {
   NotifyOption,
   NotifyType,
@@ -7,12 +14,60 @@ import {
   NotifyCustom,
   NotifyConfig,
 } from './types';
-import NotifyApp from './notify.vue';
+import Icon from '../icon';
 import './index.scss';
 
 const DURING_DEFAULT = 2000;
 let notifyWrapper: ComponentPublicInstance<any>;
 let seed = 1;
+
+const NotifyApp = defineComponent({
+  name: 'sk-notify-app',
+  props: {
+    options: {
+      type: Array as PropType<NotifyConfig[]>,
+      required: true,
+    },
+  },
+  setup(props) {
+    const getIconType = (type?: NotifyType) => {
+      switch (type) {
+        case NotifyType.SUCCESS:
+          return 'ok-o';
+        case NotifyType.INFO:
+          return 'info';
+        case NotifyType.WARN:
+          return 'info';
+        case NotifyType.ERROR:
+          return 'close-o';
+        default:
+          return 'info';
+      }
+    };
+
+    return () => (
+      <TransitionGroup>
+        {props.options.map((item) => (
+          <div
+            key={item.ref}
+            class={[
+              'sk-notify',
+              {
+                'sk-notify-success': item.type === NotifyType.SUCCESS,
+                'sk-notify-info': item.type === NotifyType.INFO,
+                'sk-notify-warn': item.type === NotifyType.WARN,
+                'sk-notify-error': item.type === NotifyType.ERROR,
+              },
+            ]}
+          >
+            <Icon class="sk-notify-icon" type={getIconType(item.type)} />
+            <div class="sk-notify-content">{item.content}</div>
+          </div>
+        ))}
+      </TransitionGroup>
+    );
+  },
+});
 
 const startNotify = (options: NotifyOption) => {
   if (!notifyWrapper) {
@@ -34,8 +89,6 @@ const startNotify = (options: NotifyOption) => {
         return (
           <Teleport to="body">
             <div class="sk-notify-wrapper">
-              {/*
-              // @ts-ignore */}
               <NotifyApp options={this.notifyList} />
             </div>
           </Teleport>

@@ -51,15 +51,15 @@
 ### 单独使用
 
 <div class="docs-preview-part">
-  <p>Sunkint <sk-badge value="10"></p>
-  <p>Micooz <sk-badge dot></p>
+  <p>Sunkint <sk-badge value="10" /></p>
+  <p>Micooz <sk-badge dot /></p>
 </div>
 
 ```vue
 <template>
   <div class="docs-preview-part">
-    <p>Sunkint <sk-badge value="10"></p>
-    <p>Micooz <sk-badge dot></p>
+    <p>Sunkint <sk-badge value="10" /></p>
+    <p>Micooz <sk-badge dot /></p>
   </div>
 </template>
 ```

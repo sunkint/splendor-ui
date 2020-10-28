@@ -27,6 +27,7 @@ import Popover from './popover';
 import Tooltip from './tooltip';
 import Progress from './progress';
 import Select from './select';
+import Badge from './badge';
 
 const components: any[] = [
   Button,
@@ -56,6 +57,7 @@ const components: any[] = [
   Tooltip,
   Progress,
   Select,
+  Badge,
 ];
 
 const install = (app: App<Element>) => {
@@ -103,4 +105,5 @@ export {
   Tooltip,
   Progress,
   Select,
+  Badge,
 };

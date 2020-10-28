@@ -67,8 +67,8 @@ make build
 - [x] Tooltip
 - [x] Progress
 - [x] Select
+- [x] Badge
 - [ ] Tabs
-- [ ] Badge
 - [ ] Swiper
 - [ ] Slider
 - [ ] Sticky

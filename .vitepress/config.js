@@ -48,6 +48,7 @@ module.exports = {
           'Popover',
           'Tooltip',
           'Progress',
+          'Badge',
         ].map(buildNavChildren),
       },
       {

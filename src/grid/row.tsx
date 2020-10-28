@@ -26,8 +26,7 @@ const Row = defineComponent({
   },
   setup(props, { slots }) {
     const gutter = computed(() => getGutter(props.gutter));
-    provide(GutterSymbol, gutter.value);
-
+    provide(GutterSymbol, gutter);
     const rowClass = computed(() => {
       const { align, justify } = props;
       return [

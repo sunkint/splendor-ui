@@ -1,4 +1,4 @@
-import { defineComponent, inject, computed } from 'vue';
+import { defineComponent, inject, computed, Ref } from 'vue';
 import { GutterSymbol } from './row';
 import './index.scss';
 
@@ -12,19 +12,23 @@ const Col = defineComponent({
     offset: Number,
   },
   setup(props, { slots }) {
+    const gutter = computed(() => {
+      const r = inject<Ref<number[]>>(GutterSymbol);
+      return r?.value ?? [0, 0];
+    });
+
     const style = computed(() => {
-      const gutter = inject<number[]>(GutterSymbol) || [0, 0];
       return {
-        ...(gutter[0] > 0
+        ...(gutter.value[0] > 0
           ? {
-              paddingLeft: gutter[0]! / 2,
-              paddingRight: gutter[0]! / 2,
+              paddingLeft: gutter.value[0] / 2,
+              paddingRight: gutter.value[0] / 2,
             }
           : {}),
-        ...(gutter[1]! > 0
+        ...(gutter.value[1] > 0
           ? {
-              paddingTop: gutter[1]! / 2,
-              paddingBottom: gutter[1]! / 2,
+              paddingTop: gutter.value[1] / 2,
+              paddingBottom: gutter.value[1] / 2,
             }
           : {}),
       };

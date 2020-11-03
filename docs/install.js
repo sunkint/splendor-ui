@@ -45,6 +45,7 @@ import SweetAlertLoading from './components/sweetalert/loading.vue';
 import SweetAlertCustom from './components/sweetalert/custom.vue';
 import PopoverPosition from './components/popover/position.vue';
 import TooltipPosition from './components/tooltip/position.vue';
+import TableBasic from './components/table/basic.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -91,4 +92,5 @@ export default function (app) {
   app.component('SweetAlertCustom', SweetAlertCustom);
   app.component('PopoverPosition', PopoverPosition);
   app.component('TooltipPosition', TooltipPosition);
+  app.component('TableBasic', TableBasic);
 }

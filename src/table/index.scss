@@ -1,0 +1,44 @@
+@import '../style/var.scss';
+
+.sk-table {
+  width: 100%;
+  display: table;
+  margin: 12px 0;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #dee2e6;
+  overflow: hidden;
+
+  tr {
+    border: none;
+  }
+
+  th,
+  td {
+    padding: 10px 12px;
+    border: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  &-thead,
+  &-tbody {
+    width: 100%;
+  }
+
+  &-thead {
+    background-color: $gray-100;
+  }
+
+  &-tbody {
+    tr {
+      background-color: $white;
+    }
+  }
+
+  &-empty-tip {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+  }
+}

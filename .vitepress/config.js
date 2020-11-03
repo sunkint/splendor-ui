@@ -49,6 +49,7 @@ module.exports = {
           'Tooltip',
           'Progress',
           'Badge',
+          'Table',
         ].map(buildNavChildren),
       },
       {

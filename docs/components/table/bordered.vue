@@ -1,6 +1,6 @@
 <template>
   <div class="docs-preview-part">
-    <sk-table :columns="columns" :data="data" />
+    <sk-table bordered :columns="columns" :data="data" />
   </div>
 </template>
 

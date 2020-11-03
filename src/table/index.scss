@@ -1,5 +1,7 @@
 @import '../style/var.scss';
 
+$border-color: #dee2e6;
+
 .sk-table {
   width: 100%;
   display: table;
@@ -7,7 +9,7 @@
   text-align: left;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 1px solid #dee2e6;
+  border: 1px solid $border-color;
   overflow: hidden;
 
   tr {
@@ -18,7 +20,8 @@
   td {
     padding: 10px 12px;
     border: none;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid $border-color;
+    font-size: 14px;
   }
 
   &-thead,
@@ -36,9 +39,44 @@
     }
   }
 
+  &-scroll-x {
+    overflow-x: auto;
+  }
+
+  &-striped {
+    tbody > tr {
+      &:nth-child(2n) {
+        background-color: $gray-100;
+      }
+    }
+  }
+
+  &-bordered {
+    th,
+    td {
+      border: 1px solid $border-color;
+    }
+  }
+
+  &-hover {
+    // stylelint-disable-next-line
+    tbody > tr {
+      &:hover {
+        background-color: lighten($cyan, 45%);
+      }
+    }
+  }
+
+  &-fixed {
+    table-layout: fixed;
+  }
+
   &-empty-tip {
     padding: 10px 12px;
+    margin-top: -12px;
     text-align: center;
-    border-bottom: 1px solid #dee2e6;
+    border: 1px solid $border-color;
+    border-top: none;
+    font-size: 14px;
   }
 }

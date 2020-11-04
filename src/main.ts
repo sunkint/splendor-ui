@@ -28,6 +28,7 @@ import Tooltip from './tooltip';
 import { Tabs, TabPanel } from './tabs';
 import Progress from './progress';
 import Select from './select';
+import Badge from './badge';
 
 const components: any[] = [
   Button,
@@ -59,6 +60,7 @@ const components: any[] = [
   TabPanel,
   Progress,
   Select,
+  Badge,
 ];
 
 const install = (app: App<Element>) => {
@@ -108,4 +110,5 @@ export {
   TabPanel,
   Progress,
   Select,
+  Badge,
 };

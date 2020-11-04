@@ -1,4 +1,4 @@
-import { defineComponent, inject, computed } from 'vue';
+import { defineComponent, inject, computed, Ref, ref } from 'vue';
 import { GutterSymbol } from './row';
 import './index.scss';
 
@@ -10,34 +10,21 @@ const Col = defineComponent({
       required: true,
     },
     offset: Number,
-    order: Number,
   },
   setup(props, { slots }) {
-    const colClass = computed(() => {
-      const { span, offset, order } = props;
-      return [
-        'sk-col',
-        {
-          [`sk-col-${span}`]: span !== undefined,
-          [`sk-col-offset-${span}`]: offset,
-          [`sk-col-order-${order}`]: order,
-        },
-      ];
-    });
-
+    const gutter = inject<Ref<number[]>>(GutterSymbol) ?? ref([0, 0]);
     const style = computed(() => {
-      const gutter = inject<number[]>(GutterSymbol) || [0, 0];
       return {
-        ...(gutter[0] > 0
+        ...(gutter.value[0] > 0
           ? {
-              paddingLeft: gutter[0]! / 2,
-              paddingRight: gutter[0]! / 2,
+              paddingLeft: gutter.value[0] / 2,
+              paddingRight: gutter.value[0] / 2,
             }
           : {}),
-        ...(gutter[1]! > 0
+        ...(gutter.value[1] > 0
           ? {
-              paddingTop: gutter[1]! / 2,
-              paddingBottom: gutter[1]! / 2,
+              paddingTop: gutter.value[1] / 2,
+              paddingBottom: gutter.value[1] / 2,
             }
           : {}),
       };
@@ -45,7 +32,16 @@ const Col = defineComponent({
 
     return () => {
       return (
-        <div class={colClass.value} style={style.value}>
+        <div
+          class={[
+            'sk-col',
+            {
+              [`sk-col-${props.span}`]: props.span !== undefined,
+              [`sk-col-offset-${props.offset}`]: props.offset,
+            },
+          ]}
+          style={style.value}
+        >
           {slots.default?.()}
         </div>
       );

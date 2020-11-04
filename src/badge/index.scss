@@ -1,0 +1,43 @@
+@import '../style/var.scss';
+
+.sk-badge {
+  position: absolute;
+  background-color: $red;
+  color: $white;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0.25em 0.4em;
+  border-radius: 10rem;
+  top: calc(-6px - 0.25em / 2);
+  right: 0;
+  transform: translateX(50%);
+  cursor: default;
+  user-select: none;
+  z-index: 1;
+
+  &-wrapper {
+    position: relative;
+    display: inline-block;
+
+    &.sk-badge-standalone {
+      vertical-align: text-bottom;
+
+      &.sk-badge-dot {
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  &-dot & {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: -5px;
+  }
+
+  &:first-child {
+    position: static;
+    display: inline-block;
+    transform: none;
+  }
+}

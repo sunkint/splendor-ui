@@ -67,12 +67,19 @@ make build
 - [x] Tooltip
 - [x] Progress
 - [x] Select
-- [ ] Slider
+- [x] Badge
 - [ ] Tabs
+- [ ] Swiper
+- [ ] Slider
+- [ ] Sticky
 - [ ] Table
 - [ ] Steps
 - [ ] Menu
-- [ ] DatetimePicker
+- [ ] Upload
+- [ ] Divider
+- [ ] DatePicker
+- [ ] NumberInput
+- [ ] ImagePreview
 - [ ] InfiniteScroll
 
 ## 作者

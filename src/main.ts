@@ -25,7 +25,7 @@ import SweetAlert from './sweetalert';
 import FloatLayer from './float-layer';
 import Popover from './popover';
 import Tooltip from './tooltip';
-import Tabs from './tabs';
+import { Tabs, TabPanel } from './tabs';
 import Progress from './progress';
 import Select from './select';
 
@@ -56,6 +56,7 @@ const components: any[] = [
   Popover,
   Tooltip,
   Tabs,
+  TabPanel,
   Progress,
   Select,
 ];
@@ -104,6 +105,7 @@ export {
   Popover,
   Tooltip,
   Tabs,
+  TabPanel,
   Progress,
   Select,
 };

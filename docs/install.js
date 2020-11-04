@@ -17,6 +17,7 @@ import SwitchPart from './components/preview/SwitchPart.vue';
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
 
+import TabsBasic from './components/tabs/basic.vue';
 import TagBasic from './components/tag/basic.vue';
 import NotifyBasic from './components/notify/basic.vue';
 import DropdownTheme from './components/dropdown/theme.vue';
@@ -91,4 +92,5 @@ export default function (app) {
   app.component('SweetAlertCustom', SweetAlertCustom);
   app.component('PopoverPosition', PopoverPosition);
   app.component('TooltipPosition', TooltipPosition);
+  app.component('TabsBasic', TabsBasic);
 }

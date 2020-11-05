@@ -59,6 +59,7 @@ const Button = defineComponent({
             target={props.target}
             onClick={onClick}
           >
+            {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}
             {slots.default?.()}
           </a>
         );

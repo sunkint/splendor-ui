@@ -23,6 +23,10 @@ $name: sk-input;
     transition: border 0.2s, box-shadow 0.2s;
     border-radius: 4px;
 
+    &::placeholder {
+      color: $gray-600;
+    }
+
     &:focus {
       border: 1px solid $gray-800;
       box-shadow: 0 0 0 2px lighten($gray-800, 65%);

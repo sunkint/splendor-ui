@@ -1,41 +1,54 @@
 @import '../style/var.scss';
-$name: sk-tab;
 
-.#{$name} {
+.sk-tabs {
   &-container {
-    width: 100%;
     display: flex;
+    position: relative;
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 12px;
   }
 
   &__button {
+    position: relative;
+    box-sizing: border-box;
     min-width: 106px;
     padding: 8px 32px;
-    position: relative;
     cursor: pointer;
-    box-sizing: border-box;
     border-radius: 4px 4px 0 0;
     border: 1px solid transparent;
+    margin-bottom: -1px;
     color: $gray-700;
     overflow: hidden;
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    &_link {
+    &-link {
+      color: $green;
+
       &:hover {
-        color: $gray-800;
-        border-color: $gray-400;
+        color: darken($green, 10%);
+        border-color: $gray-200;
       }
     }
 
-    &_active {
-      border-color: $gray-500;
-      border-bottom: 1px solid transparent;
+    &-active {
+      border-color: $gray-300;
+      background-color: $white;
+      border-bottom: 1px solid $white;
       color: $text;
     }
 
-    &_disabled {
+    &-disabled {
       color: $gray-700;
       cursor: not-allowed;
+    }
+  }
+
+  &-justified {
+    .sk-tabs__button {
+      width: 0;
+      flex: auto;
     }
   }
 
@@ -44,13 +57,10 @@ $name: sk-tab;
     top: -3px;
     right: 2px;
     color: $gray-500;
+    display: none;
 
-    &:hover {
-      color: $text;
+    .sk-tabs__button:hover & {
+      display: block;
     }
-  }
-
-  &-panel {
-    padding: 10px 16px;
   }
 }

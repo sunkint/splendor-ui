@@ -17,7 +17,6 @@ import SwitchPart from './components/preview/SwitchPart.vue';
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
 
-import TabsBasic from './components/tabs/basic.vue';
 import TagBasic from './components/tag/basic.vue';
 import NotifyBasic from './components/notify/basic.vue';
 import DropdownTheme from './components/dropdown/theme.vue';
@@ -46,6 +45,8 @@ import SweetAlertLoading from './components/sweetalert/loading.vue';
 import SweetAlertCustom from './components/sweetalert/custom.vue';
 import PopoverPosition from './components/popover/position.vue';
 import TooltipPosition from './components/tooltip/position.vue';
+import TabsModel from './components/tabs/model.vue';
+import TabsClosable from './components/tabs/closable.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -92,5 +93,6 @@ export default function (app) {
   app.component('SweetAlertCustom', SweetAlertCustom);
   app.component('PopoverPosition', PopoverPosition);
   app.component('TooltipPosition', TooltipPosition);
-  app.component('TabsBasic', TabsBasic);
+  app.component('TabsModel', TabsModel);
+  app.component('TabsClosable', TabsClosable);
 }

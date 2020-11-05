@@ -34,7 +34,6 @@ module.exports = {
           'Loading',
           'Pagination',
           'BackTop',
-          'Tabs',
         ].map(buildNavChildren),
       },
       {
@@ -46,6 +45,7 @@ module.exports = {
           'Accordion',
           'Dialog',
           'SweetAlert',
+          'Tabs',
           'Popover',
           'Tooltip',
           'Progress',

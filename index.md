@@ -49,3 +49,5 @@ import 'splendor-ui/es/main.css';
 [@chenshiai](https://github.com/chenshiai)
 
 [@zedmund](https://github.com/zedmund)
+
+[@Xiaxuhui](https://github.com/Xiaxuhui)

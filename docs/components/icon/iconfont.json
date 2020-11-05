@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1433823",
+      "name": "question",
+      "font_class": "help",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
       "icon_id": "15889247",
       "name": "加",
       "font_class": "plus",

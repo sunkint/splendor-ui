@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'skfont';
   src:
-    url('iconfont.woff?t=1597752026121') format('woff'),
-    url('iconfont.ttf?t=1597752026121') format('truetype'),
+    url('iconfont.woff?t=1604585612897') format('woff'),
+    url('iconfont.ttf?t=1604585612897') format('truetype'),
     /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-    url('iconfont.svg?t=1597752026121#iconfont') format('svg'); /* iOS 4.1- */
+    url('iconfont.svg?t=1604585612897#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .sk-icon {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-help:before {
+  content: "\e65d";
 }
 
 .icon-plus:before {

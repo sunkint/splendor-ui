@@ -23,6 +23,10 @@
     min-height: 40px;
     font-family: inherit;
 
+    &::placeholder {
+      color: $gray-600;
+    }
+
     &.auto-height {
       resize: none;
       overflow: hidden;

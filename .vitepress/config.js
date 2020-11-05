@@ -45,6 +45,7 @@ module.exports = {
           'Accordion',
           'Dialog',
           'SweetAlert',
+          'Tabs',
           'Popover',
           'Tooltip',
           'Progress',

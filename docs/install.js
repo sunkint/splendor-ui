@@ -52,6 +52,8 @@ import TableBordered from './components/table/bordered.vue';
 import TableEmpty from './components/table/empty.vue';
 import TableLoading from './components/table/loading.vue';
 import TableCustom from './components/table/custom.vue';
+import TabsModel from './components/tabs/model.vue';
+import TabsClosable from './components/tabs/closable.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -105,4 +107,6 @@ export default function (app) {
   app.component('TableBordered', TableBordered);
   app.component('TableEmpty', TableEmpty);
   app.component('TableCustom', TableCustom);
+  app.component('TabsModel', TabsModel);
+  app.component('TabsClosable', TabsClosable);
 }

@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { computed, defineComponent, PropType } from 'vue';
 import Loading from '../loading';
 import './index.scss';
 
@@ -19,6 +19,8 @@ const Table = defineComponent({
     loading: Boolean,
     hover: Boolean,
     rowKey: String,
+    scrollX: [Number, String],
+    height: [Number, String],
     columns: {
       type: Array as PropType<ITableColumnItem[]>,
       required: true,
@@ -53,68 +55,113 @@ const Table = defineComponent({
       return styles;
     };
 
-    return () => (
-      <div
-        class={[
-          'sk-table-wrapper',
-          {
-            'sk-table-bordered': props.bordered,
-            'sk-table-striped': props.striped,
-            'sk-table-hover': props.hover,
-          },
-        ]}
-      >
-        <Loading show={props.loading}>
-          <table class={['sk-table', { 'sk-table-fixed': props.layout === 'fixed' }]}>
-            <colgroup>
-              {props.columns.map((item, index) => {
-                let width = 'auto';
-                if (typeof item.width === 'number' && item.width > 0) {
-                  width = `${item.width}px`;
-                }
-                if (typeof item.width === 'string') {
-                  width = item.width;
-                }
-                return <col key={index} style={{ width, minWidth: width }} />;
-              })}
-            </colgroup>
-            <thead class="sk-table-thead">
-              <tr>
-                {props.columns.map((item, index) => {
-                  return (
-                    <th key={index} style={getCellStyle(item)}>
-                      {item.title}
-                    </th>
-                  );
-                })}
-              </tr>
-            </thead>
-            <tbody class="sk-table-tbody">
-              {props.data.map((dataItem, dateIndex) => {
-                return (
-                  <tr key={props.rowKey ? dataItem[props.rowKey] : dateIndex}>
-                    {props.columns.map((columnItem, columnIndex) => {
-                      return (
-                        <td key={columnIndex} style={getCellStyle(columnItem)}>
-                          {columnItem.render
-                            ? columnItem.render(dataItem)
-                            : dataItem[columnItem.name ?? columnItem.defaultContent ?? '']}
-                        </td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          {props.data.length === 0 ? (
-            <div class="sk-table-empty-tip">
-              <span>{props.emptyText}</span>
+    const wrapperClass = computed(() => {
+      return [
+        'sk-table-wrapper',
+        {
+          'sk-table-bordered': props.bordered,
+          'sk-table-striped': props.striped,
+          'sk-table-hover': props.hover,
+          'sk-table-scroll-x': !!props.scrollX,
+          'sk-table-scroll-y': !!props.height,
+        },
+      ];
+    });
+
+    const wrapperStyle = computed(() => {
+      let styles: any = {};
+      if (props.height) {
+        styles.maxHeight = typeof props.height === 'number' ? `${props.height}px` : props.height;
+      }
+      return styles;
+    });
+
+    const tableClass = computed(() => {
+      return ['sk-table', { 'sk-table-fixed': props.layout === 'fixed' || props.height }];
+    });
+
+    const tableStyle = computed(() => {
+      let styles: any = {};
+      if (props.scrollX) {
+        styles.minWidth = typeof props.scrollX === 'number' ? `${props.scrollX}px` : props.scrollX;
+      }
+      return styles;
+    });
+
+    return () => {
+      const colgroup = (
+        <colgroup>
+          {props.columns.map((item, index) => {
+            let width = 'auto';
+            if (typeof item.width === 'number' && item.width > 0) {
+              width = `${item.width}px`;
+            }
+            if (typeof item.width === 'string') {
+              width = item.width;
+            }
+            return <col key={index} style={{ width, minWidth: width }} />;
+          })}
+        </colgroup>
+      );
+
+      const thead = (
+        <thead class="sk-table-thead">
+          <tr>
+            {props.columns.map((item, index) => {
+              return (
+                <th key={index} style={getCellStyle(item)}>
+                  {item.title}
+                </th>
+              );
+            })}
+          </tr>
+        </thead>
+      );
+
+      return (
+        <Loading class="sk-table-loading-wrapper" show={props.loading}>
+          <div class={wrapperClass.value} style={wrapperStyle.value}>
+            {props.height ? (
+              <div class="sk-table-header">
+                <table class={tableClass.value} style={tableStyle.value}>
+                  {colgroup}
+                  {thead}
+                </table>
+              </div>
+            ) : null}
+
+            <div class="sk-table-body">
+              <table class={tableClass.value} style={tableStyle.value}>
+                {colgroup}
+                {props.height ? null : thead}
+                <tbody class="sk-table-tbody">
+                  {props.data.map((dataItem, dateIndex) => {
+                    return (
+                      <tr key={props.rowKey ? dataItem[props.rowKey] : dateIndex}>
+                        {props.columns.map((columnItem, columnIndex) => {
+                          return (
+                            <td key={columnIndex} style={getCellStyle(columnItem)}>
+                              {columnItem.render
+                                ? columnItem.render(dataItem)
+                                : dataItem[columnItem.name ?? columnItem.defaultContent ?? '']}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
-          ) : null}
+            {props.data.length === 0 ? (
+              <div class="sk-table-empty-tip">
+                <span>{props.emptyText}</span>
+              </div>
+            ) : null}
+          </div>
         </Loading>
-      </div>
-    );
+      );
+    };
   },
 });
 

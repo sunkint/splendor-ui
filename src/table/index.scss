@@ -5,7 +5,7 @@ $border-color: #dee2e6;
 .sk-table {
   width: 100%;
   display: table;
-  margin: 12px 0;
+  margin: 0;
   text-align: left;
   border-collapse: collapse;
   border-spacing: 0;
@@ -39,8 +39,11 @@ $border-color: #dee2e6;
     }
   }
 
-  &-scroll-x {
-    overflow-x: auto;
+  &-bordered {
+    th,
+    td {
+      border: 1px solid $border-color;
+    }
   }
 
   &-striped {
@@ -48,13 +51,6 @@ $border-color: #dee2e6;
       &:nth-child(2n) {
         background-color: $gray-100;
       }
-    }
-  }
-
-  &-bordered {
-    th,
-    td {
-      border: 1px solid $border-color;
     }
   }
 
@@ -67,13 +63,56 @@ $border-color: #dee2e6;
     }
   }
 
+  &-wrapper {
+    margin: 12px 0;
+    overflow: hidden;
+  }
+
+  &-scroll-x {
+    overflow-x: auto;
+    border-left: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+
+    .sk-table {
+      border-left: none;
+      border-right: none;
+    }
+  }
+
+  &-scroll-y {
+    overflow-y: auto;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $border-color;
+
+    .sk-table-header {
+      -webkit-position: sticky;
+      position: sticky;
+      top: 0;
+      margin: -1px -1px 0 0;
+    }
+
+    .sk-table-body {
+      margin: -1px;
+      margin-left: 0;
+
+      .sk-table {
+        border-bottom: none;
+      }
+
+      tr:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
   &-fixed {
     table-layout: fixed;
   }
 
   &-empty-tip {
     padding: 10px 12px;
-    margin-top: -12px;
     text-align: center;
     border: 1px solid $border-color;
     border-top: none;

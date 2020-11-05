@@ -68,7 +68,7 @@ make build
 - [x] Progress
 - [x] Select
 - [x] Badge
-- [ ] Tabs
+- [x] Tabs
 - [ ] Swiper
 - [ ] Slider
 - [ ] Sticky

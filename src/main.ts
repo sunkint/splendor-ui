@@ -25,6 +25,7 @@ import SweetAlert from './sweetalert';
 import FloatLayer from './float-layer';
 import Popover from './popover';
 import Tooltip from './tooltip';
+import { Tabs, TabPanel } from './tabs';
 import Progress from './progress';
 import Select from './select';
 import Badge from './badge';
@@ -55,6 +56,8 @@ const components: any[] = [
   FloatLayer,
   Popover,
   Tooltip,
+  Tabs,
+  TabPanel,
   Progress,
   Select,
   Badge,
@@ -103,6 +106,8 @@ export {
   FloatLayer,
   Popover,
   Tooltip,
+  Tabs,
+  TabPanel,
   Progress,
   Select,
   Badge,

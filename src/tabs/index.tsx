@@ -46,10 +46,7 @@ const Tabs = defineComponent({
     const tabsChange = (id: TabIdType) => {
       state.activeId = id;
       emit('update:modelValue', id);
-      nextTick(() => {
-        // 两个更新是异步的，onchange里面拿不到最新的modelValue
-        emit('change', id);
-      });
+      emit('change', id);
     };
 
     watch(

@@ -47,13 +47,13 @@ export default {
 | --------- | -------------- | ------ | ---- | ------ |
 | closeable | tab 可支持删除 | `bool` | 否   | false  |
 
-#### sk-panel
+#### sk-tab-panel
 
-| 参数     | 说明       | 类 型    | 必填   | 默认值  |
-| -------- | ---------- | -------- | ------ | ------- |
-| id       | 样式类型   | `number  | string | symbol` | 否 | symbol |
-| title    | tab 的标题 | `string` | 是     |
-| disabled | 是否禁用   | `bool`   | 否     | false   |
+| 参数     | 说明         | 类 型    | 必填   | 默认值  |
+| -------- | ------------ | -------- | ------ | ------- |
+| id       | panel 的标识 | `number  | string | symbol` | 否 | symbol |
+| title    | tab 的标题   | `string` | 是     |
+| disabled | 是否禁用     | `bool`   | 否     | false   |
 
 ### 事件
 

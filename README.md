@@ -69,10 +69,10 @@ make build
 - [x] Select
 - [x] Badge
 - [x] Tabs
+- [x] Table
 - [ ] Swiper
 - [ ] Slider
 - [ ] Sticky
-- [ ] Table
 - [ ] Steps
 - [ ] Menu
 - [ ] Upload

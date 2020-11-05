@@ -29,6 +29,7 @@ import { Tabs, TabPanel } from './tabs';
 import Progress from './progress';
 import Select from './select';
 import Badge from './badge';
+import Table from './table';
 
 const components: any[] = [
   Button,
@@ -61,6 +62,7 @@ const components: any[] = [
   Progress,
   Select,
   Badge,
+  Table,
 ];
 
 const install = (app: App<Element>) => {
@@ -111,4 +113,5 @@ export {
   Progress,
   Select,
   Badge,
+  Table,
 };

@@ -50,9 +50,10 @@ export default {
 
 ### API
 
-| 参数     | 说明               | 类型   | 可选值 | 默认值  |
-| -------- | ------------------ | ------ | ------ | ------- |
-| id       | html id            | string |        | -       |
-| name     | html name          | string |        | -       |
-| value    | 内部复选框对应的值 | string |        | `on`    |
-| disabled | 是否禁用           | bool   |        | `false` |
+| 参数     | 说明                 | 类型   | 可选值 | 默认值  |
+| -------- | -------------------- | ------ | ------ | ------- |
+| v-model  | 控制开关状态（必填） | bool   |        | -       |
+| id       | html id              | string |        | -       |
+| name     | html name            | string |        | -       |
+| value    | 内部复选框对应的值   | string |        | `on`    |
+| disabled | 是否禁用             | bool   |        | `false` |

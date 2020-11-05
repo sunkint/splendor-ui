@@ -1,8 +1,10 @@
 # splendor-ui
 
-Vue 3 打造的前端 UI 组件库。主要用于支持下一代 [骁之屋](https://www.ybusad.com/) 前端的开发。
+Vue 3 打造的前端 UI 组件库。主要用于支持下一代个人网站 [骁之屋](https://www.ybusad.com/) 前端的开发。
 
 也欢迎大家在自己的项目中试用并提出宝贵的建议。
+
+部分配色和灵感来自：[https://bootswatch.com/flatly/](https://bootswatch.com/flatly/)
 
 ![Status](https://img.shields.io/badge/status-WIP-blue) ![MIT](https://img.shields.io/badge/license-MIT-green)
 

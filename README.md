@@ -1,8 +1,8 @@
 # splendor-ui ![Status](https://img.shields.io/badge/status-WIP-blue)
 
-光辉号骁之屋桌面版前端组件库，使用 Vue3 构建。
+Vue3 + TSX 构建的针对现代浏览器的桌面端 UI 组件库，主要用于支持下一代个人网站 [骁之屋](https://www.ybusad.com/) 前端的开发。
 
-基于 MIT 协议，可自由修改和使用。
+基于 MIT 协议，可自由学习、修改和使用。
 
 [https://splendor-ui.ybusad.com/](https://splendor-ui.ybusad.com/)
 

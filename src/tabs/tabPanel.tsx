@@ -1,4 +1,4 @@
-import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref } from 'vue';
+import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref, watch } from 'vue';
 import { TabCollect, TabDestroy, TabIdType } from './types';
 
 const TabPanel = defineComponent({
@@ -27,12 +27,17 @@ const TabPanel = defineComponent({
       console.warn('TabPanel should be used within Tabs.');
       return () => slots.default?.();
     }
-    onMounted(() => {
+    const collect = () => {
       tabsCollect({
         title: slots.title ? slots.title() : props.title,
         id: props.id,
         disabled: props.disabled,
       });
+    };
+    onMounted(() => {
+      collect();
+      watch(() => props.title, collect);
+      watch(() => props.disabled, collect);
     });
     onBeforeUnmount(() => {
       tabsDestroy(props.id);

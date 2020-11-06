@@ -20,7 +20,13 @@ const Tabs = defineComponent({
     });
 
     const tabsCollect: TabCollect = (tab: TabsType) => {
-      state.tabsArray.push(tab);
+      const existsTab = state.tabsArray.find((item) => item.id === tab.id);
+      if (!existsTab) {
+        state.tabsArray.push(tab);
+      } else {
+        existsTab.title = tab.title;
+        existsTab.disabled = tab.disabled;
+      }
     };
 
     const tabsDestroy = (id: TabIdType) => {

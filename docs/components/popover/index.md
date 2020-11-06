@@ -141,8 +141,8 @@ button {
 | class           | 气泡的自定义额外类名                     | string、array、object |                  | -            |
 | style           | 气泡的自定义额外样式                     | string、object        |                  | -            |
 | triggerClass    | 触发元素包裹层的自定义类名               | string、array、object |                  | -            |
-| mouseEnterDelay | 针对 `trigger=hover`，打开的延迟（ms）   |                       |                  | `100`        |
-| mouseLeaveDelay | 针对 `trigger=hover`，关闭时的延迟（ms） |                       |                  | `100`        |
+| mouseEnterDelay | 针对 `trigger=hover`，打开的延迟（ms）   | number                |                  | `100`        |
+| mouseLeaveDelay | 针对 `trigger=hover`，关闭时的延迟（ms） | number                |                  | `100`        |
 
 > #### LayerPosition <sk-tag ghost>type</sk-tag>
 >

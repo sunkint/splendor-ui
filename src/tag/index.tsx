@@ -23,9 +23,6 @@ const Tag = defineComponent({
     ghost: Boolean,
     onClose: Function as PropType<() => any>,
   },
-  emits: {
-    close: null,
-  },
   setup(props, { slots, emit }) {
     return () => {
       const {
@@ -48,7 +45,7 @@ const Tag = defineComponent({
         <span class={tagClass}>
           <span class="sk-tag-content">{slots.default?.()}</span>
           {closable ? (
-            <span class="sk-tag-close" onClick={() => emit('close')}>
+            <span class="sk-tag-close" onClick={props.onClose}>
               &times;
             </span>
           ) : null}

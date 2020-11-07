@@ -2,6 +2,10 @@ import { defineComponent, PropType, provide, reactive, computed, watch, nextTick
 import { TabsType, TabCollect, TabIdType } from './types';
 import './index.scss';
 
+export const ActiveIdSymbol = Symbol();
+export const TabCollectSymbol = Symbol();
+export const TabDestroySymbol = Symbol();
+
 const Tabs = defineComponent({
   name: 'sk-tabs',
 
@@ -44,11 +48,11 @@ const Tabs = defineComponent({
     };
 
     provide(
-      'activeId',
+      ActiveIdSymbol,
       computed(() => state.activeId)
     );
-    provide('tabsCollect', tabsCollect);
-    provide('tabsDestroy', tabsDestroy);
+    provide(TabCollectSymbol, tabsCollect);
+    provide(TabDestroySymbol, tabsDestroy);
 
     const tabsChange = (id: TabIdType, index: number) => {
       if (state.activeId !== id) {

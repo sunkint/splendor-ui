@@ -1,4 +1,5 @@
 import { defineComponent, inject, onBeforeUnmount, onMounted, PropType, Ref, watch } from 'vue';
+import { ActiveIdSymbol, TabCollectSymbol, TabDestroySymbol } from './Tabs';
 import { TabCollect, TabDestroy, TabIdType } from './types';
 
 const TabPanel = defineComponent({
@@ -17,9 +18,9 @@ const TabPanel = defineComponent({
   },
 
   setup(props, { slots }) {
-    const activeId = inject<Ref<TabIdType | null>>('activeId');
-    const tabsCollect = inject<TabCollect>('tabsCollect');
-    const tabsDestroy = inject<TabDestroy>('tabsDestroy');
+    const activeId = inject<Ref<TabIdType | null>>(ActiveIdSymbol);
+    const tabsCollect = inject<TabCollect>(TabCollectSymbol);
+    const tabsDestroy = inject<TabDestroy>(TabDestroySymbol);
     if (activeId === undefined) {
       return () => slots.default?.();
     }

@@ -20,6 +20,7 @@ const Avatar = defineComponent({
       type: Boolean,
       default: false,
     },
+    onError: Function as PropType<() => any>,
     src: String,
     alt: String,
     icon: String,

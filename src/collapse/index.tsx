@@ -1,4 +1,4 @@
-import { defineComponent, h } from 'vue';
+import { defineComponent, h, PropType } from 'vue';
 import './index.scss';
 
 const COLLAPSE = 'sk-collapse';
@@ -20,6 +20,10 @@ const Collapse = defineComponent({
       type: Number,
       default: 350,
     },
+    onShow: Function as PropType<() => any>,
+    onShown: Function as PropType<() => any>,
+    onHide: Function as PropType<() => any>,
+    onHidden: Function as PropType<() => any>,
   },
   data() {
     return {

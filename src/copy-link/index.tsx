@@ -1,4 +1,4 @@
-import { defineComponent, renderSlot } from 'vue';
+import { defineComponent, PropType, renderSlot } from 'vue';
 import Clipboard from 'clipboard';
 import './index.scss';
 
@@ -9,6 +9,8 @@ const CopyLink = defineComponent({
       type: String,
       required: true,
     },
+    onSuccess: Function as PropType<() => any>,
+    onError: Function as PropType<() => any>,
   },
   methods: {
     copy() {

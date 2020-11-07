@@ -79,12 +79,27 @@ const FloatLayer = defineComponent({
       open: false,
       enterTimer: -1,
       closeTimer: -1,
+      zIndex: props.trigger === 'hover' ? 2051 : 2050,
     });
 
     watch(
       () => layerState.open,
       (open) => {
         open ? props.onOpen?.() : props.onClose?.();
+        if (open) {
+          let maxZIndex = 100;
+          const getZIndex = (e: Element) => {
+            const zIndex = getComputedStyle(e).zIndex;
+            if (!isNaN(+zIndex)) {
+              maxZIndex = Math.max(+zIndex, maxZIndex);
+            }
+            try {
+              e.parentElement && getZIndex(e.parentElement);
+            } catch {}
+          };
+          trigger.value && getZIndex(trigger.value);
+          layerState.zIndex = maxZIndex + (props.trigger === 'hover' ? 101 : 100);
+        }
       }
     );
 
@@ -236,6 +251,7 @@ const FloatLayer = defineComponent({
           style={{
             left: `${layerState.left}px`,
             top: `${layerState.top}px`,
+            zIndex: layerState.zIndex,
             ...(props.transition
               ? {
                   transitionDuration: `${props.transition}ms`,

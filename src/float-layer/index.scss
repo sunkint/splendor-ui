@@ -8,11 +8,6 @@
     visibility: hidden;
     font-weight: normal;
     transition: opacity 0.16s;
-    z-index: 2050;
-
-    &-trigger-hover {
-      z-index: 2051;
-    }
 
     &.sk-layer-open {
       visibility: visible;

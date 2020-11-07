@@ -23,7 +23,7 @@ const Tag = defineComponent({
     ghost: Boolean,
     onClose: Function as PropType<() => any>,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots }) {
     return () => {
       const {
         type = 'primary',

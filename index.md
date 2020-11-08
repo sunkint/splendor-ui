@@ -6,7 +6,7 @@ Vue 3 打造的前端 UI 组件库。主要用于支持下一代个人网站 [�
 
 部分配色和灵感来自：[https://bootswatch.com/flatly/](https://bootswatch.com/flatly/)
 
-![Status](https://img.shields.io/badge/status-WIP-blue) ![MIT](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/npm/v/splendor-ui.svg?style=flat-square) ![MIT](https://img.shields.io/badge/license-MIT-green)
 
 ### 安装
 

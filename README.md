@@ -1,4 +1,6 @@
-# splendor-ui ![Status](https://img.shields.io/badge/status-WIP-blue)
+# splendor-ui
+
+![Version](https://img.shields.io/npm/v/splendor-ui.svg?style=flat-square)
 
 Vue3 + TSX 构建的针对现代浏览器的桌面端 UI 组件库，主要用于支持下一代个人网站 [骁之屋](https://www.ybusad.com/) 前端的开发。
 
@@ -40,7 +42,7 @@ make dev
 make build
 ```
 
-## 开发进度（WIP）
+## 目前已实现组件：
 
 - [x] Button
 - [x] Input
@@ -70,17 +72,6 @@ make build
 - [x] Badge
 - [x] Tabs
 - [x] Table
-- [ ] Swiper
-- [ ] Slider
-- [ ] Sticky
-- [ ] Steps
-- [ ] Menu
-- [ ] Upload
-- [ ] Divider
-- [ ] DatePicker
-- [ ] NumberInput
-- [ ] ImagePreview
-- [ ] InfiniteScroll
 
 ## 作者
 

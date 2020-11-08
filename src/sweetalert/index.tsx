@@ -3,6 +3,7 @@ import { SweetAlertAlertOptions, SweetAlertConfirmOptions } from './types';
 import Button from '../button';
 import Dialog from '../dialog';
 import Notify from '../notify';
+import './index.scss';
 
 const AlertDialog = defineComponent({
   name: 'sk-alert-dialog',
@@ -78,7 +79,7 @@ const AlertDialog = defineComponent({
           closeBtn,
           closeOnEsc,
           maskClosable,
-          class: className,
+          class: [className, 'sk-sweetalert-dialog'],
           style,
           onClose,
         },
@@ -180,7 +181,7 @@ const ConfirmDialog = defineComponent({
           closeBtn,
           closeOnEsc,
           maskClosable,
-          class: className,
+          class: [className, 'sk-sweetalert-dialog'],
           style,
           onClose,
         },

@@ -38,8 +38,6 @@
 
 ### 内置图标
 
-<small>_beta 版本中，内置图标可能会有调整_</small>
-
 <IconList />
 
 ### API

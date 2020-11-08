@@ -59,7 +59,7 @@ export default {
 .filter {
   position: absolute;
   right: -8px;
-  top: -90px;
+  top: -58px;
 }
 
 .grid {

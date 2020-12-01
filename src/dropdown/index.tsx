@@ -39,6 +39,10 @@ const Dropdown = defineComponent({
       type: Array as PropType<DropdownData>,
       required: true,
     },
+    modelValue: {
+      type: Array as PropType<any[]>,
+      default: [] as any[],
+    },
     selectedKeys: {
       type: Array as PropType<any[]>,
       default: [] as any[],
@@ -64,9 +68,12 @@ const Dropdown = defineComponent({
     onClose: Function as PropType<() => any>,
   },
   inheritAttrs: false,
-  setup(props, { attrs }) {
+  setup(props, { attrs, emit }) {
+    const { text, selectedKeys } = props;
     const state = reactive({
       open: false,
+      text,
+      selectedKeys,
     });
 
     const onClick = (e: MouseEvent) => {
@@ -80,6 +87,9 @@ const Dropdown = defineComponent({
       if (item.disabled) {
         return;
       }
+      state.text = item.text;
+      state.selectedKeys = [item.key];
+      emit('update:modelValue', [item]);
       props.onSelect?.(item.key, item);
       document.body.click(); // close layer
     };
@@ -115,7 +125,7 @@ const Dropdown = defineComponent({
                 disabled={props.disabled}
                 icon={props.icon}
               >
-                {props.text}{' '}
+                {state.text}
                 <Icon
                   class={[
                     'sk-dropdown-arrow',
@@ -136,7 +146,7 @@ const Dropdown = defineComponent({
                   return (
                     <DropdownOption
                       key={index}
-                      selected={props.selectedKeys.includes(item.key)}
+                      selected={state.selectedKeys.includes(item.key)}
                       disabled={item.disabled}
                       onClick={() => {
                         onMenuClick(item);

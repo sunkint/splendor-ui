@@ -26,6 +26,7 @@
     display: inline-block;
     transform: rotate(0deg) scale(0.75) translateY(-2px);
     transition: transform 0.2s;
+    margin-left: 4px;
 
     &-open {
       transform: rotate(180deg) scale(0.8) translateY(-2px);

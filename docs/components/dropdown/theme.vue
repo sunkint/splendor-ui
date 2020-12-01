@@ -1,6 +1,7 @@
 <template>
   <div class="docs-preview-part">
-    <sk-dropdown type="default" text="点击打开菜单" :data="data" />
+    {{ value }}
+    <sk-dropdown v-model="value" type="default" text="点击打开菜单" :data="data" />
     <sk-dropdown type="primary" text="点击打开菜单" :data="data" />
     <sk-dropdown type="success" text="点击打开菜单" :data="data" />
     <sk-dropdown type="info" text="点击打开菜单" :data="data" />
@@ -22,6 +23,7 @@ export default {
         { key: 'food', text: '食品' },
         { key: 'clothes', text: '服装' },
       ],
+      value: [],
     };
   },
 };

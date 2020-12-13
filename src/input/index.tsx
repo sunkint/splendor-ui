@@ -42,7 +42,7 @@ const Input = defineComponent({
     onChange: Function as PropType<(e: Event) => void>,
     onInput: Function as PropType<(e: Event) => void>,
   },
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
     const value = ref(props.modelValue);
 
     watch(value, (value) => {
@@ -68,24 +68,8 @@ const Input = defineComponent({
       }
     };
 
-    return () => (
-      <div
-        class={[
-          'sk-input-wrapper',
-          {
-            'sk-input-inline': props.inline,
-            'sk-input-block': props.block,
-            'sk-input-large': props.size === 'large',
-            'has-error': props.hasError,
-            'has-icon': !!props.icon,
-          },
-        ]}
-      >
-        {props.icon ? (
-          <span class="sk-input-icon">
-            <Icon type={props.icon} />
-          </span>
-        ) : null}
+    return () => {
+      const input = (
         <input
           class="sk-input"
           type={props.type}
@@ -104,8 +88,40 @@ const Input = defineComponent({
           onKeydown={props.onKeydown}
           onChange={props.onChange}
         />
-      </div>
-    );
+      );
+
+      return (
+        <div
+          class={[
+            'sk-input-wrapper',
+            {
+              'sk-input-inline': props.inline,
+              'sk-input-block': props.block,
+              'sk-input-large': props.size === 'large',
+              'has-error': props.hasError,
+              'has-icon': !!props.icon,
+            },
+          ]}
+        >
+          {slots.prepend ? (
+            <div class="sk-input-addon sk-input-addon-prepend">{slots.prepend()}</div>
+          ) : null}
+          {props.icon ? (
+            <div class="sk-input-icon-wrapper">
+              <span class="sk-input-icon">
+                <Icon type={props.icon} />
+              </span>
+              {input}
+            </div>
+          ) : (
+            input
+          )}
+          {slots.append ? (
+            <div class="sk-input-addon sk-input-addon-append">{slots.append()}</div>
+          ) : null}
+        </div>
+      );
+    };
   },
   methods: {
     focus() {

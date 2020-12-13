@@ -28,11 +28,46 @@
 </template>
 ```
 
+### 带前后缀
+
+<div class="docs-preview-part">
+  <sk-input inline>
+    <template #prepend>$</template>
+  </sk-input>
+  <sk-input inline>
+    <template #append>.00</template>
+  </sk-input>
+  <sk-input icon="search" inline>
+    <template #prepend>love</template>
+    <template #append>.com</template>
+  </sk-input>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-input inline>
+      <template #prepend>$</template>
+    </sk-input>
+    <sk-input inline>
+      <template #append>.00</template>
+    </sk-input>
+    <sk-input icon="search" inline>
+      <template #prepend>love</template>
+      <template #append>.com</template>
+    </sk-input>
+  </div>
+</template>
+```
+
 ### 大号一点
 
 <div class="docs-preview-part">
   <sk-input size="large" placeholder="最多输入15字" maxlength="15" inline />
   <sk-input size="large" icon="search" placeholder="搜索" inline />
+  <sk-input size="large" inline>
+    <template #prepend>$</template>
+  </sk-input>
 </div>
 
 ```vue

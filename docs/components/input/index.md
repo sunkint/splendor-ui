@@ -75,6 +75,9 @@
   <div class="docs-preview-part">
     <sk-input size="large" placeholder="最多输入15字" maxlength="15" inline />
     <sk-input size="large" icon="search" placeholder="搜索" inline />
+    <sk-input size="large" inline>
+      <template #prepend>$</template>
+    </sk-input>
   </div>
 </template>
 ```

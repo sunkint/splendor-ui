@@ -16,8 +16,8 @@
   color: $white;
   text-align: center;
   font-size: 14px;
-  line-height: 24px;
-  padding: 6px 12px;
+  line-height: 30px;
+  padding: 0 12px;
   width: auto;
   height: auto;
   text-decoration: none;
@@ -82,18 +82,18 @@
 
   &-size-small {
     font-size: 12px;
-    line-height: 18px;
-    padding: 4px 8px;
+    line-height: 22px;
+    padding: 0 8px;
 
     &.sk-btn-round {
-      border-radius: 13px;
+      border-radius: 12px;
     }
   }
 
   &-size-large {
-    font-size: 20px;
-    line-height: 28px;
-    padding: 10px 18px;
+    font-size: 18px;
+    line-height: 36px;
+    padding: 0 18px;
 
     &.sk-btn-round {
       border-radius: 24px;

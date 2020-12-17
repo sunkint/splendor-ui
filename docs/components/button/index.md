@@ -144,6 +144,7 @@
 | -------- | ------------------------------------------------- | ------ | ------------------------------------------------------------ | --------- |
 | type     | 按钮样式类型                                      | string | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
 | size     | 按钮大小                                          | string | `normal`、`small`、`large`                                   | `normal`  |
+| width    | 按钮宽度                                          | number |                                                              | -         |
 | icon     | 前置图标                                          | string | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
 | round    | 是否显示为圆角                                    | bool   |                                                              | `false`   |
 | block    | 是否占满父容器宽度（块级）                        | bool   |                                                              | `false`   |

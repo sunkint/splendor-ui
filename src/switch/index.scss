@@ -11,6 +11,12 @@
   background-color: $gray-300;
   transition: background-color 0.2s;
 
+  &:active {
+    &::after {
+      width: 23px;
+    }
+  }
+
   &:after {
     position: absolute;
     content: '';
@@ -18,13 +24,19 @@
     top: 2px;
     width: 18px;
     height: 18px;
-    border-radius: 50%;
+    border-radius: 9px;
     background-color: $white;
-    transition: left 0.2s;
+    transition: all 0.2s;
   }
 
   &.sk-switch-on {
     background-color: $primary;
+
+    &:active {
+      &::after {
+        left: 19px;
+      }
+    }
 
     &:after {
       left: 24px;

@@ -51,6 +51,7 @@ module.exports = {
           'Progress',
           'Badge',
           'Table',
+          'Swiper',
         ].map(buildNavChildren),
       },
       {

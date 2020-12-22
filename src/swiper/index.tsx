@@ -8,7 +8,7 @@ import {
   provide,
   inject,
   watch,
-  nextTick,
+  onUnmounted,
 } from 'vue';
 import { ISwiperItemType, IMoveOrder, SwiperCollect, SwiperId } from './types';
 import './index.scss';
@@ -98,7 +98,11 @@ const Swiper = defineComponent({
     },
     interval: {
       type: Number,
-      default: 3000,
+      default: 5000,
+    },
+    autoPlay: {
+      type: Boolean,
+      default: true,
     },
   },
 
@@ -115,13 +119,24 @@ const Swiper = defineComponent({
       } as IMoveOrder,
     });
 
-    let timer = null;
+    let timer: NodeJS.Timer | null = null;
+    const startAutoPlay = () => {
+      timer = setInterval(autoPlay, props.interval);
+    };
+    const stopAutoPlay = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
 
     onMounted(() => {
       if (state.swiperItems.length > 0) {
         state.nowActiveId = state.swiperItems[0].id;
-        timer = setInterval(autoPlay, props.interval);
+        startAutoPlay();
       }
+    });
+
+    onUnmounted(() => {
+      stopAutoPlay();
     });
 
     const swiperCollect: SwiperCollect = (item: ISwiperItemType) => {
@@ -149,6 +164,7 @@ const Swiper = defineComponent({
       state.nowIndex = index;
       state.moving = true;
       setTimeout(() => {
+        if (!timer) startAutoPlay();
         state.moving = false;
         state.nowActiveId = item.id;
         state.moveOrder = {
@@ -159,8 +175,8 @@ const Swiper = defineComponent({
     };
 
     const autoPlay = () => {
+      if (!props.autoPlay) return;
       const autoIndex = state.nowIndex + 1 >= state.swiperItems.length ? 0 : state.nowIndex + 1;
-      console.log(state.swiperItems[autoIndex]);
       onLabelClick(state.swiperItems[autoIndex], autoIndex, true);
     };
 
@@ -173,7 +189,10 @@ const Swiper = defineComponent({
           {state.swiperItems.map((item, index) => (
             <li
               class={['sk-swiper-label', { active: state.nowIndex === index }]}
-              onClick={() => onLabelClick(item, index)}
+              onClick={() => {
+                stopAutoPlay();
+                onLabelClick(item, index);
+              }}
             ></li>
           ))}
         </ul>

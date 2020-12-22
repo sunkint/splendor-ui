@@ -60,19 +60,20 @@
 
   .sk-swiper-labels {
     width: 100%;
-    height: 12px;
+    height: 14px;
     display: flex;
     justify-content: center;
+    align-content: center;
+    align-items: center;
     position: absolute;
     bottom: 10px;
 
     .sk-swiper-label {
       width: 12px;
       height: 12px;
-      border-radius: 6px;
-      margin: 0 5px;
+      border-radius: 50%;
+      margin: 0 4px;
       border: 1px solid $text;
-      // background-color: #fff;
       box-sizing: border-box;
       cursor: pointer;
       transition: all 0.15s ease-in-out;

@@ -8,6 +8,7 @@ import {
   provide,
   inject,
   watch,
+  nextTick,
 } from 'vue';
 import { ISwiperItemType, IMoveOrder, SwiperCollect, SwiperId } from './types';
 import './index.scss';
@@ -95,6 +96,10 @@ const Swiper = defineComponent({
       type: Number,
       default: 600,
     },
+    interval: {
+      type: Number,
+      default: 3000,
+    },
   },
 
   setup(props, { slots }) {
@@ -110,9 +115,12 @@ const Swiper = defineComponent({
       } as IMoveOrder,
     });
 
+    let timer = null;
+
     onMounted(() => {
       if (state.swiperItems.length > 0) {
         state.nowActiveId = state.swiperItems[0].id;
+        timer = setInterval(autoPlay, props.interval);
       }
     });
 
@@ -129,10 +137,10 @@ const Swiper = defineComponent({
       computed(() => state.moveOrder)
     );
 
-    const onLabelClick = (item: ISwiperItemType, index: number) => {
+    const onLabelClick = (item: ISwiperItemType, index: number, next = false) => {
       const { nowIndex, moving } = state;
       if (index === nowIndex || moving) return;
-      if (index > nowIndex) {
+      if (index > nowIndex || next) {
         state.moveOrder.nextId = item.id;
       } else {
         state.moveOrder.prevId = item.id;
@@ -148,6 +156,12 @@ const Swiper = defineComponent({
           prevId: '',
         };
       }, props.time);
+    };
+
+    const autoPlay = () => {
+      const autoIndex = state.nowIndex + 1 >= state.swiperItems.length ? 0 : state.nowIndex + 1;
+      console.log(state.swiperItems[autoIndex]);
+      onLabelClick(state.swiperItems[autoIndex], autoIndex, true);
     };
 
     return () => (

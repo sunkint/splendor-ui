@@ -2,26 +2,22 @@
 
 :root {
   --transitionTime: 0.6s;
-  --activeLabelIndex: 0;
 }
 
 .sk-swiper {
   position: relative;
-  overflow: hidden;
   width: 100%;
-  height: 150px;
-  background-color: #dddddd;
+  overflow: hidden;
 
   .sk-swiper-list {
     width: 100%;
-    line-height: 150px;
+    height: inherit;
 
     .sk-swiper-item {
       position: absolute;
       display: none;
       width: 100%;
-      line-height: auto;
-      text-align: center;
+      height: inherit;
       box-sizing: border-box;
       transition: transform var(--transitionTime, 0.6s) ease-in-out;
     }
@@ -58,7 +54,7 @@
     }
   }
 
-  .sk-swiper-labels {
+  .sk-swiper-indicators {
     width: 100%;
     height: 14px;
     display: flex;
@@ -68,7 +64,7 @@
     position: absolute;
     bottom: 10px;
 
-    .sk-swiper-label {
+    .sk-swiper-indicator {
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -76,6 +72,7 @@
       border: 1px solid $text;
       box-sizing: border-box;
       cursor: pointer;
+      background-color: $gray-200;
       transition: all 0.15s ease-in-out;
     }
 
@@ -83,10 +80,44 @@
       border-width: 4px;
     }
   }
+
+  .sk-swiper-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    opacity: 0.5;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .sk-icon {
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+
+  .sk-swiper-control.left {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+  }
+
+  .sk-swiper-control.right {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+  }
 }
 
 .sk-swiper-list,
-.sk-swiper-labels {
+.sk-swiper-indicators {
   margin: 0;
   padding: 0;
   list-style: none;

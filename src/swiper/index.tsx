@@ -11,6 +11,7 @@ import {
   onUnmounted,
 } from 'vue';
 import { ISwiperItemType, IMoveOrder, SwiperCollect, SwiperId } from './types';
+import Icon from '../icon';
 import './index.scss';
 
 const ActiveIdSymbol = Symbol();
@@ -92,7 +93,7 @@ const Swiper = defineComponent({
   name: 'sk-swiper',
 
   props: {
-    time: {
+    transitionTime: {
       type: Number,
       default: 600,
     },
@@ -100,7 +101,23 @@ const Swiper = defineComponent({
       type: Number,
       default: 5000,
     },
-    autoPlay: {
+    loop: {
+      type: Boolean,
+      default: true,
+    },
+    width: {
+      type: [Number, String],
+      default: '100%',
+    },
+    height: {
+      type: [Number, String],
+      default: 250,
+    },
+    showIndicator: {
+      type: Boolean,
+      default: true,
+    },
+    showControl: {
       type: Boolean,
       default: true,
     },
@@ -121,11 +138,62 @@ const Swiper = defineComponent({
 
     let timer: NodeJS.Timer | null = null;
     const startAutoPlay = () => {
-      timer = setInterval(autoPlay, props.interval);
+      if (timer) return;
+      timer = setInterval(() => {
+        if (!props.loop) return;
+        onNext();
+      }, props.interval);
     };
     const stopAutoPlay = () => {
       if (timer) clearInterval(timer);
       timer = null;
+    };
+
+    const setMoveOrder = (item: ISwiperItemType, index: number, mode = '') => {
+      const { nowIndex, moving } = state;
+      if (index === nowIndex || moving) return;
+      switch (mode) {
+        case 'next': {
+          state.moveOrder.nextId = item.id;
+          break;
+        }
+        case 'prev': {
+          state.moveOrder.prevId = item.id;
+          break;
+        }
+        default: {
+          if (index > nowIndex) {
+            state.moveOrder.nextId = item.id;
+          } else {
+            state.moveOrder.prevId = item.id;
+          }
+        }
+      }
+
+      state.nowIndex = index;
+      state.moving = true;
+
+      setTimeout(() => {
+        if (!timer) startAutoPlay();
+        state.moving = false;
+        state.nowActiveId = item.id;
+        state.moveOrder = {
+          nextId: '',
+          prevId: '',
+        };
+      }, props.transitionTime);
+    };
+
+    const onPrev = () => {
+      const { nowIndex, swiperItems } = state;
+      const prevIndex = nowIndex - 1 >= 0 ? nowIndex - 1 : swiperItems.length - 1;
+      setMoveOrder(swiperItems[prevIndex], prevIndex, 'prev');
+    };
+
+    const onNext = () => {
+      const { nowIndex, swiperItems } = state;
+      const autoIndex = nowIndex + 1 >= swiperItems.length ? 0 : nowIndex + 1;
+      setMoveOrder(swiperItems[autoIndex], autoIndex, 'next');
     };
 
     onMounted(() => {
@@ -152,50 +220,43 @@ const Swiper = defineComponent({
       computed(() => state.moveOrder)
     );
 
-    const onLabelClick = (item: ISwiperItemType, index: number, next = false) => {
-      const { nowIndex, moving } = state;
-      if (index === nowIndex || moving) return;
-      if (index > nowIndex || next) {
-        state.moveOrder.nextId = item.id;
-      } else {
-        state.moveOrder.prevId = item.id;
-      }
-
-      state.nowIndex = index;
-      state.moving = true;
-      setTimeout(() => {
-        if (!timer) startAutoPlay();
-        state.moving = false;
-        state.nowActiveId = item.id;
-        state.moveOrder = {
-          nextId: '',
-          prevId: '',
-        };
-      }, props.time);
-    };
-
-    const autoPlay = () => {
-      if (!props.autoPlay) return;
-      const autoIndex = state.nowIndex + 1 >= state.swiperItems.length ? 0 : state.nowIndex + 1;
-      onLabelClick(state.swiperItems[autoIndex], autoIndex, true);
+    const rendleIndicator = () => {
+      return state.swiperItems.map((item, index) => (
+        <li
+          class={['sk-swiper-indicator', { active: state.nowIndex === index }]}
+          onClick={() => {
+            stopAutoPlay();
+            setMoveOrder(item, index);
+          }}
+        ></li>
+      ));
     };
 
     return () => (
-      <div ref={root} class="sk-swiper">
-        <ul class="sk-swiper-list" style={`--transitionTime: ${props.time / 1000}s`}>
+      <div
+        ref={root}
+        class="sk-swiper"
+        style={{
+          width: props.width,
+          height: props.height,
+        }}
+        onMouseover={stopAutoPlay}
+        onMouseout={startAutoPlay}
+      >
+        <ul class="sk-swiper-list" style={`--transitionTime: ${props.transitionTime / 1000}s`}>
           {slots.default?.()}
         </ul>
-        <ul class="sk-swiper-labels">
-          {state.swiperItems.map((item, index) => (
-            <li
-              class={['sk-swiper-label', { active: state.nowIndex === index }]}
-              onClick={() => {
-                stopAutoPlay();
-                onLabelClick(item, index);
-              }}
-            ></li>
-          ))}
-        </ul>
+        {props.showIndicator && <ul class="sk-swiper-indicators">{rendleIndicator()}</ul>}
+        {props.showControl && (
+          <>
+            <a class="sk-swiper-control left" onClick={onPrev}>
+              <Icon type="left-simple" />
+            </a>
+            <a class="sk-swiper-control right" onClick={onNext}>
+              <Icon type="right-simple" />
+            </a>
+          </>
+        )}
       </div>
     );
   },

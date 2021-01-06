@@ -4,10 +4,10 @@
 
 <div class="docs-preview-part">
   <sk-swiper>
-    <sk-swipe-item style="background: #fd7e14"></sk-swipe-item>
-    <sk-swipe-item style="background: #18bc9c"></sk-swipe-item>
-    <sk-swipe-item style="background: #3498db"></sk-swipe-item>
-    <sk-swipe-item style="background: #e83e8c"></sk-swipe-item>
+    <sk-swipe-item style="background: #fd7e14;"></sk-swipe-item>
+    <sk-swipe-item style="background: #18bc9c;"></sk-swipe-item>
+    <sk-swipe-item style="background: #3498db;"></sk-swipe-item>
+    <sk-swipe-item style="background: #e83e8c;"></sk-swipe-item>
   </sk-swiper>
 </div>
 
@@ -15,10 +15,10 @@
 <template>
   <div class="docs-preview-part">
     <sk-swiper>
-      <sk-swipe-item style="background: #fd7e14"></sk-swipe-item>
-      <sk-swipe-item style="background: #18bc9c"></sk-swipe-item>
-      <sk-swipe-item style="background: #3498db"></sk-swipe-item>
-      <sk-swipe-item style="background: #e83e8c"></sk-swipe-item>
+      <sk-swipe-item style="background: #fd7e14;"></sk-swipe-item>
+      <sk-swipe-item style="background: #18bc9c;"></sk-swipe-item>
+      <sk-swipe-item style="background: #3498db;"></sk-swipe-item>
+      <sk-swipe-item style="background: #e83e8c;"></sk-swipe-item>
     </sk-swiper>
   </div>
 </template>

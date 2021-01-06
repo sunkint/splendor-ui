@@ -243,7 +243,7 @@ const Swiper = defineComponent({
         onMouseover={stopAutoPlay}
         onMouseout={startAutoPlay}
       >
-        <ul class="sk-swiper-list" style={`--transitionTime: ${props.transitionTime / 1000}s`}>
+        <ul class="sk-swiper-list" style={`--transitionTime: ${props.transitionTime}ms`}>
           {slots.default?.()}
         </ul>
         {props.showIndicator && <ul class="sk-swiper-indicators">{rendleIndicator()}</ul>}

@@ -4,6 +4,12 @@
   --transitionTime: 0.6s;
 }
 
+@mixin clearListStyle {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .sk-swiper {
   position: relative;
   width: 100%;
@@ -12,6 +18,8 @@
   .sk-swiper-list {
     width: 100%;
     height: inherit;
+
+    @include clearListStyle;
 
     .sk-swiper-item {
       position: absolute;
@@ -64,6 +72,8 @@
     position: absolute;
     bottom: 10px;
 
+    @include clearListStyle;
+
     .sk-swiper-indicator {
       width: 12px;
       height: 12px;
@@ -114,11 +124,4 @@
     right: 0;
     background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
   }
-}
-
-.sk-swiper-list,
-.sk-swiper-indicators {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }

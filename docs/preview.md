@@ -52,10 +52,6 @@
 
 <SwitchPart />
 
-### Swiper
-
-<SwiperPart />
-
 ---
 
 更多组件预览参见各组件文档……

@@ -13,7 +13,6 @@ import LoadingPart from './components/preview/LoadingPart.vue';
 import RadioPart from './components/preview/RadioPart.vue';
 import CheckboxPart from './components/preview/CheckboxPart.vue';
 import SwitchPart from './components/preview/SwitchPart.vue';
-import SwiperPart from './components/preview/SwiperPart.vue';
 
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
@@ -74,7 +73,6 @@ export default function (app) {
   app.component(RadioPart.name, RadioPart);
   app.component(CheckboxPart.name, CheckboxPart);
   app.component(SwitchPart.name, SwitchPart);
-  app.component(SwiperPart.name, SwiperPart);
   app.component('GuideExampleTsx', GuideExampleTsx);
   app.component('TagBasic', TagBasic);
   app.component('NotifyBasic', NotifyBasic);

@@ -33,6 +33,9 @@ version:
 publish: version build
 	npm publish
 
+publish-beta: version build
+	npm publish --tag beta
+
 publish-doc: build-doc
 	npx cloudbase hosting:deploy .vitepress/dist
 

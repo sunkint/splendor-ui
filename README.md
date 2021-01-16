@@ -72,6 +72,7 @@ make build
 - [x] Badge
 - [x] Tabs
 - [x] Table
+- [x] Swiper
 
 ## 作者
 

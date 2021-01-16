@@ -98,10 +98,18 @@ const Swiper = defineComponent({
     );
 
     watch(
+      () => state.moving,
+      (moving) => {
+        console.log('moving:', moving);
+      }
+    );
+
+    watch(
       () => props.modelValue,
       (nextIndex) => {
         const { swiperItems } = state;
         if (nextIndex !== undefined && nextIndex !== state.nowIndex) {
+          console.log(state.nowIndex);
           const move = () => {
             setMoveOrder(swiperItems[nextIndex]);
             resetTimer();
@@ -164,6 +172,7 @@ const Swiper = defineComponent({
         index = 0;
       }
       if ((swiperItems.length < 2 && nowIndex > 0) || !item || index === nowIndex || moving) {
+        console.log(swiperItems, nowIndex, index, item, moving, { ...state });
         return;
       }
       let direction = SwiperDirection.NEXT;
@@ -208,25 +217,11 @@ const Swiper = defineComponent({
         cancelMove = null;
       };
 
-      if (item.ref && 'ontransitionend' in item.ref) {
-        item.ref.addEventListener(
-          'transitionend',
-          () => {
-            completeState();
-          },
-          { once: true }
-        );
-        cancelMove = () => {
-          item.ref?.removeEventListener('transitionend', completeState);
-          completeState();
-        };
-      } else {
-        const moveTimerId = setTimeout(completeState, props.transitionTime);
-        cancelMove = () => {
-          clearTimeout(moveTimerId);
-          completeState();
-        };
-      }
+      const moveTimerId = setTimeout(completeState, props.transitionTime);
+      cancelMove = () => {
+        clearTimeout(moveTimerId);
+        completeState();
+      };
 
       props.onChange?.({
         id: item.id,
@@ -280,6 +275,7 @@ const Swiper = defineComponent({
           cancelMove?.();
           state.nowIndex = 0;
           state.nowActiveId = state.swiperItems[0].id;
+          state.moving = false;
           state.moveOrder = {
             nextId: emptyId,
             prevId: emptyId,

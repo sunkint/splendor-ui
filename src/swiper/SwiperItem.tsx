@@ -58,24 +58,24 @@ const SwiperItem = defineComponent({
     });
 
     watch(
-      () => moveOrder?.value?.nextId,
+      () => moveOrder.value.nextId,
       () => {
         setTimeout(() => {
           const isBeforeLeave = state.isActive && moveOrder.value.nextId !== emptyId;
           state.isLeft = state.isNext || isBeforeLeave;
           isBeforeLeave && props.onBeforeLeave?.(thisId);
-        }, 0);
+        });
       }
     );
 
     watch(
-      () => moveOrder?.value?.prevId,
+      () => moveOrder.value.prevId,
       () => {
         setTimeout(() => {
           const isBeforeLeave = state.isActive && moveOrder.value.prevId !== emptyId;
           state.isRight = state.isPrev || isBeforeLeave;
           isBeforeLeave && props.onBeforeLeave?.(thisId);
-        }, 0);
+        });
       }
     );
 

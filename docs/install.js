@@ -56,6 +56,9 @@ import TableScroll from './components/table/scroll.vue';
 import TableScrollY from './components/table/scrollY.vue';
 import TabsModel from './components/tabs/model.vue';
 import TabsClosable from './components/tabs/closable.vue';
+import SwiperBasic from './components/swiper/basic.vue';
+import SwiperModel from './components/swiper/model.vue';
+import SwiperDynamic from './components/swiper/dynamic.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -113,4 +116,7 @@ export default function (app) {
   app.component('TableScrollY', TableScrollY);
   app.component('TabsModel', TabsModel);
   app.component('TabsClosable', TabsClosable);
+  app.component('SwiperBasic', SwiperBasic);
+  app.component('SwiperModel', SwiperModel);
+  app.component('SwiperDynamic', SwiperDynamic);
 }

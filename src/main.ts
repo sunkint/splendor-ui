@@ -30,6 +30,7 @@ import Progress from './progress';
 import Select from './select';
 import Badge from './badge';
 import Table from './table';
+import { Swiper, SwiperItem } from './swiper';
 
 const components: any[] = [
   Button,
@@ -63,6 +64,8 @@ const components: any[] = [
   Select,
   Badge,
   Table,
+  Swiper,
+  SwiperItem,
 ];
 
 const install = (app: App<Element>) => {
@@ -114,4 +117,6 @@ export {
   Select,
   Badge,
   Table,
+  Swiper,
+  SwiperItem,
 };

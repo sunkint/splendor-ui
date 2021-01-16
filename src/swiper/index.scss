@@ -1,0 +1,129 @@
+@import '../style/var.scss';
+
+:root {
+  --transitionTime: 0.6s;
+}
+
+@mixin clearListStyle {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sk-swiper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .sk-swiper-list {
+    width: 100%;
+    height: 100%;
+
+    @include clearListStyle;
+
+    .sk-swiper-item {
+      position: absolute;
+      display: none;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      transition: transform 0.6s ease-in-out;
+      transition: transform var(--transitionTime, 0.6s) ease-in-out;
+      overflow: hidden;
+    }
+
+    .sk-active {
+      transform: translate3d(0, 0, 0);
+      display: block;
+      left: 0;
+    }
+
+    .sk-next {
+      transform: translate3d(100%, 0, 0);
+      display: block;
+      left: 0;
+    }
+
+    .sk-prev {
+      transform: translate3d(-100%, 0, 0);
+      display: block;
+      left: 0;
+    }
+
+    .sk-active.sk-left {
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    .sk-active.sk-right {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .sk-prev.sk-right,
+    .sk-next.sk-left {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .sk-swiper-indicators {
+    width: 100%;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+
+    @include clearListStyle;
+
+    .sk-swiper-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 4px;
+      border: 1px solid $text;
+      box-sizing: border-box;
+      cursor: pointer;
+      background-color: $gray-200;
+      transition: all 0.15s ease-in-out;
+    }
+
+    .active {
+      border-width: 4px;
+    }
+  }
+
+  .sk-swiper-control {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15%;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    opacity: 0.5;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .sk-icon {
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &.sk-control-left {
+      left: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    }
+
+    &.sk-control-right {
+      right: 0;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    }
+  }
+}

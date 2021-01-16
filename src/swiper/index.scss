@@ -17,7 +17,7 @@
 
   .sk-swiper-list {
     width: 100%;
-    height: inherit;
+    height: 100%;
 
     @include clearListStyle;
 
@@ -25,39 +25,41 @@
       position: absolute;
       display: none;
       width: 100%;
-      height: inherit;
+      height: 100%;
       box-sizing: border-box;
+      transition: transform 0.6s ease-in-out;
       transition: transform var(--transitionTime, 0.6s) ease-in-out;
+      overflow: hidden;
     }
 
-    .active {
+    .sk-active {
       transform: translate3d(0, 0, 0);
       display: block;
       left: 0;
     }
 
-    .next {
+    .sk-next {
       transform: translate3d(100%, 0, 0);
       display: block;
       left: 0;
     }
 
-    .prev {
+    .sk-prev {
       transform: translate3d(-100%, 0, 0);
       display: block;
       left: 0;
     }
 
-    .active.left {
+    .sk-active.sk-left {
       transform: translate3d(-100%, 0, 0);
     }
 
-    .active.right {
+    .sk-active.sk-right {
       transform: translate3d(100%, 0, 0);
     }
 
-    .prev.right,
-    .next.left {
+    .sk-prev.sk-right,
+    .sk-next.sk-left {
       transform: translate3d(0, 0, 0);
     }
   }
@@ -113,15 +115,15 @@
       top: 50%;
       transform: translate3d(-50%, -50%, 0);
     }
-  }
 
-  .sk-swiper-control.left {
-    left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
-  }
+    &.sk-control-left {
+      left: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    }
 
-  .sk-swiper-control.right {
-    right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    &.sk-control-right {
+      right: 0;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    }
   }
 }

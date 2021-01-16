@@ -98,18 +98,10 @@ const Swiper = defineComponent({
     );
 
     watch(
-      () => state.moving,
-      (moving) => {
-        console.log('moving:', moving);
-      }
-    );
-
-    watch(
       () => props.modelValue,
       (nextIndex) => {
         const { swiperItems } = state;
         if (nextIndex !== undefined && nextIndex !== state.nowIndex) {
-          console.log(state.nowIndex);
           const move = () => {
             setMoveOrder(swiperItems[nextIndex]);
             resetTimer();
@@ -172,7 +164,6 @@ const Swiper = defineComponent({
         index = 0;
       }
       if ((swiperItems.length < 2 && nowIndex > 0) || !item || index === nowIndex || moving) {
-        console.log(swiperItems, nowIndex, index, item, moving, { ...state });
         return;
       }
       let direction = SwiperDirection.NEXT;

@@ -55,21 +55,21 @@ export default {
 
 ### API
 
-| 参数              | 说明                             | 类型                | 可选值    | 默认值 |
-| ----------------- | -------------------------------- | ------------------- | --------- | ------ | ---- |
-| trigger           | 触发自动补全的符号               | string              |           | `@`    |
-| data              | 同步筛选时的全部数据列表         | `IMentionDataItem[] | string[]` |        | `[]` |
-| async             | 是否异步获取数据                 | bool                |           | false  |
-| menuItemLimit     | 每次最多显示的条目数量           | number              |           | 25     |
-| menuShowMinLength | 触发自动补全前键入的最少字符数量 | number              |           | 0      |
+| 参数              | 说明                             | 类型               | 可选值    | 默认值 |
+| ----------------- | -------------------------------- | ------------------ | --------- | ------ | ---- |
+| trigger           | 触发自动补全的符号               | string             |           | `@`    |
+| data              | 同步筛选时的全部数据列表         | `MentionDataItem[] | string[]` |        | `[]` |
+| async             | 是否异步获取数据                 | bool               |           | false  |
+| menuItemLimit     | 每次最多显示的条目数量           | number             |           | 25     |
+| menuShowMinLength | 触发自动补全前键入的最少字符数量 | number             |           | 0      |
 
 同时也支持 [Textarea](../textarea/index) 的所有 props。
 
 ### 事件
 
-| 事件       | 说明                                   | 携带参数                                      |
-| ---------- | -------------------------------------- | --------------------------------------------- | ---------- |
-| asyncFetch | 异步获取回调函数，需要返回一个 Promise | `(word: string) => Promise<IMentionDataItem[] | string[]>` |
+| 事件       | 说明                                   | 携带参数                                     |
+| ---------- | -------------------------------------- | -------------------------------------------- | ---------- |
+| asyncFetch | 异步获取回调函数，需要返回一个 Promise | `(word: string) => Promise<MentionDataItem[] | string[]>` |
 
 同时也支持 [Textarea](../textarea/index) 的所有事件。
 

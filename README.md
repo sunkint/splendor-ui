@@ -73,6 +73,7 @@ make build
 - [x] Tabs
 - [x] Table
 - [x] Swiper
+- [x] InfiniteScroll
 
 ## 作者
 

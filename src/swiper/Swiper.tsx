@@ -304,8 +304,8 @@ const Swiper = defineComponent({
         ref={root}
         class="sk-swiper"
         style={{
-          width: props.width,
-          height: props.height,
+          width: Number.isFinite(props.width) ? `${props.width}px` : props.width,
+          height: Number.isFinite(props.height) ? `${props.height}px` : props.height,
         }}
         onMouseenter={stopAutoPlay}
         onMouseleave={startAutoPlay}

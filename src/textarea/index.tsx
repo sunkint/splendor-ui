@@ -111,7 +111,7 @@ const Textarea = defineComponent({
       <div class={['sk-textarea-wrapper', { 'sk-textarea-block': block }]}>
         <textarea
           ref="textarea"
-          style={{ height: autoHeight ? `${outerHeight}px` : 'auto' }}
+          style={autoHeight ? { height: `${outerHeight}px` } : undefined}
           class={['sk-textarea', { 'has-error': hasError, 'auto-height': autoHeight }]}
           maxlength={maxlength}
           placeholder={placeholder}

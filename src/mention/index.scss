@@ -1,0 +1,45 @@
+@import '../style/var.scss';
+
+.sk-mention {
+  &-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    max-height: 320px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba($gray-800, 25%);
+    border-radius: 3px;
+    background-color: $white;
+    color: $text;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 3050;
+    transform: translateY(4px);
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &-item {
+      display: block;
+      background-color: $white;
+      padding: 7px 16px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+
+      &.active {
+        background-color: lighten($cyan, 42%);
+      }
+
+      &.disabled {
+        background-color: $gray-200;
+        opacity: 0.65;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

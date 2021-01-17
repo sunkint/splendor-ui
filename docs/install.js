@@ -63,6 +63,7 @@ import InfiniteScrollBasic from './components/infinitescroll/basic.vue';
 import InfiniteScrollManual from './components/infinitescroll/manual.vue';
 import InfiniteScrollWindow from './components/infinitescroll/window.vue';
 import InfiniteScrollCustom from './components/infinitescroll/custom.vue';
+import MentionAsync from './components/mention/async.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -127,4 +128,5 @@ export default function (app) {
   app.component('InfiniteScrollManual', InfiniteScrollManual);
   app.component('InfiniteScrollWindow', InfiniteScrollWindow);
   app.component('InfiniteScrollCustom', InfiniteScrollCustom);
+  app.component('MentionAsync', MentionAsync);
 }

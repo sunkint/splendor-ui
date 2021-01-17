@@ -30,7 +30,7 @@ module.exports = (env = {}) => ({
     rules: [
       {
         test: /(\.jsx?|\.tsx?)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!tributejs)/,
         use: {
           loader: 'babel-loader',
         },

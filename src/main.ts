@@ -31,6 +31,7 @@ import Select from './select';
 import Badge from './badge';
 import Table from './table';
 import { Swiper, SwiperItem } from './swiper';
+import InfiniteScroll from './infinite-scroll';
 
 const components: any[] = [
   Button,
@@ -66,6 +67,7 @@ const components: any[] = [
   Table,
   Swiper,
   SwiperItem,
+  InfiniteScroll,
 ];
 
 const install = (app: App<Element>) => {
@@ -119,4 +121,5 @@ export {
   Table,
   Swiper,
   SwiperItem,
+  InfiniteScroll,
 };

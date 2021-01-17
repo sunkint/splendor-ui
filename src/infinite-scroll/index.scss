@@ -1,0 +1,39 @@
+.sk-infinite-scroll {
+  overflow-y: auto;
+
+  &-loading-tip {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  &-complete-tip {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  &-error-tip {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 0;
+    text-align: center;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  &-continue-tip {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 8px 0;
+    text-align: center;
+
+    a {
+      cursor: pointer;
+    }
+  }
+}

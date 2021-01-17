@@ -59,6 +59,10 @@ import TabsClosable from './components/tabs/closable.vue';
 import SwiperBasic from './components/swiper/basic.vue';
 import SwiperModel from './components/swiper/model.vue';
 import SwiperDynamic from './components/swiper/dynamic.vue';
+import InfiniteScrollBasic from './components/infinitescroll/basic.vue';
+import InfiniteScrollManual from './components/infinitescroll/manual.vue';
+import InfiniteScrollWindow from './components/infinitescroll/window.vue';
+import InfiniteScrollCustom from './components/infinitescroll/custom.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -119,4 +123,8 @@ export default function (app) {
   app.component('SwiperBasic', SwiperBasic);
   app.component('SwiperModel', SwiperModel);
   app.component('SwiperDynamic', SwiperDynamic);
+  app.component('InfiniteScrollBasic', InfiniteScrollBasic);
+  app.component('InfiniteScrollManual', InfiniteScrollManual);
+  app.component('InfiniteScrollWindow', InfiniteScrollWindow);
+  app.component('InfiniteScrollCustom', InfiniteScrollCustom);
 }

@@ -52,6 +52,7 @@ module.exports = {
           'Badge',
           'Table',
           'Swiper',
+          'InfiniteScroll',
         ].map(buildNavChildren),
       },
       {

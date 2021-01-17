@@ -111,7 +111,7 @@ const Mention = defineComponent({
         // @ts-ignore
         menuItemLimit: props.menuItemLimit,
         menuShowMinLength: props.menuShowMinLength,
-        // trigger: props.trigger,
+        trigger: props.trigger,
       });
 
       tribute.attach(root.value!.querySelector('textarea')!);

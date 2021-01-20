@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue';
+import { computed, defineComponent, h, onMounted, PropType, ref, watch } from 'vue';
 import Textarea from '../textarea';
 import Tribute from 'tributejs';
 import './index.scss';
@@ -58,7 +58,7 @@ const Mention = defineComponent({
     onInput: Function as PropType<(e: Event) => void>,
   },
 
-  setup(props) {
+  setup(props, { emit }) {
     const root = ref<HTMLDivElement>();
 
     const toValues = (items: MentionDataItem[] | string[]) => {
@@ -133,7 +133,10 @@ const Mention = defineComponent({
 
     return () => (
       <div ref={root} class="sk-mention">
-        <Textarea {...props} />
+        {h(Textarea, {
+          ...props,
+          'onUpdate:modelValue': (value: string) => void emit('update:modelValue', value),
+        })}
       </div>
     );
   },

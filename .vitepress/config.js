@@ -57,7 +57,7 @@ module.exports = {
       },
       {
         text: '表单组件',
-        children: ['Input', 'Textarea', 'Radio', 'Checkbox', 'Switch', 'Select'].map(
+        children: ['Input', 'Textarea', 'Radio', 'Checkbox', 'Switch', 'Select', 'Mention'].map(
           buildNavChildren
         ),
       },

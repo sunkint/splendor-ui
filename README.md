@@ -74,6 +74,7 @@ make build
 - [x] Table
 - [x] Swiper
 - [x] InfiniteScroll
+- [x] Mention
 
 ## 作者
 

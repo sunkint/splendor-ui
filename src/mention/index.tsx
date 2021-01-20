@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue';
 import Textarea from '../textarea';
 import Tribute from 'tributejs';
 import './index.scss';
@@ -78,8 +78,9 @@ const Mention = defineComponent({
       return toValues(props.data);
     });
 
-    onMounted(() => {
-      const tribute = new Tribute<MentionDataItem>({
+    let tribute: Tribute<MentionDataItem>;
+    const attach = () => {
+      tribute = new Tribute<MentionDataItem>({
         containerClass: 'sk-mention-menu',
         itemClass: 'sk-mention-menu-item',
         selectClass: 'active',
@@ -115,6 +116,19 @@ const Mention = defineComponent({
       });
 
       tribute.attach(root.value!.querySelector('textarea')!);
+    };
+
+    onMounted(() => {
+      attach();
+      const reAttach = () => {
+        tribute.detach(root.value!.querySelector('textarea')!);
+        attach();
+      };
+
+      // Re-attach tribute after some props change.
+      watch(() => props.trigger, reAttach);
+      watch(() => props.menuItemLimit, reAttach);
+      watch(() => props.menuShowMinLength, reAttach);
     });
 
     return () => (

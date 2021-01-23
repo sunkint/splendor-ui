@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { Notify } from '../../../src/main';
+import { Notify } from '../../src/main';
 export default {
   name: 'CopyLinkPart',
   methods: {

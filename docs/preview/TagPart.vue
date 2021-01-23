@@ -6,7 +6,7 @@
     <sk-tag type="primary" round size="small">round</sk-tag>
     <sk-tag type="primary" closable @close="close">closable</sk-tag>
 
-    <div style="margin-top: 10px;"></div>
+    <div style="margin-top: 10px"></div>
 
     <sk-tag type="primary">primary</sk-tag>
     <sk-tag type="secondary">secondary</sk-tag>
@@ -16,7 +16,7 @@
     <sk-tag type="info">info</sk-tag>
     <sk-tag type="light">light</sk-tag>
 
-    <div class="docs-preview-part" style="margin-top: 10px; background-color: #eee; padding: 8px;">
+    <div class="docs-preview-part" style="margin-top: 10px; background-color: #eee; padding: 8px">
       <sk-tag type="primary" ghost>primary</sk-tag>
       <sk-tag type="secondary" ghost>secondary</sk-tag>
       <sk-tag type="success" ghost>success</sk-tag>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { Notify } from '../../../src/main';
+import { Notify } from '../../src/main';
 export default {
   name: 'TagPart',
   methods: {

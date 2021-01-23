@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { Notify } from '../../../src/main';
+import { defineComponent } from 'vue';
+import { Notify } from '../../src/main';
 export default defineComponent({
   name: 'NotifyPart',
   methods: {

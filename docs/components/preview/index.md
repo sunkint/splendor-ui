@@ -6,7 +6,9 @@
 
 调用 `Preview.image` 预览单张图片
 
-<PreviewBasic />
+<client-only>
+  <PreviewBasic />
+</client-only>
 
 ```vue
 <template>
@@ -44,7 +46,9 @@ export default {
 
 调用 `Preview.images` 预览多张图片，支持方向键切换图片
 
-<PreviewMultiple />
+<client-only>
+  <PreviewMultiple />
+</client-only>
 
 ```vue
 <template>
@@ -90,7 +94,9 @@ export default {
 
 ### 渲染自定义提示
 
-<PreviewTip />
+<client-only>
+  <PreviewTip />
+</client-only>
 
 ```vue
 <template>

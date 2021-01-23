@@ -33,6 +33,7 @@ import Table from './table';
 import { Swiper, SwiperItem } from './swiper';
 import InfiniteScroll from './infinite-scroll';
 import Mention from './mention';
+import Preview from './preview';
 
 const components: any[] = [
   Button,
@@ -125,4 +126,5 @@ export {
   SwiperItem,
   InfiniteScroll,
   Mention,
+  Preview,
 };

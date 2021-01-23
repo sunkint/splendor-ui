@@ -1,18 +1,18 @@
 import ClientOnly from './common/client-only/index.vue';
 
-import ButtonPart from './components/preview/ButtonPart.vue';
-import InputPart from './components/preview/InputPart.vue';
-import TextareaPart from './components/preview/TextareaPart.vue';
-import IconPart from './components/preview/IconPart.vue';
-import TagPart from './components/preview/TagPart.vue';
-import NotifyPart from './components/preview/NotifyPart.vue';
-import DropDownPart from './components/preview/DropDownPart.vue';
-import GridPart from './components/preview/GridPart.vue';
-import CopyLinkPart from './components/preview/CopyLinkPart.vue';
-import LoadingPart from './components/preview/LoadingPart.vue';
-import RadioPart from './components/preview/RadioPart.vue';
-import CheckboxPart from './components/preview/CheckboxPart.vue';
-import SwitchPart from './components/preview/SwitchPart.vue';
+import ButtonPart from './preview/ButtonPart.vue';
+import InputPart from './preview/InputPart.vue';
+import TextareaPart from './preview/TextareaPart.vue';
+import IconPart from './preview/IconPart.vue';
+import TagPart from './preview/TagPart.vue';
+import NotifyPart from './preview/NotifyPart.vue';
+import DropDownPart from './preview/DropDownPart.vue';
+import GridPart from './preview/GridPart.vue';
+import CopyLinkPart from './preview/CopyLinkPart.vue';
+import LoadingPart from './preview/LoadingPart.vue';
+import RadioPart from './preview/RadioPart.vue';
+import CheckboxPart from './preview/CheckboxPart.vue';
+import SwitchPart from './preview/SwitchPart.vue';
 
 import GuideExample from './components/guide/example.vue';
 import GuideExampleTsx from './components/guide/example';
@@ -64,6 +64,9 @@ import InfiniteScrollManual from './components/infinitescroll/manual.vue';
 import InfiniteScrollWindow from './components/infinitescroll/window.vue';
 import InfiniteScrollCustom from './components/infinitescroll/custom.vue';
 import MentionAsync from './components/mention/async.vue';
+import PreviewBasic from './components/preview/basic.vue';
+import PreviewMultiple from './components/preview/multiple.vue';
+import PreviewTip from './components/preview/tip.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -129,4 +132,7 @@ export default function (app) {
   app.component('InfiniteScrollWindow', InfiniteScrollWindow);
   app.component('InfiniteScrollCustom', InfiniteScrollCustom);
   app.component('MentionAsync', MentionAsync);
+  app.component('PreviewBasic', PreviewBasic);
+  app.component('PreviewMultiple', PreviewMultiple);
+  app.component('PreviewTip', PreviewTip);
 }

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { Preview } from '../../../src/main';
+import { Preview } from 'splendor-ui';
 
 export default {
   methods: {
@@ -54,7 +54,7 @@ export default {
 </template>
 
 <script>
-import { Preview } from '../../../src/main';
+import { Preview } from 'splendor-ui';
 
 export default {
   data() {
@@ -100,7 +100,7 @@ export default {
 </template>
 
 <script>
-import { Preview } from '../../../src/main';
+import { Preview } from 'splendor-ui';
 
 export default {
   data() {

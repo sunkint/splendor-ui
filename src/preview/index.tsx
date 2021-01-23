@@ -9,6 +9,7 @@ import {
   reactive,
   ref,
   Teleport,
+  watchEffect,
 } from 'vue';
 import { PreviewImageOptions } from './types';
 import Icon from '../icon';
@@ -87,47 +88,55 @@ const PreviewImage = defineComponent({
       window.removeEventListener('keyup', onKeyboard);
     });
 
+    watchEffect(() => {
+      if (props.modelValue) {
+        document.body.classList.add('sk-preview-no-scroll');
+      } else {
+        document.body.classList.remove('sk-preview-no-scroll');
+      }
+    });
+
+    const supportCssVar = window.CSS.supports('--a', '0');
+
     return () =>
       props.modelValue ? (
-        <>
-          <Teleport to="body">
-            <div class="sk-preview-image-wrapper" onClick={onClose}>
-              <img
-                class={['sk-preview-image-show', { 'sk-scale': state.isScale }]}
-                style={`--scaleRatio: ${props.scaleRatio}; --rotate: ${state.rotate}deg`}
-                src={currentSrc.value}
-                key={currentSrc.value}
-                onClick={(e: MouseEvent) => {
-                  e.stopPropagation();
-                  state.isScale = !state.isScale;
-                }}
-              />
-            </div>
+        <Teleport to="body">
+          <div class="sk-preview-image-wrapper" onClick={onClose}>
+            <img
+              class={['sk-preview-image-show', { 'sk-scale': state.isScale }]}
+              style={`--scaleRatio: ${props.scaleRatio}; --rotate: ${state.rotate}deg`}
+              src={currentSrc.value}
+              key={currentSrc.value}
+              onClick={(e: MouseEvent) => {
+                e.stopPropagation();
+                state.isScale = !state.isScale;
+              }}
+            />
+          </div>
 
-            <div class="sk-preview-close" onClick={onClose}>
-              <Icon type="close" />
-            </div>
+          <div class="sk-preview-close" onClick={onClose}>
+            <Icon type="close" />
+          </div>
 
-            <div class="sk-preview-handle">
-              {props.renderTip ? (
-                <div class="sk-preview-tip">{props.renderTip(state.currentIndex)}</div>
+          <div class="sk-preview-handle">
+            {props.renderTip ? (
+              <div class="sk-preview-tip">{props.renderTip(state.currentIndex)}</div>
+            ) : null}
+            <ul class="sk-handle">
+              {props.list.length > 1 ? (
+                <li onClick={goPrev}>
+                  <Icon type="left-simple" /> 上一张
+                </li>
               ) : null}
-              <ul class="sk-handle">
-                {props.list.length > 1 ? (
-                  <li onClick={goPrev}>
-                    <Icon type="left-simple" /> 上一张
-                  </li>
-                ) : null}
-                <li onClick={rotate}>翻转</li>
-                {props.list.length > 1 ? (
-                  <li onClick={goNext}>
-                    下一张 <Icon type="right-simple" />
-                  </li>
-                ) : null}
-              </ul>
-            </div>
-          </Teleport>
-        </>
+              {supportCssVar && <li onClick={rotate}>翻转</li>}
+              {props.list.length > 1 ? (
+                <li onClick={goNext}>
+                  下一张 <Icon type="right-simple" />
+                </li>
+              ) : null}
+            </ul>
+          </div>
+        </Teleport>
       ) : null;
   },
 });

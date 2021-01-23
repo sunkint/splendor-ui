@@ -1,5 +1,9 @@
 @import '../style/var.scss';
 
+body.sk-preview-no-scroll {
+  overflow: hidden;
+}
+
 .sk-preview-image-wrapper {
   position: fixed;
   z-index: 1151;

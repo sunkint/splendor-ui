@@ -1,5 +1,6 @@
 import { defineComponent, PropType, computed } from 'vue';
 import Button from '../button';
+import MiniPagination from './mini';
 import './index.scss';
 
 export type PaginationAlign = 'left' | 'right';
@@ -95,4 +96,5 @@ const Pagination = defineComponent({
   },
 });
 
+export { MiniPagination };
 export default Pagination;

@@ -27,6 +27,8 @@ const Input = defineComponent({
       default: 'normal',
     },
     maxlength: [String, Number],
+    max: Number,
+    min: Number,
     disabled: Boolean,
     readonly: Boolean,
     autofocus: Boolean,
@@ -80,6 +82,8 @@ const Input = defineComponent({
           name={props.name}
           autofocus={props.autofocus}
           value={value.value}
+          min={props.min}
+          max={props.max}
           onInput={onInput}
           onFocus={props.onFocus}
           onBlur={props.onBlur}

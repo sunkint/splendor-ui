@@ -16,7 +16,7 @@ import Loading from './loading';
 import Switch from './switch';
 import Collapse from './collapse';
 import { Accordion, AccordionItem } from './accordion';
-import Pagination from './pagination';
+import Pagination, { MiniPagination } from './pagination';
 import BackTop from './backtop';
 import Avatar from './avatar';
 import Alert from './alert';
@@ -54,6 +54,7 @@ const components: any[] = [
   Accordion,
   AccordionItem,
   Pagination,
+  MiniPagination,
   BackTop,
   Avatar,
   Alert,
@@ -108,6 +109,7 @@ export {
   Accordion,
   AccordionItem,
   Pagination,
+  MiniPagination,
   BackTop,
   Avatar,
   Alert,

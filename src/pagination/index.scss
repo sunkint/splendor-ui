@@ -20,4 +20,34 @@
     line-height: 24px;
     padding: 6px 9px;
   }
+
+  &-input {
+    .sk-input {
+      text-align: center;
+    }
+  }
+}
+
+.sk-mini-pagination {
+  overflow: hidden;
+
+  i {
+    cursor: pointer;
+    color: $text;
+  }
+
+  .sk-disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+    color: $gray-500;
+  }
+
+  &-total-pages {
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  ::-webkit-inner-spin-button {
+    display: none;
+  }
 }

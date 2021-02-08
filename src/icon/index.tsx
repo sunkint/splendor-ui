@@ -11,7 +11,7 @@ const Icon = defineComponent({
   setup(props) {
     return () => {
       if (props.custom) {
-        return <i class={['icon-font', `icon-${props.type}`]} onClick={props.onClick}></i>;
+        return <i class={['iconfont', `icon-${props.type}`]} onClick={props.onClick}></i>;
       }
       return <i class={['sk-icon', `icon-${props.type}`]} onClick={props.onClick}></i>;
     };

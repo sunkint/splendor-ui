@@ -23,10 +23,12 @@ let mousePosition: IMousePosition | null = null;
 
 if (isBrowser) {
   document.documentElement.addEventListener('click', (e: MouseEvent) => {
-    mousePosition = {
-      x: e.clientX,
-      y: e.clientY,
-    };
+    if (e.clientX || e.clientY) {
+      mousePosition = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+    }
   });
 }
 

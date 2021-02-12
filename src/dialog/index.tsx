@@ -154,7 +154,6 @@ const Dialog = defineComponent({
       e.stopPropagation();
       // 防止 body 的点击事件不生效
       clickBody(e);
-      mousePosition = { x: e.clientX, y: e.clientY };
     };
 
     return () => {

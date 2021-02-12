@@ -1,5 +1,6 @@
 import { defineComponent, PropType, provide, reactive, computed, watch, nextTick } from 'vue';
 import { TabsType, TabCollect, TabIdType } from './types';
+import clickBody from '../utils/clickBody';
 import './index.scss';
 
 export const ActiveIdSymbol = Symbol();
@@ -110,7 +111,7 @@ const Tabs = defineComponent({
                   class="sk-tabs__del"
                   onClick={(e: MouseEvent) => {
                     e.stopPropagation();
-                    document.body.click();
+                    clickBody(e);
                     props.onClose?.(item.id, index);
                   }}
                 >

@@ -1,5 +1,6 @@
 import { computed, defineComponent, h, PropType, reactive, ref, watch } from 'vue';
 import FloatLayer, { LayerPosition } from '../float-layer';
+import clickBody from '../utils/clickBody';
 import isNil from '../utils/isNil';
 import Input from '../input';
 import Icon from '../icon';
@@ -129,7 +130,7 @@ const Select = defineComponent({
       state.hoverIndex = index;
     };
 
-    const onSelect = (index: number) => {
+    const onSelect = (index: number, e: MouseEvent) => {
       const selectedItem = props.data[index];
       if (selectedItem.disabled) {
         return;
@@ -138,20 +139,20 @@ const Select = defineComponent({
       state.selectedText = selectedItem.text;
       emit('update:modelValue', selectedItem.value);
       props.onChange?.(selectedItem.value);
-      document.body.click(); // close layer
+      clickBody(e); // close layer
     };
 
     const onClear = (e: MouseEvent) => {
       e.stopPropagation();
       state.selectedText = state.selectedValue = null;
       emit('update:modelValue', null);
-      document.body.click();
+      clickBody(e);
     };
 
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        document.body.click();
+        clickBody(e);
       }
     };
 
@@ -232,8 +233,8 @@ const Select = defineComponent({
                       onMouseenter={() => {
                         onHover(index);
                       }}
-                      onClick={() => {
-                        onSelect(index);
+                      onClick={(e) => {
+                        onSelect(index, e);
                       }}
                       disabled={item.disabled}
                     >

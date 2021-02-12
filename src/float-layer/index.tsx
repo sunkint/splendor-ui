@@ -191,7 +191,7 @@ const FloatLayer = defineComponent({
     const onTriggerClick = (e: MouseEvent) => {
       if (props.trigger === 'click') {
         e.stopPropagation();
-        clickBody();
+        clickBody(e);
         layerState.open = true;
         nextTick(() => {
           computeLayerPosition();

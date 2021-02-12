@@ -1,6 +1,7 @@
 import { defineComponent, PropType, reactive, h } from 'vue';
 import Button, { ButtonSize, ButtonType } from '../button';
 import FloatLayer, { LayerPosition } from '../float-layer';
+import clickBody from '../utils/clickBody';
 import Icon from '../icon';
 import './index.scss';
 
@@ -72,16 +73,16 @@ const Dropdown = defineComponent({
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        document.body.click();
+        clickBody(e);
       }
     };
 
-    const onMenuClick = (item: DropdownDataItem) => {
+    const onMenuClick = (item: DropdownDataItem, e: MouseEvent) => {
       if (item.disabled) {
         return;
       }
       props.onSelect?.(item.key, item);
-      document.body.click(); // close layer
+      clickBody(e); // close layer
     };
 
     const onOpen = () => {
@@ -138,8 +139,8 @@ const Dropdown = defineComponent({
                       key={index}
                       selected={props.selectedKeys.includes(item.key)}
                       disabled={item.disabled}
-                      onClick={() => {
-                        onMenuClick(item);
+                      onClick={(e) => {
+                        onMenuClick(item, e);
                       }}
                     >
                       {item.text}

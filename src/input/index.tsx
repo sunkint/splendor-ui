@@ -23,7 +23,7 @@ const Input = defineComponent({
       default: false,
     },
     size: {
-      type: String as PropType<'normal' | 'large'>,
+      type: String as PropType<'small' | 'normal' | 'large'>,
       default: 'normal',
     },
     maxlength: [String, Number],
@@ -102,6 +102,7 @@ const Input = defineComponent({
               'sk-input-inline': props.inline,
               'sk-input-block': props.block,
               'sk-input-large': props.size === 'large',
+              'sk-input-small': props.size === 'small',
               'has-error': props.hasError,
               'has-icon': !!props.icon,
             },

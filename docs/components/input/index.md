@@ -82,6 +82,28 @@
 </template>
 ```
 
+### 小号一点
+
+<div class="docs-preview-part">
+  <sk-input size="small" placeholder="最多输入15字" maxlength="15" inline />
+  <sk-input size="small" icon="search" placeholder="搜索" inline />
+  <sk-input size="small" inline>
+    <template #prepend>$</template>
+  </sk-input>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-input size="small" placeholder="最多输入15字" maxlength="15" inline />
+    <sk-input size="small" icon="search" placeholder="搜索" inline />
+    <sk-input size="small" inline>
+      <template #prepend>$</template>
+    </sk-input>
+  </div>
+</template>
+```
+
 ### 占满宽度
 
 <div class="docs-preview-part">
@@ -145,7 +167,7 @@
 | 参数        | 说明           | 类型   | 可选值                                          | 默认值   |
 | ----------- | -------------- | ------ | ----------------------------------------------- | -------- |
 | type        | html type      | string | `text`、`number`、...                           | `text`   |
-| size        | 尺寸           | string | `normal`、`large`                               | `normal` |
+| size        | 尺寸           | string | `small`、 `normal`、`large`                     | `normal` |
 | icon        | 前置图标       | string | 详见 [Icon](../icon/index#内置图标) 组件的 type | -        |
 | inline      | 是否行内展示   | bool   |                                                 | `false`  |
 | block       | 是否占满宽度   | bool   |                                                 | `false`  |

@@ -9,6 +9,7 @@ import {
   watch,
 } from 'vue';
 import isBrowser from '../utils/isBrowser';
+import clickBody from '../utils/clickBody';
 import Icon from '../icon';
 import './index.scss';
 
@@ -152,8 +153,7 @@ const Dialog = defineComponent({
     const onDialogClick = (e: MouseEvent) => {
       e.stopPropagation();
       // 防止 body 的点击事件不生效
-      document.body.click();
-      mousePosition = { x: e.clientX, y: e.clientY };
+      clickBody(e);
     };
 
     return () => {

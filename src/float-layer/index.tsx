@@ -10,6 +10,7 @@ import {
   Transition,
   watch,
 } from 'vue';
+import clickBody from '../utils/clickBody';
 import './index.scss';
 
 export type LayerPosition =
@@ -190,7 +191,7 @@ const FloatLayer = defineComponent({
     const onTriggerClick = (e: MouseEvent) => {
       if (props.trigger === 'click') {
         e.stopPropagation();
-        document.body.click();
+        clickBody(e);
         layerState.open = true;
         nextTick(() => {
           computeLayerPosition();

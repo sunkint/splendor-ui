@@ -23,7 +23,7 @@ const Input = defineComponent({
       default: false,
     },
     size: {
-      type: String as PropType<'normal' | 'large'>,
+      type: String as PropType<'small' | 'normal' | 'large'>,
       default: 'normal',
     },
     maxlength: [String, Number],
@@ -38,6 +38,7 @@ const Input = defineComponent({
     onFocus: Function as PropType<(e: FocusEvent) => void>,
     onBlur: Function as PropType<(e: FocusEvent) => void>,
     onPressEnter: Function as PropType<(e: KeyboardEvent) => void>,
+    onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
     onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
     onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
     onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
@@ -65,7 +66,9 @@ const Input = defineComponent({
 
     const onKeyup = (e: KeyboardEvent) => {
       props.onKeyup?.(e);
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' && e.ctrlKey) {
+        props.onPressCtrlEnter?.(e);
+      } else if (e.key === 'Enter') {
         props.onPressEnter?.(e);
       }
     };
@@ -102,6 +105,7 @@ const Input = defineComponent({
               'sk-input-inline': props.inline,
               'sk-input-block': props.block,
               'sk-input-large': props.size === 'large',
+              'sk-input-small': props.size === 'small',
               'has-error': props.hasError,
               'has-icon': !!props.icon,
             },

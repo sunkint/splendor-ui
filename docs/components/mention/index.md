@@ -55,13 +55,14 @@ export default {
 
 ### API
 
-| 参数              | 说明                             | 类型               | 可选值    | 默认值 |
-| ----------------- | -------------------------------- | ------------------ | --------- | ------ | ---- |
-| trigger           | 触发自动补全的符号               | string             |           | `@`    |
-| data              | 同步筛选时的全部数据列表         | `MentionDataItem[] | string[]` |        | `[]` |
-| async             | 是否异步获取数据                 | bool               |           | false  |
-| menuItemLimit     | 每次最多显示的条目数量           | number             |           | 25     |
-| menuShowMinLength | 触发自动补全前键入的最少字符数量 | number             |           | 0      |
+| 参数                | 说明                                       | 类型               | 可选值    | 默认值 |
+| ------------------- | ------------------------------------------ | ------------------ | --------- | ------ | ---- |
+| trigger             | 触发自动补全的符号                         | string             |           | `@`    |
+| data                | 同步筛选时的全部数据列表                   | `MentionDataItem[] | string[]` |        | `[]` |
+| async               | 是否异步获取数据                           | bool               |           | false  |
+| menuItemLimit       | 每次最多显示的条目数量                     | number             |           | 25     |
+| menuShowMinLength   | 触发自动补全前键入的最少字符数量           | number             |           | 0      |
+| requireLeadingSpace | 触发自动补全的符号前是否需要空格（0.2.2+） | number             |           | false  |
 
 同时也支持 [Textarea](../textarea/index) 的所有 props。
 

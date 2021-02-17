@@ -38,6 +38,7 @@ const Input = defineComponent({
     onFocus: Function as PropType<(e: FocusEvent) => void>,
     onBlur: Function as PropType<(e: FocusEvent) => void>,
     onPressEnter: Function as PropType<(e: KeyboardEvent) => void>,
+    onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
     onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
     onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
     onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
@@ -65,7 +66,9 @@ const Input = defineComponent({
 
     const onKeyup = (e: KeyboardEvent) => {
       props.onKeyup?.(e);
-      if (e.key === 'Enter') {
+      if (e.key === 'Enter' && e.ctrlKey) {
+        props.onPressCtrlEnter?.(e);
+      } else if (e.key === 'Enter') {
         props.onPressEnter?.(e);
       }
     };

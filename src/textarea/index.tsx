@@ -61,7 +61,7 @@ const Textarea = defineComponent({
     onKeyupInside(e: KeyboardEvent) {
       this.$emit('keyup', e);
       if (e.key === 'Enter' && e.ctrlKey) {
-        this.onPressCtrlEnter?.();
+        this.onPressCtrlEnter?.(e);
       }
     },
     resizeInput() {

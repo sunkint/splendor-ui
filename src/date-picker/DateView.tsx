@@ -1,5 +1,5 @@
 import { computed, defineComponent, PropType } from 'vue';
-import { startOfMonth, endOfMonth, addDays, lightFormat, isSameMonth } from 'date-fns';
+import { startOfMonth, endOfMonth, addDays, lightFormat, isSameMonth, addMonths } from 'date-fns';
 import Icon from '../icon';
 import './styles/date-view.scss';
 
@@ -9,12 +9,16 @@ const DateView = defineComponent({
     selectedDate: Date as PropType<Date>,
     currentDate: {
       type: Date as PropType<Date>,
-      default: () => new Date(2021, -1, 1),
+      default: () => new Date(),
     },
     weekStartsOn: {
       type: Number,
       default: 1,
       validator: (v: any) => [0, 1, 2, 3, 4, 5, 6].includes(v),
+    },
+    onCurrentDateChange: {
+      type: Function as PropType<(date: Date) => any>,
+      required: true,
     },
   },
   setup(props) {
@@ -45,17 +49,25 @@ const DateView = defineComponent({
       return dates;
     });
 
+    const goPrevMonth = () => {
+      props.onCurrentDateChange(addMonths(props.currentDate, -1));
+    };
+
+    const goNextMonth = () => {
+      props.onCurrentDateChange(addMonths(props.currentDate, 1));
+    };
+
     return () => (
       <div class="sk-dateview">
         <div class="sk-datepicker-header">
           <div class="sk-left">
-            <Icon type="left-simple" />
+            <Icon type="left-simple" onClick={goPrevMonth} />
           </div>
           <div class="sk-center">
             {lightFormat(props.currentDate, 'y')}年 {lightFormat(props.currentDate, 'M')}月
           </div>
           <div class="sk-right">
-            <Icon type="right-simple" />
+            <Icon type="right-simple" onClick={goNextMonth} />
           </div>
         </div>
         <div class="sk-dateview-body">

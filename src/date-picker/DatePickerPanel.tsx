@@ -1,4 +1,4 @@
-import { defineComponent, PropType, reactive } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import DateView from './DateView';
 import './styles/date-picker-panel.scss';
 
@@ -14,16 +14,17 @@ const DatePickerPanel = defineComponent({
     },
   },
   setup(props) {
-    // const state = reactive({
-    //   currentYear: props.currentDate.getFullYear(),
-    //   currentMonth: props.currentDate.getMonth(),
-    //   currentDay: props.currentDate.getDate(),
-    // });
+    const currentDate = ref(props.currentDate);
 
     return () => (
       <div class="sk-datepicker-panel">
         <div class="sk-datepicker">
-          <DateView selectedDate={props.currentDate} />
+          <DateView
+            currentDate={currentDate.value}
+            onCurrentDateChange={(date: Date) => {
+              currentDate.value = date;
+            }}
+          />
         </div>
       </div>
     );

@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "clipboard": "^2.0.6",
+    "date-fns": "^2.17.0",
     "tributejs": "^5.1.3"
   }
 }

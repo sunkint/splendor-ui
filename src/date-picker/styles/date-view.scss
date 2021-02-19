@@ -1,0 +1,41 @@
+@import '../../style/var.scss';
+
+.sk-dateview {
+  &-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 12px;
+    padding-top: 8px;
+
+    .sk-item {
+      width: 14%;
+      cursor: pointer;
+      text-align: center;
+      line-height: 22px;
+
+      &-weekday {
+        color: $gray-700;
+        margin-bottom: 4px;
+        cursor: default;
+      }
+
+      &-day {
+        line-height: 28px;
+
+        &:hover {
+          background-color: lighten($cyan, 42%);
+        }
+      }
+
+      &-outday {
+        line-height: 28px;
+        color: $gray-600;
+
+        &:hover {
+          background-color: $gray-100;
+        }
+      }
+    }
+  }
+}

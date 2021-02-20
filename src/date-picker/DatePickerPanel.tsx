@@ -1,7 +1,8 @@
 import { computed, defineComponent, PropType, ref } from 'vue';
+import { DatePickerView } from './types';
 import DateView from './DateView';
 import MonthView from './MonthView';
-import { DatePickerView } from './types';
+import YearView from './YearView';
 import './styles/date-picker-panel.scss';
 
 const DatePickerPanel = defineComponent({
@@ -25,7 +26,7 @@ const DatePickerPanel = defineComponent({
 
     const isOnDateView = computed(() => currentView.value === 'day');
     const isOnMonthView = computed(() => currentView.value === 'month');
-    // const isOnYearView = computed(() => currentView.value === 'year');
+    const isOnYearView = computed(() => currentView.value === 'year');
 
     const onPickerViewChange = (view: DatePickerView) => {
       currentView.value = view;
@@ -45,6 +46,15 @@ const DatePickerPanel = defineComponent({
           ) : null}
           {isOnMonthView.value ? (
             <MonthView
+              currentDate={currentDate.value}
+              onCurrentDateChange={(date: Date) => {
+                currentDate.value = date;
+              }}
+              onPickerViewChange={onPickerViewChange}
+            />
+          ) : null}
+          {isOnYearView.value ? (
+            <YearView
               currentDate={currentDate.value}
               onCurrentDateChange={(date: Date) => {
                 currentDate.value = date;

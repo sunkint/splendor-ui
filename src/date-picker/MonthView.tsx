@@ -54,13 +54,19 @@ const MonthView = defineComponent({
       props.onPickerViewChange('day');
     };
 
+    const goYearView = () => {
+      props.onPickerViewChange('year');
+    };
+
     return () => (
       <div class="sk-monthview">
         <div class="sk-datepicker-header">
           <div class="sk-left">
             <Icon type="left-simple" onClick={goPrevYear} />
           </div>
-          <div class="sk-center">{lightFormat(props.currentDate, 'y')}年</div>
+          <div class="sk-center">
+            <a onClick={goYearView}>{lightFormat(props.currentDate, 'y')}年</a>
+          </div>
           <div class="sk-right">
             <Icon type="right-simple" onClick={goNextYear} />
           </div>

@@ -1,0 +1,23 @@
+@import '../../style/var.scss';
+
+.sk-yearview-body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 28px * 5 + 24px;
+  padding: 12px;
+  padding-top: 8px;
+
+  .sk-item {
+    width: 46%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 28px;
+    height: 28px;
+
+    &:hover {
+      background-color: lighten($cyan, 42%);
+    }
+  }
+}

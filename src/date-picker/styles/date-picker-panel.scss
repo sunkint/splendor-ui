@@ -35,6 +35,16 @@
     .sk-center {
       flex: auto;
       text-align: center;
+
+      a {
+        cursor: pointer;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          color: darken($cyan, 10%);
+        }
+      }
     }
   }
 }

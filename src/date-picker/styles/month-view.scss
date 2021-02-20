@@ -1,0 +1,20 @@
+@import '../../style/var.scss';
+
+.sk-monthview-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 12px;
+  padding-top: 8px;
+
+  .sk-item {
+    width: 30%;
+    cursor: pointer;
+    text-align: center;
+    line-height: 28px;
+
+    &:hover {
+      background-color: lighten($cyan, 42%);
+    }
+  }
+}

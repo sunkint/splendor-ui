@@ -2,6 +2,7 @@ import { computed, defineComponent, PropType } from 'vue';
 import { startOfMonth, endOfMonth, addDays, lightFormat, isSameMonth, addMonths } from 'date-fns';
 import Icon from '../icon';
 import './styles/date-view.scss';
+import { DatePickerView } from './types';
 
 const DateView = defineComponent({
   name: 'sk-date-view',
@@ -18,6 +19,10 @@ const DateView = defineComponent({
     },
     onCurrentDateChange: {
       type: Function as PropType<(date: Date) => any>,
+      required: true,
+    },
+    onPickerViewChange: {
+      type: Function as PropType<(view: DatePickerView) => any>,
       required: true,
     },
   },
@@ -57,6 +62,10 @@ const DateView = defineComponent({
       props.onCurrentDateChange(addMonths(props.currentDate, 1));
     };
 
+    const goMonthView = () => {
+      props.onPickerViewChange('month');
+    };
+
     return () => (
       <div class="sk-dateview">
         <div class="sk-datepicker-header">
@@ -64,7 +73,8 @@ const DateView = defineComponent({
             <Icon type="left-simple" onClick={goPrevMonth} />
           </div>
           <div class="sk-center">
-            {lightFormat(props.currentDate, 'y')}年 {lightFormat(props.currentDate, 'M')}月
+            {lightFormat(props.currentDate, 'y')}年{' '}
+            <a onClick={goMonthView}>{lightFormat(props.currentDate, 'M')}月</a>
           </div>
           <div class="sk-right">
             <Icon type="right-simple" onClick={goNextMonth} />

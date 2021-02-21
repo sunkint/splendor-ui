@@ -1,0 +1,50 @@
+@import '../../style/var.scss';
+
+.sk-datepicker-panel {
+  background-color: $white;
+  box-shadow: 0 2px 8px rgba($gray-800, 25%);
+  color: $text;
+  width: 220px;
+  font-size: 14px;
+  border-radius: 3px;
+  overflow: hidden;
+
+  .sk-datepicker-header {
+    display: flex;
+    line-height: 22px;
+    padding: 12px;
+    border-bottom: 1px solid $gray-200;
+
+    .sk-left,
+    .sk-right {
+      flex: none;
+
+      i {
+        display: inline-block;
+        transition: all 0.1s;
+        cursor: pointer;
+        padding: 0 4px;
+        height: 22px;
+
+        &:hover {
+          background-color: $gray-100;
+        }
+      }
+    }
+
+    .sk-center {
+      flex: auto;
+      text-align: center;
+
+      a {
+        cursor: pointer;
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+          color: darken($cyan, 10%);
+        }
+      }
+    }
+  }
+}

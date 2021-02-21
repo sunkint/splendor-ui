@@ -27,7 +27,7 @@ export type LayerPosition =
   | 'right-center'
   | 'right-bottom';
 
-export type LayerTriggerType = 'hover' | 'click';
+export type LayerTriggerType = 'hover' | 'click' | 'none';
 
 const FloatLayer = defineComponent({
   name: 'sk-float-layer',

@@ -131,5 +131,5 @@ export {
   InfiniteScroll,
   Mention,
   Preview,
-  Datepicker,
+  DatePicker,
 };

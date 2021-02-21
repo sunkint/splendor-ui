@@ -62,16 +62,12 @@ const YearView = defineComponent({
       return false;
     };
 
-    const onSelectYear = (i: number) => {
-      if (checkIsDisabledYear(i)) {
+    const onSelectYear = (y: number) => {
+      if (checkIsDisabledYear(y)) {
         return;
       }
       const currentDate = props.currentDate;
-      const date = new Date(
-        decadeStart.value.getFullYear() + i,
-        currentDate.getMonth(),
-        currentDate.getDate()
-      );
+      const date = new Date(y, currentDate.getMonth(), currentDate.getDate());
       props.onCurrentDateChange(date);
       props.onPickerViewChange('month');
     };
@@ -102,7 +98,7 @@ const YearView = defineComponent({
                   'sk-item',
                   { 'sk-selected': isSelected, 'sk-today': hasToday, 'sk-disabled': isDisabled },
                 ]}
-                onClick={onSelectYear.bind(null, i)}
+                onClick={onSelectYear.bind(null, n)}
               >
                 {n}年
               </span>

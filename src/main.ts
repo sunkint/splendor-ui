@@ -34,7 +34,7 @@ import { Swiper, SwiperItem } from './swiper';
 import InfiniteScroll from './infinite-scroll';
 import Mention from './mention';
 import Preview from './preview';
-import Datepicker from './date-picker';
+import DatePicker from './date-picker';
 
 const components: any[] = [
   Button,
@@ -73,7 +73,7 @@ const components: any[] = [
   SwiperItem,
   InfiniteScroll,
   Mention,
-  Datepicker,
+  DatePicker,
 ];
 
 const install = (app: App<Element>) => {

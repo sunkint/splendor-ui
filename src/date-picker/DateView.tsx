@@ -1,5 +1,14 @@
-import { computed, defineComponent, PropType } from 'vue';
-import { startOfMonth, endOfMonth, addDays, lightFormat, isSameMonth, addMonths } from 'date-fns';
+import { computed, defineComponent, inject, PropType, Ref } from 'vue';
+import {
+  startOfMonth,
+  endOfMonth,
+  addDays,
+  lightFormat,
+  isSameMonth,
+  addMonths,
+  isSameDay,
+} from 'date-fns';
+import { SelectedDateSymbol } from './constants';
 import { DatePickerView } from './types';
 import Icon from '../icon';
 import './styles/date-view.scss';
@@ -7,7 +16,6 @@ import './styles/date-view.scss';
 const DateView = defineComponent({
   name: 'sk-date-view',
   props: {
-    selectedDate: Date as PropType<Date>,
     currentDate: {
       type: Date as PropType<Date>,
       default: () => new Date(),
@@ -27,6 +35,8 @@ const DateView = defineComponent({
     },
   },
   setup(props) {
+    const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
+
     const weekDays = computed(() => {
       return ['一', '二', '三', '四', '五', '六', '日'];
     });
@@ -70,6 +80,13 @@ const DateView = defineComponent({
       props.onPickerViewChange('month');
     };
 
+    const onSelectDate = (date: Date) => {
+      selectedDate && (selectedDate.value = date);
+      if (!isSameMonth(date, props.currentDate)) {
+        props.onCurrentDateChange(date);
+      }
+    };
+
     return () => (
       <div class="sk-dateview">
         <div class="sk-datepicker-header">
@@ -89,10 +106,25 @@ const DateView = defineComponent({
             <span class="sk-item sk-item-weekday">{day}</span>
           ))}
           {days.value.map((d) => {
-            if (isSameMonth(d, props.currentDate)) {
-              return <span class="sk-item sk-item-day">{d.getDate()}</span>;
-            }
-            return <span class="sk-item sk-item-outday">{d.getDate()}</span>;
+            const isSelected = selectedDate?.value ? isSameDay(d, selectedDate.value) : false;
+            const isInMonth = isSameMonth(d, props.currentDate);
+            const isToday = isSameDay(d, new Date());
+            return (
+              <span
+                class={[
+                  'sk-item',
+                  {
+                    'sk-item-day': isInMonth,
+                    'sk-item-outday': !isInMonth,
+                    'sk-today': isToday,
+                    'sk-selected': isSelected,
+                  },
+                ]}
+                onClick={onSelectDate.bind(null, d)}
+              >
+                {d.getDate()}
+              </span>
+            );
           })}
         </div>
       </div>

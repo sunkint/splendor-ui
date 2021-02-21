@@ -1,5 +1,6 @@
-import { computed, defineComponent, PropType } from 'vue';
+import { computed, defineComponent, inject, PropType, Ref } from 'vue';
 import { addYears, lightFormat, startOfDecade, endOfDecade } from 'date-fns';
+import { SelectedDateSymbol } from './constants';
 import { DatePickerView } from './types';
 import Icon from '../icon';
 import './styles/year-view.scss';
@@ -22,6 +23,8 @@ const YearView = defineComponent({
     },
   },
   setup(props) {
+    const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
+
     const decadeStart = computed(() => {
       return startOfDecade(props.currentDate);
     });
@@ -71,11 +74,18 @@ const YearView = defineComponent({
           </div>
         </div>
         <div class="sk-yearview-body">
-          {years.value.map((n, i) => (
-            <span class="sk-item" onClick={onSelectYear.bind(null, i)}>
-              {n}年
-            </span>
-          ))}
+          {years.value.map((n, i) => {
+            const isSelected = n === selectedDate?.value?.getFullYear();
+            const hasToday = n === new Date().getFullYear();
+            return (
+              <span
+                class={['sk-item', { 'sk-selected': isSelected, 'sk-today': hasToday }]}
+                onClick={onSelectYear.bind(null, i)}
+              >
+                {n}年
+              </span>
+            );
+          })}
         </div>
       </div>
     );

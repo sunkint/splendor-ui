@@ -26,6 +26,16 @@
         &:hover {
           background-color: lighten($cyan, 42%);
         }
+
+        &.sk-today {
+          box-shadow: inset 0 0 0 1px $cyan;
+          color: darken($cyan, 10%);
+        }
+
+        &.sk-selected {
+          color: $white;
+          background-color: $primary;
+        }
       }
 
       &-outday {
@@ -34,6 +44,11 @@
 
         &:hover {
           background-color: $gray-100;
+        }
+
+        &.sk-selected {
+          color: $gray-200;
+          background-color: rgba($primary, 0.8);
         }
       }
     }

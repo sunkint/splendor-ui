@@ -1,7 +1,8 @@
 import { Locale } from 'date-fns';
-import { defineComponent, PropType } from 'vue';
-import { DatePickerView } from './types';
+import { defineComponent, PropType, provide, ref, watch } from 'vue';
+import { SelectedDateSymbol } from './constants';
 import DatePickerPanel from './DatePickerPanel';
+import { DatePickerView } from './types';
 
 const DatePicker = defineComponent({
   name: 'sk-datepicker',
@@ -10,27 +11,15 @@ const DatePicker = defineComponent({
     modelValue: Date as PropType<Date>,
     maxDate: Date as PropType<Date>,
     minDate: Date as PropType<Date>,
-    disabledDates: {
-      type: Array as PropType<Date[]>,
+    disabledDate: {
+      type: [Date, Array, Function] as PropType<Date | Date[] | ((date: Date) => boolean)>,
       default: [] as Date[],
     },
     startView: {
       type: String as PropType<DatePickerView>,
       default: 'day' as DatePickerView,
     },
-    monthHeadingFormat: {
-      type: String,
-      default: 'LLLL yyyy',
-    },
-    monthListFormat: {
-      type: String,
-      default: 'LLL',
-    },
-    weekdayFormat: {
-      type: String,
-      default: 'EE',
-    },
-    inputFormat: {
+    format: {
       type: String,
       default: 'yyyy-MM-dd',
     },
@@ -46,7 +35,21 @@ const DatePicker = defineComponent({
       default: 'day' as DatePickerView,
     },
   },
-  setup() {
+  setup(props, { emit }) {
+    const selectedDate = ref(props.modelValue);
+    provide(SelectedDateSymbol, selectedDate);
+
+    watch(selectedDate, (date) => {
+      emit('update:modelValue', date ? new Date(date) : undefined);
+    });
+
+    watch(
+      () => props.modelValue,
+      (date) => {
+        selectedDate.value = date ? new Date(date) : undefined;
+      }
+    );
+
     return () => (
       <div class="sk-datepicker">
         <DatePickerPanel />

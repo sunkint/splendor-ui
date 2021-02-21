@@ -1,5 +1,6 @@
-import { addYears, lightFormat } from 'date-fns';
-import { computed, defineComponent, PropType } from 'vue';
+import { addYears, isSameMonth, lightFormat } from 'date-fns';
+import { computed, defineComponent, inject, PropType, Ref } from 'vue';
+import { SelectedDateSymbol } from './constants';
 import { DatePickerView } from './types';
 import Icon from '../icon';
 import './styles/month-view.scss';
@@ -22,6 +23,8 @@ const MonthView = defineComponent({
     },
   },
   setup(props) {
+    const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
+
     const months = computed(() => {
       return [
         '一月',
@@ -72,11 +75,19 @@ const MonthView = defineComponent({
           </div>
         </div>
         <div class="sk-monthview-body">
-          {months.value.map((n, i) => (
-            <span class="sk-item" onClick={onSelectMonth.bind(null, i)}>
-              {n}
-            </span>
-          ))}
+          {months.value.map((n, i) => {
+            const d = new Date(props.currentDate.getFullYear(), i, 1);
+            const isSelected = selectedDate?.value ? isSameMonth(selectedDate.value, d) : false;
+            const hasToday = isSameMonth(new Date(), d);
+            return (
+              <span
+                class={['sk-item', { 'sk-selected': isSelected, 'sk-today': hasToday }]}
+                onClick={onSelectMonth.bind(null, i)}
+              >
+                {n}
+              </span>
+            );
+          })}
         </div>
       </div>
     );

@@ -2,6 +2,11 @@
 
 $name: sk-input;
 
+@mixin focus {
+  border: 1px solid $gray-800;
+  box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+}
+
 .#{$name}-wrapper {
   position: relative;
   display: flex;
@@ -29,8 +34,7 @@ $name: sk-input;
     }
 
     &:focus {
-      border: 1px solid $gray-800;
-      box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+      @include focus;
     }
 
     &-icon {
@@ -92,6 +96,12 @@ $name: sk-input;
     .#{$name} {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+    }
+  }
+
+  &.has-focus {
+    .#{$name}:not([disabled]) {
+      @include focus;
     }
   }
 

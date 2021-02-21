@@ -85,6 +85,7 @@ const DatePicker = defineComponent({
           display: props.block ? 'block' : 'inline-block',
           onOpen: props.onOpen,
           onClose: props.onClose,
+          cushion: 3,
         },
         {
           default: () => (

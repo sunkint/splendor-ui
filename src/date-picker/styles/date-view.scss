@@ -51,6 +51,12 @@
           background-color: rgba($primary, 0.8);
         }
       }
+
+      &.sk-disabled {
+        color: $gray-600;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
     }
   }
 }

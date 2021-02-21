@@ -1,0 +1,26 @@
+.sk-datepicker {
+  position: relative;
+  display: inline-block;
+
+  &-clear {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &:not(:hover) {
+    .sk-datepicker-clear {
+      display: none;
+    }
+  }
+
+  &-block {
+    display: block;
+  }
+}

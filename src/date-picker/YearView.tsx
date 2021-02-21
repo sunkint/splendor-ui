@@ -21,6 +21,8 @@ const YearView = defineComponent({
       type: Function as PropType<(view: DatePickerView) => any>,
       required: true,
     },
+    maxDate: Date as PropType<Date>,
+    minDate: Date as PropType<Date>,
   },
   setup(props) {
     const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
@@ -49,7 +51,21 @@ const YearView = defineComponent({
       props.onCurrentDateChange(addYears(props.currentDate, 10));
     };
 
+    const checkIsDisabledYear = (y: number) => {
+      const { minDate, maxDate } = props;
+      if (minDate && y < minDate.getFullYear()) {
+        return true;
+      }
+      if (maxDate && y > maxDate.getFullYear()) {
+        return true;
+      }
+      return false;
+    };
+
     const onSelectYear = (i: number) => {
+      if (checkIsDisabledYear(i)) {
+        return;
+      }
       const currentDate = props.currentDate;
       const date = new Date(
         decadeStart.value.getFullYear() + i,
@@ -77,9 +93,15 @@ const YearView = defineComponent({
           {years.value.map((n, i) => {
             const isSelected = n === selectedDate?.value?.getFullYear();
             const hasToday = n === new Date().getFullYear();
+            const isDisabled = checkIsDisabledYear(n);
+
             return (
               <span
-                class={['sk-item', { 'sk-selected': isSelected, 'sk-today': hasToday }]}
+                key={i}
+                class={[
+                  'sk-item',
+                  { 'sk-selected': isSelected, 'sk-today': hasToday, 'sk-disabled': isDisabled },
+                ]}
                 onClick={onSelectYear.bind(null, i)}
               >
                 {n}年

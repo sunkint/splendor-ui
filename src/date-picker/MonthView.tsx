@@ -21,6 +21,8 @@ const MonthView = defineComponent({
       type: Function as PropType<(view: DatePickerView) => any>,
       required: true,
     },
+    maxDate: Date as PropType<Date>,
+    minDate: Date as PropType<Date>,
   },
   setup(props) {
     const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
@@ -50,15 +52,39 @@ const MonthView = defineComponent({
       props.onCurrentDateChange(addYears(props.currentDate, 1));
     };
 
+    const goYearView = () => {
+      props.onPickerViewChange('year');
+    };
+
+    const checkIsDisabledMonth = (i: number) => {
+      const { currentDate, minDate, maxDate } = props;
+      if (minDate) {
+        if (currentDate.getFullYear() < minDate.getFullYear()) {
+          return true;
+        }
+        if (currentDate.getFullYear() === minDate.getFullYear() && i < minDate.getMonth()) {
+          return true;
+        }
+      }
+      if (maxDate) {
+        if (currentDate.getFullYear() > maxDate.getFullYear()) {
+          return true;
+        }
+        if (currentDate.getFullYear() === maxDate.getFullYear() && i > maxDate.getMonth()) {
+          return true;
+        }
+      }
+      return false;
+    };
+
     const onSelectMonth = (i: number) => {
+      if (checkIsDisabledMonth(i)) {
+        return;
+      }
       const currentDate = props.currentDate;
       const date = new Date(currentDate.getFullYear(), i, currentDate.getDate());
       props.onCurrentDateChange(date);
       props.onPickerViewChange('day');
-    };
-
-    const goYearView = () => {
-      props.onPickerViewChange('year');
     };
 
     return () => (
@@ -79,9 +105,15 @@ const MonthView = defineComponent({
             const d = new Date(props.currentDate.getFullYear(), i, 1);
             const isSelected = selectedDate?.value ? isSameMonth(selectedDate.value, d) : false;
             const hasToday = isSameMonth(new Date(), d);
+            const isDisabled = checkIsDisabledMonth(i);
+
             return (
               <span
-                class={['sk-item', { 'sk-selected': isSelected, 'sk-today': hasToday }]}
+                key={i}
+                class={[
+                  'sk-item',
+                  { 'sk-selected': isSelected, 'sk-today': hasToday, 'sk-disabled': isDisabled },
+                ]}
                 onClick={onSelectMonth.bind(null, i)}
               >
                 {n}

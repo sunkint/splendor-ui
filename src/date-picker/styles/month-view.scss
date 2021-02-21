@@ -26,5 +26,11 @@
       color: $white;
       background-color: $primary;
     }
+
+    &.sk-disabled {
+      color: $gray-600;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
   }
 }

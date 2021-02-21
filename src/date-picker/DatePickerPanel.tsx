@@ -8,20 +8,30 @@ import './styles/date-picker-panel.scss';
 const DatePickerPanel = defineComponent({
   name: 'sk-datepicker-panel',
   props: {
-    currentDate: {
+    initCurrentDate: {
       type: Date as PropType<Date>,
       default: () => new Date(),
     },
     onChange: {
       type: Function as PropType<(date: Date) => any>,
     },
+    maxDate: Date as PropType<Date>,
+    minDate: Date as PropType<Date>,
+    disabledDate: {
+      type: [Date, Array, Function] as PropType<Date | Date[] | ((date: Date) => boolean)>,
+      default: [] as Date[],
+    },
     startView: {
       type: String as PropType<DatePickerView>,
       default: 'day' as DatePickerView,
     },
+    weekStartsOn: {
+      type: Number,
+      default: 1,
+    },
   },
   setup(props) {
-    const currentDate = ref(props.currentDate);
+    const currentDate = ref(props.initCurrentDate);
     const currentView = ref(props.startView);
 
     const isOnDateView = computed(() => currentView.value === 'day');
@@ -34,35 +44,40 @@ const DatePickerPanel = defineComponent({
 
     return () => (
       <div class="sk-datepicker-panel">
-        <div class="sk-datepicker">
-          {isOnDateView.value ? (
-            <DateView
-              currentDate={currentDate.value}
-              onCurrentDateChange={(date: Date) => {
-                currentDate.value = date;
-              }}
-              onPickerViewChange={onPickerViewChange}
-            />
-          ) : null}
-          {isOnMonthView.value ? (
-            <MonthView
-              currentDate={currentDate.value}
-              onCurrentDateChange={(date: Date) => {
-                currentDate.value = date;
-              }}
-              onPickerViewChange={onPickerViewChange}
-            />
-          ) : null}
-          {isOnYearView.value ? (
-            <YearView
-              currentDate={currentDate.value}
-              onCurrentDateChange={(date: Date) => {
-                currentDate.value = date;
-              }}
-              onPickerViewChange={onPickerViewChange}
-            />
-          ) : null}
-        </div>
+        {isOnDateView.value ? (
+          <DateView
+            currentDate={currentDate.value}
+            onCurrentDateChange={(date: Date) => {
+              currentDate.value = date;
+            }}
+            onPickerViewChange={onPickerViewChange}
+            disabledDate={props.disabledDate}
+            minDate={props.minDate}
+            maxDate={props.maxDate}
+          />
+        ) : null}
+        {isOnMonthView.value ? (
+          <MonthView
+            currentDate={currentDate.value}
+            onCurrentDateChange={(date: Date) => {
+              currentDate.value = date;
+            }}
+            onPickerViewChange={onPickerViewChange}
+            minDate={props.minDate}
+            maxDate={props.maxDate}
+          />
+        ) : null}
+        {isOnYearView.value ? (
+          <YearView
+            currentDate={currentDate.value}
+            onCurrentDateChange={(date: Date) => {
+              currentDate.value = date;
+            }}
+            onPickerViewChange={onPickerViewChange}
+            minDate={props.minDate}
+            maxDate={props.maxDate}
+          />
+        ) : null}
       </div>
     );
   },

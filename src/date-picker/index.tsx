@@ -130,7 +130,7 @@ const DatePicker = defineComponent({
           ),
           content: () => (
             <DatePickerPanel
-              initCurrentDate={props.modelValue}
+              initCurrentDate={selectedDate.value}
               minDate={props.minDate}
               maxDate={props.maxDate}
               disabledDate={props.disabledDate}

@@ -3,7 +3,7 @@ import postcss from 'rollup-plugin-postcss';
 import { babel } from '@rollup/plugin-babel';
 import extensions from 'rollup-plugin-extensions';
 import { terser } from 'rollup-plugin-terser';
-import url from '@rollup/plugin-url';
+import url from 'postcss-url';
 
 export default {
   input: resolve(__dirname, './src/main.ts'),
@@ -29,11 +29,17 @@ export default {
     postcss({
       extract: 'main.css',
       sourceMap: true,
+      plugins: [
+        url({
+          url: 'copy',
+          useHash: true,
+        }),
+      ],
+      to: resolve(__dirname, './es/main.css'),
     }),
     extensions({
       extensions: ['.ts', '.tsx'],
       resolveIndex: true,
     }),
-    url(),
   ],
 };

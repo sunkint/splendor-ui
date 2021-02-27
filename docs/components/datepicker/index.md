@@ -3,7 +3,9 @@
 ### 基础用法
 
 <div class="docs-preview-part">
-  <sk-datepicker placeholder="请选择日期" />
+  <client-only>
+    <sk-datepicker placeholder="请选择日期" />
+  </client-only>
 </div>
 
 ```vue
@@ -16,7 +18,9 @@
 
 ### 使用 v-model 指定选择日期
 
-<DatePickerModel />
+<client-only>
+  <DatePickerModel />
+</client-only>
 
 ```vue
 <template>
@@ -42,7 +46,9 @@ export default {
 这里演示了可选日期范围从 2013/5/27 到今天
 
 <div class="docs-preview-part">
-  <sk-datepicker :minDate="new Date(2013, 4, 27)" :maxDate="new Date()" />
+  <client-only>
+    <sk-datepicker :minDate="new Date(2013, 4, 27)" :maxDate="new Date()" />
+  </client-only>
 </div>
 
 ```vue
@@ -58,7 +64,9 @@ export default {
 这里演示了周六周日不能选的场景
 
 <div class="docs-preview-part">
-  <sk-datepicker :disabledDate="(date) => [0, 6].includes(date.getDay())" />
+  <client-only>
+    <sk-datepicker :disabledDate="(date) => [0, 6].includes(date.getDay())" />
+  </client-only>
 </div>
 
 ```vue
@@ -74,7 +82,9 @@ export default {
 format 参数请参考 [**date-fns** format](https://date-fns.org/v2.17.0/docs/format)
 
 <div class="docs-preview-part">
-  <sk-datepicker placeholder="请选择日期" format="yyyy qqq MMM do" />
+  <client-only>
+    <sk-datepicker placeholder="请选择日期" format="yyyy qqq MMM do" />
+  </client-only>
 </div>
 
 ```vue
@@ -88,7 +98,9 @@ format 参数请参考 [**date-fns** format](https://date-fns.org/v2.17.0/docs/f
 ### 支持清除
 
 <div class="docs-preview-part">
-  <sk-datepicker placeholder="请选择日期" clearable />
+  <client-only>
+    <sk-datepicker placeholder="请选择日期" clearable />
+  </client-only>
 </div>
 
 ```vue
@@ -102,7 +114,9 @@ format 参数请参考 [**date-fns** format](https://date-fns.org/v2.17.0/docs/f
 ### 禁用
 
 <div class="docs-preview-part">
-  <sk-datepicker placeholder="已禁用" disabled />
+  <client-only>
+    <sk-datepicker placeholder="已禁用" disabled />
+  </client-only>
 </div>
 
 ```vue

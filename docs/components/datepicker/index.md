@@ -129,21 +129,22 @@ format 参数请参考 [**date-fns** format](https://date-fns.org/v2.17.0/docs/f
 
 ### API
 
-| 参数         | 说明                                                                                     | 类型   | 可选值                      | 默认值                   |
-| ------------ | ---------------------------------------------------------------------------------------- | ------ | --------------------------- | ------------------------ | --- | --- |
-| size         | Input 尺寸                                                                               | string | `small`、 `normal`、`large` | `normal`                 |
-| block        | 是否占满宽度                                                                             | bool   |                             | `false`                  |
-| placeholder  | 占位提示文字                                                                             | string |                             | -                        |
-| hasError     | 是否错误样式                                                                             | bool   |                             | `false`                  |
-| name         | html name                                                                                | string |                             | -                        |
-| disabled     | 是否禁用                                                                                 | bool   |                             | -                        |
-| clearable    | 是否支持清除                                                                             | bool   |                             | `false`                  |
-| format       | 自定义日期显示格式，详见 [**date-fns** format](https://date-fns.org/v2.17.0/docs/format) | string |                             | `yyyy-MM-dd`             |
-| startView    | 开始选择的面板类型                                                                       | string | `day`、`month`、`year`      | `day`                    |
-| minDate      | 最小选择的日期                                                                           | Date   |                             | -                        |
-| maxDate      | 最大选择的日期                                                                           | Date   |                             | -                        |
-| weekStartsOn | 一周的开始日，0 代表周日，6 代表周六                                                     | number | 0 - 6                       | 1                        |
-| disabledDate | 禁止选择的日期                                                                           | `Date  | Date[]                      | (date: Date) => boolean` |     | -   |
+| 参数         | 说明                                                                                     | 类型                  | 可选值                      | 默认值                   |
+| ------------ | ---------------------------------------------------------------------------------------- | --------------------- | --------------------------- | ------------------------ | --- | --- |
+| size         | Input 尺寸                                                                               | string                | `small`、 `normal`、`large` | `normal`                 |
+| block        | 是否占满宽度                                                                             | bool                  |                             | `false`                  |
+| placeholder  | 占位提示文字                                                                             | string                |                             | -                        |
+| hasError     | 是否错误样式                                                                             | bool                  |                             | `false`                  |
+| name         | html name                                                                                | string                |                             | -                        |
+| disabled     | 是否禁用                                                                                 | bool                  |                             | -                        |
+| clearable    | 是否支持清除                                                                             | bool                  |                             | `false`                  |
+| format       | 自定义日期显示格式，详见 [**date-fns** format](https://date-fns.org/v2.17.0/docs/format) | string                |                             | `yyyy-MM-dd`             |
+| startView    | 开始选择的面板类型                                                                       | string                | `day`、`month`、`year`      | `day`                    |
+| minDate      | 最小选择的日期                                                                           | Date                  |                             | -                        |
+| maxDate      | 最大选择的日期                                                                           | Date                  |                             | -                        |
+| weekStartsOn | 一周的开始日，0 代表周日，6 代表周六                                                     | number                | 0 - 6                       | 1                        |
+| disabledDate | 禁止选择的日期                                                                           | `Date                 | Date[]                      | (date: Date) => boolean` |     | -   |
+| triggerClass | 触发元素包裹层的自定义类名                                                               | string、array、object |                             | -                        |
 
 ### 事件
 

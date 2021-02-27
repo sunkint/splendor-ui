@@ -1,13 +1,14 @@
 {
   "name": "splendor-ui",
-  "version": "0.3.0-beta.11",
+  "version": "0.3.0-beta.12",
   "description": "A set of UI components for splendor-xzwhome. Built with Vue 3.",
   "keywords": [
     "vue",
     "vue3",
     "ui"
   ],
-  "main": "./es/main.js",
+  "main": "./es/main.esm.js",
+  "module": "./es/main.esm.js",
   "types": "./es/types/main.d.ts",
   "repository": "https://github.com/sunkint/splendor-ui.git",
   "author": "sunkint <sunkint@yeah.net>",
@@ -17,25 +18,33 @@
   ],
   "scripts": {
     "dev": "npx vitepress",
-    "build": "rm -rf ./es & tsc -d --emitDeclarationOnly & webpack --env.prod",
+    "build": "tsc -d --emitDeclarationOnly & rollup -c",
     "build-doc": "npx vitepress build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@ant-design-vue/babel-plugin-jsx": "^1.0.0-beta.3",
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "@cloudbase/cli": "^1.0.7",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-url": "^6.0.0",
     "@types/clipboard": "^2.0.1",
+    "@vue/babel-plugin-jsx": "^1.0.3",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.1",
     "file-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.11.2",
+    "postcss": "^8.2.6",
+    "rollup": "^2.40.0",
+    "rollup-plugin-extensions": "^0.1.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.26.10",
     "sass-loader": "^10.0.2",
     "stylelint": "^13.6.1",

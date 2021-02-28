@@ -9,5 +9,5 @@
     "selector-pseudo-class-no-unknown": null,
     "declaration-block-trailing-semicolon": null
   },
-  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  "ignoreFiles": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "es/**"]
 }

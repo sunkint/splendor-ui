@@ -20,7 +20,10 @@ install:
 dev:
 	yarn dev
 
-build:
+clean:
+	rm -rf ./es 
+
+build: clean
 	yarn build
 
 build-doc:

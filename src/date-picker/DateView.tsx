@@ -50,7 +50,9 @@ const DateView = defineComponent({
     const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
 
     const weekDays = computed(() => {
-      return ['一', '二', '三', '四', '五', '六', '日'];
+      const days = ['日', '一', '二', '三', '四', '五', '六'];
+      const result = [...days.slice(props.weekStartsOn), ...days.slice(0, props.weekStartsOn)];
+      return result;
     });
 
     const days = computed(() => {

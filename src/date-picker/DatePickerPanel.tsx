@@ -50,6 +50,7 @@ const DatePickerPanel = defineComponent({
             onCurrentDateChange={(date: Date) => {
               currentDate.value = date;
             }}
+            weekStartsOn={props.weekStartsOn}
             onPickerViewChange={onPickerViewChange}
             disabledDate={props.disabledDate}
             minDate={props.minDate}

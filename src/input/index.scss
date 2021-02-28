@@ -2,6 +2,11 @@
 
 $name: sk-input;
 
+@mixin focus {
+  border: 1px solid $gray-800;
+  box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+}
+
 .#{$name}-wrapper {
   position: relative;
   display: flex;
@@ -29,14 +34,14 @@ $name: sk-input;
     }
 
     &:focus {
-      border: 1px solid $gray-800;
-      box-shadow: 0 0 0 2px lighten($gray-800, 65%);
+      @include focus;
     }
 
     &-icon {
       position: absolute;
       left: 8px + 1px;
-      top: 10px + 1px;
+      top: 50%;
+      transform: translateY(-50%);
       pointer-events: none;
 
       &-wrapper {
@@ -94,6 +99,12 @@ $name: sk-input;
     }
   }
 
+  &.has-focus {
+    .#{$name}:not([disabled]) {
+      @include focus;
+    }
+  }
+
   &.has-error {
     .#{$name} {
       border-color: $red;
@@ -144,7 +155,6 @@ $name: sk-input;
 
       &-icon {
         left: 10px + 1px;
-        top: 11px + 1px;
 
         .sk-icon {
           font-size: 16px;
@@ -169,7 +179,6 @@ $name: sk-input;
 
       &-icon {
         left: 6px + 1px;
-        top: 5px + 1px;
 
         .sk-icon {
           font-size: 12px;

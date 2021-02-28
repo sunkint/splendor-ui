@@ -45,9 +45,12 @@ const DatePicker = defineComponent({
     },
     block: Boolean,
     hasError: Boolean,
+    triggerClass: null,
   },
   setup(props, { emit }) {
     const selectedDate = ref(props.modelValue);
+    const open = ref(false);
+
     provide(SelectedDateSymbol, selectedDate);
 
     watch(selectedDate, (date) => {
@@ -70,6 +73,16 @@ const DatePicker = defineComponent({
       return !props.disabled && selectedDate.value && props.clearable;
     });
 
+    const onOpen = () => {
+      open.value = true;
+      props.onOpen?.();
+    };
+
+    const onClose = () => {
+      open.value = false;
+      props.onClose?.();
+    };
+
     const onClear = (e: MouseEvent) => {
       selectedDate.value = undefined;
       e.stopPropagation();
@@ -80,11 +93,13 @@ const DatePicker = defineComponent({
       h(
         FloatLayer,
         {
+          triggerClass: ['sk-datepicker-trigger', props.triggerClass],
           trigger: props.disabled ? 'none' : 'click',
           position: 'bottom-left',
           display: props.block ? 'block' : 'inline-block',
-          onOpen: props.onOpen,
-          onClose: props.onClose,
+          onOpen,
+          onClose,
+          cushion: 3,
         },
         {
           default: () => (
@@ -98,6 +113,7 @@ const DatePicker = defineComponent({
             >
               <Input
                 icon="calendar"
+                class={{ 'has-focus': open.value }}
                 placeholder={props.placeholder}
                 modelValue={inputValue.value}
                 disabled={props.disabled}
@@ -114,7 +130,7 @@ const DatePicker = defineComponent({
           ),
           content: () => (
             <DatePickerPanel
-              initCurrentDate={props.modelValue}
+              initCurrentDate={selectedDate.value}
               minDate={props.minDate}
               maxDate={props.maxDate}
               disabledDate={props.disabledDate}

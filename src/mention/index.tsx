@@ -36,6 +36,10 @@ const Mention = defineComponent({
       type: Number,
       default: 0,
     },
+    requireLeadingSpace: {
+      type: Boolean,
+      default: false,
+    },
 
     // textarea props
     hasError: Boolean,
@@ -84,6 +88,7 @@ const Mention = defineComponent({
         containerClass: 'sk-mention-menu',
         itemClass: 'sk-mention-menu-item',
         selectClass: 'active',
+        requireLeadingSpace: props.requireLeadingSpace,
         searchOpts: {
           pre: '<span>',
           post: '</span>',

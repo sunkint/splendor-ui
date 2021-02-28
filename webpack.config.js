@@ -15,6 +15,7 @@ module.exports = (env = {}) => ({
   },
   externals: {
     vue: 'Vue',
+    'date-fns': 'date-fns',
   },
   resolve: {
     alias: {

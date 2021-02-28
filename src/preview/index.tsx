@@ -12,6 +12,7 @@ import {
   watchEffect,
 } from 'vue';
 import { PreviewImageOptions } from './types';
+import isBrowser from '../utils/isBrowser';
 import Icon from '../icon';
 import './index.scss';
 
@@ -96,7 +97,7 @@ const PreviewImage = defineComponent({
       }
     });
 
-    const supportCssVar = window.CSS.supports('--a', '0');
+    const supportCssVar = isBrowser ? window.CSS.supports('--a', '0') : true;
 
     return () =>
       props.modelValue ? (

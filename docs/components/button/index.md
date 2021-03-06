@@ -151,6 +151,7 @@
 | loading  | 是否禁用并显示加载中动画                          | bool   |                                                              | `false`   |
 | href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                              | -         |
 | target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                              | `_blank`  |
+| rel      | 可选，和 href 一起使用，就是 a 标签的 rel 属性    | string |                                                              | -         |
 | htmlType | button html type                                  | string | `button`、`submit`、`reset`                                  | -         |
 
 ### 事件

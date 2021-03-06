@@ -20,6 +20,7 @@ const Button = defineComponent({
       type: String,
       default: '_blank',
     },
+    rel: String,
     htmlType: String as PropType<'button' | 'submit' | 'reset'>,
     block: Boolean,
     icon: String,
@@ -57,6 +58,7 @@ const Button = defineComponent({
             class={btnClass.value}
             href={props.disabled ? undefined : props.href}
             target={props.target}
+            rel={props.rel}
             onClick={onClick}
           >
             {props.icon ? <Icon class="sk-btn-icon" type={props.icon} /> : null}

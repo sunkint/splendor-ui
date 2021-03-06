@@ -54,5 +54,8 @@
     "clipboard": "^2.0.6",
     "date-fns": "^2.17.0",
     "tributejs": "^5.1.3"
+  },
+  "resolutions": {
+    "vite": "1.0.0-rc.4"
   }
 }

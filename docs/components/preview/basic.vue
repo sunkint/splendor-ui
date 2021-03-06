@@ -3,7 +3,7 @@
     <img
       class="thumb"
       @click="preview"
-      src="https://i.loli.net/2021/01/23/EJbRjTHCfdKuzBh.jpg"
+      src="https://ae01.alicdn.com/kf/Ue46207a195d8466ea2072acc5ce3bad85.jpg"
       alt=""
     />
   </div>
@@ -15,7 +15,7 @@ import { Preview } from '../../../src/main';
 export default {
   methods: {
     preview() {
-      Preview.image('https://i.loli.net/2021/01/23/EJbRjTHCfdKuzBh.jpg');
+      Preview.image('https://ae01.alicdn.com/kf/Ue46207a195d8466ea2072acc5ce3bad85.jpg');
     },
   },
 };

@@ -33,11 +33,11 @@ build-doc:
 version:
 	yarn version
 
-publish: version build
-	npm publish
+publish:
+	sh ./scripts/release.sh
 
-publish-beta: version build
-	npm publish --tag beta
+publish-beta:
+	sh ./scripts/release-beta.sh
 
 publish-doc: build-doc
 	npx cloudbase hosting:deploy .vitepress/dist

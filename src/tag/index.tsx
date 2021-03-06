@@ -21,6 +21,7 @@ const Tag = defineComponent({
     round: Boolean,
     closable: Boolean,
     ghost: Boolean,
+    thin: Boolean,
     onClose: Function as PropType<() => any>,
   },
   setup(props, { slots }) {
@@ -31,6 +32,7 @@ const Tag = defineComponent({
         round = false,
         closable = false,
         ghost = false,
+        thin = false,
       } = props;
       const tagClass = [
         'sk-tag',
@@ -39,6 +41,7 @@ const Tag = defineComponent({
         {
           'sk-tag-round': round,
           'sk-tag-ghost': ghost,
+          'sk-tag-thin': thin,
         },
       ];
       return (

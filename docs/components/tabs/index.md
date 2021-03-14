@@ -24,6 +24,30 @@
 </template>
 ```
 
+### 使用 CSS 控制选项卡内容
+
+<div class="docs-preview-part">
+  <sk-tabs useHidden>
+    <sk-tab-panel title="他的文章">文章</sk-tab-panel>
+    <sk-tab-panel title="他的评论">评论</sk-tab-panel>
+    <sk-tab-panel title="他的帖子">帖子</sk-tab-panel>
+    <sk-tab-panel title="他的故事">故事</sk-tab-panel>
+  </sk-tabs>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-tabs useHidden>
+      <sk-tab-panel title="他的文章">文章</sk-tab-panel>
+      <sk-tab-panel title="他的评论">评论</sk-tab-panel>
+      <sk-tab-panel title="他的帖子">帖子</sk-tab-panel>
+      <sk-tab-panel title="他的故事">故事</sk-tab-panel>
+    </sk-tabs>
+  </div>
+</template>
+```
+
 ### 宽度撑满
 
 <div class="docs-preview-part">
@@ -153,22 +177,24 @@ export default {
 
 #### Tabs
 
-| 参数      | 说明               | 类型 | 必填 | 默认值  |
-| --------- | ------------------ | ---- | ---- | ------- |
-| justified | tab 栏是否撑满宽度 | bool | 否   | `false` |
-| closable  | tab 可支持删除     | bool | 否   | `false` |
+| 参数      | 说明                                   | 类型 | 必填 | 默认值  |
+| --------- | -------------------------------------- | ---- | ---- | ------- |
+| justified | tab 栏是否撑满宽度                     | bool | 否   | `false` |
+| closable  | tab 可支持删除                         | bool | 否   | `false` |
+| useHidden | 使用 v-show 而并非 v-if 切换选项卡内容 | bool | 否   | `false` |
 
 #### TabPanel
 
-| 参数     | 说明       | 类型    | 必填   | 默认值  |
-| -------- | ---------- | ------- | ------ | ------- |
-| title    | tab 的标题 | string  | 否     | -       |
-| id       | 唯一标识   | `number | string | symbol` | 否 | `Symbol()` |
-| disabled | 是否禁用   | bool    | 否     | `false` |
+| 参数     | 说明                                          | 类型    | 必填   | 默认值  |
+| -------- | --------------------------------------------- | ------- | ------ | ------- | --- | ---------- |
+| title    | tab 的标题                                    | string  | 否     | -       |
+| id       | 唯一标识                                      | `number | string | symbol` | 否  | `Symbol()` |
+| lazy     | 当 `useHidden` 为 `true` 时，是否启动延迟渲染 | bool    | 否     | `true`  |
+| disabled | 是否禁用                                      | bool    | 否     | `false` |
 
 ### 事件
 
 | 事件   | 说明                | 携带参数     |
-| ------ | ------------------- | ------------ |
+| ------ | ------------------- | ------------ | ------ | ----------------------- |
 | change | 切换 tab 触发的事件 | `(id: number | string | symbol, index: number)` |
 | close  | 删除 tab 触发的事件 | `(id: number | string | symbol, index: number)` |

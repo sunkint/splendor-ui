@@ -12,6 +12,12 @@
     font-size: 14px;
   }
 
+  &-panel {
+    &[hidden] {
+      display: none;
+    }
+  }
+
   &__button {
     position: relative;
     box-sizing: border-box;

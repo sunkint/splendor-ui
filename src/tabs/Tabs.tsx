@@ -3,9 +3,10 @@ import { TabsType, TabCollect, TabIdType } from './types';
 import clickBody from '../utils/clickBody';
 import './index.scss';
 
-export const ActiveIdSymbol = Symbol();
-export const TabCollectSymbol = Symbol();
-export const TabDestroySymbol = Symbol();
+export const ActiveIdSymbol = Symbol('activeId');
+export const TabCollectSymbol = Symbol('tabCollect');
+export const TabDestroySymbol = Symbol('tabDestroy');
+export const UseHiddenSymbol = Symbol('useHidden');
 
 const Tabs = defineComponent({
   name: 'sk-tabs',
@@ -16,6 +17,7 @@ const Tabs = defineComponent({
     modelValue: [Number, String, Symbol] as PropType<TabIdType>,
     onClose: Function as PropType<(id: TabIdType, index: number) => any>,
     onChange: Function as PropType<(id: TabIdType, index: number) => any>,
+    useHidden: Boolean,
   },
 
   setup(props, { slots, emit }) {
@@ -54,6 +56,7 @@ const Tabs = defineComponent({
     );
     provide(TabCollectSymbol, tabsCollect);
     provide(TabDestroySymbol, tabsDestroy);
+    provide(UseHiddenSymbol, () => props.useHidden);
 
     const tabsChange = (id: TabIdType, index: number) => {
       if (state.activeId !== id) {

@@ -37,6 +37,7 @@ const DatePicker = defineComponent({
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
     onChange: Function as PropType<(date?: Date) => any>,
+    onSelect: Function as PropType<(date: Date) => any>,
     clearable: Boolean,
     name: String,
     size: {
@@ -136,6 +137,7 @@ const DatePicker = defineComponent({
               disabledDate={props.disabledDate}
               startView={props.startView}
               weekStartsOn={props.weekStartsOn}
+              onSelect={props.onSelect}
             />
           ),
         }

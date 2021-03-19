@@ -12,7 +12,7 @@ const DatePickerPanel = defineComponent({
       type: Date as PropType<Date>,
       default: () => new Date(),
     },
-    onChange: {
+    onSelect: {
       type: Function as PropType<(date: Date) => any>,
     },
     maxDate: Date as PropType<Date>,
@@ -55,6 +55,7 @@ const DatePickerPanel = defineComponent({
             disabledDate={props.disabledDate}
             minDate={props.minDate}
             maxDate={props.maxDate}
+            onSelect={props.onSelect}
           />
         ) : null}
         {isOnMonthView.value ? (

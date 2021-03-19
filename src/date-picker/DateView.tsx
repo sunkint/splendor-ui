@@ -26,6 +26,9 @@ const DateView = defineComponent({
       type: Date as PropType<Date>,
       default: () => new Date(),
     },
+    onSelect: {
+      type: Function as PropType<(date: Date) => any>,
+    },
     weekStartsOn: {
       type: Number,
       default: 1,
@@ -121,6 +124,7 @@ const DateView = defineComponent({
       if (!isSameMonth(date, props.currentDate)) {
         props.onCurrentDateChange(date);
       }
+      props.onSelect?.(date);
       clickBody(e);
     };
 

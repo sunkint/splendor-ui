@@ -81,6 +81,7 @@ const FloatLayer = defineComponent({
       enterTimer: -1,
       closeTimer: -1,
       zIndex: props.trigger === 'hover' ? 2051 : 2050,
+      isFixed: false,
     });
 
     watch(
@@ -104,6 +105,26 @@ const FloatLayer = defineComponent({
       }
     );
 
+    watch(
+      () => layerState.open,
+      (open) => {
+        if (open) {
+          let isFixed = false;
+          const getPosition = (e: Element) => {
+            const position = getComputedStyle(e).position;
+            if (position === 'fixed') {
+              isFixed = true;
+            }
+            try {
+              e.parentElement && getPosition(e.parentElement);
+            } catch {}
+          };
+          trigger.value && getPosition(trigger.value);
+          layerState.isFixed = isFixed;
+        }
+      }
+    );
+
     const computeLayerPosition = () => {
       const elLayer = layer.value!;
       const elTrigger = trigger.value!;
@@ -116,8 +137,10 @@ const FloatLayer = defineComponent({
         left: triggerLeft,
       } = elTrigger.getBoundingClientRect();
 
-      triggerTop += pageYOffset;
-      triggerLeft += pageXOffset;
+      if (!layerState.isFixed) {
+        triggerTop += pageYOffset;
+        triggerLeft += pageXOffset;
+      }
 
       switch (props.position) {
         case 'top-left':
@@ -250,6 +273,7 @@ const FloatLayer = defineComponent({
           ]}
           {...restAttrs}
           style={{
+            position: layerState.isFixed ? 'fixed' : 'absolute',
             left: `${layerState.left}px`,
             top: `${layerState.top}px`,
             zIndex: layerState.zIndex,

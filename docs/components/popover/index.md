@@ -132,6 +132,34 @@ button {
 </style>
 ```
 
+### Fixed 状态
+
+<div class="docs-preview-part">
+  <client-only>
+    <div style="position: fixed; right: 80px; bottom: 120px">
+      <sk-popover>
+        <sk-button>fixed</sk-button>
+        <template #content>fixed状态工作的气泡</template>
+      </sk-popover>
+    </div>
+  </client-only>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <client-only>
+      <div style="position: fixed; right: 80px; bottom: 120px">
+        <sk-popover>
+          <sk-button>fixed</sk-button>
+          <template #content>fixed状态工作的气泡</template>
+        </sk-popover>
+      </div>
+    </client-only>
+  </div>
+</template>
+```
+
 ### API
 
 | 参数            | 说明                                     | 类型                  | 可选值           | 默认值       |

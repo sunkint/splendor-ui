@@ -1,5 +1,6 @@
 import { computed, defineComponent, h, onMounted, PropType, ref, watch } from 'vue';
 import Textarea from '../textarea';
+import TextareaProps from '../textarea/props';
 import Tribute from 'tributejs';
 import './index.scss';
 
@@ -42,24 +43,7 @@ const Mention = defineComponent({
     },
 
     // textarea props
-    hasError: Boolean,
-    maxlength: [Number, String],
-    placeholder: String,
-    modelValue: String,
-    autoHeight: Boolean,
-    block: Boolean,
-    name: String,
-    disabled: Boolean,
-    readonly: Boolean,
-    autofocus: Boolean,
-    onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
-    onFocus: Function as PropType<(e: FocusEvent) => void>,
-    onBlur: Function as PropType<(e: FocusEvent) => void>,
-    onChange: Function as PropType<(e: Event) => void>,
-    onInput: Function as PropType<(e: Event) => void>,
+    ...TextareaProps,
   },
 
   setup(props, { emit }) {

@@ -65,6 +65,14 @@ const FloatLayer = defineComponent({
       type: Number,
       default: 0,
     },
+    transitionEnterFromClass: {
+      type: String,
+      default: 'fade-enter-from',
+    },
+    transitionLeaveToClass: {
+      type: String,
+      default: 'fade-leave-to',
+    },
     updateTime: Number,
     onOpen: Function as PropType<() => any>,
     onClose: Function as PropType<() => any>,
@@ -304,7 +312,12 @@ const FloatLayer = defineComponent({
           </div>
           <Teleport to={props.teleportTo}>
             {props.transition > 0 ? (
-              <Transition name="fade">{contentNode}</Transition>
+              <Transition
+                enterFromClass={props.transitionEnterFromClass}
+                leaveToClass={props.transitionLeaveToClass}
+              >
+                {contentNode}
+              </Transition>
             ) : (
               contentNode
             )}

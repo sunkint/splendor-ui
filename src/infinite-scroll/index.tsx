@@ -30,7 +30,7 @@ const InfiniteScroll = defineComponent({
       default: false,
     },
     onLoad: {
-      type: Function as PropType<() => Promise<any>>,
+      type: Function as PropType<(isInitLoad: boolean) => Promise<any>>,
       required: true,
     },
     height: {
@@ -47,12 +47,12 @@ const InfiniteScroll = defineComponent({
       loadError: false,
     });
 
-    const onLoad = () => {
+    const onLoad = (isInitLoad = false) => {
       state.loading = true;
       state.loadError = false;
 
       return props
-        .onLoad()
+        .onLoad(isInitLoad)
         .catch(() => {
           state.loadError = true;
         })
@@ -62,7 +62,7 @@ const InfiniteScroll = defineComponent({
     };
 
     onMounted(() => {
-      onLoad();
+      onLoad(true);
     });
 
     const onScroll = (fromWindow = false) => {
@@ -114,7 +114,7 @@ const InfiniteScroll = defineComponent({
           {slots.continue ? (
             renderSlot(slots, 'continue', { load: onLoad })
           ) : (
-            <a onClick={onLoad}>点此继续加载</a>
+            <a onClick={onLoad.bind(null)}>点此继续加载</a>
           )}
         </div>
       );
@@ -130,7 +130,7 @@ const InfiniteScroll = defineComponent({
           {slots.error ? (
             renderSlot(slots, 'error', { load: onLoad })
           ) : (
-            <a onClick={onLoad}>加载失败，点此重试</a>
+            <a onClick={onLoad.bind(null)}>加载失败，点此重试</a>
           )}
         </div>
       );

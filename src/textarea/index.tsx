@@ -1,34 +1,10 @@
-import { defineComponent, nextTick, PropType } from 'vue';
+import { defineComponent, nextTick } from 'vue';
+import TextareaProps from './props';
 import './index.scss';
 
 const Textarea = defineComponent({
   name: 'sk-textarea',
-  props: {
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-    maxlength: [Number, String],
-    placeholder: String,
-    modelValue: String,
-    autoHeight: {
-      type: Boolean,
-      default: false,
-    },
-    block: Boolean,
-    name: String,
-    disabled: Boolean,
-    readonly: Boolean,
-    autofocus: Boolean,
-    onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeydown: Function as PropType<(e: KeyboardEvent) => void>,
-    onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
-    onFocus: Function as PropType<(e: FocusEvent) => void>,
-    onBlur: Function as PropType<(e: FocusEvent) => void>,
-    onChange: Function as PropType<(e: Event) => void>,
-    onInput: Function as PropType<(e: Event) => void>,
-  },
+  props: TextareaProps,
   data() {
     return {
       outerWidth: 0,
@@ -87,6 +63,7 @@ const Textarea = defineComponent({
   render() {
     const {
       hasError,
+      height,
       autoHeight,
       maxlength,
       placeholder,
@@ -107,11 +84,22 @@ const Textarea = defineComponent({
 
     const value = modelValue === undefined ? internalValue : modelValue;
 
+    let styleObject: any = undefined;
+    if (autoHeight) {
+      styleObject = { height: `${outerHeight}px` };
+    } else {
+      if (typeof height === 'number') {
+        styleObject = { height: `${height}px` };
+      } else if (typeof height === 'string') {
+        styleObject = { height };
+      }
+    }
+
     return (
       <div class={['sk-textarea-wrapper', { 'sk-textarea-block': block }]}>
         <textarea
           ref="textarea"
-          style={autoHeight ? { height: `${outerHeight}px` } : undefined}
+          style={styleObject}
           class={['sk-textarea', { 'has-error': hasError, 'auto-height': autoHeight }]}
           maxlength={maxlength}
           placeholder={placeholder}

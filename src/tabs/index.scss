@@ -8,16 +8,27 @@
     margin-bottom: 12px;
   }
 
+  &-content {
+    font-size: 14px;
+  }
+
+  &-panel {
+    &[hidden] {
+      display: none;
+    }
+  }
+
   &__button {
     position: relative;
     box-sizing: border-box;
-    min-width: 106px;
-    padding: 8px 32px;
+    min-width: 96px;
+    padding: 8px 16px;
     cursor: pointer;
     border-radius: 4px 4px 0 0;
     border: 1px solid transparent;
     margin-bottom: -1px;
     color: $gray-700;
+    font-size: 14px;
     overflow: hidden;
     text-align: center;
     text-overflow: ellipsis;

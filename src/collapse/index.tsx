@@ -10,7 +10,7 @@ const Collapse = defineComponent({
   props: {
     modelValue: {
       type: Boolean,
-      required: true,
+      default: true,
     },
     tag: {
       type: String,

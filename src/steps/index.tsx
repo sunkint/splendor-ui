@@ -12,15 +12,15 @@ import {
 import Icon from '../icon';
 import './index.scss';
 
-export type StepsStatus = 'wait' | 'process' | 'finish' | 'error';
+export type StepStatus = 'wait' | 'process' | 'finish' | 'error';
 export type StepsDirection = 'horizontal' | 'vertical';
-export interface ProvideState {
+interface ProvideState {
   current: number;
-  status: StepsStatus;
+  status: StepStatus;
   direction: StepsDirection;
 }
 
-enum StepsStatusInternal {
+enum StepStatusInternal {
   WAIT = 'wait',
   PROCESS = 'process',
   FINISH = 'finish',
@@ -61,22 +61,22 @@ const Step = defineComponent({
 
     const status = computed(() => {
       if (index.value < parentState.current) {
-        return StepsStatusInternal.FINISH;
+        return StepStatusInternal.FINISH;
       }
       if (index.value > parentState.current) {
-        return StepsStatusInternal.WAIT;
+        return StepStatusInternal.WAIT;
       }
-      return parentState.status as StepsStatusInternal;
+      return parentState.status as StepStatusInternal;
     });
 
     const nextStepStatus = computed(() => {
       if (index.value < parentState.current - 1) {
-        return StepsStatusInternal.FINISH;
+        return StepStatusInternal.FINISH;
       }
       if (index.value > parentState.current - 1) {
-        return StepsStatusInternal.WAIT;
+        return StepStatusInternal.WAIT;
       }
-      return parentState.status as StepsStatusInternal;
+      return parentState.status as StepStatusInternal;
     });
 
     return () => (
@@ -88,9 +88,9 @@ const Step = defineComponent({
             </div>
           ) : (
             <div class="sk-step-label">
-              {status.value === StepsStatusInternal.FINISH ? (
+              {status.value === StepStatusInternal.FINISH ? (
                 <Icon type="ok" />
-              ) : status.value === StepsStatusInternal.ERROR ? (
+              ) : status.value === StepStatusInternal.ERROR ? (
                 <Icon type="close" />
               ) : (
                 <div class="sk-step-order">{index.value + 1}</div>
@@ -115,8 +115,8 @@ const Steps = defineComponent({
       default: 0,
     },
     status: {
-      type: String as PropType<StepsStatus>,
-      default: 'process' as StepsStatus,
+      type: String as PropType<StepStatus>,
+      default: 'process' as StepStatus,
     },
     direction: {
       type: String as PropType<StepsDirection>,

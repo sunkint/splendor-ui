@@ -68,6 +68,7 @@ import PreviewBasic from './components/preview/basic.vue';
 import PreviewMultiple from './components/preview/multiple.vue';
 import PreviewTip from './components/preview/tip.vue';
 import DatePickerModel from './components/datepicker/model.vue';
+import StepsBasic from './components/steps/basic.vue';
 
 export default function (app) {
   app.component(ClientOnly.name, ClientOnly);
@@ -137,4 +138,5 @@ export default function (app) {
   app.component('PreviewMultiple', PreviewMultiple);
   app.component('PreviewTip', PreviewTip);
   app.component('DatePickerModel', DatePickerModel);
+  app.component('StepsBasic', StepsBasic);
 }

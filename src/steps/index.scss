@@ -1,0 +1,100 @@
+@import '../style/var.scss';
+
+.sk-steps {
+  display: flex;
+}
+
+.sk-step {
+  display: flex;
+  flex: 1;
+  width: 0;
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &-head {
+    flex: none;
+    margin-right: 6px;
+
+    .sk-step-label {
+      width: 30px;
+      height: 30px;
+      line-height: 28px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 16px;
+      user-select: none;
+
+      .sk-step-process & {
+        color: $white;
+        border: 1px solid $info;
+        background-color: $info;
+      }
+
+      .sk-step-finish & {
+        border: 1px solid $info;
+        background-color: $white;
+        color: $info;
+      }
+
+      .sk-step-wait & {
+        border: 1px solid $gray-500;
+        background-color: $white;
+        color: $gray-500;
+      }
+    }
+  }
+
+  &-main {
+    flex: auto;
+  }
+
+  &-title {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    color: $text;
+    font-weight: bold;
+    font-size: 14px;
+
+    .sk-step-wait &,
+    .sk-step-finish & {
+      color: $gray-600;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      left: calc(100% + 8px);
+      top: 50%;
+      border-bottom: 1px solid $gray-600;
+      width: 100vw;
+    }
+
+    .sk-step-before-finish &,
+    .sk-step-before-process & {
+      &:after {
+        border-bottom: 1px solid lighten($info, 20%);
+      }
+    }
+
+    .sk-step:last-child & {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &-description {
+    color: $gray-700;
+    font-size: 12px;
+    margin-top: 4px;
+    white-space: nowrap;
+
+    .sk-step-process & {
+      color: $gray-800;
+    }
+  }
+}

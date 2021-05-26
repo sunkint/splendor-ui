@@ -54,6 +54,7 @@ module.exports = {
           'Swiper',
           'InfiniteScroll',
           'Preview',
+          'Steps',
         ].map(buildNavChildren),
       },
       {

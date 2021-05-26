@@ -1,6 +1,6 @@
 {
   "name": "splendor-ui",
-  "version": "0.3.1-beta.11",
+  "version": "0.3.1",
   "description": "A set of UI components for splendor-xzwhome. Built with Vue 3.",
   "keywords": [
     "vue",
@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "npx vitepress",
     "build": "rollup -c && tsc -d --emitDeclarationOnly",
-    "build-doc": "npx vitepress build"
+    "build-doc": "npx vitepress build",
+    "preversion": "yarn install"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

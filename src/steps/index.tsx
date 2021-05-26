@@ -54,7 +54,7 @@ const Step = defineComponent({
 
     const index = ref(0);
     onMounted(() => {
-      index.value = Array.from(stepRef.value!.parentElement!.childNodes).findIndex(
+      index.value = Array.from(stepRef.value!.parentElement!.children).findIndex(
         (n) => n === stepRef.value
       );
     });

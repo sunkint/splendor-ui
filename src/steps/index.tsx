@@ -82,13 +82,21 @@ const Step = defineComponent({
     return () => (
       <div ref={stepRef} class={['sk-step', `sk-step-${status.value}`]}>
         <div class="sk-step-head">
-          <div class="sk-step-label">
-            {status.value === StepsStatusInternal.FINISH ? (
-              <Icon type="ok" />
-            ) : (
-              <div class="sk-step-order">{index.value + 1}</div>
-            )}
-          </div>
+          {props.icon ? (
+            <div class="sk-step-icon">
+              <Icon type={props.icon} />
+            </div>
+          ) : (
+            <div class="sk-step-label">
+              {status.value === StepsStatusInternal.FINISH ? (
+                <Icon type="ok" />
+              ) : status.value === StepsStatusInternal.ERROR ? (
+                <Icon type="close" />
+              ) : (
+                <div class="sk-step-order">{index.value + 1}</div>
+              )}
+            </div>
+          )}
         </div>
         <div class={['sk-step-main', `sk-step-before-${nextStepStatus.value}`]}>
           <div class="sk-step-title">{props.title}</div>
@@ -122,7 +130,9 @@ const Steps = defineComponent({
 
     provide<ProvideState>(ProvideSymbol, provideState);
 
-    return () => <div class="sk-steps">{slots.default?.()}</div>;
+    return () => (
+      <div class={['sk-steps', , `sk-steps-${props.direction}`]}>{slots.default?.()}</div>
+    );
   },
 });
 

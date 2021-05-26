@@ -2,13 +2,25 @@
 
 .sk-steps {
   display: flex;
+
+  &-vertical {
+    flex-direction: column;
+  }
 }
 
 .sk-step {
   display: flex;
-  flex: 1;
-  width: 0;
   overflow: hidden;
+
+  .sk-steps-horizontal & {
+    flex: 1;
+    width: 0;
+  }
+
+  .sk-steps-vertical & {
+    min-height: 64px;
+    flex: none;
+  }
 
   &:not(:last-child) {
     margin-right: 8px;
@@ -17,6 +29,28 @@
   &-head {
     flex: none;
     margin-right: 6px;
+
+    .sk-step-icon {
+      font-size: 30px;
+      line-height: 30px;
+      user-select: none;
+
+      .sk-step-process & {
+        color: $info;
+      }
+
+      .sk-step-finish & {
+        color: lighten($info, 12%);
+      }
+
+      .sk-step-wait & {
+        color: $gray-500;
+      }
+
+      .sk-step-error & {
+        color: $danger;
+      }
+    }
 
     .sk-step-label {
       width: 30px;
@@ -44,6 +78,12 @@
         background-color: $white;
         color: $gray-500;
       }
+
+      .sk-step-error & {
+        border: 1px solid $danger;
+        background-color: $white;
+        color: $danger;
+      }
     }
   }
 
@@ -64,19 +104,41 @@
       color: $gray-600;
     }
 
+    .sk-step-error & {
+      color: $danger;
+    }
+
     &:after {
       position: absolute;
       content: '';
       left: calc(100% + 8px);
       top: 50%;
-      border-bottom: 1px solid $gray-600;
+      border: 0;
+      border-bottom-width: 1px;
+      border-style: solid;
+      border-color: $gray-600;
       width: 100vw;
+    }
+
+    .sk-steps-vertical &:after {
+      left: -21px;
+      top: 30px;
+      border-bottom-width: 0;
+      border-left-width: 1px;
+      width: auto;
+      height: 100vh;
     }
 
     .sk-step-before-finish &,
     .sk-step-before-process & {
       &:after {
-        border-bottom: 1px solid lighten($info, 20%);
+        border-color: lighten($info, 20%);
+      }
+    }
+
+    .sk-step-before-error & {
+      &:after {
+        border-color: lighten($danger, 20%);
       }
     }
 
@@ -95,6 +157,10 @@
 
     .sk-step-process & {
       color: $gray-800;
+    }
+
+    .sk-step-error & {
+      color: lighten($danger, 5%);
     }
   }
 }

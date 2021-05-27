@@ -111,6 +111,7 @@ const Textarea = defineComponent({
           onBlur={onBlur}
           onChange={onChange}
           onKeypress={onKeypress}
+          id={this.id}
           name={this.name}
           disabled={this.disabled}
           readonly={this.readonly}

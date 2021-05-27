@@ -14,6 +14,7 @@ const TextareaProps = {
     default: false,
   },
   block: Boolean,
+  id: String,
   name: String,
   disabled: Boolean,
   readonly: Boolean,

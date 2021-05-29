@@ -19,6 +19,7 @@ const TextareaProps = {
   disabled: Boolean,
   readonly: Boolean,
   autofocus: Boolean,
+  resize: String as PropType<'both' | 'horizontal' | 'vertical' | 'none'>,
   onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
   onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
   onKeydown: Function as PropType<(e: KeyboardEvent) => void>,

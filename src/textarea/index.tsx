@@ -74,6 +74,7 @@ const Textarea = defineComponent({
       outerHeight,
       internalValue,
       block,
+      resize,
       onKeydown,
       onKeyupInside,
       onFocus,
@@ -93,6 +94,9 @@ const Textarea = defineComponent({
       } else if (typeof height === 'string') {
         styleObject = { height };
       }
+    }
+    if (resize) {
+      styleObject = styleObject ? { ...styleObject, resize } : { resize };
     }
 
     return (

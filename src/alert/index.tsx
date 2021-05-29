@@ -18,6 +18,10 @@ const Alert = defineComponent({
       type: String as PropType<AlertType>,
       default: 'info' as AlertType,
     },
+    size: {
+      type: String as PropType<'normal' | 'small'>,
+      default: 'normal',
+    },
     closable: Boolean,
     onClose: Function as PropType<() => any>,
   },
@@ -31,6 +35,7 @@ const Alert = defineComponent({
         `sk-alert-${props.type}`,
         {
           'sk-alert-closable': props.closable,
+          'sk-alert-small': props.size === 'small',
         },
       ];
     });

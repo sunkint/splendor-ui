@@ -4,12 +4,16 @@
 
 <div class="docs-preview-part">
   <sk-alert><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
+  <sk-alert size="small"><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
 </div>
 
 ```vue
 <template>
   <div class="docs-preview-part">
     <sk-alert><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
+    <sk-alert size="small"
+      ><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert
+    >
   </div>
 </template>
 ```
@@ -22,6 +26,9 @@
 <template>
   <div class="docs-preview-part">
     <sk-alert v-if="show" closable @close="show = false">
+      <b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a>
+    </sk-alert>
+    <sk-alert v-if="show2" closable @close="show2 = false" size="small">
       <b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a>
     </sk-alert>
   </div>
@@ -126,10 +133,11 @@ export default {
 
 ### API
 
-| 参数     | 说明       | 类型   | 可选值                                                                          | 默认值  |
-| -------- | ---------- | ------ | ------------------------------------------------------------------------------- | ------- |
-| type     | 样式类型   | string | `primary`、`secondary`、`success`、`info`、`warning`、`danger`、`light`、`dark` | `info`  |
-| closable | 是否可关闭 | string |                                                                                 | `false` |
+| 参数     | 说明       | 类型   | 可选值                                                                          | 默认值   |
+| -------- | ---------- | ------ | ------------------------------------------------------------------------------- | -------- |
+| type     | 样式类型   | string | `primary`、`secondary`、`success`、`info`、`warning`、`danger`、`light`、`dark` | `info`   |
+| size     | 尺寸       | string | `normal`、 `small`                                                              | `normal` |
+| closable | 是否可关闭 | string |                                                                                 | `false`  |
 
 ### 事件
 

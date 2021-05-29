@@ -16,6 +16,7 @@ const DatePicker = defineComponent({
     modelValue: Date as PropType<Date>,
     maxDate: Date as PropType<Date>,
     minDate: Date as PropType<Date>,
+    initViewDate: Date as PropType<Date>,
     disabledDate: {
       type: [Date, Array, Function] as PropType<Date | Date[] | ((date: Date) => boolean)>,
       default: [] as Date[],
@@ -131,7 +132,7 @@ const DatePicker = defineComponent({
           ),
           content: () => (
             <DatePickerPanel
-              initCurrentDate={selectedDate.value}
+              initCurrentDate={selectedDate.value || props.initViewDate}
               minDate={props.minDate}
               maxDate={props.maxDate}
               disabledDate={props.disabledDate}

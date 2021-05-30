@@ -11,9 +11,29 @@
 <template>
   <div class="docs-preview-part">
     <sk-alert><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
-    <sk-alert size="small"
-      ><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert
-    >
+    <sk-alert size="small">
+      <b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a>
+    </sk-alert>
+  </div>
+</template>
+```
+
+### 带图标
+
+<div class="docs-preview-part">
+  <sk-alert icon="ok"><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
+  <sk-alert icon="ok" size="small"><b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a></sk-alert>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-alert icon="ok">
+      <b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a>
+    </sk-alert>
+    <sk-alert icon="ok" size="small">
+      <b>好棒！</b> 你成功阅读了这条重要的信息。<a href="#">查看更多…</a>
+    </sk-alert>
   </div>
 </template>
 ```
@@ -137,6 +157,7 @@ export default {
 | -------- | ---------- | ------ | ------------------------------------------------------------------------------- | -------- |
 | type     | 样式类型   | string | `primary`、`secondary`、`success`、`info`、`warning`、`danger`、`light`、`dark` | `info`   |
 | size     | 尺寸       | string | `normal`、 `small`                                                              | `normal` |
+| icon     | 前置图标   | string | 详见 [Icon](../icon/index#内置图标) 组件的 type                                 | -        |
 | closable | 是否可关闭 | string |                                                                                 | `false`  |
 
 ### 事件

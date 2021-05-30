@@ -22,6 +22,7 @@ const Alert = defineComponent({
       type: String as PropType<'normal' | 'small'>,
       default: 'normal',
     },
+    icon: String,
     closable: Boolean,
     onClose: Function as PropType<() => any>,
   },
@@ -46,7 +47,16 @@ const Alert = defineComponent({
             <Icon type="close" />
           </button>
         ) : null}
-        <div class="sk-alert-content">{slots.default?.()}</div>
+        {props.icon ? (
+          <div class="sk-alert-content-withicon">
+            <div class="sk-alert-icon">
+              <Icon type={props.icon} />
+            </div>
+            <div class="sk-alert-content">{slots.default?.()}</div>
+          </div>
+        ) : (
+          <div class="sk-alert-content">{slots.default?.()}</div>
+        )}
       </div>
     );
   },

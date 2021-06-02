@@ -17,6 +17,10 @@ $size-large: 128px;
   text-align: center;
   overflow: hidden;
 
+  &-inline {
+    display: inline-block;
+  }
+
   &-wrapper-link {
     display: block;
     text-decoration: none;

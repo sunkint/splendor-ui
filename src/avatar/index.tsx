@@ -20,6 +20,10 @@ const Avatar = defineComponent({
       type: Boolean,
       default: false,
     },
+    inline: {
+      type: Boolean,
+      default: false,
+    },
     onError: Function as PropType<() => any>,
     src: String,
     alt: String,
@@ -37,6 +41,7 @@ const Avatar = defineComponent({
           [`sk-avatar-${props.size}`]: typeof props.size === 'string',
           'sk-avatar-square': props.shape === 'square',
           'sk-avatar-bordered': props.bordered,
+          'sk-avatar-inline': props.inline && !props.href,
         },
       ];
     });
@@ -69,7 +74,10 @@ const Avatar = defineComponent({
       if (props.href) {
         return (
           <a
-            class={['sk-avatar-wrapper-link', { 'sk-avatar-square': props.shape === 'square' }]}
+            class={[
+              'sk-avatar-wrapper-link',
+              { 'sk-avatar-square': props.shape === 'square', 'sk-avatar-inline': props.inline },
+            ]}
             href={props.href}
             target="_blank"
             rel="noopener noreferrer"

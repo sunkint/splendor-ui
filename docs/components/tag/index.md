@@ -92,6 +92,9 @@ export default {
 | round    | 是否圆角           | bool   |                                                                                 | `false`   |
 | closable | 是否可关闭         | bool   |                                                                                 | `false`   |
 | ghost    | 边框有颜色、无底色 | bool   |                                                                                 | `false`   |
+| thin     | 是否采用非粗体字重 | bool   |                                                                                 | `false`   |
+| color    | 快速设置文字颜色   | string |                                                                                 | -         |
+| bgColor  | 快速设置背景颜色   | string |                                                                                 | -         |
 
 ### 事件
 

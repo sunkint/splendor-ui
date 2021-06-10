@@ -105,6 +105,7 @@
     opacity: 0.5;
     text-decoration: none;
     cursor: pointer;
+    transition: opacity 0.1s;
 
     &:hover {
       opacity: 0.8;
@@ -124,6 +125,12 @@
     &.sk-control-right {
       right: 0;
       background: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
+    }
+  }
+
+  &:not(:hover) {
+    .sk-swiper-control {
+      opacity: 0;
     }
   }
 }

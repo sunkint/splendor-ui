@@ -8,6 +8,7 @@
   padding: 12px 20px;
   margin-bottom: 16px;
   font-size: 15px;
+  line-height: 24px;
 
   &-closable {
     padding-right: 64px;
@@ -26,22 +27,50 @@
     text-decoration: none;
     color: inherit;
     opacity: 0.4;
+
+    .sk-alert-small & {
+      font-size: 14px;
+    }
   }
 
   &-content {
+    flex: auto;
+
     a {
       color: inherit;
       text-decoration: underline;
       font-weight: 700;
     }
+
+    &-withicon {
+      display: flex;
+    }
+  }
+
+  &-icon {
+    flex: none;
+    margin-right: 6px;
+  }
+
+  &-small {
+    font-size: 14px;
+    padding: 8px 14px;
+    line-height: 22px;
   }
 
   &-warning {
-    background-color: $warning;
+    background-color: lighten($warning, 32%);
+    color: darken($warning, 32%);
   }
 
   &-info {
-    background-color: $info;
+    background-color: lighten($info, 32%);
+    color: darken($info, 32%);
+  }
+
+  &-danger {
+    background-color: lighten($danger, 32%);
+    color: darken($danger, 32%);
   }
 
   &-primary {
@@ -50,10 +79,6 @@
 
   &-success {
     background-color: $success;
-  }
-
-  &-danger {
-    background-color: $danger;
   }
 
   &-secondary {

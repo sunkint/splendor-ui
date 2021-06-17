@@ -115,6 +115,7 @@
 | size     | 头像大小                          | number、string | `small`、`default`、`large`、数字（最小 20） | `default` |
 | shape    | 头像形状                          | string         | `circle`、`square`                           | `circle`  |
 | bordered | 是否有边框                        | bool           |                                              | `false`   |
+| inline   | 是否行内块                        | bool           |                                              | `false`   |
 | src      | 图片路径                          | string         |                                              | -         |
 | icon     | 图标类型，和 `src` 需要二选一赋值 | string         |                                              | -         |
 | href     | 头像点击时打开的链接              | string         |                                              | -         |

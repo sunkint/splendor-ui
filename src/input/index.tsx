@@ -31,8 +31,14 @@ const Input = defineComponent({
     min: Number,
     disabled: Boolean,
     readonly: Boolean,
+    autocomplete: String,
     autofocus: Boolean,
+    pattern: String,
+    id: String,
     name: String,
+    step: Number,
+    multiple: Boolean,
+    accept: String,
     placeholder: String,
     modelValue: String,
     onFocus: Function as PropType<(e: FocusEvent) => void>,
@@ -82,11 +88,17 @@ const Input = defineComponent({
           placeholder={props.placeholder}
           disabled={props.disabled}
           readonly={props.readonly}
+          id={props.id}
           name={props.name}
+          step={props.step}
+          pattern={props.pattern}
+          autocomplete={props.autocomplete}
           autofocus={props.autofocus}
+          multiple={props.multiple}
           value={value.value}
           min={props.min}
           max={props.max}
+          accept={props.accept}
           onInput={onInput}
           onFocus={props.onFocus}
           onBlur={props.onBlur}

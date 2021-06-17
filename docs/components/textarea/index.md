@@ -86,18 +86,19 @@
 
 ### API
 
-| 参数        | 说明                                            | 类型           | 可选值 | 默认值  |
-| ----------- | ----------------------------------------------- | -------------- | ------ | ------- |
-| maxlength   | 最多输入字符数                                  | number         |        | -       |
-| placeholder | 占位提示文字                                    | string         |        | -       |
-| hasError    | 是否错误样式                                    | bool           |        | `false` |
-| block       | 是否占满宽度                                    | bool           |        | `false` |
-| name        | html name                                       | string         |        | -       |
-| height      | 文本框高度，仅在 `autoHeight` 为 `false` 时生效 | string、number |        | -       |
-| autoHeight  | 是否自动根据内容调节高度                        | bool           |        | `false` |
-| autofocus   | html autofocus                                  | bool           |        | -       |
-| disabled    | 是否禁用                                        | bool           |        | -       |
-| readonly    | 是否只读                                        | bool           |        | -       |
+| 参数        | 说明                                            | 类型           | 可选值                                   | 默认值  |
+| ----------- | ----------------------------------------------- | -------------- | ---------------------------------------- | ------- |
+| maxlength   | 最多输入字符数                                  | number         |                                          | -       |
+| placeholder | 占位提示文字                                    | string         |                                          | -       |
+| hasError    | 是否错误样式                                    | bool           |                                          | `false` |
+| block       | 是否占满宽度                                    | bool           |                                          | `false` |
+| name        | html name                                       | string         |                                          | -       |
+| height      | 文本框高度，仅在 `autoHeight` 为 `false` 时生效 | string、number |                                          | -       |
+| autoHeight  | 是否自动根据内容调节高度                        | bool           |                                          | `false` |
+| autofocus   | html autofocus                                  | bool           |                                          | -       |
+| disabled    | 是否禁用                                        | bool           |                                          | -       |
+| resize      | 控制大小调整性                                  | string         | `both`、`horizontal`、`vertical`、`none` | -       |
+| readonly    | 是否只读                                        | bool           |                                          | -       |
 
 ### 事件
 

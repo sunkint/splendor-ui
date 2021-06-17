@@ -35,6 +35,7 @@ import InfiniteScroll from './infinite-scroll';
 import Mention from './mention';
 import Preview from './preview';
 import DatePicker from './date-picker';
+import { Steps, Step } from './steps';
 
 const components: any[] = [
   Button,
@@ -74,6 +75,8 @@ const components: any[] = [
   InfiniteScroll,
   Mention,
   DatePicker,
+  Steps,
+  Step,
 ];
 
 const install = (app: App<Element>) => {
@@ -132,4 +135,6 @@ export {
   Mention,
   Preview,
   DatePicker,
+  Steps,
+  Step,
 };

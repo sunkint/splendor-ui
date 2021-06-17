@@ -74,6 +74,7 @@ const Textarea = defineComponent({
       outerHeight,
       internalValue,
       block,
+      resize,
       onKeydown,
       onKeyupInside,
       onFocus,
@@ -94,6 +95,9 @@ const Textarea = defineComponent({
         styleObject = { height };
       }
     }
+    if (resize) {
+      styleObject = styleObject ? { ...styleObject, resize } : { resize };
+    }
 
     return (
       <div class={['sk-textarea-wrapper', { 'sk-textarea-block': block }]}>
@@ -111,6 +115,7 @@ const Textarea = defineComponent({
           onBlur={onBlur}
           onChange={onChange}
           onKeypress={onKeypress}
+          id={this.id}
           name={this.name}
           disabled={this.disabled}
           readonly={this.readonly}

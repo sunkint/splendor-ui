@@ -140,6 +140,7 @@ format 参数请参考 [**date-fns** format](https://date-fns.org/v2.17.0/docs/f
 | clearable    | 是否支持清除                                                                             | bool                  |                             | `false`                  |
 | format       | 自定义日期显示格式，详见 [**date-fns** format](https://date-fns.org/v2.17.0/docs/format) | string                |                             | `yyyy-MM-dd`             |
 | startView    | 开始选择的面板类型                                                                       | string                | `day`、`month`、`year`      | `day`                    |
+| initViewDate | 没有选定值时，展开的默认日期                                                             | Date                  |                             | `new Date()`             |
 | minDate      | 最小选择的日期                                                                           | Date                  |                             | -                        |
 | maxDate      | 最大选择的日期                                                                           | Date                  |                             | -                        |
 | weekStartsOn | 一周的开始日，0 代表周日，6 代表周六                                                     | number                | 0 - 6                       | 1                        |

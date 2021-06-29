@@ -20,7 +20,7 @@ import Pagination, { MiniPagination } from './pagination';
 import BackTop from './backtop';
 import Avatar from './avatar';
 import Alert from './alert';
-import Dialog from './dialog';
+import Dialog, { openDialog, closeDialog } from './dialog';
 import SweetAlert from './sweetalert';
 import FloatLayer from './float-layer';
 import Popover from './popover';
@@ -119,6 +119,8 @@ export {
   Avatar,
   Alert,
   Dialog,
+  openDialog,
+  closeDialog,
   SweetAlert,
   FloatLayer,
   Popover,

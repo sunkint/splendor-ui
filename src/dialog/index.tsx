@@ -206,4 +206,5 @@ const Dialog = defineComponent({
   },
 });
 
+export * from './utils';
 export default Dialog;

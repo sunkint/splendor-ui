@@ -39,6 +39,7 @@ import AlertClosable from './components/alert/closable.vue';
 import DialogBasic from './components/dialog/basic.vue';
 import DialogNesting from './components/dialog/nesting.vue';
 import DialogFooter from './components/dialog/footer.vue';
+import DialogCommand from './components/dialog/command.vue';
 import SweetAlertBasic from './components/sweetalert/basic.vue';
 import SweetAlertConfirm from './components/sweetalert/confirm.vue';
 import SweetAlertLoading from './components/sweetalert/loading.vue';
@@ -112,6 +113,7 @@ export default function (app) {
   app.component('DialogBasic', DialogBasic);
   app.component('DialogNesting', DialogNesting);
   app.component('DialogFooter', DialogFooter);
+  app.component('DialogCommand', DialogCommand);
   app.component('SweetAlertBasic', SweetAlertBasic);
   app.component('SweetAlertConfirm', SweetAlertConfirm);
   app.component('SweetAlertLoading', SweetAlertLoading);

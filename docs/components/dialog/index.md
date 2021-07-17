@@ -27,6 +27,8 @@ export default {
 
 ### 命令式调用
 
+可以使用 `openDialog` 命令式调起对话框，该命令返回一个 dialogID，可使用 `closeDialog` 命令传入 dialogID 关闭该对话框。
+
 <DialogCommand />
 
 ```vue

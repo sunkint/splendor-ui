@@ -84,7 +84,7 @@ export const openDialog = (params: DialogOpenParams = {}) => {
         );
       },
       mounted() {
-        dialogIdMap.set(this.dialogId, dialogApp);
+        dialogIdMap.set(this.dialogId, this);
       },
       beforeUnmount() {
         dialogIdMap.delete(this.dialogId);

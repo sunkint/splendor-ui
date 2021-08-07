@@ -9,7 +9,7 @@ const Loading = defineComponent({
       default: false,
     },
     color: String,
-    maskClassName: null,
+    maskClass: null,
     tip: String,
   },
   setup(props, { slots }) {
@@ -21,7 +21,7 @@ const Loading = defineComponent({
         <div class="sk-loading-wrapper">
           {slots.default?.()}
           {props.show && (
-            <div class={['sk-loading', props.maskClassName]}>
+            <div class={['sk-loading', props.maskClass]}>
               <span class="sk-loading-inner" style={colorStyle}>
                 <svg viewBox="25 25 50 50">
                   <circle cx="50" cy="50" r="20" fill="none" />

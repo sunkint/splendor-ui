@@ -81,6 +81,9 @@ const Textarea = defineComponent({
       onBlur,
       onChange,
       onKeypress,
+      onCompositionstart,
+      onCompositionend,
+      onCompositionupdate,
     } = this;
 
     const value = modelValue === undefined ? internalValue : modelValue;
@@ -115,6 +118,9 @@ const Textarea = defineComponent({
           onBlur={onBlur}
           onChange={onChange}
           onKeypress={onKeypress}
+          onCompositionstart={onCompositionstart}
+          onCompositionend={onCompositionend}
+          onCompositionupdate={onCompositionupdate}
           id={this.id}
           name={this.name}
           disabled={this.disabled}

@@ -1,4 +1,4 @@
-import { defineComponent, computed } from 'vue';
+import { defineComponent } from 'vue';
 import './index.scss';
 
 const Loading = defineComponent({
@@ -9,27 +9,29 @@ const Loading = defineComponent({
       default: false,
     },
     color: String,
+    maskClass: null,
+    tip: String,
   },
   setup(props, { slots }) {
-    const show = computed(() => props.show);
-    const colorStyle = computed(() => {
-      if (props.color) {
-        return { color: props.color };
-      } else {
-        return {};
-      }
-    });
     return () => {
+      const hasTip = !!(slots.tip || props.tip);
+      const colorStyle = props.color ? { color: props.color } : {};
+
       return (
         <div class="sk-loading-wrapper">
           {slots.default?.()}
-          {show.value && (
-            <div class="sk-loading">
-              <span class="sk-loading-inner" style={colorStyle.value}>
+          {props.show && (
+            <div class={['sk-loading', props.maskClass]}>
+              <span class="sk-loading-inner" style={colorStyle}>
                 <svg viewBox="25 25 50 50">
                   <circle cx="50" cy="50" r="20" fill="none" />
                 </svg>
               </span>
+              {hasTip && (
+                <div class="sk-loading-tip" style={colorStyle}>
+                  {slots.tip ? slots.tip() : props.tip}
+                </div>
+              )}
             </div>
           )}
         </div>

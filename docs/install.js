@@ -1,4 +1,5 @@
 import ClientOnly from './common/client-only/index.vue';
+import Lorem from './common/lorem.vue';
 
 import ButtonPart from './preview/ButtonPart.vue';
 import InputPart from './preview/InputPart.vue';
@@ -75,6 +76,7 @@ import StepsIcon from './components/steps/icon.vue';
 import StepsVertical from './components/steps/vertical.vue';
 
 export default function (app) {
+  app.component(Lorem.name, Lorem);
   app.component(ClientOnly.name, ClientOnly);
   app.component(ButtonPart.name, ButtonPart);
   app.component(InputPart.name, InputPart);

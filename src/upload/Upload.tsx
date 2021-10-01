@@ -81,6 +81,7 @@ const Upload = defineComponent({
 
     const onRemoveFile = (i: number) => {
       state.fileList.splice(i, 1);
+      props.onChange?.(state.fileList);
     };
 
     return () => (

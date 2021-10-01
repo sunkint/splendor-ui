@@ -36,6 +36,7 @@ import Mention from './mention';
 import Preview from './preview';
 import DatePicker from './date-picker';
 import { Steps, Step } from './steps';
+import { Upload } from './upload';
 
 const components: any[] = [
   Button,
@@ -77,6 +78,7 @@ const components: any[] = [
   DatePicker,
   Steps,
   Step,
+  Upload,
 ];
 
 const install = (app: App<Element>) => {
@@ -139,4 +141,5 @@ export {
   DatePicker,
   Steps,
   Step,
+  Upload,
 };

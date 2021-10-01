@@ -68,6 +68,7 @@ module.exports = {
           'Select',
           'Mention',
           'DatePicker',
+          'Upload',
         ].map(buildNavChildren),
       },
     ],

@@ -74,6 +74,8 @@ import StepsBasic from './components/steps/basic.vue';
 import StepsError from './components/steps/error.vue';
 import StepsIcon from './components/steps/icon.vue';
 import StepsVertical from './components/steps/vertical.vue';
+import UploadBasic from './components/upload/basic.vue';
+import UploadMultiple from './components/upload/multiple.vue';
 
 export default function (app) {
   app.component(Lorem.name, Lorem);
@@ -149,4 +151,6 @@ export default function (app) {
   app.component('StepsError', StepsError);
   app.component('StepsIcon', StepsIcon);
   app.component('StepsVertical', StepsVertical);
+  app.component('UploadBasic', UploadBasic);
+  app.component('UploadMultiple', UploadMultiple);
 }

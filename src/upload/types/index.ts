@@ -17,4 +17,7 @@ export type UploadFileItem = {
   status?: UploadStatus;
 } & Record<string, any>;
 
-export type UploadHandler<T = any> = (file: File, report: (percent: number) => void) => Promise<T>;
+export type UploadHandler<T = any> = (
+  fileItem: Omit<UploadFileItem, 'file'> & { file: File },
+  report: (percent: number) => void
+) => Promise<T>;

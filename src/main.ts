@@ -37,6 +37,7 @@ import Preview from './preview';
 import DatePicker from './date-picker';
 import { Steps, Step } from './steps';
 import { Upload } from './upload';
+import { UploadStatus } from './upload/types';
 
 const components: any[] = [
   Button,
@@ -142,4 +143,5 @@ export {
   Steps,
   Step,
   Upload,
+  UploadStatus,
 };

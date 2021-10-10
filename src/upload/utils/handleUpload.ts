@@ -5,7 +5,7 @@ export function handleUpload(item: UploadFileItem, onUpload: UploadHandler) {
     item.percent = percent;
   };
   item.status = UploadStatus.UPLOADING;
-  onUpload(item.file!, report)
+  onUpload(item as Omit<UploadFileItem, 'file'> & { file: File }, report)
     .then(() => {
       item.percent = 100;
       item.status = UploadStatus.SUCCESS;

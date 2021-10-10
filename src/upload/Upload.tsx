@@ -81,6 +81,7 @@ const Upload = defineComponent({
 
     const onRemoveFile = (i: number) => {
       state.fileList.splice(i, 1);
+      props.onChange?.(state.fileList);
     };
 
     return () => (
@@ -93,7 +94,7 @@ const Upload = defineComponent({
           style={{ display: 'none' }}
           onChange={onInputChange}
         />
-        <div class="sk-upload-trigger" onClick={onClickUpload}>
+        <div class={['sk-upload-trigger', props.triggerClassName]} onClick={onClickUpload}>
           {slots.default ? (
             slots.default()
           ) : (

@@ -94,15 +94,17 @@ const Upload = defineComponent({
           style={{ display: 'none' }}
           onChange={onInputChange}
         />
-        <div class={['sk-upload-trigger', props.triggerClassName]} onClick={onClickUpload}>
-          {slots.default ? (
-            slots.default()
-          ) : (
-            <Button type="info" icon="upload" disabled={props.disabled}>
-              上传文件
-            </Button>
-          )}
-        </div>
+        {state.fileList.length < props.limit ? (
+          <div class={['sk-upload-trigger', props.triggerClass]} onClick={onClickUpload}>
+            {slots.default ? (
+              slots.default()
+            ) : (
+              <Button type="info" icon="upload" disabled={props.disabled}>
+                上传文件
+              </Button>
+            )}
+          </div>
+        ) : null}
         {props.showUploadList ? (
           <div class="sk-upload-file-list">
             {state.fileList.map((n, i) => {

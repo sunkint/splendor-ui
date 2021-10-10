@@ -8,7 +8,7 @@ export const uploadProps = {
     type: Function as PropType<UploadHandler>,
     required: true,
   },
-  triggerClassName: null,
+  triggerClass: null,
   onOverMaxSize: Function as PropType<(maxSize: number) => any>,
   onOverLimit: Function as PropType<(limit: number) => any>,
   maxSize: Number,

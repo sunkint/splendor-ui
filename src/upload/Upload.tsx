@@ -1,4 +1,4 @@
-import { defineComponent, reactive, ref, Transition } from 'vue';
+import { defineComponent, reactive, ref, Transition, watchEffect } from 'vue';
 import Button from '../button';
 import Icon from '../icon';
 import Progress, { ProgressType } from '../progress';
@@ -22,6 +22,10 @@ const Upload = defineComponent({
 
     const state = reactive({
       fileList: props.fileList || [],
+    });
+
+    watchEffect(() => {
+      state.fileList = props.fileList || [];
     });
 
     const onInputChange = () => {

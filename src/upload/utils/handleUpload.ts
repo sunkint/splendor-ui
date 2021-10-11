@@ -1,6 +1,10 @@
 import { UploadFileItem, UploadHandler, UploadStatus } from '../types';
 
-export function handleUpload(item: UploadFileItem, onUpload: UploadHandler) {
+export function handleUpload(
+  item: UploadFileItem,
+  onUpload: UploadHandler,
+  onUploadError?: (err: any) => any
+) {
   const report = (percent: number) => {
     item.percent = percent;
   };
@@ -10,7 +14,8 @@ export function handleUpload(item: UploadFileItem, onUpload: UploadHandler) {
       item.percent = 100;
       item.status = UploadStatus.SUCCESS;
     })
-    .catch(() => {
+    .catch((err) => {
+      onUploadError?.(err);
       item.status = UploadStatus.ERROR;
     });
 }

@@ -11,6 +11,7 @@ export const uploadProps = {
   triggerClass: null,
   onOverMaxSize: Function as PropType<(maxSize: number) => any>,
   onOverLimit: Function as PropType<(limit: number) => any>,
+  onUploadError: Function as PropType<(err: any) => any>,
   maxSize: Number,
   accept: String,
   disabled: Boolean,

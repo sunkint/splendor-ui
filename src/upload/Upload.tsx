@@ -45,6 +45,7 @@ const Upload = defineComponent({
         const upload = () => {
           state.fileList.push({
             file,
+            type: file.type,
             size: file.size,
             name: file.name,
             status: UploadStatus.BEFORE_UPLOAD,
@@ -56,7 +57,11 @@ const Upload = defineComponent({
           } catch (err) {
             console.error(err);
           }
-          handleUpload(state.fileList[state.fileList.length - 1], props.onUpload!);
+          handleUpload(
+            state.fileList[state.fileList.length - 1],
+            props.onUpload!,
+            props.onUploadError
+          );
         };
 
         if (props.beforeUpload) {

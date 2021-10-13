@@ -1,0 +1,58 @@
+@import '../style/var.scss';
+
+.sk-upload {
+  &-trigger {
+    display: inline-block;
+  }
+
+  &-file-list {
+    margin-top: 8px;
+    max-width: 260px;
+
+    .sk-file-item {
+      font-size: 14px;
+      line-height: 24px;
+      color: $primary;
+      margin-bottom: 4px;
+
+      &.sk-status-error {
+        color: $danger;
+      }
+
+      &-inner {
+        display: flex;
+
+        .sk-file-icon {
+          flex: none;
+          margin-right: 4px;
+        }
+
+        .sk-name {
+          width: 0;
+          flex: auto;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .sk-remove,
+        .sk-retry {
+          flex: none;
+          padding: 0 4px;
+          cursor: pointer;
+          color: darken($cyan, 20%);
+        }
+      }
+
+      .sk-upload-progress {
+        transition: opacity 0.3s;
+        margin-top: 2px;
+
+        &.fade-enter-from,
+        &.fade-leave-to {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

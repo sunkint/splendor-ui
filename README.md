@@ -78,6 +78,7 @@ make build
 - [x] Preview
 - [x] DatePicker
 - [x] Steps
+- [x] Upload
 
 ## 作者
 

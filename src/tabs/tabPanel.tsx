@@ -50,7 +50,7 @@ const TabPanel = defineComponent({
 
     const collect = () => {
       tabsCollect({
-        title: slots.title ? slots.title() : props.title,
+        title: slots.title || (() => props.title),
         id: props.id,
         disabled: props.disabled,
       });

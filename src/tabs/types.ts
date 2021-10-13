@@ -1,6 +1,6 @@
 export type TabIdType = number | string | symbol;
 export interface TabsType {
-  title: any;
+  title: () => any;
   id: TabIdType;
   disabled?: boolean;
 }

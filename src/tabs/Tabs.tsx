@@ -108,7 +108,7 @@ const Tabs = defineComponent({
                 }
               }}
             >
-              {item.title}
+              {item.title()}
               {props.closable && !item.disabled ? (
                 <span
                   class="sk-tabs__del"

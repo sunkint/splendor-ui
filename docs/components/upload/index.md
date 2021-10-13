@@ -100,6 +100,7 @@ export default {
 | -------------- | ------------------------------------------------------------------------- | ------------------------ | -------------- | ---------- | ---- |
 | fileList       | 默认展示的文件列表                                                        | `UploadFileItem[]`       |                | `[]`       |
 | beforeUpload   | 文件上传前的预处理函数，若返回 false 或 reject 的 Promise，则不上传该文件 | `(file: File) => boolean | Promise<void>` |            | `[]` |
+| triggerClass   | 触发元素包裹层的自定义类名                                                | string、array、object    |                | -          |
 | maxSize        | 图片大小限制，单位为 byte                                                 | number                   |                | `Infinity` |
 | accept         | 可选文件类型，与 input accept 一致                                        | string                   |                | -          |
 | multiple       | 是否支持文件多选                                                          | bool                     |                | false      |
@@ -111,18 +112,19 @@ export default {
 
 #### Upload
 
-| 事件        | 说明                 | 参数类型                           |
-| ----------- | -------------------- | ---------------------------------- |
-| upload      | 上传文件处理函数     | `UploadHandler`                    |
-| change      | 选择文件变化处理函数 | `(files: UploadFileItem[]) => any` |
-| overMaxSzie | 文件大小超限处理函数 | `(maxSize: number) => any`         |
-| overLimit   | 文件数量超限处理函数 | `(limit: number) => any`           |
+| 事件        | 说明                     | 参数类型                           |
+| ----------- | ------------------------ | ---------------------------------- |
+| upload      | 上传文件处理函数         | `UploadHandler`                    |
+| change      | 选择文件变化处理函数     | `(files: UploadFileItem[]) => any` |
+| overMaxSize | 文件大小超限处理函数     | `(maxSize: number) => any`         |
+| overLimit   | 文件数量超限处理函数     | `(limit: number) => any`           |
+| uploadError | 文件上传出错时的回调函数 | `(err: any) => any`                |
 
 > #### UploadHandler <sk-tag ghost>type</sk-tag>
 >
 > ```ts
 > export type UploadHandler<T = any> = (
->   file: File,
+>   fileItem: Omit<UploadFileItem, 'file'> & { file: File },
 >   report: (percent: number) => void
 > ) => Promise<T>;
 > ```

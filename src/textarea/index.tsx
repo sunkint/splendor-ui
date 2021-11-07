@@ -28,6 +28,9 @@ const Textarea = defineComponent({
       }
     },
   },
+  inject: {
+    hasErrorContext: Symbol.for('hasError'),
+  },
   methods: {
     onInputInside(e: InputEvent) {
       this.$emit('input', e);
@@ -47,6 +50,10 @@ const Textarea = defineComponent({
       this.outerWidth = textarea.getBoundingClientRect().width;
       this.outerHeight = cmp.getBoundingClientRect().height;
     },
+    onTriggerValidate(e: FocusEvent) {
+      this.onBlur?.(e);
+      this.onValidate?.(this.internalValue);
+    },
   },
   computed: {
     autoHeightComputedValue() {
@@ -63,6 +70,7 @@ const Textarea = defineComponent({
   render() {
     const {
       hasError,
+      hasErrorContext,
       height,
       autoHeight,
       maxlength,
@@ -78,7 +86,7 @@ const Textarea = defineComponent({
       onKeydown,
       onKeyupInside,
       onFocus,
-      onBlur,
+      onTriggerValidate,
       onChange,
       onKeypress,
       onCompositionstart,
@@ -107,7 +115,10 @@ const Textarea = defineComponent({
         <textarea
           ref="textarea"
           style={styleObject}
-          class={['sk-textarea', { 'has-error': hasError, 'auto-height': autoHeight }]}
+          class={[
+            'sk-textarea',
+            { 'has-error': hasError || hasErrorContext?.value, 'auto-height': autoHeight },
+          ]}
           maxlength={maxlength}
           placeholder={placeholder}
           value={value}
@@ -115,7 +126,7 @@ const Textarea = defineComponent({
           onKeydown={onKeydown}
           onKeyup={onKeyupInside}
           onFocus={onFocus}
-          onBlur={onBlur}
+          onBlur={onTriggerValidate}
           onChange={onChange}
           onKeypress={onKeypress}
           onCompositionstart={onCompositionstart}

@@ -8,7 +8,7 @@ export interface ITableColumnItem<T = any> {
   width?: number | string;
   align?: 'left' | 'center' | 'right';
   defaultContent?: any;
-  render?: (item: T) => any;
+  render?: (item: T, pos: { row: number; column: number }, name?: string) => any;
 }
 
 const Table = defineComponent({
@@ -135,15 +135,19 @@ const Table = defineComponent({
                 {colgroup}
                 {props.height ? null : thead}
                 <tbody class="sk-table-tbody">
-                  {props.data.map((dataItem, dateIndex) => {
+                  {props.data.map((dataItem, dataIndex) => {
                     return (
-                      <tr key={props.rowKey ? dataItem[props.rowKey] : dateIndex}>
+                      <tr key={props.rowKey ? dataItem[props.rowKey] : dataIndex}>
                         {props.columns.map((columnItem, columnIndex) => {
                           return (
                             <td key={columnIndex} style={getCellStyle(columnItem)}>
                               {columnItem.render
-                                ? columnItem.render(dataItem)
-                                : dataItem[columnItem.name ?? columnItem.defaultContent ?? '']}
+                                ? columnItem.render(
+                                    dataItem,
+                                    { row: dataIndex, column: columnIndex },
+                                    columnItem.name
+                                  )
+                                : dataItem[columnItem.name ?? ''] ?? columnItem.defaultContent}
                             </td>
                           );
                         })}

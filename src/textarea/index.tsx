@@ -1,4 +1,4 @@
-import { defineComponent, nextTick } from 'vue';
+import { defineComponent, nextTick, ref } from 'vue';
 import TextareaProps from './props';
 import './index.scss';
 
@@ -29,7 +29,10 @@ const Textarea = defineComponent({
     },
   },
   inject: {
-    hasErrorContext: Symbol.for('hasError'),
+    hasErrorContext: {
+      from: Symbol.for('hasError'),
+      default: ref(false),
+    },
   },
   methods: {
     onInputInside(e: InputEvent) {
@@ -117,7 +120,7 @@ const Textarea = defineComponent({
           style={styleObject}
           class={[
             'sk-textarea',
-            { 'has-error': hasError || hasErrorContext?.value, 'auto-height': autoHeight },
+            { 'has-error': hasError || hasErrorContext.value, 'auto-height': autoHeight },
           ]}
           maxlength={maxlength}
           placeholder={placeholder}

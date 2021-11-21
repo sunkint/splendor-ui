@@ -85,7 +85,7 @@ const Input = defineComponent({
       props.onValidate?.(value.value || '');
     };
 
-    const hasErrorContext = inject<Ref<boolean>>(Symbol.for('hasError'));
+    const hasErrorContext = inject<Ref<boolean>>(Symbol.for('hasError'), ref(false));
 
     return () => {
       const input = (
@@ -126,7 +126,7 @@ const Input = defineComponent({
               'sk-input-block': props.block,
               'sk-input-large': props.size === 'large',
               'sk-input-small': props.size === 'small',
-              'has-error': props.hasError || hasErrorContext?.value,
+              'has-error': props.hasError || hasErrorContext.value,
               'has-icon': !!props.icon,
             },
           ]}

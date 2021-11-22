@@ -61,13 +61,16 @@ export default {
 
 #### Checkbox
 
-| 参数     | 说明           | 类型   | 可选值 | 默认值  |
-| -------- | -------------- | ------ | ------ | ------- |
-| id       | html id        | string |        | -       |
-| name     | html name      | string |        | -       |
-| value    | 复选框对应的值 | string |        | `on`    |
-| disabled | 是否禁用       | bool   |        | `false` |
+| 参数     | 说明                 | 类型                 | 可选值 | 默认值  |
+| -------- | -------------------- | -------------------- | ------ | ------- |
+| id       | html id              | string               |        | -       |
+| name     | html name            | string               |        | -       |
+| value    | 复选框对应的值       | string               |        | `on`    |
+| onChange | 复选框变化时回调函数 | `(e: Event) => void` |        | -       |
+| disabled | 是否禁用             | bool                 |        | `false` |
 
 #### CheckboxGroup
 
-_暂无特别参数_
+| 参数     | 说明                 | 类型                                   | 可选值 | 默认值 |
+| -------- | -------------------- | -------------------------------------- | ------ | ------ |
+| onChange | 复选框变化时回调函数 | `(checkedValueList: string[]) => void` |        | -      |

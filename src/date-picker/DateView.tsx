@@ -44,7 +44,7 @@ const DateView = defineComponent({
     },
     disabledDate: {
       type: [Date, Array, Function] as PropType<Date | Date[] | ((date: Date) => boolean)>,
-      default: [] as Date[],
+      default: () => [] as Date[],
     },
     maxDate: Date as PropType<Date>,
     minDate: Date as PropType<Date>,

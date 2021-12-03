@@ -42,7 +42,7 @@ const Dropdown = defineComponent({
     },
     selectedKeys: {
       type: Array as PropType<any[]>,
-      default: [] as any[],
+      default: () => [] as any[],
     },
     type: {
       type: String as PropType<ButtonType>,

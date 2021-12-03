@@ -19,7 +19,7 @@ const DatePickerPanel = defineComponent({
     minDate: Date as PropType<Date>,
     disabledDate: {
       type: [Date, Array, Function] as PropType<Date | Date[] | ((date: Date) => boolean)>,
-      default: [] as Date[],
+      default: () => [] as Date[],
     },
     startView: {
       type: String as PropType<DatePickerView>,

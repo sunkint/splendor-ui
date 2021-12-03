@@ -53,7 +53,7 @@ const CheckboxGroup = defineComponent({
   props: {
     modelValue: {
       type: Array as PropType<string[]>,
-      default: [],
+      default: () => [],
     },
     onChange: Function as PropType<(checkedValueList: string[]) => void>,
   },

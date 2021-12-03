@@ -27,7 +27,7 @@ const Table = defineComponent({
     },
     data: {
       type: Array as PropType<any[]>,
-      default: [],
+      default: () => [],
     },
     emptyText: {
       type: String,

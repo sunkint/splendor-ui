@@ -314,7 +314,7 @@ const Swiper = defineComponent({
           {slots.default?.()}
         </ul>
         {props.showIndicator ? <ul class="sk-swiper-indicators">{rendleIndicator()}</ul> : null}
-        {props.showControl && state.swiperItems.length > 0 ? (
+        {props.showControl && state.swiperItems.length > 1 ? (
           <>
             <a
               class="sk-swiper-control sk-control-left"

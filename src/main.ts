@@ -38,6 +38,7 @@ import DatePicker from './date-picker';
 import { Steps, Step } from './steps';
 import { Upload } from './upload';
 import { UploadStatus } from './upload/types';
+import Slider from './slider';
 
 const components: any[] = [
   Button,
@@ -80,6 +81,7 @@ const components: any[] = [
   Steps,
   Step,
   Upload,
+  Slider,
 ];
 
 const install = (app: App<Element>) => {
@@ -144,4 +146,5 @@ export {
   Step,
   Upload,
   UploadStatus,
+  Slider,
 };

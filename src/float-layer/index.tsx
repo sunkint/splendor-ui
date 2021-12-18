@@ -44,6 +44,7 @@ const FloatLayer = defineComponent({
       type: String as PropType<LayerTriggerType>,
       default: 'hover' as LayerTriggerType,
     },
+    open: Boolean,
     cushion: {
       type: Number,
       default: 0,
@@ -91,6 +92,18 @@ const FloatLayer = defineComponent({
       zIndex: props.trigger === 'hover' ? 2051 : 2050,
       isFixed: false,
     });
+
+    watch(
+      () => props.open,
+      (open) => {
+        if (props.trigger === 'none') {
+          layerState.open = !!open;
+          nextTick(() => {
+            refreshLayerPosition();
+          });
+        }
+      }
+    );
 
     watch(
       () => layerState.open,

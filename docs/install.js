@@ -76,6 +76,9 @@ import StepsIcon from './components/steps/icon.vue';
 import StepsVertical from './components/steps/vertical.vue';
 import UploadBasic from './components/upload/basic.vue';
 import UploadMultiple from './components/upload/multiple.vue';
+import SliderBasic from './components/slider/basic.vue';
+import SliderMinmax from './components/slider/minmax.vue';
+import SliderStep from './components/slider/step.vue';
 
 export default function (app) {
   app.component(Lorem.name, Lorem);
@@ -153,4 +156,7 @@ export default function (app) {
   app.component('StepsVertical', StepsVertical);
   app.component('UploadBasic', UploadBasic);
   app.component('UploadMultiple', UploadMultiple);
+  app.component('SliderBasic', SliderBasic);
+  app.component('SliderMinmax', SliderMinmax);
+  app.component('SliderStep', SliderStep);
 }

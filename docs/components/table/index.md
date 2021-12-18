@@ -423,6 +423,6 @@ export default {
 >   // 默认文本
 >   defaultContent?: any;
 >   // 自定义渲染
->   render?: (item: T) => any;
+>   render?: (item: T, pos: { row: number; column: number }, name?: string) => any;
 > }
 > ```

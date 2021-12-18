@@ -1,4 +1,4 @@
-import { defineComponent, PropType, InputHTMLAttributes, ref, watch } from 'vue';
+import { defineComponent, PropType, InputHTMLAttributes, ref, watch, inject, Ref } from 'vue';
 import Icon from '../icon';
 import './index.scss';
 
@@ -43,6 +43,7 @@ const Input = defineComponent({
     modelValue: String,
     onFocus: Function as PropType<(e: FocusEvent) => void>,
     onBlur: Function as PropType<(e: FocusEvent) => void>,
+    onValidate: Function as PropType<(value: string) => any>,
     onPressEnter: Function as PropType<(e: KeyboardEvent) => void>,
     onPressCtrlEnter: Function as PropType<(e: KeyboardEvent) => void>,
     onKeypress: Function as PropType<(e: KeyboardEvent) => void>,
@@ -79,6 +80,13 @@ const Input = defineComponent({
       }
     };
 
+    const onBlur = (e: FocusEvent) => {
+      props.onBlur?.(e);
+      props.onValidate?.(value.value || '');
+    };
+
+    const hasErrorContext = inject<Ref<boolean>>(Symbol.for('hasError'), ref(false));
+
     return () => {
       const input = (
         <input
@@ -101,7 +109,7 @@ const Input = defineComponent({
           accept={props.accept}
           onInput={onInput}
           onFocus={props.onFocus}
-          onBlur={props.onBlur}
+          onBlur={onBlur}
           onKeyup={onKeyup}
           onKeypress={props.onKeypress}
           onKeydown={props.onKeydown}
@@ -118,7 +126,7 @@ const Input = defineComponent({
               'sk-input-block': props.block,
               'sk-input-large': props.size === 'large',
               'sk-input-small': props.size === 'small',
-              'has-error': props.hasError,
+              'has-error': props.hasError || hasErrorContext.value,
               'has-icon': !!props.icon,
             },
           ]}

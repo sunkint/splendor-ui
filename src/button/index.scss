@@ -15,6 +15,7 @@
   cursor: pointer;
   color: $white;
   text-align: center;
+  min-width: 62px;
   font-size: 14px;
   line-height: 24px;
   padding: 6px 12px;
@@ -84,6 +85,7 @@
     font-size: 12px;
     line-height: 18px;
     padding: 4px 8px;
+    min-width: auto;
 
     &.sk-btn-round {
       border-radius: 13px;
@@ -94,6 +96,7 @@
     font-size: 20px;
     line-height: 28px;
     padding: 10px 18px;
+    min-width: auto;
 
     &.sk-btn-round {
       border-radius: 24px;

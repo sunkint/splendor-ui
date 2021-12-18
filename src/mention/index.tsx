@@ -19,7 +19,7 @@ const Mention = defineComponent({
     },
     data: {
       type: Array as PropType<MentionDataItem[] | string[]>,
-      default: [],
+      default: () => [],
     },
     async: {
       type: Boolean,

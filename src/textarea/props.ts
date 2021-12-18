@@ -29,6 +29,7 @@ const TextareaProps = {
   onKeyup: Function as PropType<(e: KeyboardEvent) => void>,
   onFocus: Function as PropType<(e: FocusEvent) => void>,
   onBlur: Function as PropType<(e: FocusEvent) => void>,
+  onValidate: Function as PropType<(value: string) => any>,
   onChange: Function as PropType<(e: Event) => void>,
   onInput: Function as PropType<(e: Event) => void>,
 };

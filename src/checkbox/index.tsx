@@ -12,11 +12,13 @@ const Checkbox = defineComponent({
     },
     disabled: Boolean,
     modelValue: Boolean,
+    onChange: Function as PropType<(e: Event) => void>,
   },
   setup(props, { slots, emit }) {
     const onChange = (e: Event) => {
       const checked = (e.target as HTMLInputElement).checked;
       emit('update:modelValue', checked);
+      props.onChange?.(e);
     };
     return () => (
       <div class="sk-checkbox">
@@ -51,8 +53,9 @@ const CheckboxGroup = defineComponent({
   props: {
     modelValue: {
       type: Array as PropType<string[]>,
-      default: [],
+      default: () => [],
     },
+    onChange: Function as PropType<(checkedValueList: string[]) => void>,
   },
   setup(props, { slots, emit }) {
     const group = ref<HTMLElement | null>(null);
@@ -79,12 +82,13 @@ const CheckboxGroup = defineComponent({
         const value = target.value;
         const checked = target.checked;
         if (checked) {
-          emit('update:modelValue', [...props.modelValue, value]);
+          const t = [...props.modelValue, value];
+          emit('update:modelValue', t);
+          props.onChange?.(t);
         } else {
-          emit(
-            'update:modelValue',
-            props.modelValue.filter((n) => n !== value)
-          );
+          const t = props.modelValue.filter((n) => n !== value);
+          emit('update:modelValue', t);
+          props.onChange?.(t);
         }
       }
     };

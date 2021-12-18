@@ -66,6 +66,7 @@ module.exports = {
           'Checkbox',
           'Switch',
           'Select',
+          'Slider',
           'Mention',
           'DatePicker',
           'Upload',

@@ -99,13 +99,14 @@ export default {
 
 ### API
 
-| 参数     | 说明      | 类型   | 可选值 | 默认值  |
-| -------- | --------- | ------ | ------ | ------- |
-| step     | 步长      | number |        | `1`     |
-| min      | 最小值    | number |        | `0`     |
-| max      | 最大值    | number |        | `100`   |
-| disabled | 是否禁用  | bool   |        | `false` |
-| name     | html name | string |        | -       |
+| 参数     | 说明                             | 类型   | 可选值 | 默认值  |
+| -------- | -------------------------------- | ------ | ------ | ------- |
+| step     | 步长                             | number |        | `1`     |
+| min      | 最小值                           | number |        | `0`     |
+| max      | 最大值                           | number |        | `100`   |
+| shopTip  | 鼠标移到滑块上时，是否提示当前值 | bool   |        | `true`  |
+| disabled | 是否禁用                         | bool   |        | `false` |
+| name     | html name                        | string |        | -       |
 
 ### 事件
 

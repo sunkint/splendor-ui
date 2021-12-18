@@ -26,6 +26,10 @@ const Slider = defineComponent({
       type: Boolean,
       default: false,
     },
+    showTip: {
+      type: Boolean,
+      default: true,
+    },
     onChange: {
       type: Function as PropType<(value: number) => any>,
     },
@@ -171,24 +175,28 @@ const Slider = defineComponent({
             onMouseleave={onMouseLeave}
             onMousedown={onMouseDown}
           >
-            {h(
-              FloatLayer,
-              {
-                trigger: 'none',
-                open: state.isHover || state.isDrag,
-                position: 'top-center',
-                transition: 160,
-                cushion: 4,
-                updateTime: state.tipUpdateTime,
-              },
-              {
-                default: () => <div class="sk-slider-dot"></div>,
-                content: () => (
-                  <div class={['sk-tooltip-content', 'sk-tooltip-position-top-center']}>
-                    {state.inputValue}
-                  </div>
-                ),
-              }
+            {props.showTip ? (
+              h(
+                FloatLayer,
+                {
+                  trigger: 'none',
+                  open: state.isHover || state.isDrag,
+                  position: 'top-center',
+                  transition: 160,
+                  cushion: 4,
+                  updateTime: state.tipUpdateTime,
+                },
+                {
+                  default: () => <div class="sk-slider-dot" />,
+                  content: () => (
+                    <div class={['sk-tooltip-content', 'sk-tooltip-position-top-center']}>
+                      {state.inputValue}
+                    </div>
+                  ),
+                }
+              )
+            ) : (
+              <div class="sk-slider-dot" />
             )}
           </div>
         </div>

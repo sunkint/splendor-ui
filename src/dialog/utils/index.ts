@@ -1,5 +1,5 @@
 import { App, createApp, defineComponent, h, VNode } from 'vue';
-import Dialog from '..';
+import Dialog from '../Dialog';
 
 let dialogId = 0;
 const dialogIdMap = new Map<number, App>();

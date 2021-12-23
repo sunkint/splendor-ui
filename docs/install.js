@@ -41,6 +41,7 @@ import DialogBasic from './components/dialog/basic.vue';
 import DialogNesting from './components/dialog/nesting.vue';
 import DialogFooter from './components/dialog/footer.vue';
 import DialogCommand from './components/dialog/command.vue';
+import DialogStick from './components/dialog/stick.vue';
 import SweetAlertBasic from './components/sweetalert/basic.vue';
 import SweetAlertConfirm from './components/sweetalert/confirm.vue';
 import SweetAlertLoading from './components/sweetalert/loading.vue';
@@ -121,6 +122,7 @@ export default function (app) {
   app.component('DialogNesting', DialogNesting);
   app.component('DialogFooter', DialogFooter);
   app.component('DialogCommand', DialogCommand);
+  app.component('DialogStick', DialogStick);
   app.component('SweetAlertBasic', SweetAlertBasic);
   app.component('SweetAlertConfirm', SweetAlertConfirm);
   app.component('SweetAlertLoading', SweetAlertLoading);

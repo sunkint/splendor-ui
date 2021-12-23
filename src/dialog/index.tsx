@@ -54,6 +54,14 @@ const Dialog = defineComponent({
       type: Boolean,
       default: true,
     },
+    stickTop: {
+      type: Boolean,
+      default: false,
+    },
+    stickTopOffset: {
+      type: Number,
+      default: 120,
+    },
     onClose: Function as PropType<() => any>,
   },
   inheritAttrs: false,
@@ -157,7 +165,7 @@ const Dialog = defineComponent({
     };
 
     return () => {
-      const { class: className = '', ...restAttrs } = attrs;
+      const { class: className = '', style = '', ...restAttrs } = attrs;
       return (
         <Teleport to="body" disabled={!isShowWrapper.value}>
           {props.modelValue ? <div class="sk-dialog-backdrop" onClick={onMaskClose}></div> : null}
@@ -179,6 +187,12 @@ const Dialog = defineComponent({
               {props.modelValue ? (
                 <div
                   class={['sk-dialog-r', className]}
+                  // @ts-ignore
+                  style={[style].concat(
+                    props.stickTop
+                      ? [{ verticalAlign: 'top', marginTop: `${props.stickTopOffset}px` }]
+                      : []
+                  )}
                   {...restAttrs}
                   onClick={onDialogClick}
                   ref={dialogEl}

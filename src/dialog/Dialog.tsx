@@ -193,7 +193,13 @@ const Dialog = defineComponent({
                   // @ts-ignore
                   style={[style].concat(
                     props.stickTop
-                      ? [{ verticalAlign: 'top', marginTop: `${props.stickTopOffset}px` }]
+                      ? [
+                          {
+                            verticalAlign: 'top',
+                            marginTop: `${props.stickTopOffset}px`,
+                            marginBottom: '36px',
+                          },
+                        ]
                       : []
                   )}
                   {...restAttrs}

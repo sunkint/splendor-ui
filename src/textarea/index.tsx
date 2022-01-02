@@ -35,7 +35,11 @@ const Textarea = defineComponent({
         nextTick(() => {
           const textarea = this.$refs.textarea;
           if (textarea) {
-            textarea.style.resize = resize || 'auto';
+            if (!resize) {
+              delete textarea.style.resize;
+            } else {
+              textarea.style.resize = resize;
+            }
           }
         });
       },

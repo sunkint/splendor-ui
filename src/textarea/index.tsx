@@ -27,6 +27,40 @@ const Textarea = defineComponent({
         nextTick(() => this.resizeInput());
       }
     },
+    resize: {
+      handler(resize) {
+        if (this.autoHeight) {
+          return;
+        }
+        nextTick(() => {
+          const textarea = this.$refs.textarea;
+          if (textarea) {
+            textarea.style.resize = resize || 'auto';
+          }
+        });
+      },
+      immediate: true,
+    },
+    height: {
+      handler(height) {
+        nextTick(() => {
+          if (!this.autoHeight) {
+            this.setHeight(height);
+          }
+        });
+      },
+      immediate: true,
+    },
+    outerHeight: {
+      handler(outerHeight) {
+        if (this.autoHeight) {
+          this.setHeight(outerHeight);
+        } else {
+          this.setHeight(this.height);
+        }
+      },
+      flush: 'post',
+    },
   },
   inject: {
     hasErrorContext: {
@@ -35,6 +69,19 @@ const Textarea = defineComponent({
     },
   },
   methods: {
+    setHeight(height?: string | number) {
+      const textarea = this.$refs.textarea;
+      if (!textarea) {
+        return;
+      }
+      if (typeof height === 'undefined') {
+        delete textarea.style.height;
+      } else if (typeof height === 'number') {
+        textarea.style.height = `${height}px`;
+      } else if (typeof height === 'string') {
+        textarea.style.height = height;
+      }
+    },
     onInputInside(e: InputEvent) {
       this.$emit('input', e);
       this.$emit('update:modelValue', (e.target as HTMLInputElement).value);
@@ -74,7 +121,6 @@ const Textarea = defineComponent({
     const {
       hasError,
       hasErrorContext,
-      height,
       autoHeight,
       maxlength,
       placeholder,
@@ -82,10 +128,8 @@ const Textarea = defineComponent({
       onInputInside,
       autoHeightComputedValue,
       outerWidth,
-      outerHeight,
       internalValue,
       block,
-      resize,
       onKeydown,
       onKeyupInside,
       onFocus,
@@ -99,25 +143,10 @@ const Textarea = defineComponent({
 
     const value = modelValue === undefined ? internalValue : modelValue;
 
-    let styleObject: any = undefined;
-    if (autoHeight) {
-      styleObject = { height: `${outerHeight}px` };
-    } else {
-      if (typeof height === 'number') {
-        styleObject = { height: `${height}px` };
-      } else if (typeof height === 'string') {
-        styleObject = { height };
-      }
-    }
-    if (resize) {
-      styleObject = styleObject ? { ...styleObject, resize } : { resize };
-    }
-
     return (
       <div class={['sk-textarea-wrapper', { 'sk-textarea-block': block }]}>
         <textarea
           ref="textarea"
-          style={styleObject}
           class={[
             'sk-textarea',
             { 'has-error': hasError || hasErrorContext.value, 'auto-height': autoHeight },

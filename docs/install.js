@@ -41,6 +41,7 @@ import DialogBasic from './components/dialog/basic.vue';
 import DialogNesting from './components/dialog/nesting.vue';
 import DialogFooter from './components/dialog/footer.vue';
 import DialogCommand from './components/dialog/command.vue';
+import DialogStick from './components/dialog/stick.vue';
 import SweetAlertBasic from './components/sweetalert/basic.vue';
 import SweetAlertConfirm from './components/sweetalert/confirm.vue';
 import SweetAlertLoading from './components/sweetalert/loading.vue';
@@ -76,6 +77,9 @@ import StepsIcon from './components/steps/icon.vue';
 import StepsVertical from './components/steps/vertical.vue';
 import UploadBasic from './components/upload/basic.vue';
 import UploadMultiple from './components/upload/multiple.vue';
+import SliderBasic from './components/slider/basic.vue';
+import SliderMinmax from './components/slider/minmax.vue';
+import SliderStep from './components/slider/step.vue';
 
 export default function (app) {
   app.component(Lorem.name, Lorem);
@@ -118,6 +122,7 @@ export default function (app) {
   app.component('DialogNesting', DialogNesting);
   app.component('DialogFooter', DialogFooter);
   app.component('DialogCommand', DialogCommand);
+  app.component('DialogStick', DialogStick);
   app.component('SweetAlertBasic', SweetAlertBasic);
   app.component('SweetAlertConfirm', SweetAlertConfirm);
   app.component('SweetAlertLoading', SweetAlertLoading);
@@ -153,4 +158,7 @@ export default function (app) {
   app.component('StepsVertical', StepsVertical);
   app.component('UploadBasic', UploadBasic);
   app.component('UploadMultiple', UploadMultiple);
+  app.component('SliderBasic', SliderBasic);
+  app.component('SliderMinmax', SliderMinmax);
+  app.component('SliderStep', SliderStep);
 }

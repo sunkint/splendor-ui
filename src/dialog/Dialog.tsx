@@ -11,7 +11,6 @@ import {
 import isBrowser from '../utils/isBrowser';
 import clickBody from '../utils/clickBody';
 import Icon from '../icon';
-import './index.scss';
 
 let dialogCount = 0;
 
@@ -53,6 +52,14 @@ const Dialog = defineComponent({
     closeOnEsc: {
       type: Boolean,
       default: true,
+    },
+    stickTop: {
+      type: Boolean,
+      default: false,
+    },
+    stickTopOffset: {
+      type: Number,
+      default: 120,
     },
     onClose: Function as PropType<() => any>,
   },
@@ -130,12 +137,16 @@ const Dialog = defineComponent({
       watch(() => props.modelValue, onVisibleChange);
 
       // 解决嵌套 dialog 一同销毁问题，额外判断下
-      watch(isShowWrapper, (value) => {
-        if (!value && document.querySelectorAll('body > .sk-dialog-r-wrapper').length === 0) {
-          dialogCount = 0;
-          document.body.classList.remove('sk-no-scroll');
-        }
-      });
+      watch(
+        isShowWrapper,
+        (value) => {
+          if (!value && document.querySelectorAll('body > .sk-dialog-r-wrapper').length === 0) {
+            dialogCount = 0;
+            document.body.classList.remove('sk-no-scroll');
+          }
+        },
+        { flush: 'post' }
+      );
 
       // 如果一开始对话框就是打开状态
       if (props.modelValue) {
@@ -157,7 +168,7 @@ const Dialog = defineComponent({
     };
 
     return () => {
-      const { class: className = '', ...restAttrs } = attrs;
+      const { class: className = '', style = '', ...restAttrs } = attrs;
       return (
         <Teleport to="body" disabled={!isShowWrapper.value}>
           {props.modelValue ? <div class="sk-dialog-backdrop" onClick={onMaskClose}></div> : null}
@@ -179,6 +190,18 @@ const Dialog = defineComponent({
               {props.modelValue ? (
                 <div
                   class={['sk-dialog-r', className]}
+                  // @ts-ignore
+                  style={[style].concat(
+                    props.stickTop
+                      ? [
+                          {
+                            verticalAlign: 'top',
+                            marginTop: `${props.stickTopOffset}px`,
+                            marginBottom: '36px',
+                          },
+                        ]
+                      : []
+                  )}
                   {...restAttrs}
                   onClick={onDialogClick}
                   ref={dialogEl}
@@ -206,5 +229,4 @@ const Dialog = defineComponent({
   },
 });
 
-export * from './utils';
 export default Dialog;

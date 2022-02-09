@@ -42,6 +42,20 @@
 </template>
 ```
 
+### 自定义高度，可调整高度
+
+<div class="docs-preview-part">
+  <sk-textarea height="100px" resize="vertical" placeholder="默认100px" />
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-textarea height="100px" resize="vertical" placeholder="默认100px" />
+  </div>
+</template>
+```
+
 ### 错误样式
 
 <div class="docs-preview-part">

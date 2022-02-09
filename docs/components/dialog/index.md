@@ -113,6 +113,47 @@ export default {
 </script>
 ```
 
+### 顶部对齐的对话框
+
+对话框顶部位置固定，适合内容很长且存在变换的场景。
+
+<DialogStick />
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-button @click="show = true">打开对话框</sk-button>
+    <sk-dialog title="顶部对齐的对话框" v-model="show" :style="{ width: '480px' }" stickTop>
+      <sk-tabs>
+        <sk-tab-panel title="标签1">
+          <p>
+            <lorem />
+          </p>
+        </sk-tab-panel>
+        <sk-tab-panel title="标签2">
+          <p>
+            <lorem />
+          </p>
+          <p>
+            <lorem />
+          </p>
+        </sk-tab-panel>
+      </sk-tabs>
+    </sk-dialog>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+    };
+  },
+};
+</script>
+```
+
 ### Tip: 如何指定宽度？
 
 默认 `Dialog` 会自适应内容的宽度，并具有最小和最大宽度；
@@ -121,15 +162,17 @@ export default {
 
 ### API
 
-| 参数         | 说明                    | 类型                  | 可选值 | 默认值 |
-| ------------ | ----------------------- | --------------------- | ------ | ------ |
-| title        | 对话框标题              | string                |        | `提示` |
-| v-model      | 控制对话框打开/关闭     | bool                  |        | -      |
-| maskClosable | 是否可以点击蒙层关闭    | bool                  |        | `true` |
-| closeBtn     | 是否显示右上角关闭按钮  | bool                  |        | `true` |
-| closeOnEsc   | 是否可以通过 ESC 键关闭 | bool                  |        | `true` |
-| class        | 对话框的自定义额外类名  | string、array、object |        | -      |
-| style        | 对话框的自定义额外样式  | string、object        |        | -      |
+| 参数           | 说明                     | 类型                  | 可选值 | 默认值  |
+| -------------- | ------------------------ | --------------------- | ------ | ------- |
+| title          | 对话框标题               | string                |        | `提示`  |
+| v-model        | 控制对话框打开/关闭      | bool                  |        | -       |
+| maskClosable   | 是否可以点击蒙层关闭     | bool                  |        | `true`  |
+| closeBtn       | 是否显示右上角关闭按钮   | bool                  |        | `true`  |
+| closeOnEsc     | 是否可以通过 ESC 键关闭  | bool                  |        | `true`  |
+| stickTop       | 是否为顶部对齐展示       | bool                  |        | `false` |
+| stickTopOffset | 顶部对齐展示时，顶部边距 | number                |        | `120`   |
+| class          | 对话框的自定义额外类名   | string、array、object |        | -       |
+| style          | 对话框的自定义额外样式   | string、object        |        | -       |
 
 ### 事件
 

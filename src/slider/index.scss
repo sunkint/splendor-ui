@@ -1,0 +1,77 @@
+@import '../style/var.scss';
+
+.sk-slider {
+  position: relative;
+
+  input {
+    display: none;
+  }
+
+  &-track {
+    position: relative;
+    margin: 8px 0;
+    width: 100%;
+    height: 4px;
+    vertical-align: middle;
+    border-radius: 2px;
+    background-color: $gray-200;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+
+    &.sk-slider-disabled {
+      cursor: default;
+    }
+  }
+
+  &-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: $cyan;
+    border-radius: 2px;
+  }
+
+  &-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $cyan;
+    transition: all 0.3s;
+
+    &-wrapper {
+      position: absolute;
+      top: -4px;
+      width: 12px;
+      height: 12px;
+      text-align: center;
+      background-color: transparent;
+      transform: translateX(-50%);
+      -webkit-user-select: none;
+      user-select: none;
+
+      &:not(.sk-slider-disabled) {
+        &:hover {
+          cursor: grab;
+        }
+
+        &:active {
+          cursor: grabbing;
+          transform: translateX(-50%) scale(1.2);
+        }
+      }
+
+      .sk-layer-trigger {
+        vertical-align: top;
+      }
+    }
+  }
+
+  &.sk-slider-disabled {
+    .sk-slider-dot,
+    .sk-slider-bar {
+      background-color: $gray-600;
+    }
+  }
+}

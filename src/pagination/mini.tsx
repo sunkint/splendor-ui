@@ -1,7 +1,7 @@
 import { computed, defineComponent, h, PropType } from 'vue';
 import Input from '../input';
 import Icon from '../icon';
-import { PaginationAlign } from '.';
+import { PaginationAlign } from './type';
 
 const MiniPagination = defineComponent({
   name: 'sk-mini-pagination',

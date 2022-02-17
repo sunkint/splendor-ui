@@ -211,9 +211,31 @@
       background-color: $danger;
     }
   }
+
+  &-text {
+    display: inline-block;
+    font-size: 14px;
+
+    &.sk-btn-small {
+      font-size: 12px;
+    }
+
+    &.sk-btn-large {
+      font-size: 20px;
+    }
+  }
 }
 
 a.sk-btn {
   color: $white;
   text-decoration: none !important;
+
+  &-text {
+    cursor: pointer;
+  }
+}
+
+span.sk-btn-text {
+  -webkit-user-select: none;
+  user-select: none;
 }

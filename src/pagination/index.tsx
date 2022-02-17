@@ -1,9 +1,8 @@
 import { defineComponent, PropType, computed } from 'vue';
-import Button from '../button';
+import Button, { ButtonType } from '../button';
 import MiniPagination from './mini';
+import { PaginationAlign } from './type';
 import './index.scss';
-
-export type PaginationAlign = 'left' | 'right';
 
 const Pagination = defineComponent({
   name: 'sk-pagination',
@@ -26,6 +25,7 @@ const Pagination = defineComponent({
       default: 'left',
     },
     disabled: Boolean,
+    buttonType: String as PropType<ButtonType>,
     onChange: Function as PropType<(page: number) => any>,
   },
   emits: {
@@ -56,10 +56,18 @@ const Pagination = defineComponent({
         <div class="sk-pagination-inner" style={{ float: props.align }}>
           {currentPage.value > 1 ? (
             <>
-              <Button onClick={update.bind(null, 1)} disabled={props.disabled}>
+              <Button
+                type={props.buttonType}
+                onClick={update.bind(null, 1)}
+                disabled={props.disabled}
+              >
                 首页
               </Button>
-              <Button onClick={update.bind(null, currentPage.value - 1)} disabled={props.disabled}>
+              <Button
+                type={props.buttonType}
+                onClick={update.bind(null, currentPage.value - 1)}
+                disabled={props.disabled}
+              >
                 上一页
               </Button>
             </>
@@ -71,6 +79,7 @@ const Pagination = defineComponent({
               return (
                 <Button
                   class="sk-pagination-item"
+                  type={props.buttonType}
                   onClick={update.bind(null, item)}
                   disabled={props.disabled}
                 >
@@ -78,14 +87,33 @@ const Pagination = defineComponent({
                 </Button>
               );
             }
-            return <span class="sk-pagination-current">{item}</span>;
+            return (
+              <Button
+                type="text"
+                class={[
+                  'sk-pagination-current',
+                  { 'sk-pagination-current-padding': props.buttonType !== 'text' },
+                ]}
+                disabled
+              >
+                {item}
+              </Button>
+            );
           })}
           {currentPage.value < props.totalPages ? (
             <>
-              <Button onClick={update.bind(null, currentPage.value + 1)} disabled={props.disabled}>
+              <Button
+                type={props.buttonType}
+                onClick={update.bind(null, currentPage.value + 1)}
+                disabled={props.disabled}
+              >
                 下一页
               </Button>
-              <Button onClick={update.bind(null, props.totalPages)} disabled={props.disabled}>
+              <Button
+                type={props.buttonType}
+                onClick={update.bind(null, props.totalPages)}
+                disabled={props.disabled}
+              >
                 尾页
               </Button>
             </>

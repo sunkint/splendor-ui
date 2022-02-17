@@ -2,7 +2,7 @@ import { defineComponent, PropType, computed } from 'vue';
 import Icon from '../icon';
 import './index.scss';
 
-export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger';
+export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'text';
 export type ButtonSize = 'normal' | 'small' | 'large';
 
 const Button = defineComponent({
@@ -52,6 +52,29 @@ const Button = defineComponent({
     };
 
     return () => {
+      if (props.type === 'text') {
+        if (props.disabled) {
+          return (
+            <span
+              class={['sk-btn-text', { [`sk-btn-size-${props.size}`]: props.size !== 'normal' }]}
+            >
+              {slots.default?.()}
+            </span>
+          );
+        }
+        return (
+          <a
+            class={['sk-btn-text', { [`sk-btn-size-${props.size}`]: props.size !== 'normal' }]}
+            href={props.href}
+            target={props.target}
+            rel={props.rel}
+            onClick={onClick}
+          >
+            {slots.default?.()}
+          </a>
+        );
+      }
+
       if (useLink.value) {
         return (
           <a

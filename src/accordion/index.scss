@@ -9,6 +9,7 @@
     border-top: 1px solid $gray-200;
     border-bottom: 1px solid $gray-200;
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
     transition: border-bottom-color 0.35s;
   }

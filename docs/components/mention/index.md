@@ -4,6 +4,8 @@
 
 ### 基础用法
 
+默认使用一个内置 Textarea 组件。
+
 <div class="docs-preview-part">
   <sk-mention
     placeholder="输入@试试…"
@@ -53,16 +55,69 @@ export default {
 </script>
 ```
 
+### 使用自定义编辑区域
+
+可以在默认插槽中设置自定义的编辑区域，例如 input、contenteditable 等，需要确保 `editorSelector` 可以选择到该编辑区域。
+
+<div class="docs-preview-part">
+  <sk-mention
+    :menuItemLimit="5"
+    :data="['JavaScript', 'HTML', 'CSS', 'Java', 'Go', 'C#', 'VB', 'Python', 'PHP', 'C', 'C++']"
+    editorSelector="input"
+  >
+    <sk-input placeholder="输入@试试…" />
+  </sk-mention>
+</div>
+<div class="docs-preview-part">
+  <sk-mention
+    :menuItemLimit="5"
+    :data="['JavaScript', 'HTML', 'CSS', 'Java', 'Go', 'C#', 'VB', 'Python', 'PHP', 'C', 'C++']"
+    editorSelector=".editor"
+  >
+    <div class="editor" style="background: #f7f7f7; margin-top: 10px; padding: 10px" contenteditable>输入@试试 </div>
+  </sk-mention>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-mention
+      :menuItemLimit="5"
+      :data="['JavaScript', 'HTML', 'CSS', 'Java', 'Go', 'C#', 'VB', 'Python', 'PHP', 'C', 'C++']"
+      editorSelector="input"
+    >
+      <sk-input placeholder="输入@试试…" />
+    </sk-mention>
+  </div>
+  <div class="docs-preview-part">
+    <sk-mention
+      :menuItemLimit="5"
+      :data="['JavaScript', 'HTML', 'CSS', 'Java', 'Go', 'C#', 'VB', 'Python', 'PHP', 'C', 'C++']"
+      editorSelector=".editor"
+    >
+      <div
+        class="editor"
+        style="background: #f7f7f7; margin-top: 10px; padding: 10px"
+        contenteditable
+      >
+        输入@试试
+      </div>
+    </sk-mention>
+  </div>
+</template>
+```
+
 ### API
 
-| 参数                | 说明                                       | 类型               | 可选值    | 默认值 |
-| ------------------- | ------------------------------------------ | ------------------ | --------- | ------ | ---- |
-| trigger             | 触发自动补全的符号                         | string             |           | `@`    |
-| data                | 同步筛选时的全部数据列表                   | `MentionDataItem[] | string[]` |        | `[]` |
-| async               | 是否异步获取数据                           | bool               |           | false  |
-| menuItemLimit       | 每次最多显示的条目数量                     | number             |           | 25     |
-| menuShowMinLength   | 触发自动补全前键入的最少字符数量           | number             |           | 0      |
-| requireLeadingSpace | 触发自动补全的符号前是否需要空格（0.2.2+） | number             |           | false  |
+| 参数                | 说明                                       | 类型               | 可选值    | 默认值     |
+| ------------------- | ------------------------------------------ | ------------------ | --------- | ---------- | ---- |
+| trigger             | 触发自动补全的符号                         | string             |           | `@`        |
+| data                | 同步筛选时的全部数据列表                   | `MentionDataItem[] | string[]` |            | `[]` |
+| async               | 是否异步获取数据                           | bool               |           | false      |
+| editorSelector      | 用于选择到可编辑区域的选择器               | string             |           | `textarea` |
+| menuItemLimit       | 每次最多显示的条目数量                     | number             |           | 25         |
+| menuShowMinLength   | 触发自动补全前键入的最少字符数量           | number             |           | 0          |
+| requireLeadingSpace | 触发自动补全的符号前是否需要空格（0.2.2+） | number             |           | false      |
 
 同时也支持 [Textarea](../textarea/index) 的所有 props。
 

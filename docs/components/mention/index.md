@@ -123,9 +123,10 @@ export default {
 
 ### 事件
 
-| 事件       | 说明                                   | 携带参数                                     |
-| ---------- | -------------------------------------- | -------------------------------------------- | ---------- |
-| asyncFetch | 异步获取回调函数，需要返回一个 Promise | `(word: string) => Promise<MentionDataItem[] | string[]>` |
+| 事件       | 说明                                               | 携带参数                                     |
+| ---------- | -------------------------------------------------- | -------------------------------------------- | ---------- |
+| asyncFetch | 异步获取回调函数，需要返回一个 Promise             | `(word: string) => Promise<MentionDataItem[] | string[]>` |
+| attach     | 在 tribute 完成加载时触发的回调，携带 tribute 实例 | `(tribute: Tribute<MentionDataItem>) => any` |
 
 同时也支持 [Textarea](../textarea/index) 的所有事件。
 

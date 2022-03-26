@@ -45,6 +45,9 @@ const Mention = defineComponent({
       type: String,
       default: 'textarea',
     },
+    onAttach: {
+      type: Function as PropType<(tribute: Tribute<MentionDataItem>) => any>,
+    },
 
     // textarea props
     ...TextareaProps,
@@ -109,6 +112,7 @@ const Mention = defineComponent({
       });
 
       tribute.attach(root.value!.querySelector(props.editorSelector)!);
+      props.onAttach?.(tribute);
     };
 
     onMounted(() => {

@@ -148,14 +148,12 @@ button {
 ```vue
 <template>
   <div class="docs-preview-part">
-    <client-only>
-      <div style="position: fixed; right: 80px; bottom: 120px">
-        <sk-popover>
-          <sk-button>fixed</sk-button>
-          <template #content>fixed状态工作的气泡</template>
-        </sk-popover>
-      </div>
-    </client-only>
+    <div style="position: fixed; right: 80px; bottom: 120px">
+      <sk-popover>
+        <sk-button>fixed</sk-button>
+        <template #content>fixed状态工作的气泡</template>
+      </sk-popover>
+    </div>
   </div>
 </template>
 ```

@@ -1,7 +1,7 @@
 import { defineComponent, PropType, reactive, h } from 'vue';
 import Button, { ButtonSize, ButtonType } from '../button';
 import FloatLayer, { LayerPosition } from '../float-layer';
-import clickBody from '../utils/clickBody';
+import { useClickOutside } from '../utils/outside';
 import Icon from '../icon';
 import './index.scss';
 
@@ -66,6 +66,7 @@ const Dropdown = defineComponent({
   },
   inheritAttrs: false,
   setup(props, { attrs }) {
+    const { clickOutside } = useClickOutside();
     const state = reactive({
       open: false,
     });
@@ -73,7 +74,7 @@ const Dropdown = defineComponent({
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        clickBody(e);
+        clickOutside(e);
       }
     };
 
@@ -82,7 +83,7 @@ const Dropdown = defineComponent({
         return;
       }
       props.onSelect?.(item.key, item);
-      clickBody(e); // close layer
+      clickOutside(e); // close layer
     };
 
     const onOpen = () => {

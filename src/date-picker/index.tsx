@@ -3,7 +3,7 @@ import { computed, defineComponent, h, PropType, provide, ref, watch } from 'vue
 import { SelectedDateSymbol } from './constants';
 import DatePickerPanel from './DatePickerPanel';
 import { DatePickerView } from './types';
-import clickBody from '../utils/clickBody';
+import { useClickOutside } from '../utils/outside';
 import FloatLayer from '../float-layer';
 import Input from '../input';
 import Icon from '../icon';
@@ -50,6 +50,7 @@ const DatePicker = defineComponent({
     triggerClass: null,
   },
   setup(props, { emit }) {
+    const { clickOutside } = useClickOutside();
     const selectedDate = ref(props.modelValue);
     const open = ref(false);
 
@@ -87,8 +88,7 @@ const DatePicker = defineComponent({
 
     const onClear = (e: MouseEvent) => {
       selectedDate.value = undefined;
-      e.stopPropagation();
-      clickBody(e);
+      clickOutside(e);
     };
 
     return () =>

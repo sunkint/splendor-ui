@@ -158,6 +158,44 @@ button {
 </template>
 ```
 
+### 嵌套使用
+
+<div class="docs-preview-part">
+  <client-only>
+    <sk-popover trigger="click">
+      <sk-button>Click 我</sk-button>
+      <template #content>
+        <sk-popover trigger="click">
+          <sk-button>再 Click 我</sk-button>
+          <template #content>
+            这是气泡弹层的内容
+          </template>
+        </sk-popover>
+        <div style="height: 10px"></div>
+        <sk-datepicker placeholder="选择日期" />
+      </template>
+    </sk-popover>
+  </client-only>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-popover trigger="click">
+      <sk-button>Click 我</sk-button>
+      <template #content>
+        <sk-popover trigger="click">
+          <sk-button>再 Click 我</sk-button>
+          <template #content>这是气泡弹层的内容</template>
+        </sk-popover>
+        <div style="height: 10px"></div>
+        <sk-datepicker placeholder="选择日期" />
+      </template>
+    </sk-popover>
+  </div>
+</template>
+```
+
 ### API
 
 | 参数            | 说明                                     | 类型                  | 可选值           | 默认值       |

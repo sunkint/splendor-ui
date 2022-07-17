@@ -16,6 +16,16 @@ export function useClickOutside() {
         })
       );
     },
+    clickCurrent(e: MouseEvent) {
+      const target = unref(tupleOutsideElement[1]) || document.body;
+      target.dispatchEvent(
+        new MouseEvent('click', {
+          clientX: e.clientX,
+          clientY: e.clientY,
+          bubbles: true,
+        })
+      );
+    },
   };
 }
 

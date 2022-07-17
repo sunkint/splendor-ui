@@ -66,7 +66,7 @@ const Dropdown = defineComponent({
   },
   inheritAttrs: false,
   setup(props, { attrs }) {
-    const { clickOutside } = useClickOutside();
+    const { clickCurrent } = useClickOutside();
     const state = reactive({
       open: false,
     });
@@ -74,7 +74,7 @@ const Dropdown = defineComponent({
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        clickOutside(e);
+        clickCurrent(e);
       }
     };
 
@@ -83,7 +83,7 @@ const Dropdown = defineComponent({
         return;
       }
       props.onSelect?.(item.key, item);
-      clickOutside(e); // close layer
+      clickCurrent(e);
     };
 
     const onOpen = () => {

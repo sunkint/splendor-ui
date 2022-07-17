@@ -68,7 +68,7 @@ const Select = defineComponent({
   setup(props, { emit, attrs }) {
     const trigger = ref<HTMLDivElement | null>(null);
     const popup = ref<HTMLDivElement | null>(null);
-    const { clickOutside } = useClickOutside();
+    const { clickCurrent } = useClickOutside();
     const state = reactive({
       open: false,
       hoverIndex: -1,
@@ -140,20 +140,19 @@ const Select = defineComponent({
       state.selectedText = selectedItem.text;
       emit('update:modelValue', selectedItem.value);
       props.onChange?.(selectedItem.value);
-      clickOutside(e); // close layer
+      clickCurrent(e); // close layer
     };
 
     const onClear = (e: MouseEvent) => {
-      e.stopPropagation();
       state.selectedText = state.selectedValue = null;
       emit('update:modelValue', null);
-      clickOutside(e);
+      clickCurrent(e);
     };
 
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        clickOutside(e);
+        clickCurrent(e);
       }
     };
 

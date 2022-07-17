@@ -172,7 +172,26 @@ button {
           </template>
         </sk-popover>
         <div style="height: 10px"></div>
-        <sk-datepicker placeholder="选择日期" />
+        <sk-datepicker placeholder="选择日期" clearable />
+        <div style="height: 10px"></div>
+        <sk-select
+          :data="[
+            { value: 1, text: 'Option 1' },
+            { value: 2, text: 'Option 2' },
+            { value: 3, text: 'Option 3' },
+            { value: 4, text: 'Option 4 (Disabled)', disabled: true },
+          ]"
+          clearable
+        />
+        <div style="height: 10px"></div>
+        <sk-dropdown
+          text="点击打开菜单"
+          :data="[
+            { key: 'food', text: '食品' },
+            { key: 'clothes', text: '服装' },
+            { key: 'furniture', text: '家居', disabled: true },
+          ]"
+        />
       </template>
     </sk-popover>
   </client-only>
@@ -189,7 +208,26 @@ button {
           <template #content>这是气泡弹层的内容</template>
         </sk-popover>
         <div style="height: 10px"></div>
-        <sk-datepicker placeholder="选择日期" />
+        <sk-datepicker placeholder="选择日期" clearable />
+        <div style="height: 10px"></div>
+        <sk-select
+          :data="[
+            { value: 1, text: 'Option 1' },
+            { value: 2, text: 'Option 2' },
+            { value: 3, text: 'Option 3' },
+            { value: 4, text: 'Option 4 (Disabled)', disabled: true },
+          ]"
+          clearable
+        />
+        <div style="height: 10px"></div>
+        <sk-dropdown
+          text="点击打开菜单"
+          :data="[
+            { key: 'food', text: '食品' },
+            { key: 'clothes', text: '服装' },
+            { key: 'furniture', text: '家居', disabled: true },
+          ]"
+        />
       </template>
     </sk-popover>
   </div>

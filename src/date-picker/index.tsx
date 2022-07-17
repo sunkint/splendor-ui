@@ -50,7 +50,7 @@ const DatePicker = defineComponent({
     triggerClass: null,
   },
   setup(props, { emit }) {
-    const { clickOutside } = useClickOutside();
+    const { clickCurrent } = useClickOutside();
     const selectedDate = ref(props.modelValue);
     const open = ref(false);
 
@@ -88,7 +88,7 @@ const DatePicker = defineComponent({
 
     const onClear = (e: MouseEvent) => {
       selectedDate.value = undefined;
-      clickOutside(e);
+      clickCurrent(e);
     };
 
     return () =>

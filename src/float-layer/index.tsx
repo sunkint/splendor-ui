@@ -275,6 +275,11 @@ const FloatLayer = defineComponent({
     const onLayerClick = () => {
       // 防止父级弹层意外关闭
       keepParentFn();
+      // 防止在一些极端情况下，引发意外关闭
+      keepUnclose = true;
+      setTimeout(() => {
+        keepUnclose = false;
+      });
     };
 
     const onMouseEnter = () => {

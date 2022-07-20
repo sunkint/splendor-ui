@@ -5,8 +5,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 200px;
-    max-height: 320px;
+    width: 180px;
+    max-height: 220px;
     overflow-y: auto;
     box-shadow: 0 2px 8px rgba($gray-800, 25%);
     border-radius: 3px;
@@ -26,7 +26,7 @@
     &-item {
       display: block;
       background-color: $white;
-      padding: 7px 16px;
+      padding: 4px 12px;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;

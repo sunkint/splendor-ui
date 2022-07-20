@@ -12,6 +12,7 @@
   right: 0;
   transform: translateX(50%);
   cursor: default;
+  -webkit-user-select: none;
   user-select: none;
   z-index: 1;
 

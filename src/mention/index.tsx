@@ -41,12 +41,19 @@ const Mention = defineComponent({
       type: Boolean,
       default: false,
     },
+    editorSelector: {
+      type: String,
+      default: 'textarea',
+    },
+    onAttach: {
+      type: Function as PropType<(tribute: Tribute<MentionDataItem>) => any>,
+    },
 
     // textarea props
     ...TextareaProps,
   },
 
-  setup(props, { emit }) {
+  setup(props, { slots, emit }) {
     const root = ref<HTMLDivElement>();
 
     const toValues = (items: MentionDataItem[] | string[]) => {
@@ -104,13 +111,21 @@ const Mention = defineComponent({
         trigger: props.trigger,
       });
 
-      tribute.attach(root.value!.querySelector('textarea')!);
+      tribute.attach(root.value!.querySelector(props.editorSelector)!);
+      props.onAttach?.(tribute);
     };
 
     onMounted(() => {
+      if (!root.value!.querySelector(props.editorSelector)) {
+        console.warn(
+          "Mention: Couldn't find an element to attach, please check the prop editorSelector."
+        );
+        return;
+      }
+
       attach();
       const reAttach = () => {
-        tribute.detach(root.value!.querySelector('textarea')!);
+        tribute.detach(root.value!.querySelector(props.editorSelector)!);
         attach();
       };
 
@@ -122,10 +137,11 @@ const Mention = defineComponent({
 
     return () => (
       <div ref={root} class="sk-mention">
-        {h(Textarea, {
-          ...props,
-          'onUpdate:modelValue': (value: string) => void emit('update:modelValue', value),
-        })}
+        {slots.default?.() ??
+          h(Textarea, {
+            ...props,
+            'onUpdate:modelValue': (value: string) => void emit('update:modelValue', value),
+          })}
       </div>
     );
   },

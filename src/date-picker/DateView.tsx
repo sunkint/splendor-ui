@@ -15,7 +15,7 @@ import {
 } from 'date-fns';
 import { SelectedDateSymbol } from './constants';
 import { DatePickerView } from './types';
-import clickBody from '../utils/clickBody';
+import { useClickOutside } from '../utils/outside';
 import Icon from '../icon';
 import './styles/date-view.scss';
 
@@ -51,6 +51,7 @@ const DateView = defineComponent({
   },
   setup(props) {
     const selectedDate = inject<Ref<Date | undefined>>(SelectedDateSymbol);
+    const { clickOutside } = useClickOutside();
 
     const weekDays = computed(() => {
       const days = ['日', '一', '二', '三', '四', '五', '六'];
@@ -125,7 +126,7 @@ const DateView = defineComponent({
         props.onCurrentDateChange(date);
       }
       props.onSelect?.(date);
-      clickBody(e);
+      clickOutside(e);
     };
 
     return () => (

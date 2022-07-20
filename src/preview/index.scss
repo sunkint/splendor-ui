@@ -22,6 +22,7 @@ body.sk-preview-no-scroll {
     top: 50%;
     transform: translate(-50%, -50%) scale(1) rotate(var(--rotate, 0));
     transition: transform 0.5s;
+    -webkit-user-select: none;
     user-select: none;
     cursor: zoom-in;
 
@@ -77,6 +78,7 @@ body.sk-preview-no-scroll {
     margin: 0;
     padding: 0;
     border-radius: 20px;
+    -webkit-user-select: none;
     user-select: none;
     overflow: hidden;
 

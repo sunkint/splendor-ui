@@ -10,6 +10,7 @@
   <sk-button type="warning">Warning</sk-button>
   <sk-button type="danger">Danger</sk-button>
   <sk-button type="danger" round>Round</sk-button>
+  <sk-button type="text">Text</sk-button>
 </div>
 
 ```vue
@@ -22,6 +23,7 @@
     <sk-button type="warning">Warning</sk-button>
     <sk-button type="danger">Danger</sk-button>
     <sk-button type="danger" round>Round</sk-button>
+    <sk-button type="text">Text</sk-button>
   </div>
 </template>
 ```
@@ -107,6 +109,7 @@
   <sk-button type="info" disabled>disabled</sk-button>
   <sk-button type="warning" disabled>disabled</sk-button>
   <sk-button type="danger" disabled>disabled</sk-button>
+  <sk-button type="text" disabled>disabled</sk-button>
 </div>
 
 ```vue
@@ -118,6 +121,7 @@
     <sk-button type="info" disabled>disabled</sk-button>
     <sk-button type="warning" disabled>disabled</sk-button>
     <sk-button type="danger" disabled>disabled</sk-button>
+    <sk-button type="text" disabled>disabled</sk-button>
   </div>
 </template>
 ```
@@ -140,19 +144,19 @@
 
 ### API
 
-| 参数     | 说明                                              | 类型   | 可选值                                                       | 默认值    |
-| -------- | ------------------------------------------------- | ------ | ------------------------------------------------------------ | --------- |
-| type     | 按钮样式类型                                      | string | `default`、`primary`、`success`、`info`、`warning`、`danger` | `default` |
-| size     | 按钮大小                                          | string | `normal`、`small`、`large`                                   | `normal`  |
-| icon     | 前置图标                                          | string | 详见 [Icon](../icon/index#内置图标) 组件的 type              | -         |
-| round    | 是否显示为圆角                                    | bool   |                                                              | `false`   |
-| block    | 是否占满父容器宽度（块级）                        | bool   |                                                              | `false`   |
-| disabled | 是否禁用                                          | bool   |                                                              | `false`   |
-| loading  | 是否禁用并显示加载中动画                          | bool   |                                                              | `false`   |
-| href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                              | -         |
-| target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                              | `_blank`  |
-| rel      | 可选，和 href 一起使用，就是 a 标签的 rel 属性    | string |                                                              | -         |
-| htmlType | button html type                                  | string | `button`、`submit`、`reset`                                  | -         |
+| 参数     | 说明                                              | 类型   | 可选值                                                               | 默认值    |
+| -------- | ------------------------------------------------- | ------ | -------------------------------------------------------------------- | --------- |
+| type     | 按钮样式类型                                      | string | `default`、`primary`、`success`、`info`、`warning`、`danger`、`text` | `default` |
+| size     | 按钮大小                                          | string | `normal`、`small`、`large`                                           | `normal`  |
+| icon     | 前置图标                                          | string | 详见 [Icon](../icon/index#内置图标) 组件的 type                      | -         |
+| round    | 是否显示为圆角                                    | bool   |                                                                      | `false`   |
+| block    | 是否占满父容器宽度（块级）                        | bool   |                                                                      | `false`   |
+| disabled | 是否禁用                                          | bool   |                                                                      | `false`   |
+| loading  | 是否禁用并显示加载中动画                          | bool   |                                                                      | `false`   |
+| href     | 可选，如果设置的话会用 a 标签而不是 button        | string |                                                                      | -         |
+| target   | 可选，和 href 一起使用，就是 a 标签的 target 属性 | string |                                                                      | `_blank`  |
+| rel      | 可选，和 href 一起使用，就是 a 标签的 rel 属性    | string |                                                                      | -         |
+| htmlType | button html type                                  | string | `button`、`submit`、`reset`                                          | -         |
 
 ### 事件
 

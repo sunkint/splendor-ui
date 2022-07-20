@@ -9,7 +9,6 @@ import {
   watch,
 } from 'vue';
 import isBrowser from '../utils/isBrowser';
-import clickBody from '../utils/clickBody';
 import Icon from '../icon';
 
 let dialogCount = 0;
@@ -66,7 +65,7 @@ const Dialog = defineComponent({
   inheritAttrs: false,
   setup(props, { slots, emit, attrs }) {
     const lastMousePosition = ref<IMousePosition | null>(null);
-    const dialogEl = ref<any>(null);
+    const dialogEl = ref<HTMLDivElement | null>(null);
     const isBeforeDisappear = ref(false);
     const isShowWrapper = computed(() => {
       return props.modelValue || isBeforeDisappear.value;
@@ -84,8 +83,8 @@ const Dialog = defineComponent({
         dialogEl.value.style.transform = 'none';
         dialogEl.value.style.animation = 'none';
         const { left: x, top: y } = dialogEl.value.getBoundingClientRect();
-        dialogEl.value.style.transform = null;
-        dialogEl.value.style.animation = null;
+        dialogEl.value.style.transform = '';
+        dialogEl.value.style.animation = '';
         const origin = `${pos.x - x}px ${pos.y - y}px 0`;
         const style = dialogEl.value.style;
         ['Webkit', 'Moz', 'Ms', 'ms'].forEach((prefix) => {
@@ -154,17 +153,14 @@ const Dialog = defineComponent({
       }
     });
 
-    const onMaskClose = () => {
+    const onMaskClose = (e: MouseEvent) => {
       if (!props.maskClosable) {
         return;
       }
+      if (dialogEl.value?.contains(e.target as Node)) {
+        return;
+      }
       onClose();
-    };
-
-    const onDialogClick = (e: MouseEvent) => {
-      e.stopPropagation();
-      // 防止 body 的点击事件不生效
-      clickBody(e);
     };
 
     return () => {
@@ -203,7 +199,6 @@ const Dialog = defineComponent({
                       : []
                   )}
                   {...restAttrs}
-                  onClick={onDialogClick}
                   ref={dialogEl}
                 >
                   {props.closeBtn ? (

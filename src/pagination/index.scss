@@ -6,6 +6,7 @@
   &-inner {
     margin-left: -3px;
     margin-right: -3px;
+    -webkit-user-select: none;
     user-select: none;
 
     & > * {
@@ -14,11 +15,12 @@
   }
 
   &-current {
-    display: inline-block;
-    font-size: 14px;
     font-weight: bold;
     line-height: 24px;
-    padding: 6px 9px;
+
+    &-padding {
+      padding: 4px 9px;
+    }
   }
 
   &-input {
@@ -29,6 +31,8 @@
 
   .sk-btn {
     min-width: auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 

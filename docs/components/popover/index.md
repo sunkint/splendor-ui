@@ -148,14 +148,88 @@ button {
 ```vue
 <template>
   <div class="docs-preview-part">
-    <client-only>
-      <div style="position: fixed; right: 80px; bottom: 120px">
-        <sk-popover>
-          <sk-button>fixed</sk-button>
-          <template #content>fixed状态工作的气泡</template>
+    <div style="position: fixed; right: 80px; bottom: 120px">
+      <sk-popover>
+        <sk-button>fixed</sk-button>
+        <template #content>fixed状态工作的气泡</template>
+      </sk-popover>
+    </div>
+  </div>
+</template>
+```
+
+### 嵌套使用
+
+<div class="docs-preview-part">
+  <client-only>
+    <sk-popover trigger="click">
+      <sk-button>Click 我</sk-button>
+      <template #content>
+        <sk-popover trigger="click">
+          <sk-button>再 Click 我</sk-button>
+          <template #content>
+            这是气泡弹层的内容
+          </template>
         </sk-popover>
-      </div>
-    </client-only>
+        <div style="height: 10px"></div>
+        <sk-datepicker placeholder="选择日期" clearable />
+        <div style="height: 10px"></div>
+        <sk-select
+          :data="[
+            { value: 1, text: 'Option 1' },
+            { value: 2, text: 'Option 2' },
+            { value: 3, text: 'Option 3' },
+            { value: 4, text: 'Option 4 (Disabled)', disabled: true },
+          ]"
+          clearable
+        />
+        <div style="height: 10px"></div>
+        <sk-dropdown
+          text="点击打开菜单"
+          :data="[
+            { key: 'food', text: '食品' },
+            { key: 'clothes', text: '服装' },
+            { key: 'furniture', text: '家居', disabled: true },
+          ]"
+        />
+      </template>
+    </sk-popover>
+  </client-only>
+</div>
+
+```vue
+<template>
+  <div class="docs-preview-part">
+    <sk-popover trigger="click">
+      <sk-button>Click 我</sk-button>
+      <template #content>
+        <sk-popover trigger="click">
+          <sk-button>再 Click 我</sk-button>
+          <template #content>这是气泡弹层的内容</template>
+        </sk-popover>
+        <div style="height: 10px"></div>
+        <sk-datepicker placeholder="选择日期" clearable />
+        <div style="height: 10px"></div>
+        <sk-select
+          :data="[
+            { value: 1, text: 'Option 1' },
+            { value: 2, text: 'Option 2' },
+            { value: 3, text: 'Option 3' },
+            { value: 4, text: 'Option 4 (Disabled)', disabled: true },
+          ]"
+          clearable
+        />
+        <div style="height: 10px"></div>
+        <sk-dropdown
+          text="点击打开菜单"
+          :data="[
+            { key: 'food', text: '食品' },
+            { key: 'clothes', text: '服装' },
+            { key: 'furniture', text: '家居', disabled: true },
+          ]"
+        />
+      </template>
+    </sk-popover>
   </div>
 </template>
 ```

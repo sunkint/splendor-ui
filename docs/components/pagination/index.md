@@ -9,6 +9,8 @@
   <div class="docs-preview-part">
     <sk-pagination v-model="page" :totalPages="15" />
     <br />
+    <sk-pagination v-model="page" buttonType="text" :totalPages="15" />
+    <br />
     <sk-mini-pagination v-model="page" :totalPages="15" />
   </div>
 </template>
@@ -26,12 +28,13 @@ export default {
 
 ### API
 
-| 参数       | 说明                       | 类型   | 可选值          | 默认值  |
-| ---------- | -------------------------- | ------ | --------------- | ------- |
-| v-model    | 当前页                     | number |                 | -       |
-| totalPages | 页码总数，必须不小于当前页 | number |                 | -       |
-| align      | 对齐方式                   | string | `left`、`right` | `left`  |
-| disabled   | 是否禁用                   | bool   |                 | `false` |
+| 参数       | 说明                         | 类型   | 可选值                                         | 默认值  |
+| ---------- | ---------------------------- | ------ | ---------------------------------------------- | ------- |
+| v-model    | 当前页                       | number |                                                | -       |
+| totalPages | 页码总数，必须不小于当前页   | number |                                                | -       |
+| buttonType | 分页器内所使用的按钮样式类型 | string | 详见 [Button](../button/index#API) 组件的 type | -       |
+| align      | 对齐方式                     | string | `left`、`right`                                | `left`  |
+| disabled   | 是否禁用                     | bool   |                                                | `false` |
 
 ### 事件
 

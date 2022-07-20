@@ -1,16 +1,19 @@
 import {
   defineComponent,
+  inject,
+  InjectionKey,
   nextTick,
   onBeforeUnmount,
   onMounted,
   PropType,
+  provide,
   reactive,
   ref,
   Teleport,
   Transition,
   watch,
 } from 'vue';
-import clickBody from '../utils/clickBody';
+import { useOutside } from '../utils/outside';
 import './index.scss';
 
 export type LayerPosition =
@@ -28,6 +31,9 @@ export type LayerPosition =
   | 'right-bottom';
 
 export type LayerTriggerType = 'hover' | 'click' | 'none';
+
+const KeepParentSymbol: InjectionKey<Function> = Symbol();
+const noop = () => {};
 
 const FloatLayer = defineComponent({
   name: 'sk-float-layer',
@@ -83,6 +89,19 @@ const FloatLayer = defineComponent({
     const trigger = ref<HTMLDivElement | null>(null);
     const layer = ref<HTMLDivElement | null>(null);
 
+    let keepUnclose = false;
+    const keepParentFn = inject(KeepParentSymbol, noop);
+    const isRootFloatLayer = keepParentFn === noop;
+    provide(KeepParentSymbol, () => {
+      keepParentFn();
+      keepUnclose = true;
+      setTimeout(() => {
+        keepUnclose = false;
+      });
+    });
+
+    useOutside(layer);
+
     const layerState = reactive({
       left: 0,
       top: 0,
@@ -98,9 +117,7 @@ const FloatLayer = defineComponent({
       (open) => {
         if (props.trigger === 'none') {
           layerState.open = !!open;
-          nextTick(() => {
-            refreshLayerPosition();
-          });
+          nextTick(refreshLayerPosition);
         }
       }
     );
@@ -121,7 +138,11 @@ const FloatLayer = defineComponent({
             } catch {}
           };
           trigger.value && getZIndex(trigger.value);
-          layerState.zIndex = maxZIndex + (props.trigger === 'hover' ? 101 : 100);
+          if (isRootFloatLayer) {
+            layerState.zIndex = maxZIndex + (props.trigger === 'hover' ? 101 : 100);
+          } else {
+            layerState.zIndex = maxZIndex + (props.trigger === 'hover' ? 2 : 1);
+          }
         }
       }
     );
@@ -232,26 +253,33 @@ const FloatLayer = defineComponent({
     watch(() => props.position, refreshLayerPosition);
     watch(() => props.updateTime, refreshLayerPosition);
 
-    const onTriggerClick = (e: MouseEvent) => {
+    const onTriggerClick = () => {
       if (props.trigger === 'click') {
-        e.stopPropagation();
-        clickBody(e);
         layerState.open = true;
-        nextTick(() => {
-          computeLayerPosition();
-        });
-        window.addEventListener(
-          'click',
-          () => {
+        nextTick(computeLayerPosition);
+
+        const closeHandler = (e: MouseEvent) => {
+          if (keepUnclose) return;
+          if (
+            !layer.value?.contains(e.target as Node) &&
+            !trigger.value?.contains(e.target as Node)
+          ) {
             layerState.open = false;
-          },
-          { once: true }
-        );
+            window.removeEventListener('click', closeHandler);
+          }
+        };
+        window.addEventListener('click', closeHandler);
       }
     };
 
-    const onLayerClick = (e: MouseEvent) => {
-      e.stopPropagation();
+    const onLayerClick = () => {
+      // 防止父级弹层意外关闭
+      keepParentFn();
+      // 防止在一些极端情况下，引发意外关闭
+      keepUnclose = true;
+      setTimeout(() => {
+        keepUnclose = false;
+      });
     };
 
     const onMouseEnter = () => {

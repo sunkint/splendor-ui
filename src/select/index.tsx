@@ -1,6 +1,6 @@
 import { computed, defineComponent, h, PropType, reactive, ref, watch } from 'vue';
 import FloatLayer, { LayerPosition } from '../float-layer';
-import clickBody from '../utils/clickBody';
+import { useClickOutside } from '../utils/outside';
 import isNil from '../utils/isNil';
 import Input from '../input';
 import Icon from '../icon';
@@ -68,6 +68,7 @@ const Select = defineComponent({
   setup(props, { emit, attrs }) {
     const trigger = ref<HTMLDivElement | null>(null);
     const popup = ref<HTMLDivElement | null>(null);
+    const { clickCurrent } = useClickOutside();
     const state = reactive({
       open: false,
       hoverIndex: -1,
@@ -139,20 +140,20 @@ const Select = defineComponent({
       state.selectedText = selectedItem.text;
       emit('update:modelValue', selectedItem.value);
       props.onChange?.(selectedItem.value);
-      clickBody(e); // close layer
+      clickCurrent(e); // close layer
     };
 
     const onClear = (e: MouseEvent) => {
       e.stopPropagation();
       state.selectedText = state.selectedValue = null;
       emit('update:modelValue', null);
-      clickBody(e);
+      clickCurrent(e);
     };
 
     const onClick = (e: MouseEvent) => {
       if (props.disabled || state.open) {
         e.stopPropagation();
-        clickBody(e);
+        clickCurrent(e);
       }
     };
 

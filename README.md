@@ -79,6 +79,7 @@ make build
 - [x] DatePicker
 - [x] Steps
 - [x] Upload
+- [x] Slider
 
 ## 作者
 

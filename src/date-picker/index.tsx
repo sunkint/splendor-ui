@@ -87,6 +87,7 @@ const DatePicker = defineComponent({
     };
 
     const onClear = (e: MouseEvent) => {
+      e.stopPropagation();
       selectedDate.value = undefined;
       clickCurrent(e);
     };

@@ -144,6 +144,7 @@ const Select = defineComponent({
     };
 
     const onClear = (e: MouseEvent) => {
+      e.stopPropagation();
       state.selectedText = state.selectedValue = null;
       emit('update:modelValue', null);
       clickCurrent(e);

@@ -13,6 +13,8 @@ export interface DialogOpenParams {
   maskClosable?: boolean;
   closeBtn?: boolean;
   closeOnEsc?: boolean;
+  stickTop?: boolean;
+  stickTopOffset?: number;
   class?: any;
   style?: string | Record<string, any>;
   onClose?: () => any;
@@ -25,6 +27,8 @@ export const openDialog = (params: DialogOpenParams = {}) => {
     closeBtn,
     closeOnEsc,
     onClose,
+    stickTop,
+    stickTopOffset,
     class: className,
     style,
     content,
@@ -63,6 +67,8 @@ export const openDialog = (params: DialogOpenParams = {}) => {
             closeBtn,
             closeOnEsc,
             onClose,
+            stickTop,
+            stickTopOffset,
             class: className,
             style,
             modelValue: this.open,
